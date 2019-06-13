@@ -43,8 +43,8 @@ If you prefer not to use the Swift Package Manager, you can integrate SunburstDi
 let ring = Ring(arcs: [
     Ring.Arc(text: "Walking", ...),
     Ring.Arc(text: "Restaurant", ..., childArcs: [
-        Ring.Arc(text: "Desert", ...),
-        Ring.Arc(text: "Diner", ...),
+        Ring.Arc(text: "Dessert", ...),
+        Ring.Arc(text: "Dinner", ...),
     ]),
     Ring.Arc(text: "Transport", ...),
     Ring.Arc(text: "Home", ...)
