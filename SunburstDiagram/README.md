@@ -1,11 +1,6 @@
-# SwiftSunburstDiagram
+# SunburstDiagram
 
 Sunburst diagram library written with SwiftUI
-
-![diagram-icons-only](diagram-icons-only.png)
-![diagram-with-text](diagram-with-text.png)
-
-**⚠️ WARNING ⚠️** This is an early version of this library that requires Swift 5.1 and  Xcode 11 that are currently still in beta.
 
 ## Requirements
 
@@ -21,7 +16,7 @@ Once you have your Swift package set up, adding SunburstDiagram as a dependency 
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/lludo/SwiftSunburstDiagram.git")
+.package(url: "https://github.com/lludo/SwiftSunburstDiagram.git")
 ]
 ```
 
@@ -54,7 +49,3 @@ If you **found a bug** or want to discuss a new **feature** do not hesitate to m
 - [ ] Add selection callbacks
 - [ ] Refactor arc color management to have better flexibility
 - [ ] Add rounded corners option for arcs with margins?
-
-## Inspirations
-
-This project has been inspired by the [DaisyDisk](https://daisydiskapp.com/) UI and the Apple SwiftUI [Building Custom Views with SwiftUI](https://developer.apple.com/videos/play/wwdc2019/237/) WWDC2019 session.
