@@ -6,11 +6,13 @@ Sunburst diagram is library written with SwiftUI to easily render diagrams given
 
 **⚠️ WARNING ⚠️** This is an early version of this library that requires Swift 5.1 and  Xcode 11 that are currently still in beta.
 
+
 ## Requirements
 
 - iOS 13.0+ / macOS 10.15+ / tvOS 13.0+ / watchOS 6.0+
 - Xcode 11+
 - Swift 5.1+
+
 
 ## Installation
 
@@ -26,6 +28,7 @@ dependencies: [
 
 If you prefer not to use the Swift Package Manager, you can integrate SunburstDiagram into your project manually.
 
+
 ## Features
 
 - [x] Tree structure of arcs
@@ -33,9 +36,29 @@ If you prefer not to use the Swift Package Manager, you can integrate SunburstDi
 - [x] Reactive with animated updates
 
 
+## Usage
+
+```swift
+// Create your data model
+let ring = Ring(arcs: [
+    Ring.Arc(text: "Walking", ...),
+    Ring.Arc(text: "Restaurant", ..., childArcs: [
+        Ring.Arc(text: "Desert", ...),
+        Ring.Arc(text: "Diner", ...),
+    ]),
+    Ring.Arc(text: "Transport", ...),
+    Ring.Arc(text: "Home", ...)
+])
+
+// Get the view controller for the RingView
+let viewController = UIHostingController(rootView: RingView().environmentObject(ring))
+```
+
+
 ## Communication
 
 If you **found a bug** or want to discuss a new **feature** do not hesitate to message me. If you **want to contribute**, all pull requests are always welcome. Thank you!
+
 
 ## Todo
 
@@ -53,6 +76,7 @@ If you **found a bug** or want to discuss a new **feature** do not hesitate to m
 - [ ] Add selection callbacks
 - [ ] Refactor arc color management to have better flexibility
 - [ ] Add rounded corners option for arcs with margins?
+
 
 ## Inspirations
 
