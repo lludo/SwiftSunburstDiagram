@@ -2,8 +2,7 @@
 
 Sunburst diagram library written with SwiftUI
 
-![diagram-icons-only](diagram-icons-only.png)
-![diagram-with-text](diagram-with-text.png)
+<img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/diagram-icons-only.png" alt="diagram with icons only" width="400"/><img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/diagram-with-text.png" alt="diagram with icons and text" width="400"/>
 
 **⚠️ WARNING ⚠️** This is an early version of this library that requires Swift 5.1 and  Xcode 11 that are currently still in beta.
 
