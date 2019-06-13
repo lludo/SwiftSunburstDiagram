@@ -1,6 +1,6 @@
 # Swift Sunburst Diagram
 
-Sunburst diagram is library written with SwiftUI to easely render diagrams given a tree of model objects.
+Sunburst diagram is library written with SwiftUI to easily render diagrams given a tree of model objects.
 
 <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/diagram-icons-only.png" alt="diagram with icons only" width="400"/><img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/diagram-with-text.png" alt="diagram with icons and text" width="400"/>
 
