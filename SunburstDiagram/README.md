@@ -1,6 +1,6 @@
 # SunburstDiagram
 
-Sunburst diagram library written with SwiftUI
+Sunburst diagram is a library written with SwiftUI to easily render diagrams given a tree of objects. Similar to ring chart, sunburst chart, multilevel pie chart.
 
 ## Requirements
 

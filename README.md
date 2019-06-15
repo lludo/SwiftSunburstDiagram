@@ -1,10 +1,10 @@
 # Swift Sunburst Diagram
 
-Sunburst diagram is library written with SwiftUI to easily render diagrams given a tree of model objects.
+Sunburst diagram is a library written with SwiftUI to easily render diagrams given a tree of objects. Similar to ring chart, sunburst chart, multilevel pie chart.
 
 <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/diagram-icons-only.png" alt="diagram with icons only" width="400"/><img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/diagram-with-text.png" alt="diagram with icons and text" width="400"/>
 
-**⚠️ WARNING ⚠️** This is an early version of this library that requires Swift 5.1 and  Xcode 11 that are currently still in beta.
+**⚠️ WARNING ⚠️** This is an early version of this library that requires Swift 5.1 and  Xcode 11 that are currently still in beta, some features available in the public API have not been implemented yet (see below).
 
 
 ## Requirements
@@ -39,19 +39,19 @@ If you prefer not to use the Swift Package Manager, you can integrate SunburstDi
 ## Usage
 
 ```swift
-// Create your data model
-let ring = Ring(arcs: [
-    Ring.Arc(text: "Walking", ...),
-    Ring.Arc(text: "Restaurant", ..., childArcs: [
-        Ring.Arc(text: "Dessert", ...),
-        Ring.Arc(text: "Dinner", ...),
+// Create your configuration model
+let configuration = SunburstConfiguration(nodes: [
+    Node(name: "Walking", value: 10.0, backgroundColor: .systemBlue),
+    Node(name: "Restaurant", value: 30.0, backgroundColor: .systemRed, children: [
+        Node(name: "Dessert", image: UIImage(named: "croissant"), value: 6.0),
+        Node(name: "Dinner", image: UIImage(named: "poultry"), value: 10.0),
     ]),
-    Ring.Arc(text: "Transport", ...),
-    Ring.Arc(text: "Home", ...)
+    Node(name: "Transport", value: 10.0, backgroundColor: .systemPurple),
+    Node(name: "Home", value: 50.0, backgroundColor: .systemTeal),
 ])
 
 // Get the view controller for the RingView
-let viewController = UIHostingController(rootView: RingView().environmentObject(ring))
+let viewController = UIHostingController(rootView: SunburstView.configureWith(configuration))
 ```
 
 

@@ -16,21 +16,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
-        let ring = Ring(arcs: [
-            Ring.Arc(text: "Walking", image: UIImage(named: "walking"), width: 0.8, hue: 0.3, isTextHidden: true),
-            Ring.Arc(text: "Restaurant", image: UIImage(named: "eating"), width: 2.1, hue: 0.6, childArcs: [
-                Ring.Arc(text: "Desert", image: UIImage(named: "croissant"), width: 0.6, hue: 0.65, isTextHidden: true),
-                Ring.Arc(text: "Diner", image: UIImage(named: "poultry"), width: 0.8, hue: 0.7, isTextHidden: true),
-            ], isTextHidden: true),
-            Ring.Arc(text: "Transport", image: UIImage(named: "sailing"), width: 1.0, hue: 0.9, isTextHidden: true),
-            Ring.Arc(text: "Home", image: UIImage(named: "house"), width: 2.3, hue: 0.1, isTextHidden: true)
-        ])
-        
-        ring.randomWalk = true // For testing
+        let configuration = SunburstConfiguration(nodes: [
+            Node(name: "Walking", showName: false, image: UIImage(named: "walking"), value: 10.0, backgroundColor: .systemBlue),
+            Node(name: "Restaurant", showName: false, image: UIImage(named: "eating"), value: 30.0, backgroundColor: .systemRed, children: [
+                Node(name: "Dessert", showName: false, image: UIImage(named: "croissant"), value: 6.0, backgroundColor: .systemYellow),
+                Node(name: "Dinner", showName: false, image: UIImage(named: "poultry"), value: 10.0, backgroundColor: .systemOrange),
+            ]),
+            Node(name: "Transport", showName: false, image: UIImage(named: "sailing"), value: 10.0, backgroundColor: .systemPurple),
+            Node(name: "Home", showName: false, image: UIImage(named: "house"), value: 50.0, backgroundColor: .systemTeal),
+        ], calculationMode: .parentDependent)
         
         // Use a UIHostingController as window root view controller
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = UIHostingController(rootView: RingView().environmentObject(ring))
+        window.rootViewController = UIHostingController(rootView: SunburstView.configureWith(configuration))
         self.window = window
         window.makeKeyAndVisible()
     }

@@ -1,5 +1,5 @@
 //
-//  RingView.swift
+//  SunburstView.swift
 //  SunburstDiagram
 //
 //  Created by Ludovic Landry on 6/10/19.
@@ -8,16 +8,22 @@
 
 import SwiftUI
 
-public struct RingView: View {
+public struct SunburstView: View {
     
-    @EnvironmentObject var ring: Ring
+    @EnvironmentObject var sunburst: Sunburst
     
-    public init() {
+    public static func configureWith(_ configuration: SunburstConfiguration) -> some View {
+        configuration.validateAndPrepare()
+        
+        let sunburst = Sunburst(configuration: configuration)
+        sunburst.randomWalk = true // For testing
+        
+        return SunburstView().environmentObject(sunburst)
     }
     
     public var body: some View {
         let arcs = ZStack {
-            configureViews(arcs: ring.arcs, parentArc: nil, level: 0)
+            configureViews(arcs: sunburst.arcs, parentArc: nil, level: 0)
             
             // Stop the window shrinking to zero when there is no arcs.
             Spacer()
@@ -29,13 +35,13 @@ public struct RingView: View {
         return drawnArcs
     }
     
-    private func configureViews(arcs: [Ring.Arc], parentArc: Ring.Arc?, level: Int) -> some View {
+    private func configureViews(arcs: [Sunburst.Arc], parentArc: Sunburst.Arc?, level: Int) -> some View {
         return ForEach(arcs) { arc in
             ArcView(arc: arc, level: level)
                 .transition(.scaleAndFade)
                 .tapAction {
-                    withAnimation(.fluidSpring(stiffness: 20.0)) {
-                        self.ring.remove(arc: arc)
+                    withAnimation(.fluidSpring()) {
+                        self.sunburst.remove(arc: arc)
                     }
                 }
             IfLet(arc.childArcs) { childArcs in

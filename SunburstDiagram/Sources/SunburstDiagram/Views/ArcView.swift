@@ -11,17 +11,17 @@ import SwiftUI
 // A view drawing a single colored arc with a label
 struct ArcView: View {
     
-    private var arc: Ring.Arc
+    private var arc: Sunburst.Arc
     private var level: Int
     
-    init(arc: Ring.Arc, level: Int) {
+    init(arc: Sunburst.Arc, level: Int) {
         self.arc = arc
         self.level = level
     }
     
     var body: some View {
         ZStack() {
-            ArcShape(arc, level: level).fill(arc.foregroundGradient)
+            ArcShape(arc, level: level).fill(arc.backgroundColor)
             ArcLabel(arc, level: level)
         }
     }
@@ -30,11 +30,11 @@ struct ArcView: View {
 // A view for the label of the arc (text + image)
 struct ArcLabel: View {
     
-    private var arc: Ring.Arc
+    private var arc: Sunburst.Arc
     private var level: Int
     private var offset: CGPoint = .zero
     
-    init(_ arc: Ring.Arc, level: Int) {
+    init(_ arc: Sunburst.Arc, level: Int) {
         self.arc = arc
         self.level = level
         
@@ -58,10 +58,10 @@ struct ArcLabel: View {
 // A view for the shape of the arc
 struct ArcShape: Shape {
     
-    private var arc: Ring.Arc
+    private var arc: Sunburst.Arc
     private var level: Int
     
-    init(_ arc: Ring.Arc, level: Int) {
+    init(_ arc: Sunburst.Arc, level: Int) {
         self.arc = arc
         self.level = level
     }
@@ -81,7 +81,7 @@ struct ArcShape: Shape {
         return path
     }
     
-    var animatableData: Ring.Arc.AnimatableData {
+    var animatableData: Sunburst.Arc.AnimatableData {
         get { arc.animatableData }
         set { arc.animatableData = newValue }
     }
@@ -90,12 +90,12 @@ struct ArcShape: Shape {
 // Helper type for creating view-space points within an arc.
 private struct ArcGeometry {
     
-    var arc: Ring.Arc
+    var arc: Sunburst.Arc
     var center: CGPoint
     var innerRadius: Length
     var outerRadius: Length
     
-    init(_ arc: Ring.Arc, level: Int, in rect: CGRect? = nil) {
+    init(_ arc: Sunburst.Arc, level: Int, in rect: CGRect? = nil) {
         self.arc = arc
         
         if let rect = rect {
@@ -116,21 +116,6 @@ private struct ArcGeometry {
         
         return CGPoint(x: center.x + Length(cos(angle)) * radius,
                        y: center.y + Length(sin(angle)) * radius)
-    }
-}
-
-// Colors derived from the arc hue for drawing.
-extension Ring.Arc {
-    var foregroundGradient: AngularGradient {
-        AngularGradient(
-            gradient: Gradient(colors: [
-                Color(hue: hue, saturation: 0.4, brightness: 0.8),
-                Color(hue: hue, saturation: 0.7, brightness: 0.9)
-            ]),
-            center: .center,
-            startAngle: .radians(start),
-            endAngle: .radians(end)
-        )
     }
 }
 

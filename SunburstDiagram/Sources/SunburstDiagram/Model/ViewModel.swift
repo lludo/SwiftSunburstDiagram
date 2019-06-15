@@ -9,13 +9,13 @@
 import Combine
 import SwiftUI
 
-public class Ring: BindableObject {
+class Sunburst: BindableObject {
 
-    public struct Arc: Equatable, Identifiable {
-        public var id: ObjectIdentifier
+    struct Arc: Equatable, Identifiable {
+        var id: ObjectIdentifier
         
         var width: Double
-        var hue: Double
+        var backgroundColor: Color
         var isTextHidden: Bool
         
         let text: String
@@ -28,12 +28,13 @@ public class Ring: BindableObject {
         // The end location of the arc, as an angle in radians.
         fileprivate(set) var end = 0.0
         
-        public init(text: String, image: UIImage? = nil, width: Double, hue: Double, childArcs: [Arc]? = nil, isTextHidden: Bool = false) {
+        init(text: String, image: UIImage? = nil, width: Double, backgroundColor: UIColor, childArcs: [Arc]? = nil, isTextHidden: Bool = false) {
             self.id = ObjectIdentifier(text as NSString)
             
             self.width = width
-            self.hue = hue
-            self.isTextHidden =  isTextHidden
+            let ciColor = CIColor(color: backgroundColor) // All this is far from ideal :(
+            self.backgroundColor = Color(red: Double(ciColor.red), green: Double(ciColor.green), blue: Double(ciColor.blue))
+            self.isTextHidden = isTextHidden
             
             self.childArcs = childArcs
             
@@ -43,25 +44,27 @@ public class Ring: BindableObject {
     }
     
     private(set) var arcs: [Arc] = []
+    private let configuration: SunburstConfiguration
     
     // Trivial publisher for our changes.
-    public let didChange = PassthroughSubject<Ring, Never>()
+    let didChange = PassthroughSubject<Sunburst, Never>()
     
-    public init(arcs: [Arc]) {
-        self.arcs = arcs
-        modelDidChange()
+    init(configuration: SunburstConfiguration) {
+        self.configuration = configuration
+        
+        if let totalValue = computeTotalNodesValue() {
+            self.arcs = configureArcs(nodes: configuration.nodes, totalValue: totalValue)
+            modelDidChange()
+        }
     }
     
-    // Called after each change; updates derived model values and posts the notification.
+    // Called after each change, updates derived model values and posts the notification.
     private func modelDidChange() {
         guard nestedUpdates == 0 else { return }
         
         // Recalculate locations, to pack within circle.
         
-        let totalWidth = arcs.reduce(0.0) { $0 + $1.width }
-        let scale = (.pi * 2) / max(.pi * 2, totalWidth)
-        
-        var location = 0.0
+        var location = -.pi / 2.0
         for index in 0 ..< arcs.count {
             
             // TODO: HACK for now, need to be recursive, not just 1 more level down!
@@ -69,16 +72,16 @@ public class Ring: BindableObject {
             if let childArcs = arcs[index].childArcs {
                 for childIndex in 0 ..< childArcs.count {
                     var childArc = childArcs[childIndex]
-                    childArc.start = childLocation * scale
+                    childArc.start = childLocation
                     childLocation += childArc.width
-                    childArc.end = childLocation * scale
+                    childArc.end = childLocation
                     arcs[index].childArcs![childIndex] = childArc
                 }
             }
             
-            arcs[index].start = location * scale
+            arcs[index].start = location
             location += arcs[index].width
-            arcs[index].end = location * scale
+            arcs[index].end = location
         }
         
         didChange.send(self)
@@ -118,11 +121,54 @@ public class Ring: BindableObject {
             modelDidChange()
         }
     }
+    
+    // MARK: Private
+    
+    private func configureArcs(nodes: [Node], totalValue: Double) -> [Sunburst.Arc] {
+        var arcs: [Sunburst.Arc] = []
+        
+        // Iterate through the nodes
+        for node in nodes {
+            if var arc = Sunburst.Arc.configureWith(node: node, totalValue: totalValue) {
+                if let children = node.children {
+                    arc.childArcs = configureArcs(nodes: children, totalValue: totalValue)
+                }
+                arcs.append(arc)
+            }
+        }
+        return arcs
+    }
+    
+    private func computeTotalNodesValue() -> Double? {
+        let parentValue: Double?
+        if case .parentIndependent(let value) = configuration.calculationMode {
+            parentValue = value
+        } else {
+            parentValue = configuration.nodes.reduce(0.0) { $0 + ($1.computedValue ?? 0.0) }
+        }
+        return parentValue
+    }
+}
+
+// MARK: - Arc
+
+extension Sunburst.Arc {
+    
+    static func configureWith(node: Node, totalValue: Double) -> Sunburst.Arc? {
+        guard let nodeValue = node.computedValue else {
+            return nil
+        }
+
+        let width = (nodeValue / totalValue) * 2.0 * .pi
+        let backgroundColor = node.backgroundColor ?? .systemGray
+        
+        return Sunburst.Arc(text: node.name, image: node.image, width: width, backgroundColor: backgroundColor, isTextHidden: !node.showName)
+    }
 }
 
 // MARK: - Random updates for testing
 
-extension Ring {
+extension Sunburst {
     
     private static var _randomWalk = [String : Bool]()
     private static var _timer = [String : Timer]()
@@ -130,34 +176,34 @@ extension Ring {
     private var timer: Timer? {
         get {
             let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
-            return Ring._timer[tmpAddress]
+            return Sunburst._timer[tmpAddress]
         }
         set(newValue) {
             let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
-            Ring._timer[tmpAddress] = newValue
+            Sunburst._timer[tmpAddress] = newValue
             updateTimer()
         }
     }
     
     // When true, periodically updates the data with random changes.
-    public var randomWalk: Bool {
+    var randomWalk: Bool {
         get {
             let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
-            return Ring._randomWalk[tmpAddress] ?? false
+            return Sunburst._randomWalk[tmpAddress] ?? false
         }
         set(newValue) {
             let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
-            Ring._randomWalk[tmpAddress] = newValue
+            Sunburst._randomWalk[tmpAddress] = newValue
             updateTimer()
         }
     }
     
     // Randomly changes values of existing arcs.
     private func randomize() {
-        withAnimation(.fluidSpring(stiffness: 10, dampingFraction: 0.5)) {
+        withAnimation(.fluidSpring()) {
             for index in 0 ..< arcs.count {
                 var arc = arcs[index]
-                arc.width = .random(in: max(0.2, arc.width - 0.2) ... min(.pi, arc.width + 0.2))
+                arc.width = .random(in: max(0.2, arc.width - 0.2) ... min(2.0 * .pi, arc.width + 0.2))
                 arcs[index] = arc
             }
             modelDidChange()
@@ -169,7 +215,7 @@ extension Ring {
         if randomWalk, timer == nil {
             randomize()
             timer = Timer.scheduledTimer(
-                withTimeInterval: 1, repeats: true
+                withTimeInterval: 2, repeats: true
             ) { [weak self] _ in
                 self?.randomize()
             }
@@ -185,25 +231,21 @@ extension Ring {
 
 // Extend the arc description to conform to the Animatable type to
 // simplify creation of custom shapes using the arc.
-extension Ring.Arc: Animatable {
+extension Sunburst.Arc: Animatable {
     // Use a composition of pairs to merge the interpolated values into
     // a single type. AnimatablePair acts as a single interpolatable
-    // values, given two interpolatable input types.
+    // values, given two interpolatable input types. We'll interpolate
+    // the derived start/end angles.
     
-    // We'll interpolate the derived start/end angles, and the depth
-    // and color values. The width parameter is not used for rendering,
-    // and so doesn't need to be interpolated.
-    
-    public typealias AnimatableData = AnimatablePair<AnimatablePair<Double, Double>, Double>
+    public typealias AnimatableData = AnimatablePair<Double, Double>
     
     public var animatableData: AnimatableData {
         get {
-            AnimatablePair(AnimatablePair(start, end), hue)
+            AnimatablePair(start, end)
         }
         set {
-            start = newValue.first.first
-            end = newValue.first.second
-            hue = newValue.second
+            start = newValue.first
+            end = newValue.second
         }
     }
 }
