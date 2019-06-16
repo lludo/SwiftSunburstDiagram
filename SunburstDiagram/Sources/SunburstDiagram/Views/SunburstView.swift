@@ -16,7 +16,7 @@ public struct SunburstView: View {
         configuration.validateAndPrepare()
         
         let sunburst = Sunburst(configuration: configuration)
-        sunburst.randomWalk = true // For testing
+        //sunburst.randomWalk = true // For testing
         
         return SunburstView().environmentObject(sunburst)
     }

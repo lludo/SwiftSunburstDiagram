@@ -55,8 +55,8 @@ public class Node {
     
     // MARK: - Internal
     
-    var computedValue: Double?
-    var computedBackgroundColor: UIColor?
+    var computedValue: Double = 0.0
+    var computedBackgroundColor: UIColor = .systemGray
 }
 
 public enum CalculationMode {
@@ -65,9 +65,9 @@ public enum CalculationMode {
     /// Values are not used. Elements at the last level (leaves), divide the circle into equal parts, the size of each parent depends on the number of its children.
     case ordinalFromLeaves
     /// The sizes of nodes depend on their values, so the value data field is required. The value of a parent node can exceed the sum of its child nodes values (when omitted or incomplete data).
-    case parentDependent
+    case parentDependent(totalValue: Double? = nil)
     /// This mode requires the value at the last level (leaves)
-    case parentIndependent(totalValue: Double?)
+    case parentIndependent(totalValue: Double? = nil)
 }
 
 public enum NodesSort {
@@ -101,33 +101,53 @@ public enum ArcMinimumAngle {
 extension SunburstConfiguration {
     
     func validateAndPrepare() {
-        guard validateAndPrepareValues() else {
-             fatalError("This SunburstConfiguration configuration is invalid, check the calculationMode used and node value(s) provided.")
-        }
+        validateAndPrepareValues()
         
         // TODO: implement compute Colors if not provided
         // TODO: implement minimumArc
     }
     
+    var totalNodesValue: Double {
+        let totalNodesValue: Double
+        if case .parentDependent(let totalValue) = calculationMode, let value = totalValue {
+            totalNodesValue = value
+        } else if case .parentIndependent(let totalValue) = calculationMode, let value = totalValue {
+            totalNodesValue = value
+        } else {
+            totalNodesValue = totalComputedValue(nodes: nodes)
+        }
+        return totalNodesValue
+    }
+    
     // MARK: Private
     
-    private func validateAndPrepareValues() -> Bool {
-        var isValidConfiguration = true
-        
+    private func totalComputedValue(nodes: [Node]) -> Double {
+        return nodes.reduce(0.0) { $0 + $1.computedValue }
+    }
+    
+    private func validateAndPrepareValues() {
         switch calculationMode {
         case .ordinalFromRoot:
             prepareNodeComputedValuesForModeOrdinalFromRoot()
         case .ordinalFromLeaves:
             prepareNodeComputedValuesForModeOrdinalFromLeaves()
-        case .parentDependent:
-            isValidConfiguration = validateAllNodesHaveValue(nodes: nodes)
+        case .parentDependent(let totalValue):
+            guard validateAllNodesHaveValue(nodes: nodes) else {
+                fatalError("The sunburst nodes are invalid for this configuration. With the .parentDependent CalculationMode every node require a value!")
+            }
             prepareNodeComputedValuesForModeParentDependent(nodes: nodes)
-        case .parentIndependent(let value):
-            isValidConfiguration = validateLeafNodesHaveValue(nodes: nodes)
-            prepareNodeComputedValuesForModeParentIndependent(parentTotalValue: value)
+            guard validateTotalValue(nodes: nodes, totalValue: totalValue) else {
+                fatalError("The sunburst nodes, or the total value provided with the .parentDependent CalculationMode is invalid. The total value cannot be less than the sum of the nodes.")
+            }
+        case .parentIndependent(let totalValue):
+            guard validateLeafNodesHaveValue(nodes: nodes) else {
+                fatalError("The sunburst nodes are invalid for this configuration. With the .parentIndependent CalculationMode all leaves require a value!")
+            }
+            _ = prepareNodeComputedValuesForModeParentIndependent(nodes: nodes)
+            guard validateTotalValue(nodes: nodes, totalValue: totalValue) else {
+                fatalError("The sunburst nodes, or the total value provided with the .parentIndependent CalculationMode is invalid. The total value cannot be less than the sum of the nodes.")
+            }
         }
-        
-        return isValidConfiguration
     }
     
     // MARK: Private validate computed value
@@ -163,6 +183,14 @@ extension SunburstConfiguration {
         return true
     }
     
+    private func validateTotalValue(nodes: [Node], totalValue: Double?) -> Bool {
+        if let totalValue = totalValue {
+            return totalComputedValue(nodes: nodes) <= totalValue
+        } else {
+            return true
+        }
+    }
+    
     // MARK: Private prepare computed value
     
     private func prepareNodeComputedValuesForModeOrdinalFromRoot() {
@@ -177,16 +205,32 @@ extension SunburstConfiguration {
     
     private func prepareNodeComputedValuesForModeParentDependent(nodes: [Node]) {
         for node in nodes {
-            node.computedValue = node.value
+            guard let nodeValue = node.value  else {
+                fatalError("The sunburst node:\(node) is invalid for this configuration. With the .parentDependent CalculationMode every node require a value!")
+            }
+            node.computedValue = nodeValue
             if let children = node.children {
                 prepareNodeComputedValuesForModeParentDependent(nodes: children)
             }
         }
     }
     
-    private func prepareNodeComputedValuesForModeParentIndependent(parentTotalValue: Double?) {
-        
-        // TODO: implement copy from childs and add to parents
+    private func prepareNodeComputedValuesForModeParentIndependent(nodes: [Node]) -> Double {
+        var nodesTotalComputedValue = 0.0
+        for node in nodes {
+            let nodeComputedValue: Double
+            if let children = node.children {
+                nodeComputedValue = prepareNodeComputedValuesForModeParentIndependent(nodes: children)
+            } else {
+                guard let nodeValue = node.value  else {
+                    fatalError("The sunburst node:\(node) is invalid for this configuration. With the .parentIndependent CalculationMode all leaves require a value!")
+                }
+                nodeComputedValue = nodeValue
+            }
+            node.computedValue = nodeComputedValue
+            nodesTotalComputedValue += nodeComputedValue
+        }
+        return nodesTotalComputedValue
     }
 }
 

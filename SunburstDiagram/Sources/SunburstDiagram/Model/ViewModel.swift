@@ -52,10 +52,8 @@ class Sunburst: BindableObject {
     init(configuration: SunburstConfiguration) {
         self.configuration = configuration
         
-        if let totalValue = computeTotalNodesValue() {
-            self.arcs = configureArcs(nodes: configuration.nodes, totalValue: totalValue)
-            modelDidChange()
-        }
+        self.arcs = configureArcs(nodes: configuration.nodes, totalValue: configuration.totalNodesValue)
+        modelDidChange()
     }
     
     // Called after each change, updates derived model values and posts the notification.
@@ -129,24 +127,13 @@ class Sunburst: BindableObject {
         
         // Iterate through the nodes
         for node in nodes {
-            if var arc = Sunburst.Arc.configureWith(node: node, totalValue: totalValue) {
-                if let children = node.children {
-                    arc.childArcs = configureArcs(nodes: children, totalValue: totalValue)
-                }
-                arcs.append(arc)
+            var arc = Sunburst.Arc.configureWith(node: node, totalValue: totalValue)
+            if let children = node.children {
+                arc.childArcs = configureArcs(nodes: children, totalValue: totalValue)
             }
+            arcs.append(arc)
         }
         return arcs
-    }
-    
-    private func computeTotalNodesValue() -> Double? {
-        let parentValue: Double?
-        if case .parentIndependent(let value) = configuration.calculationMode {
-            parentValue = value
-        } else {
-            parentValue = configuration.nodes.reduce(0.0) { $0 + ($1.computedValue ?? 0.0) }
-        }
-        return parentValue
     }
 }
 
@@ -154,12 +141,8 @@ class Sunburst: BindableObject {
 
 extension Sunburst.Arc {
     
-    static func configureWith(node: Node, totalValue: Double) -> Sunburst.Arc? {
-        guard let nodeValue = node.computedValue else {
-            return nil
-        }
-
-        let width = (nodeValue / totalValue) * 2.0 * .pi
+    static func configureWith(node: Node, totalValue: Double) -> Sunburst.Arc {
+        let width = (node.computedValue / totalValue) * 2.0 * .pi
         let backgroundColor = node.backgroundColor ?? .systemGray
         
         return Sunburst.Arc(text: node.name, image: node.image, width: width, backgroundColor: backgroundColor, isTextHidden: !node.showName)
