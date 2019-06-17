@@ -121,6 +121,18 @@ extension SunburstConfiguration {
     
     // MARK: Private
     
+    private func totalLeavesCount(nodes: [Node]) -> UInt {
+        var nodesLeavesCount: UInt = 0
+        for node in nodes {
+            if let children = node.children {
+                nodesLeavesCount += totalLeavesCount(nodes: children)
+            } else {
+                nodesLeavesCount += 1
+            }
+        }
+        return nodesLeavesCount
+    }
+    
     private func totalComputedValue(nodes: [Node]) -> Double {
         return nodes.reduce(0.0) { $0 + $1.computedValue }
     }
@@ -128,9 +140,9 @@ extension SunburstConfiguration {
     private func validateAndPrepareValues() {
         switch calculationMode {
         case .ordinalFromRoot:
-            prepareNodeComputedValuesForModeOrdinalFromRoot()
+            prepareNodeComputedValuesForModeOrdinalFromRoot(nodes: nodes)
         case .ordinalFromLeaves:
-            prepareNodeComputedValuesForModeOrdinalFromLeaves()
+            _ = prepareNodeComputedValuesForModeOrdinalFromLeaves(nodes: nodes)
         case .parentDependent(let totalValue):
             guard validateAllNodesHaveValue(nodes: nodes) else {
                 fatalError("The sunburst nodes are invalid for this configuration. With the .parentDependent CalculationMode every node require a value!")
@@ -193,14 +205,31 @@ extension SunburstConfiguration {
     
     // MARK: Private prepare computed value
     
-    private func prepareNodeComputedValuesForModeOrdinalFromRoot() {
-        
-        // TODO: implement
+    private func prepareNodeComputedValuesForModeOrdinalFromRoot(nodes: [Node], totalValue: Double = 100.0) {
+        let nodeValue = totalValue / Double(nodes.count)
+        for node in nodes {
+            node.computedValue = nodeValue
+            if let children = node.children {
+                prepareNodeComputedValuesForModeOrdinalFromRoot(nodes: children, totalValue: nodeValue)
+            }
+        }
     }
     
-    private func prepareNodeComputedValuesForModeOrdinalFromLeaves() {
+    private func prepareNodeComputedValuesForModeOrdinalFromLeaves(nodes: [Node], leavesValue: Double? = nil) -> Double {
+        let leavesValue = leavesValue ?? (100.0 / Double(totalLeavesCount(nodes: nodes)))
         
-        // TODO: implement
+        var nodesTotalComputedValue = 0.0
+        for node in nodes {
+            let nodeComputedValue: Double
+            if let children = node.children {
+                nodeComputedValue = prepareNodeComputedValuesForModeOrdinalFromLeaves(nodes: children, leavesValue: leavesValue)
+            } else {
+                nodeComputedValue = leavesValue
+            }
+            node.computedValue = nodeComputedValue
+            nodesTotalComputedValue += nodeComputedValue
+        }
+        return nodesTotalComputedValue
     }
     
     private func prepareNodeComputedValuesForModeParentDependent(nodes: [Node]) {

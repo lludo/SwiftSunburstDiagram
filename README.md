@@ -31,9 +31,10 @@ If you prefer not to use the Swift Package Manager, you can integrate SunburstDi
 
 ## Features
 
-- [x] Tree structure of arcs
-- [x] Arcs have an optional label displayed (image & text)
-- [x] Reactive with animated updates
+- [x] configure with a tree structure of node objects
+- [x] Nodes have an optional label displayed (image & text)
+- [x] Reactive UI with animated updates
+- [x] Optionally configure nodes with a value (4 different rendering modes: `.ordinalFromRoot`, `.ordinalFromLeaves`,`.parentDependent`,`.parentIndependent`)
 
 
 ## Usage
@@ -62,19 +63,19 @@ If you **found a bug** or want to discuss a new **feature** do not hesitate to m
 
 ## Todo
 
-- [ ] Configure arcs with a percentage instead of a width
 - [ ] Update arc computation to have infinite number of circles
-- [ ] Add option for min arc percentage (if less, show data in grouped in "other")
-- [ ] Add option to show un-assigned if total of arcs is less than 100%
+- [ ] Implement arc margin configuration property
 - [ ] Add option to select an arc
 - [ ] Add option to navigate by clicking an arc to see more detail
-- [ ] Add option for max number of rings to display
-- [ ] Add option to have collapsed rings (to show more layers with less data)
-- [ ] Add option to configure the number of expanded / collapsed rings displayed
-- [ ] Add option to configure the size of central / expended / collapsed rings
-- [ ] Get currently selected ring
+- [ ] Implement option for max number of rings to display
+- [ ] Implement option to have collapsed rings (to show more layers with less data)
+- [ ] Implement option to configure the number of expanded / collapsed rings displayed
+- [ ] Implement option to configure the size of central / expended / collapsed rings
+- [ ] Implement option for min arc percentage (if less, show data in grouped in "other")
+- [ ] Add option to get currently selected ring
 - [ ] Add selection callbacks
-- [ ] Refactor arc color management to have better flexibility
+- [ ] Compute arc colors if not provided by nodes
+- [ ] Add option to show un-assigned if total of arcs is less than 100%
 - [ ] Add rounded corners option for arcs with margins?
 
 
