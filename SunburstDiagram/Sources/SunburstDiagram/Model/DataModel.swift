@@ -102,9 +102,9 @@ extension SunburstConfiguration {
     
     func validateAndPrepare() {
         validateAndPrepareValues()
+        validateAndPrepareColors(nodes: nodes)
         
-        // TODO: implement compute Colors if not provided
-        // TODO: implement minimumArc
+        // TODO: implement minimumArc size
     }
     
     var totalNodesValue: Double {
@@ -135,6 +135,19 @@ extension SunburstConfiguration {
     
     private func totalComputedValue(nodes: [Node]) -> Double {
         return nodes.reduce(0.0) { $0 + $1.computedValue }
+    }
+    
+    private func validateAndPrepareColors(nodes: [Node]) {
+        for node in nodes {
+            if let backgroundColor = node.backgroundColor {
+                node.computedBackgroundColor = backgroundColor
+            }
+            if let children = node.children {
+                validateAndPrepareColors(nodes: children)
+            }
+        }
+        
+        // TODO: implement compute Colors if no color provided
     }
     
     private func validateAndPrepareValues() {

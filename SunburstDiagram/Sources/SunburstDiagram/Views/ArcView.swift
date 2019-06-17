@@ -11,18 +11,20 @@ import SwiftUI
 // A view drawing a single colored arc with a label
 struct ArcView: View {
     
-    private var arc: Sunburst.Arc
-    private var level: Int
+    private let arc: Sunburst.Arc
+    private let level: Int
+    private let configuration: SunburstConfiguration
     
-    init(arc: Sunburst.Arc, level: Int) {
+    init(arc: Sunburst.Arc, level: Int, configuration: SunburstConfiguration) {
         self.arc = arc
         self.level = level
+        self.configuration = configuration
     }
     
     var body: some View {
         ZStack() {
-            ArcShape(arc, level: level).fill(arc.backgroundColor)
-            ArcLabel(arc, level: level)
+            ArcShape(arc, level: level, configuration: configuration).fill(arc.backgroundColor)
+            ArcLabel(arc, level: level, configuration: configuration)
         }
     }
 }
@@ -33,12 +35,14 @@ struct ArcLabel: View {
     private var arc: Sunburst.Arc
     private var level: Int
     private var offset: CGPoint = .zero
+    private let configuration: SunburstConfiguration
     
-    init(_ arc: Sunburst.Arc, level: Int) {
+    init(_ arc: Sunburst.Arc, level: Int, configuration: SunburstConfiguration) {
         self.arc = arc
         self.level = level
+        self.configuration = configuration
         
-        let points = ArcGeometry(arc, level: level)
+        let points = ArcGeometry(arc, level: level, configuration: configuration)
         offset = points[.center]
     }
     
@@ -60,14 +64,16 @@ struct ArcShape: Shape {
     
     private var arc: Sunburst.Arc
     private var level: Int
+    private let configuration: SunburstConfiguration
     
-    init(_ arc: Sunburst.Arc, level: Int) {
+    init(_ arc: Sunburst.Arc, level: Int, configuration: SunburstConfiguration) {
         self.arc = arc
         self.level = level
+        self.configuration = configuration
     }
     
     func path(in rect: CGRect) -> Path {
-        let points = ArcGeometry(arc, level: level, in: rect)
+        let points = ArcGeometry(arc, level: level, in: rect, configuration: configuration)
         
         var path = Path()
         path.addArc(center: points.center, radius: points.innerRadius,
@@ -85,6 +91,10 @@ struct ArcShape: Shape {
         get { arc.animatableData }
         set { arc.animatableData = newValue }
     }
+    
+    static func == (lhs: ArcShape, rhs: ArcShape) -> Bool {
+        return lhs.arc == rhs.arc && lhs.level == rhs.level
+    }
 }
 
 // Helper type for creating view-space points within an arc.
@@ -95,7 +105,7 @@ private struct ArcGeometry {
     var innerRadius: Length
     var outerRadius: Length
     
-    init(_ arc: Sunburst.Arc, level: Int, in rect: CGRect? = nil) {
+    init(_ arc: Sunburst.Arc, level: Int, in rect: CGRect? = nil, configuration: SunburstConfiguration) {
         self.arc = arc
         
         if let rect = rect {
@@ -103,8 +113,9 @@ private struct ArcGeometry {
         } else {
             self.center = .zero
         }
-        self.innerRadius = (level == 0) ? 60.0 : 130.0  // TODO: HACK for now, update to be configurable
-        self.outerRadius = (level == 0) ? 130.0 : 200.0 // TODO: HACK for now, update to be configurable
+        
+        self.innerRadius = CGFloat(level) * configuration.expandedArcThickness + configuration.innerRadius
+        self.outerRadius = self.innerRadius + configuration.expandedArcThickness
     }
     
     // Returns the view location of the point in the arc at unit-

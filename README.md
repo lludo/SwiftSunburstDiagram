@@ -31,11 +31,11 @@ If you prefer not to use the Swift Package Manager, you can integrate SunburstDi
 
 ## Features
 
-- [x] configure with a tree structure of node objects
+- [x] Configure with a tree of node objects
 - [x] Nodes have an optional label displayed (image & text)
 - [x] Reactive UI with animated updates
 - [x] Optionally configure nodes with a value (4 different rendering modes: `.ordinalFromRoot`, `.ordinalFromLeaves`,`.parentDependent`,`.parentIndependent`)
-
+- [x] Infinite number of layers (circles) support
 
 ## Usage
 
@@ -63,7 +63,6 @@ If you **found a bug** or want to discuss a new **feature** do not hesitate to m
 
 ## Todo
 
-- [ ] Update arc computation to have infinite number of circles
 - [ ] Implement arc margin configuration property
 - [ ] Add option to select an arc
 - [ ] Add option to navigate by clicking an arc to see more detail

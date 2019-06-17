@@ -44,7 +44,7 @@ class Sunburst: BindableObject {
     }
     
     private(set) var arcs: [Arc] = []
-    private let configuration: SunburstConfiguration
+    let configuration: SunburstConfiguration
     
     // Trivial publisher for our changes.
     let didChange = PassthroughSubject<Sunburst, Never>()
@@ -54,51 +54,6 @@ class Sunburst: BindableObject {
         
         self.arcs = configureArcs(nodes: configuration.nodes, totalValue: configuration.totalNodesValue)
         modelDidChange()
-    }
-    
-    // Called after each change, updates derived model values and posts the notification.
-    private func modelDidChange() {
-        guard nestedUpdates == 0 else { return }
-        
-        // Recalculate locations, to pack within circle.
-        
-        var location = -.pi / 2.0
-        for index in 0 ..< arcs.count {
-            
-            // TODO: HACK for now, need to be recursive, not just 1 more level down!
-            var childLocation = location
-            if let childArcs = arcs[index].childArcs {
-                for childIndex in 0 ..< childArcs.count {
-                    var childArc = childArcs[childIndex]
-                    childArc.start = childLocation
-                    childLocation += childArc.width
-                    childArc.end = childLocation
-                    arcs[index].childArcs![childIndex] = childArc
-                }
-            }
-            
-            arcs[index].start = location
-            location += arcs[index].width
-            arcs[index].end = location
-        }
-        
-        didChange.send(self)
-    }
-    
-    // Non-zero while a batch of updates is being processed.
-    private var nestedUpdates = 0
-    
-    // Invokes `body()` such that any changes it makes to the model
-    // will only post a single notification to observers.
-    func batch(_ body: () -> Void) {
-        nestedUpdates += 1
-        defer {
-            nestedUpdates -= 1
-            if nestedUpdates == 0 {
-                modelDidChange()
-            }
-        }
-        body()
     }
     
     func add(arc: Arc) {
@@ -120,6 +75,22 @@ class Sunburst: BindableObject {
         }
     }
     
+    // Non-zero while a batch of updates is being processed.
+    private var nestedUpdates = 0
+    
+    // Invokes `body()` such that any changes it makes to the model
+    // will only post a single notification to observers.
+    func batch(_ body: () -> Void) {
+        nestedUpdates += 1
+        defer {
+            nestedUpdates -= 1
+            if nestedUpdates == 0 {
+                modelDidChange()
+            }
+        }
+        body()
+    }
+    
     // MARK: Private
     
     private func configureArcs(nodes: [Node], totalValue: Double) -> [Sunburst.Arc] {
@@ -135,6 +106,29 @@ class Sunburst: BindableObject {
         }
         return arcs
     }
+    
+    // Called after each change, updates derived model values and posts the notification.
+    private func modelDidChange() {
+        guard nestedUpdates == 0 else { return }
+        
+        // Recalculate locations, to pack within circle.
+        let startLocation = -.pi / 2.0
+        recalculateLocations(arcs: &arcs, startLocation: startLocation)
+        
+        didChange.send(self)
+    }
+    
+    private func recalculateLocations(arcs: inout [Sunburst.Arc], startLocation location: Double) {
+        var location = location
+        for index in 0 ..< arcs.count {
+            if arcs[index].childArcs != nil {
+                recalculateLocations(arcs: &arcs[index].childArcs!, startLocation: location)
+            }
+            arcs[index].start = location
+            location += arcs[index].width
+            arcs[index].end = location
+        }
+    }
 }
 
 // MARK: - Arc
@@ -143,9 +137,8 @@ extension Sunburst.Arc {
     
     static func configureWith(node: Node, totalValue: Double) -> Sunburst.Arc {
         let width = (node.computedValue / totalValue) * 2.0 * .pi
-        let backgroundColor = node.backgroundColor ?? .systemGray
-        
-        return Sunburst.Arc(text: node.name, image: node.image, width: width, backgroundColor: backgroundColor, isTextHidden: !node.showName)
+        return Sunburst.Arc(text: node.name, image: node.image, width: width,
+                            backgroundColor: node.computedBackgroundColor, isTextHidden: !node.showName)
     }
 }
 

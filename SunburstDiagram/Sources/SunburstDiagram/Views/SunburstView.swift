@@ -37,7 +37,7 @@ public struct SunburstView: View {
     
     private func configureViews(arcs: [Sunburst.Arc], parentArc: Sunburst.Arc?, level: Int) -> some View {
         return ForEach(arcs) { arc in
-            ArcView(arc: arc, level: level)
+            ArcView(arc: arc, level: level, configuration: self.sunburst.configuration)
                 .transition(.scaleAndFade)
                 .tapAction {
                     withAnimation(.fluidSpring()) {
