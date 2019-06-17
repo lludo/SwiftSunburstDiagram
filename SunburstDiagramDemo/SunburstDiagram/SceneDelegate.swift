@@ -26,6 +26,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             Node(name: "Home", showName: false, image: UIImage(named: "house"), value: 45.0, backgroundColor: .systemTeal),
         ], calculationMode: .parentDependent(totalValue: 100.0))
         
+//        configuration.innerRadius = 90.0
+//        configuration.expandedArcThickness = 90.0
+//        configuration.marginBetweenArcs = 3.0
+        
         // Use a UIHostingController as window root view controller
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = UIHostingController(rootView: SunburstView.configureWith(configuration))

@@ -36,6 +36,7 @@ If you prefer not to use the Swift Package Manager, you can integrate SunburstDi
 - [x] Reactive UI with animated updates
 - [x] Optionally configure nodes with a value (4 different rendering modes: `.ordinalFromRoot`, `.ordinalFromLeaves`,`.parentDependent`,`.parentIndependent`)
 - [x] Infinite number of layers (circles) support
+- [x] Option to configure arc margin (default 1pt)
 
 ## Usage
 
@@ -63,7 +64,6 @@ If you **found a bug** or want to discuss a new **feature** do not hesitate to m
 
 ## Todo
 
-- [ ] Implement arc margin configuration property
 - [ ] Add option to select an arc
 - [ ] Add option to navigate by clicking an arc to see more detail
 - [ ] Implement option for max number of rings to display

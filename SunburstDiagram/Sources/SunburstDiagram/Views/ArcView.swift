@@ -75,13 +75,15 @@ struct ArcShape: Shape {
     func path(in rect: CGRect) -> Path {
         let points = ArcGeometry(arc, level: level, in: rect, configuration: configuration)
         
+        let innerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(points.innerRadius)
+        let outerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(points.outerRadius)
+        
         var path = Path()
         path.addArc(center: points.center, radius: points.innerRadius,
-                    startAngle: .radians(arc.start), endAngle: .radians(arc.end),
+                    startAngle: .radians(arc.start + innerMargin), endAngle: .radians(arc.end - innerMargin),
                     clockwise: false)
-        path.addLine(to: points[.bottomTrailing])
         path.addArc(center: points.center, radius: points.outerRadius,
-                    startAngle: .radians(arc.end), endAngle: .radians(arc.start),
+                    startAngle: .radians(arc.end - outerMargin), endAngle: .radians(arc.start + outerMargin),
                     clockwise: true)
         path.closeSubpath()
         return path
@@ -114,7 +116,7 @@ private struct ArcGeometry {
             self.center = .zero
         }
         
-        self.innerRadius = CGFloat(level) * configuration.expandedArcThickness + configuration.innerRadius
+        self.innerRadius = Length(level) * (configuration.expandedArcThickness + configuration.marginBetweenArcs) + configuration.innerRadius
         self.outerRadius = self.innerRadius + configuration.expandedArcThickness
     }
     

@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+// TODO: Callbacks & functions:
+// - Did select node - only support single selection
+// - Select/Deselect node
+// - Drill down to node
+// - Drill up / drill up to root
+
 /// The `SunburstConfiguration` is the main configuration class used to create the `SunburstView`
 public class SunburstConfiguration {
     public var nodes: [Node] = []
@@ -88,14 +94,6 @@ public enum ArcMinimumAngle {
     case hide(ifLessThan: CGFloat)
 }
 
-// MARK: - Notes === Sunburst diagram: ring chart, sunburst chart, multilevel pie chart ===
-
-// TODO: Callbacks & functions:
-// - Did select node - only support single selection
-// - Select/Deselect node
-// - Drill down to node
-// - Drill up / drill up to root
-
 // MARK: - Extensions
 
 extension SunburstConfiguration {
@@ -160,6 +158,7 @@ extension SunburstConfiguration {
             guard validateAllNodesHaveValue(nodes: nodes) else {
                 fatalError("The sunburst nodes are invalid for this configuration. With the .parentDependent CalculationMode every node require a value!")
             }
+            // TODO: Validate that the chidren nodes sum is not bigger than the parent node value
             prepareNodeComputedValuesForModeParentDependent(nodes: nodes)
             guard validateTotalValue(nodes: nodes, totalValue: totalValue) else {
                 fatalError("The sunburst nodes, or the total value provided with the .parentDependent CalculationMode is invalid. The total value cannot be less than the sum of the nodes.")
