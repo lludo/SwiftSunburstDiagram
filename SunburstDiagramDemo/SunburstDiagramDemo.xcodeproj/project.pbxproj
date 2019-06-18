@@ -13,6 +13,7 @@
 		430D470E22AF77B600A7FA6E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 430D470D22AF77B600A7FA6E /* Preview Assets.xcassets */; };
 		430D471122AF77B600A7FA6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 430D470F22AF77B600A7FA6E /* LaunchScreen.storyboard */; };
 		430D473922B207E900A7FA6E /* SunburstDiagram in Frameworks */ = {isa = PBXBuildFile; productRef = 430D473822B207E900A7FA6E /* SunburstDiagram */; };
+		82A57BA722B873190044FF2B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A57BA622B873190044FF2B /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		430D471022AF77B600A7FA6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		430D471222AF77B600A7FA6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		430D473722B1FF2A00A7FA6E /* SunburstDiagram */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SunburstDiagram; path = ../SunburstDiagram; sourceTree = "<group>"; };
+		82A57BA622B873190044FF2B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				430D470422AF77B300A7FA6E /* AppDelegate.swift */,
 				430D470622AF77B300A7FA6E /* SceneDelegate.swift */,
+				82A57BA622B873190044FF2B /* SettingsView.swift */,
 				430D470A22AF77B600A7FA6E /* Assets.xcassets */,
 				430D470F22AF77B600A7FA6E /* LaunchScreen.storyboard */,
 				430D471222AF77B600A7FA6E /* Info.plist */,
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82A57BA722B873190044FF2B /* SettingsView.swift in Sources */,
 				430D470522AF77B300A7FA6E /* AppDelegate.swift in Sources */,
 				430D470722AF77B300A7FA6E /* SceneDelegate.swift in Sources */,
 			);
