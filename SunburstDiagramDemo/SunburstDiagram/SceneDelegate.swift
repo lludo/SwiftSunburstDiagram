@@ -33,8 +33,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
 //        configuration.expandedArcThickness = 90.0
 //        configuration.marginBetweenArcs = 3.0
 
-        self.sunburstViewController = UIHostingController(rootView: SunburstView.configureWith(configuration))
-        self.settingsViewController = UIHostingController(rootView: SettingsView())
+        self.sunburstViewController = UIHostingController(rootView: SunburstView(configuration: configuration))
+        self.settingsViewController = UIHostingController(rootView: SettingsView(configuration: configuration))
 
         let splitViewController = UISplitViewController()
         splitViewController.delegate = self

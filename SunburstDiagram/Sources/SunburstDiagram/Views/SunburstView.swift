@@ -9,16 +9,14 @@
 import SwiftUI
 
 public struct SunburstView: View {
+
+    @ObjectBinding var sunburst: Sunburst
     
-    @EnvironmentObject var sunburst: Sunburst
-    
-    public static func configureWith(_ configuration: SunburstConfiguration) -> some View {
+    public init(configuration: SunburstConfiguration) {
         configuration.validateAndPrepare()
+        sunburst = Sunburst(configuration: configuration)
         
-        let sunburst = Sunburst(configuration: configuration)
 //        sunburst.randomWalk = true // For testing
-        
-        return SunburstView().environmentObject(sunburst)
     }
     
     public var body: some View {

@@ -26,7 +26,7 @@ public class SunburstConfiguration {
     public var expandedArcThickness: CGFloat = 60.0
     public var innerRadius: CGFloat = 60.0
     
-    public var startingAngle: CGFloat = 0.0 // In degrees clockwise, default is 0 which means top
+    public var startingAngle: Double = 0.0 // Angle in degrees, start at the top and rotate clockwise
     public var minimumArcAngleShown: ArcMinimumAngle = .showAll
     
     public var maximumRingsShownCount: UInt? = nil
@@ -65,7 +65,7 @@ public class Node {
     var computedBackgroundColor: UIColor = .systemGray
 }
 
-public enum CalculationMode {
+public enum CalculationMode: Hashable {
     /// Default, values are not used. Divide the circle into equal parts from root. Child elements also divide their parents into equal parts.
     case ordinalFromRoot
     /// Values are not used. Elements at the last level (leaves), divide the circle into equal parts, the size of each parent depends on the number of its children.
@@ -76,7 +76,7 @@ public enum CalculationMode {
     case parentIndependent(totalValue: Double? = nil)
 }
 
-public enum NodesSort {
+public enum NodesSort: Hashable {
     /// Default. Will preserve the provided order.
     case none
     /// Smaller node values first.
@@ -85,13 +85,13 @@ public enum NodesSort {
     case desc
 }
 
-public enum ArcMinimumAngle {
+public enum ArcMinimumAngle: Hashable {
     /// Default. Will show all arcs
     case showAll
     /// Group sibling arcs toguether if their angle is less than the desired value in degree
-    case group(ifLessThan: CGFloat)
+    case group(ifLessThan: Double)
     /// Hide arcs if their angle is less than the desired value in degree
-    case hide(ifLessThan: CGFloat)
+    case hide(ifLessThan: Double)
 }
 
 // MARK: - Extensions
