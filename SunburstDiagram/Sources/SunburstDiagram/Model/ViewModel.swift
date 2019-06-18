@@ -48,11 +48,15 @@ class Sunburst: BindableObject {
     
     // Trivial publisher for our changes.
     let didChange = PassthroughSubject<Sunburst, Never>()
-    
+
     init(configuration: SunburstConfiguration) {
         self.configuration = configuration
-        
-        self.arcs = configureArcs(nodes: configuration.nodes, totalValue: configuration.totalNodesValue)
+
+        configuration.validateAndPrepare()
+        _ = configuration.didChange.sink { [weak self] (config) in
+            self?.modelDidChange()
+        }
+
         modelDidChange()
     }
     
@@ -110,7 +114,9 @@ class Sunburst: BindableObject {
     // Called after each change, updates derived model values and posts the notification.
     private func modelDidChange() {
         guard nestedUpdates == 0 else { return }
-        
+
+        arcs = configureArcs(nodes: configuration.nodes, totalValue: configuration.totalNodesValue)
+
         // Recalculate locations, to pack within circle.
         let startLocation = -.pi / 2.0
         recalculateLocations(arcs: &arcs, startLocation: startLocation)

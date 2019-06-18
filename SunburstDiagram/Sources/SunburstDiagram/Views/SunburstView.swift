@@ -13,9 +13,7 @@ public struct SunburstView: View {
     @ObjectBinding var sunburst: Sunburst
     
     public init(configuration: SunburstConfiguration) {
-        configuration.validateAndPrepare()
         sunburst = Sunburst(configuration: configuration)
-        
 //        sunburst.randomWalk = true // For testing
     }
     

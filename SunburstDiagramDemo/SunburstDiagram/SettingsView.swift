@@ -10,10 +10,8 @@ import SwiftUI
 import SunburstDiagram
 
 struct SettingsView : View {
-    
-    @State var test: CGFloat = 1.0
-    
-    @State var configuration: SunburstConfiguration
+
+    @ObjectBinding var configuration: SunburstConfiguration
     
     @State var parentTotalValue: Double? = nil
     @State var arcAngleShownIfLessThan: Double = 0.0
@@ -23,13 +21,7 @@ struct SettingsView : View {
     
     var body: some View {
         Form {
-            Section {
-
-                VStack {
-                    Text("Test: \(test)")
-                    Slider(value: $test, from: CGFloat(0), through: CGFloat(6.0), by: CGFloat(1.0))
-                }
-
+            Section(header: Text("Configuration").font(.largeTitle)) {
 //                ForEach(configuration.nodes) { node in // public var nodes: [Node] = []
 //                    Text(node.name)
 //                }
@@ -53,18 +45,22 @@ struct SettingsView : View {
 //                }
             }
             Section {
-                Stepper(value: $configuration.marginBetweenArcs, in: CGFloat(0) ... CGFloat(6)) {
-                    Text("marginBetweenArcs: \(Int(configuration.marginBetweenArcs))")
+                VStack(alignment: .leading) {
+                    Text("marginBetweenArcs = \(configuration.marginBetweenArcs)")
+                    Slider(value: $configuration.marginBetweenArcs, from: CGFloat(0), through: CGFloat(6), by: CGFloat(0.1))
                 }
-                Stepper(value: $configuration.collapsedArcThickness, in: CGFloat(4) ... CGFloat(20)) {
-                    Text("collapsedArcThickness")
+                VStack(alignment: .leading) {
+                    Text("collapsedArcThickness = \(configuration.collapsedArcThickness)")
+                    Slider(value: $configuration.collapsedArcThickness, from: CGFloat(4), through: CGFloat(20), by: CGFloat(1))
                 }.disabled(true)
-                Stepper(value: $configuration.expandedArcThickness, in: CGFloat(30) ... CGFloat(120)) {
-                    Text("expandedArcThickness")
-                }.disabled(true)
-                Stepper(value: $configuration.innerRadius, in: CGFloat(0) ... CGFloat(200)) {
-                    Text("innerRadius")
-                }.disabled(true)
+                VStack(alignment: .leading) {
+                    Text("expandedArcThickness = \(configuration.expandedArcThickness)")
+                    Slider(value: $configuration.expandedArcThickness, from: CGFloat(30), through: CGFloat(120), by: CGFloat(4))
+                }
+                VStack(alignment: .leading) {
+                    Text("innerRadius = \(configuration.innerRadius)")
+                    Slider(value: $configuration.innerRadius, from: CGFloat(0), through: CGFloat(200), by: CGFloat(5))
+                }
             }
             Section {
                 Stepper(value: $configuration.startingAngle, in: 0.0 ... .pi) { Text("startingAngle") }

@@ -6,7 +6,9 @@
 //  Copyright © 2019 Ludovic Landry. All rights reserved.
 //
 
+import Combine
 import Foundation
+import SwiftUI
 import UIKit
 
 // TODO: Callbacks & functions:
@@ -16,26 +18,56 @@ import UIKit
 // - Drill up / drill up to root
 
 /// The `SunburstConfiguration` is the main configuration class used to create the `SunburstView`
-public class SunburstConfiguration {
-    public var nodes: [Node] = []
-    public var calculationMode: CalculationMode = .ordinalFromRoot
-    public var nodesSort: NodesSort = .none
+public class SunburstConfiguration: BindableObject {
+    public var nodes: [Node] = []                                   { didSet { modelDidChange() } }
+    public var calculationMode: CalculationMode = .ordinalFromRoot  { didSet { modelDidChange() } }
+    public var nodesSort: NodesSort = .none                         { didSet { modelDidChange() } }
     
-    public var marginBetweenArcs: CGFloat = 1.0
-    public var collapsedArcThickness: CGFloat = 10.0
-    public var expandedArcThickness: CGFloat = 60.0
-    public var innerRadius: CGFloat = 60.0
+    public var marginBetweenArcs: CGFloat = 1.0                     { didSet { modelDidChange() } }
+    public var collapsedArcThickness: CGFloat = 10.0                { didSet { modelDidChange() } }
+    public var expandedArcThickness: CGFloat = 60.0                 { didSet { modelDidChange() } }
+    public var innerRadius: CGFloat = 60.0                          { didSet { modelDidChange() } }
+
+    /// Angle in degrees, start at the top and rotate clockwise
+    public var startingAngle: Double = 0.0                          { didSet { modelDidChange() } }
+    public var minimumArcAngleShown: ArcMinimumAngle = .showAll     { didSet { modelDidChange() } }
     
-    public var startingAngle: Double = 0.0 // Angle in degrees, start at the top and rotate clockwise
-    public var minimumArcAngleShown: ArcMinimumAngle = .showAll
-    
-    public var maximumRingsShownCount: UInt? = nil
-    public var maximumExpandedRingsShownCount: UInt? = nil // Rings passed this will be shown collapsed (to show more rings with less data)
-    
+    public var maximumRingsShownCount: UInt? = nil                  { didSet { modelDidChange() } }
+    /// Rings passed this will be shown collapsed (to show more rings with less data)
+    public var maximumExpandedRingsShownCount: UInt? = nil          { didSet { modelDidChange() } }
+
+    public let didChange = PassthroughSubject<SunburstConfiguration, Never>()
+
     public init(nodes: [Node], calculationMode: CalculationMode = .ordinalFromRoot, nodesSort: NodesSort = .none) {
         self.nodes = nodes
         self.calculationMode = calculationMode
         self.nodesSort = nodesSort
+    }
+
+    // MARK: - Private
+
+    // Non-zero while a batch of updates is being processed.
+    private var nestedUpdates = 0
+
+    // Invokes `body()` such that any changes it makes to the model
+    // will only post a single notification to observers.
+    func batch(_ body: () -> Void) {
+        nestedUpdates += 1
+        defer {
+            nestedUpdates -= 1
+            if nestedUpdates == 0 {
+                modelDidChange()
+            }
+        }
+        body()
+    }
+
+    // Called after each change, updates derived model values and posts the notification.
+    private func modelDidChange() {
+        guard nestedUpdates == 0 else { return }
+
+        validateAndPrepare()
+        didChange.send(self)
     }
 }
 
