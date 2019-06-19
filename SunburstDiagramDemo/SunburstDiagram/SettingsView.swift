@@ -52,19 +52,22 @@ struct SettingsView : View {
                     }
                     VStack(alignment: .leading) {
                         Text("collapsedArcThickness = \(configuration.collapsedArcThickness)")
-                        Slider(value: $configuration.collapsedArcThickness, from: CGFloat(4), through: CGFloat(20), by: CGFloat(1))
+                        Slider(value: $configuration.collapsedArcThickness, from: CGFloat(4), through: CGFloat(20))
                     }
                     VStack(alignment: .leading) {
                         Text("expandedArcThickness = \(configuration.expandedArcThickness)")
-                        Slider(value: $configuration.expandedArcThickness, from: CGFloat(30), through: CGFloat(120), by: CGFloat(4))
+                        Slider(value: $configuration.expandedArcThickness, from: CGFloat(30), through: CGFloat(120))
                     }
                     VStack(alignment: .leading) {
                         Text("innerRadius = \(configuration.innerRadius)")
-                        Slider(value: $configuration.innerRadius, from: CGFloat(0), through: CGFloat(200), by: CGFloat(5))
+                        Slider(value: $configuration.innerRadius, from: CGFloat(0), through: CGFloat(200))
                     }
                 }
                 Section(header:Text("More").font(.subheadline)) {
-                    Stepper(value: $configuration.startingAngle, in: 0.0 ... .pi) { Text("startingAngle") }
+                    VStack(alignment: .leading) {
+                        Text("startingAngle = \(configuration.startingAngle)")
+                        Slider(value: $configuration.startingAngle, from: Double(0), through: Double(360))
+                    }
                     Picker(selection: $configuration.minimumArcAngleShown, label: Text("minimumArcAngleShown")) {
                         Text(".showAll").tag(ArcMinimumAngle.showAll)
                         Text(".group(ifLessThan:)").tag(ArcMinimumAngle.group(ifLessThan: arcAngleShownIfLessThan))

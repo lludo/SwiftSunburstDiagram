@@ -118,7 +118,7 @@ class Sunburst: BindableObject {
         arcs = configureArcs(nodes: configuration.nodes, totalValue: configuration.totalNodesValue)
 
         // Recalculate locations, to pack within circle.
-        let startLocation = -.pi / 2.0
+        let startLocation = -.pi / 2.0 + (configuration.startingAngle * .pi / 180)
         recalculateLocations(arcs: &arcs, startLocation: startLocation)
         
         didChange.send(self)
