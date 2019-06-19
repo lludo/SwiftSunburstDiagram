@@ -14,6 +14,10 @@
 		430D471122AF77B600A7FA6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 430D470F22AF77B600A7FA6E /* LaunchScreen.storyboard */; };
 		430D473922B207E900A7FA6E /* SunburstDiagram in Frameworks */ = {isa = PBXBuildFile; productRef = 430D473822B207E900A7FA6E /* SunburstDiagram */; };
 		82A57BA722B873190044FF2B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A57BA622B873190044FF2B /* SettingsView.swift */; };
+		82C7F13C22B9C5EE008B461C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F13B22B9C5EE008B461C /* RootView.swift */; };
+		82C7F13E22B9CE95008B461C /* SettingsNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F13D22B9CE95008B461C /* SettingsNodesView.swift */; };
+		82C7F14022B9F35C008B461C /* IfLetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F13F22B9F35B008B461C /* IfLetView.swift */; };
+		82C7F14222B9F4EE008B461C /* SettingsNewNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F14122B9F4EE008B461C /* SettingsNewNodeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		430D471222AF77B600A7FA6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		430D473722B1FF2A00A7FA6E /* SunburstDiagram */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SunburstDiagram; path = ../SunburstDiagram; sourceTree = "<group>"; };
 		82A57BA622B873190044FF2B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		82C7F13B22B9C5EE008B461C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		82C7F13D22B9CE95008B461C /* SettingsNodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNodesView.swift; sourceTree = "<group>"; };
+		82C7F13F22B9F35B008B461C /* IfLetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IfLetView.swift; sourceTree = "<group>"; };
+		82C7F14122B9F4EE008B461C /* SettingsNewNodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNewNodeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +70,11 @@
 			children = (
 				430D470422AF77B300A7FA6E /* AppDelegate.swift */,
 				430D470622AF77B300A7FA6E /* SceneDelegate.swift */,
+				82C7F13B22B9C5EE008B461C /* RootView.swift */,
 				82A57BA622B873190044FF2B /* SettingsView.swift */,
+				82C7F13D22B9CE95008B461C /* SettingsNodesView.swift */,
+				82C7F14122B9F4EE008B461C /* SettingsNewNodeView.swift */,
+				82C7F13F22B9F35B008B461C /* IfLetView.swift */,
 				430D470A22AF77B600A7FA6E /* Assets.xcassets */,
 				430D470F22AF77B600A7FA6E /* LaunchScreen.storyboard */,
 				430D471222AF77B600A7FA6E /* Info.plist */,
@@ -162,7 +174,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				82A57BA722B873190044FF2B /* SettingsView.swift in Sources */,
+				82C7F14022B9F35C008B461C /* IfLetView.swift in Sources */,
 				430D470522AF77B300A7FA6E /* AppDelegate.swift in Sources */,
+				82C7F13E22B9CE95008B461C /* SettingsNodesView.swift in Sources */,
+				82C7F14222B9F4EE008B461C /* SettingsNewNodeView.swift in Sources */,
+				82C7F13C22B9C5EE008B461C /* RootView.swift in Sources */,
 				430D470722AF77B300A7FA6E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -72,7 +72,7 @@ public class SunburstConfiguration: BindableObject {
 }
 
 /// The `Node` class holds the data shown in the diagram
-public class Node {
+public class Node: Identifiable {
     public let name: String
     public var children: [Node]? = nil
     public var value: Double? = nil

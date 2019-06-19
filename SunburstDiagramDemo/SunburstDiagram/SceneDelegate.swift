@@ -13,9 +13,6 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-
-    var sunburstViewController: UIViewController!
-    var settingsViewController: UIViewController!
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
@@ -29,33 +26,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
             Node(name: "Home", showName: false, image: UIImage(named: "house"), value: 45.0, backgroundColor: .systemTeal),
         ], calculationMode: .parentDependent(totalValue: 100.0))
 
-//        configuration.innerRadius = 90.0
-//        configuration.expandedArcThickness = 90.0
-//        configuration.marginBetweenArcs = 3.0
-
-        self.sunburstViewController = UIHostingController(rootView: SunburstView(configuration: configuration))
-        self.settingsViewController = UIHostingController(rootView: SettingsView(configuration: configuration))
-
-        let splitViewController = UISplitViewController()
-        splitViewController.delegate = self
-        splitViewController.preferredDisplayMode = .allVisible
-        splitViewController.viewControllers = [self.settingsViewController, self.sunburstViewController]
-        
-        splitViewController.view.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        self.sunburstViewController.view.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        self.settingsViewController.view.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
-        
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = splitViewController
+        window.rootViewController = UIHostingController(rootView: RootView(configuration: configuration))
         self.window = window
         window.makeKeyAndVisible()
-    }
-    
-    func primaryViewController(forCollapsing splitViewController: UISplitViewController) -> UIViewController? {
-        return self.sunburstViewController
-    }
-    
-    func primaryViewController(forExpanding splitViewController: UISplitViewController) -> UIViewController? {
-        return self.settingsViewController
     }
 }
