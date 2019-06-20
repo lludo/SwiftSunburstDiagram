@@ -100,8 +100,19 @@ class Sunburst: BindableObject {
     private func configureArcs(nodes: [Node], totalValue: Double) -> [Sunburst.Arc] {
         var arcs: [Sunburst.Arc] = []
         
+        // Sort the nodes if needed
+        let orderedNodes: [Node]
+        switch configuration.nodesSort {
+        case .asc:
+            orderedNodes = nodes.sorted { $0.computedValue == $1.computedValue ? ($0.value ?? 0) < ($1.value ?? 0) : $0.computedValue < $1.computedValue }
+        case .desc:
+            orderedNodes = nodes.sorted { $0.computedValue == $1.computedValue ? ($0.value ?? 0) > ($1.value ?? 0) : $0.computedValue > $1.computedValue }
+        case .none:
+            orderedNodes = nodes
+        }
+        
         // Iterate through the nodes
-        for node in nodes {
+        for node in orderedNodes {
             var arc = Sunburst.Arc.configureWith(node: node, totalValue: totalValue)
             if let children = node.children {
                 arc.childArcs = configureArcs(nodes: children, totalValue: totalValue)

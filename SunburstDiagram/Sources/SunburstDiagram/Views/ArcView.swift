@@ -104,8 +104,8 @@ private struct ArcGeometry {
     
     var arc: Sunburst.Arc
     var center: CGPoint
-    var innerRadius: Length
-    var outerRadius: Length
+    var innerRadius: Length = 0.0
+    var outerRadius: Length = 0.0
     
     init(_ arc: Sunburst.Arc, level: Int, in rect: CGRect? = nil, configuration: SunburstConfiguration) {
         self.arc = arc
@@ -116,8 +116,8 @@ private struct ArcGeometry {
             self.center = .zero
         }
         
-        self.innerRadius = Length(level) * (configuration.expandedArcThickness + configuration.marginBetweenArcs) + configuration.innerRadius
-        self.outerRadius = self.innerRadius + configuration.expandedArcThickness
+        self.innerRadius = self.arcInnerRadius(level: level, configuration: configuration)
+        self.outerRadius = self.innerRadius + self.arcThickness(level: level, configuration: configuration)
     }
     
     // Returns the view location of the point in the arc at unit-
@@ -129,6 +129,25 @@ private struct ArcGeometry {
         
         return CGPoint(x: center.x + Length(cos(angle)) * radius,
                        y: center.y + Length(sin(angle)) * radius)
+    }
+    
+    private func arcIsExpanded(level: Int, configuration: SunburstConfiguration) -> Bool {
+        if let maximumExpandedRingsShownCount = configuration.maximumExpandedRingsShownCount {
+            return level < maximumExpandedRingsShownCount
+        } else {
+            return true
+        }
+    }
+    
+    private func arcInnerRadius(level: Int, configuration: SunburstConfiguration) -> Length {
+        
+        // TODO: implement for when previous arcs are also collapsed
+        
+        return Length(level) * (configuration.expandedArcThickness + configuration.marginBetweenArcs) + configuration.innerRadius
+    }
+    
+    private func arcThickness(level: Int, configuration: SunburstConfiguration) -> Length {
+        return arcIsExpanded(level: level, configuration: configuration) ? configuration.expandedArcThickness : configuration.collapsedArcThickness
     }
 }
 
