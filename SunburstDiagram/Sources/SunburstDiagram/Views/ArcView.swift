@@ -12,10 +12,10 @@ import SwiftUI
 struct ArcView: View {
     
     private let arc: Sunburst.Arc
-    private let level: Int
+    private let level: UInt
     private let configuration: SunburstConfiguration
     
-    init(arc: Sunburst.Arc, level: Int, configuration: SunburstConfiguration) {
+    init(arc: Sunburst.Arc, level: UInt, configuration: SunburstConfiguration) {
         self.arc = arc
         self.level = level
         self.configuration = configuration
@@ -33,11 +33,11 @@ struct ArcView: View {
 struct ArcLabel: View {
     
     private var arc: Sunburst.Arc
-    private var level: Int
+    private var level: UInt
     private var offset: CGPoint = .zero
     private let configuration: SunburstConfiguration
     
-    init(_ arc: Sunburst.Arc, level: Int, configuration: SunburstConfiguration) {
+    init(_ arc: Sunburst.Arc, level: UInt, configuration: SunburstConfiguration) {
         self.arc = arc
         self.level = level
         self.configuration = configuration
@@ -63,10 +63,10 @@ struct ArcLabel: View {
 struct ArcShape: Shape {
     
     private var arc: Sunburst.Arc
-    private var level: Int
+    private var level: UInt
     private let configuration: SunburstConfiguration
     
-    init(_ arc: Sunburst.Arc, level: Int, configuration: SunburstConfiguration) {
+    init(_ arc: Sunburst.Arc, level: UInt, configuration: SunburstConfiguration) {
         self.arc = arc
         self.level = level
         self.configuration = configuration
@@ -107,7 +107,7 @@ private struct ArcGeometry {
     var innerRadius: Length = 0.0
     var outerRadius: Length = 0.0
     
-    init(_ arc: Sunburst.Arc, level: Int, in rect: CGRect? = nil, configuration: SunburstConfiguration) {
+    init(_ arc: Sunburst.Arc, level: UInt, in rect: CGRect? = nil, configuration: SunburstConfiguration) {
         self.arc = arc
         
         if let rect = rect {
@@ -131,7 +131,7 @@ private struct ArcGeometry {
                        y: center.y + Length(sin(angle)) * radius)
     }
     
-    private func arcIsExpanded(level: Int, configuration: SunburstConfiguration) -> Bool {
+    private func arcIsExpanded(level: UInt, configuration: SunburstConfiguration) -> Bool {
         if let maximumExpandedRingsShownCount = configuration.maximumExpandedRingsShownCount {
             return level < maximumExpandedRingsShownCount
         } else {
@@ -139,14 +139,17 @@ private struct ArcGeometry {
         }
     }
     
-    private func arcInnerRadius(level: Int, configuration: SunburstConfiguration) -> Length {
-        
-        // TODO: implement for when previous arcs are also collapsed
-        
-        return Length(level) * (configuration.expandedArcThickness + configuration.marginBetweenArcs) + configuration.innerRadius
+    private func arcInnerRadius(level: UInt, configuration: SunburstConfiguration) -> Length {
+        if let maximumExpandedRingsShownCount = configuration.maximumExpandedRingsShownCount, level >= maximumExpandedRingsShownCount {
+            let expandedRingsThickness = Length(maximumExpandedRingsShownCount) * (configuration.expandedArcThickness + configuration.marginBetweenArcs)
+            let collapsedRingsThickness = Length(level - maximumExpandedRingsShownCount) * (configuration.collapsedArcThickness + configuration.marginBetweenArcs)
+            return expandedRingsThickness + collapsedRingsThickness + configuration.innerRadius
+        } else {
+            return Length(level) * (configuration.expandedArcThickness + configuration.marginBetweenArcs) + configuration.innerRadius
+        }
     }
     
-    private func arcThickness(level: Int, configuration: SunburstConfiguration) -> Length {
+    private func arcThickness(level: UInt, configuration: SunburstConfiguration) -> Length {
         return arcIsExpanded(level: level, configuration: configuration) ? configuration.expandedArcThickness : configuration.collapsedArcThickness
     }
 }

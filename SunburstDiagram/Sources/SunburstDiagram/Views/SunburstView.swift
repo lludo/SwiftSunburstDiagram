@@ -14,12 +14,11 @@ public struct SunburstView: View {
     
     public init(configuration: SunburstConfiguration) {
         sunburst = Sunburst(configuration: configuration)
-//        sunburst.randomWalk = true // For testing
     }
     
     public var body: some View {
         let arcs = ZStack {
-            configureViews(arcs: sunburst.arcs, parentArc: nil, level: 0)
+            configureViews(arcs: sunburst.arcs)
             
             // Stop the window shrinking to zero when there is no arcs.
             Spacer()
@@ -31,13 +30,13 @@ public struct SunburstView: View {
         return drawnArcs
     }
     
-    private func configureViews(arcs: [Sunburst.Arc], parentArc: Sunburst.Arc?, level: Int) -> some View {
+    private func configureViews(arcs: [Sunburst.Arc], parentArc: Sunburst.Arc? = nil, level: UInt = 0) -> some View {
         return ForEach(arcs) { arc in
             ArcView(arc: arc, level: level, configuration: self.sunburst.configuration)
                 .transition(.scaleAndFade)
                 .tapAction {
                     withAnimation(.fluidSpring()) {
-                        self.sunburst.remove(arc: arc)
+                        print(">>> Tapped arc: \(arc.text)")
                     }
                 }
             IfLet(arc.childArcs) { childArcs in

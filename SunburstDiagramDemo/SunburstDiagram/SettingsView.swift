@@ -13,11 +13,11 @@ struct SettingsView : View {
 
     @ObjectBinding var configuration: SunburstConfiguration
     
-    @State var parentTotalValue: Double? = nil
-    @State var arcAngleShownIfLessThan: Double = 0.0
+    @State private var parentTotalValue: Double? = nil
+    @State private var arcAngleShownIfLessThan: Double = 0.0
     
-    @State var haveMaximumRingsShownCount: Bool = false
-    @State var haveMaximumExpandedRingsShownCount: Bool = false
+    @State private var haveMaximumRingsShownCount: Bool = false
+    @State private var haveMaximumExpandedRingsShownCount: Bool = false
     
     var body: some View {
         NavigationView {
@@ -26,7 +26,7 @@ struct SettingsView : View {
                     NavigationButton(destination: SettingsNodesView(nodes: configuration.nodes)) {
                         Text("nodes")
                         Spacer()
-                        Text(configuration.nodes.count == 0 ? "No nodes" : "\(configuration.nodes.count) root nodes").color(Color.secondary)
+                        Text(configuration.nodes.count == 0 ? "[No nodes]" : "[\(configuration.nodes.count) root nodes]").color(Color.secondary)
                     }
                     Picker(selection: $configuration.nodesSort, label: Text("nodesSort")) {
                         Text(".none").tag(NodesSort.none)
@@ -51,16 +51,16 @@ struct SettingsView : View {
                         Slider(value: $configuration.marginBetweenArcs, from: CGFloat(0), through: CGFloat(6), by: CGFloat(0.1))
                     }
                     VStack(alignment: .leading) {
-                        Text("collapsedArcThickness = \(configuration.collapsedArcThickness)")
-                        Slider(value: $configuration.collapsedArcThickness, from: CGFloat(4), through: CGFloat(20))
+                        Text("innerRadius = \(configuration.innerRadius)")
+                        Slider(value: $configuration.innerRadius, from: CGFloat(0), through: CGFloat(200))
                     }
                     VStack(alignment: .leading) {
                         Text("expandedArcThickness = \(configuration.expandedArcThickness)")
                         Slider(value: $configuration.expandedArcThickness, from: CGFloat(30), through: CGFloat(120))
                     }
                     VStack(alignment: .leading) {
-                        Text("innerRadius = \(configuration.innerRadius)")
-                        Slider(value: $configuration.innerRadius, from: CGFloat(0), through: CGFloat(200))
+                        Text("collapsedArcThickness = \(configuration.collapsedArcThickness)")
+                        Slider(value: $configuration.collapsedArcThickness, from: CGFloat(4), through: CGFloat(20))
                     }
                 }
                 Section(header:Text("More").font(.subheadline)) {
@@ -81,19 +81,27 @@ struct SettingsView : View {
                     Toggle(isOn: $haveMaximumRingsShownCount) {
                         Text("maximumRingsShownCount")
                     }
-//                    if haveMaximumRingsShownCount {
-//                        Stepper(value: $configuration.maximumRingsShownCount, in: 30 ... 120) {
-//                            Text("maximumRingsShownCount")
-//                        }
-//                    }
+                    if haveMaximumRingsShownCount {
+                        IfLet(configuration.maximumRingsShownCount) { maximumRingsShownCount in
+                            VStack(alignment: .leading) {
+                                Text("maximumRingsShownCount = \(maximumRingsShownCount)")
+                                Text("//TODO: bind & make editable")
+//                                Slider(value: maximumRingsShownCount, from: 0, through: 8)
+                            }
+                        }
+                    }
                     Toggle(isOn: $haveMaximumExpandedRingsShownCount) {
                         Text("maximumExpandedRingsShownCount")
                     }
-//                    if haveMaximumExpandedRingsShownCount {
-//                        Stepper(value: $configuration.maximumExpandedRingsShownCount, in: 0 ... 200) {
-//                            Text("maximumExpandedRingsShownCount")
-//                        }
-//                    }
+                    if haveMaximumExpandedRingsShownCount {
+                        IfLet(configuration.maximumExpandedRingsShownCount) { maximumExpandedRingsShownCount in
+                            VStack(alignment: .leading) {
+                                Text("maximumExpandedRingsShownCount = \(maximumExpandedRingsShownCount)")
+                                Text("//TODO: bind & make editable")
+//                                Slider(value: maximumExpandedRingsShownCount, from: 0, through: 8)
+                            }
+                        }
+                    }
                 }
             }.navigationBarTitle(Text("Configuration"))
         }

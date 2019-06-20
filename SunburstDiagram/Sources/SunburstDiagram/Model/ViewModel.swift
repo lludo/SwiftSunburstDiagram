@@ -60,25 +60,6 @@ class Sunburst: BindableObject {
         modelDidChange()
     }
     
-    func add(arc: Arc) {
-        arcs.append(arc)
-        modelDidChange()
-    }
-    
-    func remove(arc: Arc) {
-        if let index = arcs.firstIndex(of: arc) {
-            arcs.remove(at: index)
-            modelDidChange()
-        }
-    }
-    
-    func reset() {
-        if !arcs.isEmpty {
-            arcs.removeAll()
-            modelDidChange()
-        }
-    }
-    
     // Non-zero while a batch of updates is being processed.
     private var nestedUpdates = 0
     
@@ -156,67 +137,6 @@ extension Sunburst.Arc {
         let width = (node.computedValue / totalValue) * 2.0 * .pi
         return Sunburst.Arc(text: node.name, image: node.image, width: width,
                             backgroundColor: node.computedBackgroundColor, isTextHidden: !node.showName)
-    }
-}
-
-// MARK: - Random updates for testing
-
-extension Sunburst {
-    
-    private static var _randomWalk = [String : Bool]()
-    private static var _timer = [String : Timer]()
-    
-    private var timer: Timer? {
-        get {
-            let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
-            return Sunburst._timer[tmpAddress]
-        }
-        set(newValue) {
-            let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
-            Sunburst._timer[tmpAddress] = newValue
-            updateTimer()
-        }
-    }
-    
-    // When true, periodically updates the data with random changes.
-    var randomWalk: Bool {
-        get {
-            let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
-            return Sunburst._randomWalk[tmpAddress] ?? false
-        }
-        set(newValue) {
-            let tmpAddress = String(format: "%p", unsafeBitCast(self, to: Int.self))
-            Sunburst._randomWalk[tmpAddress] = newValue
-            updateTimer()
-        }
-    }
-    
-    // Randomly changes values of existing arcs.
-    private func randomize() {
-        withAnimation(.fluidSpring()) {
-            for index in 0 ..< arcs.count {
-                var arc = arcs[index]
-                arc.width = .random(in: max(0.2, arc.width - 0.2) ... min(2.0 * .pi, arc.width + 0.2))
-                arcs[index] = arc
-            }
-            modelDidChange()
-        }
-    }
-    
-    // Ensures the random-walk timer has the correct state.
-    private func updateTimer() {
-        if randomWalk, timer == nil {
-            randomize()
-            timer = Timer.scheduledTimer(
-                withTimeInterval: 2, repeats: true
-            ) { [weak self] _ in
-                self?.randomize()
-            }
-        } else if !randomWalk, let timer = self.timer {
-            timer.invalidate()
-            self.timer = nil
-        }
-        modelDidChange()
     }
 }
 
