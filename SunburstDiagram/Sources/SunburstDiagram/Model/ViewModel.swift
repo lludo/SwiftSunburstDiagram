@@ -12,7 +12,7 @@ import SwiftUI
 class Sunburst: BindableObject {
 
     struct Arc: Equatable, Identifiable {
-        var id: ObjectIdentifier
+        let id: ObjectIdentifier
         
         var width: Double
         var backgroundColor: Color
@@ -28,18 +28,16 @@ class Sunburst: BindableObject {
         // The end location of the arc, as an angle in radians.
         fileprivate(set) var end = 0.0
         
-        init(text: String, image: UIImage? = nil, width: Double, backgroundColor: UIColor, childArcs: [Arc]? = nil, isTextHidden: Bool = false) {
-            self.id = ObjectIdentifier(text as NSString)
+        init(node: Node, totalValue: Double) {
+            self.id = node.id
+            self.text = node.name
+            self.image = node.image
             
-            self.width = width
-            let ciColor = CIColor(color: backgroundColor) // All this is far from ideal :(
+            let ciColor = CIColor(color: node.computedBackgroundColor) // All this is far from ideal :(
             self.backgroundColor = Color(red: Double(ciColor.red), green: Double(ciColor.green), blue: Double(ciColor.blue))
-            self.isTextHidden = isTextHidden
             
-            self.childArcs = childArcs
-            
-            self.image = image
-            self.text = text
+            self.width = (node.computedValue / totalValue) * 2.0 * .pi
+            self.isTextHidden = !node.showName
         }
     }
     
@@ -94,7 +92,7 @@ class Sunburst: BindableObject {
         
         // Iterate through the nodes
         for node in orderedNodes {
-            var arc = Sunburst.Arc.configureWith(node: node, totalValue: totalValue)
+            var arc = Sunburst.Arc(node: node, totalValue: totalValue)
             if let children = node.children {
                 arc.childArcs = configureArcs(nodes: children, totalValue: totalValue)
             }
@@ -126,17 +124,6 @@ class Sunburst: BindableObject {
             location += arcs[index].width
             arcs[index].end = location
         }
-    }
-}
-
-// MARK: - Arc
-
-extension Sunburst.Arc {
-    
-    static func configureWith(node: Node, totalValue: Double) -> Sunburst.Arc {
-        let width = (node.computedValue / totalValue) * 2.0 * .pi
-        return Sunburst.Arc(text: node.name, image: node.image, width: width,
-                            backgroundColor: node.computedBackgroundColor, isTextHidden: !node.showName)
     }
 }
 

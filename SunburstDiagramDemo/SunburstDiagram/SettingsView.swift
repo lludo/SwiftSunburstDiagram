@@ -60,24 +60,14 @@ struct SettingsView : View {
                     }
                     VStack(alignment: .leading) {
                         Text("collapsedArcThickness = \(configuration.collapsedArcThickness)")
-                        Slider(value: $configuration.collapsedArcThickness, from: CGFloat(4), through: CGFloat(20))
+                        Slider(value: $configuration.collapsedArcThickness, from: CGFloat(2), through: CGFloat(12))
                     }
                 }
                 Section(header:Text("More").font(.subheadline)) {
                     VStack(alignment: .leading) {
                         Text("startingAngle = \(configuration.startingAngle)")
-                        Slider(value: $configuration.startingAngle, from: Double(0), through: Double(360))
+                        Slider(value: $configuration.startingAngle, from: Double(-180), through: Double(180))
                     }
-                    Picker(selection: $configuration.minimumArcAngleShown, label: Text("minimumArcAngleShown")) {
-                        Text(".showAll").tag(ArcMinimumAngle.showAll)
-                        Text(".group(ifLessThan:)").tag(ArcMinimumAngle.group(ifLessThan: arcAngleShownIfLessThan))
-                        Text(".hide(ifLessThan:)").tag(ArcMinimumAngle.hide(ifLessThan: arcAngleShownIfLessThan))
-                    }
-//                    if configuration.calculationMode == .group {
-//                        Stepper(value: $parentTotalValue, in: 0.0 ... .pi) { Text(".group(ifLessThan:)") }
-//                    } else if configuration.calculationMode == .hide {
-//                        Stepper(value: $parentTotalValue, in: 0.0 ... .pi) { Text(".hide(ifLessThan:)") }
-//                    }
                     Toggle(isOn: $haveMaximumRingsShownCount) {
                         Text("maximumRingsShownCount")
                     }
@@ -85,8 +75,7 @@ struct SettingsView : View {
                         IfLet(configuration.maximumRingsShownCount) { maximumRingsShownCount in
                             VStack(alignment: .leading) {
                                 Text("maximumRingsShownCount = \(maximumRingsShownCount)")
-                                Text("//TODO: bind & make editable")
-//                                Slider(value: maximumRingsShownCount, from: 0, through: 8)
+                                Slider(value: .constant(4 /* maximumRingsShownCount */ ), from: 0, through: 8)
                             }
                         }
                     }
@@ -97,11 +86,20 @@ struct SettingsView : View {
                         IfLet(configuration.maximumExpandedRingsShownCount) { maximumExpandedRingsShownCount in
                             VStack(alignment: .leading) {
                                 Text("maximumExpandedRingsShownCount = \(maximumExpandedRingsShownCount)")
-                                Text("//TODO: bind & make editable")
-//                                Slider(value: maximumExpandedRingsShownCount, from: 0, through: 8)
+                                Slider(value: .constant(2 /* maximumExpandedRingsShownCount */ ), from: 0, through: 8)
                             }
                         }
                     }
+                    Picker(selection: $configuration.minimumArcAngleShown, label: Text("minimumArcAngleShown")) {
+                        Text(".showAll").tag(ArcMinimumAngle.showAll)
+                        Text(".group(ifLessThan:)").tag(ArcMinimumAngle.group(ifLessThan: arcAngleShownIfLessThan))
+                        Text(".hide(ifLessThan:)").tag(ArcMinimumAngle.hide(ifLessThan: arcAngleShownIfLessThan))
+                    }.disabled(true)
+//                    if configuration.calculationMode == .group {
+//                        Stepper(value: $parentTotalValue, in: 0.0 ... .pi) { Text(".group(ifLessThan:)") }
+//                    } else if configuration.calculationMode == .hide {
+//                        Stepper(value: $parentTotalValue, in: 0.0 ... .pi) { Text(".hide(ifLessThan:)") }
+//                    }
                 }
             }.navigationBarTitle(Text("Configuration"))
         }

@@ -24,7 +24,7 @@ public class SunburstConfiguration: BindableObject {
     public var nodesSort: NodesSort = .none                         { didSet { modelDidChange() } }
     
     public var marginBetweenArcs: CGFloat = 1.0                     { didSet { modelDidChange() } }
-    public var collapsedArcThickness: CGFloat = 10.0                { didSet { modelDidChange() } }
+    public var collapsedArcThickness: CGFloat = 8.0                 { didSet { modelDidChange() } }
     public var expandedArcThickness: CGFloat = 60.0                 { didSet { modelDidChange() } }
     public var innerRadius: CGFloat = 60.0                          { didSet { modelDidChange() } }
 
