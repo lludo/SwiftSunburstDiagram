@@ -24,7 +24,9 @@ struct ArcView: View {
     var body: some View {
         ZStack() {
             ArcShape(arc, level: level, configuration: configuration).fill(arc.backgroundColor)
-            ArcLabel(arc, level: level, configuration: configuration)
+            if configuration.maximumExpandedRingsShownCount == nil || level < configuration.maximumExpandedRingsShownCount! {
+                ArcLabel(arc, level: level, configuration: configuration)
+            }
         }
     }
 }

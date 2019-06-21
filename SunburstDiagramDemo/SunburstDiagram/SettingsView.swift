@@ -16,9 +16,6 @@ struct SettingsView : View {
     @State private var parentTotalValue: Double? = nil
     @State private var arcAngleShownIfLessThan: Double = 0.0
     
-    @State private var haveMaximumRingsShownCount: Bool = false
-    @State private var haveMaximumExpandedRingsShownCount: Bool = false
-    
     var body: some View {
         NavigationView {
             Form {
@@ -68,25 +65,25 @@ struct SettingsView : View {
                         Text("startingAngle = \(configuration.startingAngle)")
                         Slider(value: $configuration.startingAngle, from: Double(-180), through: Double(180))
                     }
-                    Toggle(isOn: $haveMaximumRingsShownCount) {
+                    Toggle(isOn: configuration.maximumRingsShownCountToggleBinding) {
                         Text("maximumRingsShownCount")
                     }
-                    if haveMaximumRingsShownCount {
+                    if configuration.maximumRingsShownCount != nil {
                         IfLet(configuration.maximumRingsShownCount) { maximumRingsShownCount in
                             VStack(alignment: .leading) {
                                 Text("maximumRingsShownCount = \(maximumRingsShownCount)")
-                                Slider(value: .constant(4 /* maximumRingsShownCount */ ), from: 0, through: 8)
+                                Slider(value: self.configuration.maximumRingsShownCountSliderBinding, from: 1, through: 10)
                             }
                         }
                     }
-                    Toggle(isOn: $haveMaximumExpandedRingsShownCount) {
+                    Toggle(isOn: configuration.maximumExpandedRingsShownCountToggleBinding) {
                         Text("maximumExpandedRingsShownCount")
                     }
-                    if haveMaximumExpandedRingsShownCount {
+                    if configuration.maximumExpandedRingsShownCount != nil {
                         IfLet(configuration.maximumExpandedRingsShownCount) { maximumExpandedRingsShownCount in
                             VStack(alignment: .leading) {
                                 Text("maximumExpandedRingsShownCount = \(maximumExpandedRingsShownCount)")
-                                Slider(value: .constant(2 /* maximumExpandedRingsShownCount */ ), from: 0, through: 8)
+                                Slider(value: self.configuration.maximumExpandedRingsShownCountSliderBinding, from: 0, through: 8)
                             }
                         }
                     }
@@ -103,6 +100,48 @@ struct SettingsView : View {
                 }
             }.navigationBarTitle(Text("Configuration"))
         }
+    }
+}
+
+extension SunburstConfiguration {
+
+    static let defaultMaximumExpandedRingsShownCount: UInt = 2
+    static let defaultMaximumRingsShownCount: UInt = 4
+
+    // MARK: maximumExpandedRingsShownCount bindings
+
+    var maximumExpandedRingsShownCountSliderBinding: Binding<Double> {
+        return Binding<Double>(getValue: { () -> Double in
+            return Double(self.maximumExpandedRingsShownCount ?? SunburstConfiguration.defaultMaximumExpandedRingsShownCount)
+        }, setValue: { (value) in
+            self.maximumExpandedRingsShownCount = UInt(value)
+        })
+    }
+
+    var maximumExpandedRingsShownCountToggleBinding: Binding<Bool> {
+        return Binding<Bool>(getValue: { () -> Bool in
+            return self.maximumExpandedRingsShownCount != nil
+        }, setValue: { (value) in
+            self.maximumExpandedRingsShownCount = value ? SunburstConfiguration.defaultMaximumExpandedRingsShownCount : nil
+        })
+    }
+
+    // MARK: maximumRingsShownCount bindings
+
+    var maximumRingsShownCountSliderBinding: Binding<Double> {
+        return Binding<Double>(getValue: { () -> Double in
+            return Double(self.maximumRingsShownCount ?? SunburstConfiguration.defaultMaximumRingsShownCount)
+        }, setValue: { (value) in
+            self.maximumRingsShownCount = UInt(value)
+        })
+    }
+
+    var maximumRingsShownCountToggleBinding: Binding<Bool> {
+        return Binding<Bool>(getValue: { () -> Bool in
+            return self.maximumRingsShownCount != nil
+        }, setValue: { (value) in
+            self.maximumRingsShownCount = value ? SunburstConfiguration.defaultMaximumRingsShownCount : nil
+        })
     }
 }
 
