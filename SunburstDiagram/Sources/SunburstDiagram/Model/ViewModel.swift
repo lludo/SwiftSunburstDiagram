@@ -26,6 +26,12 @@ class Sunburst: BindableObject {
         fileprivate(set) var start = 0.0    // The start location of the arc, as an angle in radians.
         fileprivate(set) var end = 0.0      // The end location of the arc, as an angle in radians.
 
+        fileprivate(set) var innerRadius: Length = 0.0
+        fileprivate(set) var outerRadius: Length = 0.0
+
+        fileprivate(set) var innerMargin = 0.0
+        fileprivate(set) var outerMargin = 0.0
+
         init(node: Node, level: UInt, totalValue: Double) {
             self.id = node.id
             self.level = level
@@ -143,21 +149,72 @@ class Sunburst: BindableObject {
             arcs[index].start = location
             location += arcs[index].width
             arcs[index].end = location
+
+            let innerRadius = arcs[index].arcInnerRadius(configuration: configuration)
+            let outerRadius = innerRadius + arcs[index].arcThickness(configuration: configuration)
+            arcs[index].innerRadius = innerRadius
+            arcs[index].outerRadius = outerRadius
+            
+            arcs[index].innerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(innerRadius)
+            arcs[index].outerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(outerRadius)
         }
     }
 }
 
-// MARK: - Animation
+// MARK: - Arc extensions
 
+// Geometry
+extension Sunburst.Arc {
+
+    func arcIsExpanded(configuration: SunburstConfiguration) -> Bool {
+        if let maximumExpandedRingsShownCount = configuration.maximumExpandedRingsShownCount {
+            return level < maximumExpandedRingsShownCount
+        } else {
+            return true
+        }
+    }
+
+    func arcInnerRadius(configuration: SunburstConfiguration) -> Length {
+        if let maximumExpandedRingsShownCount = configuration.maximumExpandedRingsShownCount, level >= maximumExpandedRingsShownCount {
+            let expandedRingsThickness = Length(maximumExpandedRingsShownCount) * (configuration.expandedArcThickness + configuration.marginBetweenArcs)
+            let collapsedRingsThickness = Length(level - maximumExpandedRingsShownCount) * (configuration.collapsedArcThickness + configuration.marginBetweenArcs)
+            return expandedRingsThickness + collapsedRingsThickness + configuration.innerRadius
+        } else {
+            return Length(level) * (configuration.expandedArcThickness + configuration.marginBetweenArcs) + configuration.innerRadius
+        }
+    }
+
+    func arcThickness(configuration: SunburstConfiguration) -> Length {
+        return arcIsExpanded(configuration: configuration) ? configuration.expandedArcThickness : configuration.collapsedArcThickness
+    }
+}
+
+// Animations
 extension Sunburst.Arc: Animatable {
 
-    public var animatableData: AnimatablePair<Double, Double> {
+    public var animatableData: AnimatablePair<
+        AnimatablePair<
+            AnimatablePair<Double, Double>,
+            AnimatablePair<Length, Length>
+        >,
+        AnimatablePair<Double, Double>
+    > {
         get {
-            AnimatablePair(start, end)
+            AnimatablePair(
+                AnimatablePair(
+                    AnimatablePair(start, end),
+                    AnimatablePair(innerRadius, outerRadius)
+                ),
+                AnimatablePair(innerMargin, outerMargin)
+            )
         }
         set {
-            start = newValue.first
-            end = newValue.second
+            start = newValue.first.first.first
+            end = newValue.first.first.second
+            innerRadius = newValue.first.second.first
+            outerRadius = newValue.first.second.second
+            innerMargin = newValue.second.first
+            outerMargin = newValue.second.second
         }
     }
 }

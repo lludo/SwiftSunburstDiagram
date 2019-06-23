@@ -71,15 +71,12 @@ struct ArcShape: Shape {
     func path(in rect: CGRect) -> Path {
         let points = ArcGeometry(arc, in: rect, configuration: configuration)
         
-        let innerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(points.innerRadius)
-        let outerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(points.outerRadius)
-        
         var path = Path()
-        path.addArc(center: points.center, radius: points.innerRadius,
-                    startAngle: .radians(arc.start + innerMargin), endAngle: .radians(arc.end - innerMargin),
+        path.addArc(center: points.center, radius: arc.innerRadius,
+                    startAngle: .radians(arc.start + arc.innerMargin), endAngle: .radians(arc.end - arc.innerMargin),
                     clockwise: false)
-        path.addArc(center: points.center, radius: points.outerRadius,
-                    startAngle: .radians(arc.end - outerMargin), endAngle: .radians(arc.start + outerMargin),
+        path.addArc(center: points.center, radius: arc.outerRadius,
+                    startAngle: .radians(arc.end - arc.outerMargin), endAngle: .radians(arc.start + arc.outerMargin),
                     clockwise: true)
         path.closeSubpath()
         return path
@@ -100,8 +97,6 @@ private struct ArcGeometry {
     
     var arc: Sunburst.Arc
     var center: CGPoint
-    var innerRadius: Length = 0.0
-    var outerRadius: Length = 0.0
     
     init(_ arc: Sunburst.Arc, in rect: CGRect? = nil, configuration: SunburstConfiguration) {
         self.arc = arc
@@ -111,42 +106,17 @@ private struct ArcGeometry {
         } else {
             self.center = .zero
         }
-        
-        self.innerRadius = self.arcInnerRadius(level: arc.level, configuration: configuration)
-        self.outerRadius = self.innerRadius + self.arcThickness(level: arc.level, configuration: configuration)
     }
     
     // Returns the view location of the point in the arc at unit-
     // space location `unitPoint`, where the X axis of `p` moves around the
     // arc arc and the Y axis moves out from the inner to outer radius.
     subscript(unitPoint: UnitPoint) -> CGPoint {
-        let radius = lerp(innerRadius, outerRadius, by: unitPoint.y)
+        let radius = lerp(arc.innerRadius, arc.outerRadius, by: unitPoint.y)
         let angle = lerp(arc.start, arc.end, by: Double(unitPoint.x))
         
         return CGPoint(x: center.x + Length(cos(angle)) * radius,
                        y: center.y + Length(sin(angle)) * radius)
-    }
-    
-    private func arcIsExpanded(level: UInt, configuration: SunburstConfiguration) -> Bool {
-        if let maximumExpandedRingsShownCount = configuration.maximumExpandedRingsShownCount {
-            return level < maximumExpandedRingsShownCount
-        } else {
-            return true
-        }
-    }
-    
-    private func arcInnerRadius(level: UInt, configuration: SunburstConfiguration) -> Length {
-        if let maximumExpandedRingsShownCount = configuration.maximumExpandedRingsShownCount, level >= maximumExpandedRingsShownCount {
-            let expandedRingsThickness = Length(maximumExpandedRingsShownCount) * (configuration.expandedArcThickness + configuration.marginBetweenArcs)
-            let collapsedRingsThickness = Length(level - maximumExpandedRingsShownCount) * (configuration.collapsedArcThickness + configuration.marginBetweenArcs)
-            return expandedRingsThickness + collapsedRingsThickness + configuration.innerRadius
-        } else {
-            return Length(level) * (configuration.expandedArcThickness + configuration.marginBetweenArcs) + configuration.innerRadius
-        }
-    }
-    
-    private func arcThickness(level: UInt, configuration: SunburstConfiguration) -> Length {
-        return arcIsExpanded(level: level, configuration: configuration) ? configuration.expandedArcThickness : configuration.collapsedArcThickness
     }
 }
 
