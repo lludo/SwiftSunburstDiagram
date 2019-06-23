@@ -12,20 +12,18 @@ import SwiftUI
 struct ArcView: View {
     
     private let arc: Sunburst.Arc
-    private let level: UInt
     private let configuration: SunburstConfiguration
     
-    init(arc: Sunburst.Arc, level: UInt, configuration: SunburstConfiguration) {
+    init(arc: Sunburst.Arc, configuration: SunburstConfiguration) {
         self.arc = arc
-        self.level = level
         self.configuration = configuration
     }
     
     var body: some View {
         ZStack() {
-            ArcShape(arc, level: level, configuration: configuration).fill(arc.backgroundColor)
-            if configuration.maximumExpandedRingsShownCount == nil || level < configuration.maximumExpandedRingsShownCount! {
-                ArcLabel(arc, level: level, configuration: configuration)
+            ArcShape(arc, configuration: configuration).fill(arc.backgroundColor).animation(.basic())
+            if configuration.maximumExpandedRingsShownCount == nil || arc.level < configuration.maximumExpandedRingsShownCount! {
+                ArcLabel(arc, configuration: configuration).animation(.basic())
             }
         }
     }
@@ -35,16 +33,14 @@ struct ArcView: View {
 struct ArcLabel: View {
     
     private var arc: Sunburst.Arc
-    private var level: UInt
     private var offset: CGPoint = .zero
     private let configuration: SunburstConfiguration
     
-    init(_ arc: Sunburst.Arc, level: UInt, configuration: SunburstConfiguration) {
+    init(_ arc: Sunburst.Arc, configuration: SunburstConfiguration) {
         self.arc = arc
-        self.level = level
         self.configuration = configuration
         
-        let points = ArcGeometry(arc, level: level, configuration: configuration)
+        let points = ArcGeometry(arc, configuration: configuration)
         offset = points[.center]
     }
     
@@ -65,17 +61,15 @@ struct ArcLabel: View {
 struct ArcShape: Shape {
     
     private var arc: Sunburst.Arc
-    private var level: UInt
     private let configuration: SunburstConfiguration
-    
-    init(_ arc: Sunburst.Arc, level: UInt, configuration: SunburstConfiguration) {
+
+    init(_ arc: Sunburst.Arc, configuration: SunburstConfiguration) {
         self.arc = arc
-        self.level = level
         self.configuration = configuration
     }
     
     func path(in rect: CGRect) -> Path {
-        let points = ArcGeometry(arc, level: level, in: rect, configuration: configuration)
+        let points = ArcGeometry(arc, in: rect, configuration: configuration)
         
         let innerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(points.innerRadius)
         let outerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(points.outerRadius)
@@ -90,14 +84,14 @@ struct ArcShape: Shape {
         path.closeSubpath()
         return path
     }
-    
+
     var animatableData: Sunburst.Arc.AnimatableData {
         get { arc.animatableData }
         set { arc.animatableData = newValue }
     }
     
     static func == (lhs: ArcShape, rhs: ArcShape) -> Bool {
-        return lhs.arc == rhs.arc && lhs.level == rhs.level
+        return lhs.arc == rhs.arc
     }
 }
 
@@ -109,7 +103,7 @@ private struct ArcGeometry {
     var innerRadius: Length = 0.0
     var outerRadius: Length = 0.0
     
-    init(_ arc: Sunburst.Arc, level: UInt, in rect: CGRect? = nil, configuration: SunburstConfiguration) {
+    init(_ arc: Sunburst.Arc, in rect: CGRect? = nil, configuration: SunburstConfiguration) {
         self.arc = arc
         
         if let rect = rect {
@@ -118,8 +112,8 @@ private struct ArcGeometry {
             self.center = .zero
         }
         
-        self.innerRadius = self.arcInnerRadius(level: level, configuration: configuration)
-        self.outerRadius = self.innerRadius + self.arcThickness(level: level, configuration: configuration)
+        self.innerRadius = self.arcInnerRadius(level: arc.level, configuration: configuration)
+        self.outerRadius = self.innerRadius + self.arcThickness(level: arc.level, configuration: configuration)
     }
     
     // Returns the view location of the point in the arc at unit-

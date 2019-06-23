@@ -38,6 +38,10 @@ public class SunburstConfiguration: BindableObject {
 
     public let didChange = PassthroughSubject<SunburstConfiguration, Never>()
 
+    lazy var sunburst: Sunburst = {
+        return Sunburst(configuration: self)
+    }()
+
     public init(nodes: [Node], calculationMode: CalculationMode = .ordinalFromRoot, nodesSort: NodesSort = .none) {
         self.nodes = nodes
         self.calculationMode = calculationMode

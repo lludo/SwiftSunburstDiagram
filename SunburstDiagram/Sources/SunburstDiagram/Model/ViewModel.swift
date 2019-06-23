@@ -13,37 +13,47 @@ class Sunburst: BindableObject {
 
     struct Arc: Equatable, Identifiable {
         let id: ObjectIdentifier
-        
+        let level: UInt
+
+        let text: String
+        let image: UIImage?
+
         var width: Double
         var backgroundColor: Color
         var isTextHidden: Bool
-        
-        let text: String
-        let image: UIImage?
-        
+
         fileprivate(set) var childArcs: [Arc]?
-        
-        // The start location of the arc, as an angle in radians.
-        fileprivate(set) var start = 0.0
-        // The end location of the arc, as an angle in radians.
-        fileprivate(set) var end = 0.0
-        
-        init(node: Node, totalValue: Double) {
+        fileprivate(set) var start = 0.0    // The start location of the arc, as an angle in radians.
+        fileprivate(set) var end = 0.0      // The end location of the arc, as an angle in radians.
+
+        init(node: Node, level: UInt, totalValue: Double) {
             self.id = node.id
+            self.level = level
+
             self.text = node.name
             self.image = node.image
             
             let ciColor = CIColor(color: node.computedBackgroundColor) // All this is far from ideal :(
-            self.backgroundColor = Color(red: Double(ciColor.red), green: Double(ciColor.green), blue: Double(ciColor.blue))
+            backgroundColor = Color(red: Double(ciColor.red), green: Double(ciColor.green), blue: Double(ciColor.blue))
             
-            self.width = (node.computedValue / totalValue) * 2.0 * .pi
-            self.isTextHidden = !node.showName
+            width = (node.computedValue / totalValue) * 2.0 * .pi
+            isTextHidden = !node.showName
+        }
+
+        mutating func update(node: Node, totalValue: Double) {
+            let ciColor = CIColor(color: node.computedBackgroundColor) // All this is far from ideal :(
+            backgroundColor = Color(red: Double(ciColor.red), green: Double(ciColor.green), blue: Double(ciColor.blue))
+
+            width = (node.computedValue / totalValue) * 2.0 * .pi
+            isTextHidden = !node.showName
         }
     }
-    
-    private(set) var arcs: [Arc] = []
+
     let configuration: SunburstConfiguration
-    
+
+    private(set) var rootArcs: [Arc] = []
+    private var arcsCache: [ObjectIdentifier : Arc] = [:]
+
     // Trivial publisher for our changes.
     let didChange = PassthroughSubject<Sunburst, Never>()
 
@@ -76,7 +86,7 @@ class Sunburst: BindableObject {
     
     // MARK: Private
     
-    private func configureArcs(nodes: [Node], totalValue: Double) -> [Sunburst.Arc] {
+    private func configureArcs(nodes: [Node], totalValue: Double, level: UInt = 0) -> [Sunburst.Arc] {
         var arcs: [Sunburst.Arc] = []
         
         // Sort the nodes if needed
@@ -92,9 +102,19 @@ class Sunburst: BindableObject {
         
         // Iterate through the nodes
         for node in orderedNodes {
-            var arc = Sunburst.Arc(node: node, totalValue: totalValue)
+
+            // Get the arc from cache or create a new one
+            var arc: Sunburst.Arc
+            if let cachedArc = arcsCache[node.id] {
+                arc = cachedArc
+                arc.update(node: node, totalValue: totalValue)
+            } else {
+                arc = Sunburst.Arc(node: node, level: level, totalValue: totalValue)
+                arcsCache[node.id] = arc
+            }
+
             if let children = node.children {
-                arc.childArcs = configureArcs(nodes: children, totalValue: totalValue)
+                arc.childArcs = configureArcs(nodes: children, totalValue: totalValue, level: level + 1)
             }
             arcs.append(arc)
         }
@@ -105,11 +125,11 @@ class Sunburst: BindableObject {
     private func modelDidChange() {
         guard nestedUpdates == 0 else { return }
 
-        arcs = configureArcs(nodes: configuration.nodes, totalValue: configuration.totalNodesValue)
+        rootArcs = configureArcs(nodes: configuration.nodes, totalValue: configuration.totalNodesValue)
 
         // Recalculate locations, to pack within circle.
         let startLocation = -.pi / 2.0 + (configuration.startingAngle * .pi / 180)
-        recalculateLocations(arcs: &arcs, startLocation: startLocation)
+        recalculateLocations(arcs: &rootArcs, startLocation: startLocation)
         
         didChange.send(self)
     }
@@ -129,17 +149,9 @@ class Sunburst: BindableObject {
 
 // MARK: - Animation
 
-// Extend the arc description to conform to the Animatable type to
-// simplify creation of custom shapes using the arc.
 extension Sunburst.Arc: Animatable {
-    // Use a composition of pairs to merge the interpolated values into
-    // a single type. AnimatablePair acts as a single interpolatable
-    // values, given two interpolatable input types. We'll interpolate
-    // the derived start/end angles.
-    
-    public typealias AnimatableData = AnimatablePair<Double, Double>
-    
-    public var animatableData: AnimatableData {
+
+    public var animatableData: AnimatablePair<Double, Double> {
         get {
             AnimatablePair(start, end)
         }
