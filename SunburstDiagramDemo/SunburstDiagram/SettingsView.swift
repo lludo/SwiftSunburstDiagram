@@ -49,7 +49,7 @@ struct SettingsView : View {
                     }
                     VStack(alignment: .leading) {
                         Text("innerRadius = \(configuration.innerRadius)")
-                        Slider(value: $configuration.innerRadius, from: CGFloat(0), through: CGFloat(200))
+                        Slider(value: $configuration.innerRadius, from: CGFloat(6), through: CGFloat(200))
                     }
                     VStack(alignment: .leading) {
                         Text("expandedArcThickness = \(configuration.expandedArcThickness)")
@@ -97,6 +97,18 @@ struct SettingsView : View {
 //                    } else if configuration.calculationMode == .hide {
 //                        Stepper(value: $parentTotalValue, in: 0.0 ... .pi) { Text(".hide(ifLessThan:)") }
 //                    }
+                }
+                Section(header:Text("Interactions").font(.subheadline)) {
+                    HStack {
+                        Text("selectedNode")
+                        Spacer()
+                        Text(configuration.selectedNode == nil ? "none" : configuration.selectedNode!.name).color(Color.secondary)
+                    }
+                    HStack {
+                        Text("focusedNode")
+                        Spacer()
+                        Text(configuration.focusedNode == nil ? "none" : configuration.focusedNode!.name).color(Color.secondary)
+                    }
                 }
             }.navigationBarTitle(Text("Configuration"))
         }

@@ -20,10 +20,19 @@ struct ArcView: View {
     }
     
     var body: some View {
-        ZStack() {
-            ArcShape(arc, configuration: configuration).fill(arc.backgroundColor).animation(.basic())
+        let animation = Animation.basic()
+        let arcShape = ArcShape(arc, configuration: configuration)
+            .fill(arc.backgroundColor)
+            .animation(animation)
+
+        return ZStack() {
+            arcShape
+            ArcShape(arc, configuration: configuration)
+                .stroke(Color.primary, lineWidth: arc.node == configuration.selectedNode ? 4 : 0)
+                .mask(arcShape)
+                .animation(animation)
             if configuration.maximumExpandedRingsShownCount == nil || arc.level < configuration.maximumExpandedRingsShownCount! {
-                ArcLabel(arc, configuration: configuration).animation(.basic())
+                ArcLabel(arc, configuration: configuration).animation(animation)
             }
         }
     }
@@ -46,11 +55,11 @@ struct ArcLabel: View {
     
     var body: some View {
         VStack() {
-            IfLet(arc.image) { image in
+            IfLet(arc.node.image) { image in
                 Image(uiImage: image)
             }
             if !arc.isTextHidden {
-                Text(arc.text)
+                Text(arc.node.name)
             }
         }
         .offset(x: offset.x, y: offset.y)

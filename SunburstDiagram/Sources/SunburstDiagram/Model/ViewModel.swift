@@ -14,9 +14,7 @@ class Sunburst: BindableObject {
     struct Arc: Equatable, Identifiable {
         let id: ObjectIdentifier
         let level: UInt
-
-        let text: String
-        let image: UIImage?
+        let node: Node
 
         var width: Double
         var backgroundColor: Color
@@ -35,9 +33,7 @@ class Sunburst: BindableObject {
         init(node: Node, level: UInt, totalValue: Double) {
             self.id = node.id
             self.level = level
-
-            self.text = node.name
-            self.image = node.image
+            self.node = node
             
             let ciColor = CIColor(color: node.computedBackgroundColor) // All this is far from ideal :(
             backgroundColor = Color(red: Double(ciColor.red), green: Double(ciColor.green), blue: Double(ciColor.blue))
@@ -154,7 +150,7 @@ class Sunburst: BindableObject {
             let outerRadius = innerRadius + arcs[index].arcThickness(configuration: configuration)
             arcs[index].innerRadius = innerRadius
             arcs[index].outerRadius = outerRadius
-            
+
             arcs[index].innerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(innerRadius)
             arcs[index].outerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(outerRadius)
         }

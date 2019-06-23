@@ -36,6 +36,13 @@ public class SunburstConfiguration: BindableObject {
     /// Rings passed this will be shown collapsed (to show more rings with less data)
     public var maximumExpandedRingsShownCount: UInt? = nil          { didSet { modelDidChange() } }
 
+    // MARK: Interactions
+
+//    public var allowsSelection: Bool = true                         { didSet { modelDidChange() } }
+
+    public var selectedNode: Node?                                  { didSet { modelDidChange() } }
+    public var focusedNode: Node?                                   { didSet { modelDidChange() } }
+
     public let didChange = PassthroughSubject<SunburstConfiguration, Never>()
 
     lazy var sunburst: Sunburst = {
@@ -76,7 +83,8 @@ public class SunburstConfiguration: BindableObject {
 }
 
 /// The `Node` class holds the data shown in the diagram
-public class Node: Identifiable {
+public class Node: Identifiable, Equatable {
+
     public let name: String
     public var children: [Node]? = nil
     public var value: Double? = nil
@@ -84,7 +92,11 @@ public class Node: Identifiable {
     public var showName: Bool = true
     public var image: UIImage? = nil
     public var backgroundColor: UIColor? = nil
-    
+
+    // Internal values
+    var computedValue: Double = 0.0
+    var computedBackgroundColor: UIColor = .systemGray
+
     public init(name: String, showName: Bool = true, image: UIImage? = nil,
                 value: Double? = nil, backgroundColor: UIColor? = nil, children: [Node]? = nil) {
         self.name = name
@@ -94,11 +106,10 @@ public class Node: Identifiable {
         self.backgroundColor = backgroundColor
         self.children = children
     }
-    
-    // MARK: - Internal
-    
-    var computedValue: Double = 0.0
-    var computedBackgroundColor: UIColor = .systemGray
+
+    public static func == (lhs: Node, rhs: Node) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 public enum CalculationMode: Hashable {
