@@ -34,7 +34,7 @@ If you prefer not to use the Swift Package Manager, you can integrate SunburstDi
 - [x] Configure with a tree of node objects
 - [x] Nodes have an optional label displayed (image & text)
 - [x] Reactive UI with animated updates
-- [x] Optionally configure nodes with a value (4 different rendering modes: `.ordinalFromRoot`, `.ordinalFromLeaves`,`.parentDependent`,`.parentIndependent`)
+- [x] Optionally configure nodes with a value (4 different rendering modes)
 - [x] Infinite number of layers (circles) support
 - [x] Option to configure margin, size, sort and initial positions of arcs
 - [x] Option to collapse arcs beyond a certain layer (to show more layers with less data)
