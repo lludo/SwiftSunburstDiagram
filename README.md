@@ -4,7 +4,7 @@ Sunburst diagram is a library written with SwiftUI to easily render diagrams giv
 
 <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/diagram-icons-only.png" alt="diagram with icons only" width="400"/> <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/diagram-with-text.png" alt="diagram with icons and text" width="400"/>
 
-**⚠️ WARNING ⚠️** This is an early version of this library that requires Swift 5.1 and  Xcode 11 that are currently still in beta, some features available in the public API have not been implemented yet (see below).
+**⚠️ WARNING ⚠️** This is an early version of this library that requires Swift 5.1 and Xcode 11 that are currently still in beta, some features available in the public API have not been implemented yet (see below).
 
 
 ## Requirements
@@ -36,7 +36,9 @@ If you prefer not to use the Swift Package Manager, you can integrate SunburstDi
 - [x] Reactive UI with animated updates
 - [x] Optionally configure nodes with a value (4 different rendering modes: `.ordinalFromRoot`, `.ordinalFromLeaves`,`.parentDependent`,`.parentIndependent`)
 - [x] Infinite number of layers (circles) support
-- [x] Option to configure arc margin (default 1pt)
+- [x] Option to configure margin, size, sort and initial positions of arcs
+- [x] Option to collapse arcs beyond a certain layer (to show more layers with less data)
+- [x] Ability to select a node 
 
 ## Usage
 
@@ -70,15 +72,9 @@ The demo app in this repo is also written with SwiftUI and allows to experience 
 
 ## Todo
 
-- [ ] Add option to select an arc
-- [ ] Add option to navigate by clicking an arc to see more detail
+- [ ] Implement option to focus by clicking an arc to see more detail
 - [ ] Implement option for max number of rings to display
-- [ ] Implement option to have collapsed rings (to show more layers with less data)
-- [ ] Implement option to configure the number of expanded / collapsed rings displayed
-- [ ] Implement option to configure the size of central / expended / collapsed rings
 - [ ] Implement option for min arc percentage (if less, show data in grouped in "other")
-- [ ] Add option to get currently selected ring
-- [ ] Add selection callbacks
 - [ ] Compute arc colors if not provided by nodes
 - [ ] Add option to show un-assigned if total of arcs is less than 100%
 - [ ] Add rounded corners option for arcs with margins?
