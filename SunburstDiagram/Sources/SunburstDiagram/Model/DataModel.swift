@@ -320,6 +320,24 @@ extension SunburstConfiguration {
         }
         return nodesTotalComputedValue
     }
+
+    // MARK: Utilities
+
+    func parentForNode(_ node: Node) -> Node? {
+        return parentNodeFor(node: node, inNodes: nodes, withParent: nil)
+    }
+
+    private func parentNodeFor(node nodeToFind: Node, inNodes nodes: [Node], withParent parentNode: Node?) -> Node? {
+        for node in nodes {
+            if nodeToFind === node {
+                return parentNode
+            }
+            if let childNodes = node.children, let foundParent = parentNodeFor(node: nodeToFind, inNodes: childNodes, withParent: node) {
+                return foundParent
+            }
+        }
+        return nil
+    }
 }
 
 extension Node: CustomStringConvertible {

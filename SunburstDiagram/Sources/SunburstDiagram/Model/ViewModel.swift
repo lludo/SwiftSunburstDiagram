@@ -38,7 +38,7 @@ class Sunburst: BindableObject {
             let ciColor = CIColor(color: node.computedBackgroundColor) // All this is far from ideal :(
             backgroundColor = Color(red: Double(ciColor.red), green: Double(ciColor.green), blue: Double(ciColor.blue))
             
-            width = (node.computedValue / totalValue) * 2.0 * .pi
+            width = totalValue > 0 ? (node.computedValue / totalValue) * 2.0 * .pi : 0
             isTextHidden = !node.showName
         }
 
@@ -46,7 +46,7 @@ class Sunburst: BindableObject {
             let ciColor = CIColor(color: node.computedBackgroundColor) // All this is far from ideal :(
             backgroundColor = Color(red: Double(ciColor.red), green: Double(ciColor.green), blue: Double(ciColor.blue))
 
-            width = (node.computedValue / totalValue) * 2.0 * .pi
+            width = totalValue > 0 ? (node.computedValue / totalValue) * 2.0 * .pi : 0
             isTextHidden = !node.showName
         }
     }
@@ -55,6 +55,7 @@ class Sunburst: BindableObject {
 
     private(set) var rootArcs: [Arc] = []
     private var arcsCache: [ObjectIdentifier : Arc] = [:]
+    private var focusedLevel: UInt = 0
 
     // Trivial publisher for our changes.
     let didChange = PassthroughSubject<Sunburst, Never>()
@@ -88,9 +89,12 @@ class Sunburst: BindableObject {
     
     // MARK: Private
     
-    private func configureArcs(nodes: [Node], totalValue: Double, level: UInt = 0) -> [Sunburst.Arc] {
+    private func configureArcs(nodes: [Node], totalValue: Double, level: UInt = 1,
+                               focusedNode: Node? = nil, foundFocusedNode: Bool = false) -> [Sunburst.Arc] {
         var arcs: [Sunburst.Arc] = []
-        
+
+        let shouldUseTotalValue = (focusedNode != nil) == foundFocusedNode
+
         // Sort the nodes if needed
         let orderedNodes: [Node]
         switch configuration.nodesSort {
@@ -101,22 +105,32 @@ class Sunburst: BindableObject {
         case .none:
             orderedNodes = nodes
         }
-        
+
         // Iterate through the nodes
         for node in orderedNodes {
+
+            // Look for levels depending on focused nodes
+            var foundFocusedNode = foundFocusedNode
+            var totalValueForDisplay = shouldUseTotalValue ? totalValue : 0
+            if let focusedNode = focusedNode, foundFocusedNode == false, node === focusedNode {
+                foundFocusedNode = true
+                totalValueForDisplay = node.computedValue
+                focusedLevel = level
+            }
 
             // Get the arc from cache or create a new one
             var arc: Sunburst.Arc
             if let cachedArc = arcsCache[node.id] {
                 arc = cachedArc
-                arc.update(node: node, totalValue: totalValue)
+                arc.update(node: node, totalValue: totalValueForDisplay)
             } else {
-                arc = Sunburst.Arc(node: node, level: level, totalValue: totalValue)
+                arc = Sunburst.Arc(node: node, level: level, totalValue: totalValueForDisplay)
                 arcsCache[node.id] = arc
             }
 
             if let children = node.children {
-                arc.childArcs = configureArcs(nodes: children, totalValue: totalValue, level: level + 1)
+                arc.childArcs = configureArcs(nodes: children, totalValue: totalValueForDisplay, level: level + 1,
+                                              focusedNode: focusedNode, foundFocusedNode: foundFocusedNode)
             }
             arcs.append(arc)
         }
@@ -127,7 +141,12 @@ class Sunburst: BindableObject {
     private func modelDidChange() {
         guard nestedUpdates == 0 else { return }
 
-        rootArcs = configureArcs(nodes: configuration.nodes, totalValue: configuration.totalNodesValue)
+        focusedLevel = 0
+        if let focusedNode = configuration.focusedNode {
+            rootArcs = configureArcs(nodes: configuration.nodes, totalValue: configuration.totalNodesValue, focusedNode: focusedNode)
+        } else {
+            rootArcs = configureArcs(nodes: configuration.nodes, totalValue: configuration.totalNodesValue)
+        }
 
         // Recalculate locations, to pack within circle.
         let startLocation = -.pi / 2.0 + (configuration.startingAngle * .pi / 180)
@@ -146,13 +165,20 @@ class Sunburst: BindableObject {
             location += arcs[index].width
             arcs[index].end = location
 
-            let innerRadius = arcs[index].arcInnerRadius(configuration: configuration)
-            let outerRadius = innerRadius + arcs[index].arcThickness(configuration: configuration)
+            let innerRadius = arcs[index].arcInnerRadius(configuration: configuration, focusedLevel: focusedLevel)
+            let outerRadius = innerRadius + arcs[index].arcThickness(configuration: configuration, focusedLevel: focusedLevel)
             arcs[index].innerRadius = innerRadius
             arcs[index].outerRadius = outerRadius
 
-            arcs[index].innerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(innerRadius)
-            arcs[index].outerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(outerRadius)
+            if focusedLevel < arcs[index].level {
+                let innerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(innerRadius)
+                let outerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(outerRadius)
+                arcs[index].innerMargin = min(arcs[index].width / 2.0, innerMargin)
+                arcs[index].outerMargin = min(arcs[index].width / 2.0, outerMargin)
+            } else {
+                arcs[index].innerMargin = 0.0
+                arcs[index].outerMargin = 0.0
+            }
         }
     }
 }
@@ -162,26 +188,40 @@ class Sunburst: BindableObject {
 // Geometry
 extension Sunburst.Arc {
 
-    func arcIsExpanded(configuration: SunburstConfiguration) -> Bool {
+    func arcIsExpanded(configuration: SunburstConfiguration, focusedLevel: UInt) -> Bool {
+        guard focusedLevel < level else {
+            return true
+        }
+
         if let maximumExpandedRingsShownCount = configuration.maximumExpandedRingsShownCount {
-            return level < maximumExpandedRingsShownCount
+            let displayedLevel = level - focusedLevel - 1
+            return displayedLevel < maximumExpandedRingsShownCount
         } else {
             return true
         }
     }
 
-    func arcInnerRadius(configuration: SunburstConfiguration) -> Length {
-        if let maximumExpandedRingsShownCount = configuration.maximumExpandedRingsShownCount, level >= maximumExpandedRingsShownCount {
+    func arcInnerRadius(configuration: SunburstConfiguration, focusedLevel: UInt) -> Length {
+        guard focusedLevel < level else {
+            return 0
+        }
+
+        let displayedLevel = level - focusedLevel - 1
+        if let maximumExpandedRingsShownCount = configuration.maximumExpandedRingsShownCount, displayedLevel >= maximumExpandedRingsShownCount {
             let expandedRingsThickness = Length(maximumExpandedRingsShownCount) * (configuration.expandedArcThickness + configuration.marginBetweenArcs)
-            let collapsedRingsThickness = Length(level - maximumExpandedRingsShownCount) * (configuration.collapsedArcThickness + configuration.marginBetweenArcs)
+            let collapsedRingsThickness = Length(displayedLevel - maximumExpandedRingsShownCount) * (configuration.collapsedArcThickness + configuration.marginBetweenArcs)
             return expandedRingsThickness + collapsedRingsThickness + configuration.innerRadius
         } else {
-            return Length(level) * (configuration.expandedArcThickness + configuration.marginBetweenArcs) + configuration.innerRadius
+            return Length(displayedLevel) * (configuration.expandedArcThickness + configuration.marginBetweenArcs) + configuration.innerRadius
         }
     }
 
-    func arcThickness(configuration: SunburstConfiguration) -> Length {
-        return arcIsExpanded(configuration: configuration) ? configuration.expandedArcThickness : configuration.collapsedArcThickness
+    func arcThickness(configuration: SunburstConfiguration, focusedLevel: UInt) -> Length {
+        guard focusedLevel < level else {
+            return configuration.innerRadius - configuration.marginBetweenArcs
+        }
+
+        return arcIsExpanded(configuration: configuration, focusedLevel: focusedLevel) ? configuration.expandedArcThickness : configuration.collapsedArcThickness
     }
 }
 
