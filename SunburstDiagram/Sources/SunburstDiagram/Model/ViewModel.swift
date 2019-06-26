@@ -203,10 +203,13 @@ extension Sunburst.Arc {
 
     func arcInnerRadius(configuration: SunburstConfiguration, focusedLevel: UInt) -> Length {
         guard focusedLevel < level else {
-            return 0
+            return 0.0
         }
 
-        let displayedLevel = level - focusedLevel - 1
+        var displayedLevel = level - focusedLevel - 1
+        if let maximumRingsShownCount = configuration.maximumRingsShownCount, displayedLevel >= maximumRingsShownCount {
+            displayedLevel = maximumRingsShownCount - 1
+        }
         if let maximumExpandedRingsShownCount = configuration.maximumExpandedRingsShownCount, displayedLevel >= maximumExpandedRingsShownCount {
             let expandedRingsThickness = Length(maximumExpandedRingsShownCount) * (configuration.expandedArcThickness + configuration.marginBetweenArcs)
             let collapsedRingsThickness = Length(displayedLevel - maximumExpandedRingsShownCount) * (configuration.collapsedArcThickness + configuration.marginBetweenArcs)
@@ -221,7 +224,12 @@ extension Sunburst.Arc {
             return configuration.innerRadius - configuration.marginBetweenArcs
         }
 
-        return arcIsExpanded(configuration: configuration, focusedLevel: focusedLevel) ? configuration.expandedArcThickness : configuration.collapsedArcThickness
+        let displayedLevel = level - focusedLevel - 1
+        if let maximumRingsShownCount = configuration.maximumRingsShownCount, displayedLevel >= maximumRingsShownCount {
+            return 0.0
+        } else {
+            return arcIsExpanded(configuration: configuration, focusedLevel: focusedLevel) ? configuration.expandedArcThickness : configuration.collapsedArcThickness
+        }
     }
 }
 
