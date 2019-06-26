@@ -31,8 +31,9 @@ struct ArcView: View {
                 .stroke(Color.primary, lineWidth: arc.node == configuration.selectedNode ? 4 : 0)
                 .mask(arcShape)
                 .animation(animation)
-            if arc.width > 0 && (configuration.maximumExpandedRingsShownCount == nil || arc.level <= configuration.maximumExpandedRingsShownCount!) {
-                ArcLabel(arc, configuration: configuration).animation(animation)
+            if arc.width > 0 && (configuration.maximumRingsShownCount == nil || arc.level <= configuration.maximumRingsShownCount!)
+                && (configuration.maximumExpandedRingsShownCount == nil || arc.level <= configuration.maximumExpandedRingsShownCount!) {
+                    ArcLabel(arc, configuration: configuration).animation(animation)
             }
         }
     }

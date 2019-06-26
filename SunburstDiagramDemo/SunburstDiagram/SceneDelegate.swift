@@ -42,6 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
 
         configuration.expandedArcThickness = 56.0
         configuration.maximumExpandedRingsShownCount = 2
+        configuration.maximumRingsShownCount = 4
 
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = UIHostingController(rootView: RootView(configuration: configuration))

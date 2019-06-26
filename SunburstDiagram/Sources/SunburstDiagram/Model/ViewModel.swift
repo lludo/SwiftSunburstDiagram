@@ -208,7 +208,7 @@ extension Sunburst.Arc {
 
         var displayedLevel = level - focusedLevel - 1
         if let maximumRingsShownCount = configuration.maximumRingsShownCount, displayedLevel >= maximumRingsShownCount {
-            displayedLevel = maximumRingsShownCount - 1
+            displayedLevel = maximumRingsShownCount
         }
         if let maximumExpandedRingsShownCount = configuration.maximumExpandedRingsShownCount, displayedLevel >= maximumExpandedRingsShownCount {
             let expandedRingsThickness = Length(maximumExpandedRingsShownCount) * (configuration.expandedArcThickness + configuration.marginBetweenArcs)
