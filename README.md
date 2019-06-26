@@ -38,7 +38,8 @@ If you prefer not to use the Swift Package Manager, you can integrate SunburstDi
 - [x] Infinite number of layers (circles) support
 - [x] Option to configure margin, size, sort and initial positions of arcs
 - [x] Option to collapse arcs beyond a certain layer (to show more layers with less data)
-- [x] Ability to select a node 
+- [x] Ability to select a node and focus on a node to see more details
+- [x] Option for maximum number of rings to display (window moving are you focus on nodes)
 
 ## Usage
 
@@ -72,8 +73,6 @@ The demo app in this repo is also written with SwiftUI and allows to experience 
 
 ## Todo
 
-- [ ] Implement option to focus by clicking an arc to see more detail
-- [ ] Implement option for max number of rings to display
 - [ ] Implement option for min arc percentage (if less, show data in grouped in "other")
 - [ ] Compute arc colors if not provided by nodes
 - [ ] Add option to show un-assigned if total of arcs is less than 100%
