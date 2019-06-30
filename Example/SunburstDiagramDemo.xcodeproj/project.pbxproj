@@ -28,7 +28,7 @@
 		430D470D22AF77B600A7FA6E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		430D471022AF77B600A7FA6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		430D471222AF77B600A7FA6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		430D473722B1FF2A00A7FA6E /* SunburstDiagram */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SunburstDiagram; path = ../SunburstDiagram; sourceTree = "<group>"; };
+		437F415822C866650092B76E /* SwiftSunburstDiagram */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftSunburstDiagram; path = ..; sourceTree = "<group>"; };
 		82A57BA622B873190044FF2B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		82C7F13B22B9C5EE008B461C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		82C7F13D22B9CE95008B461C /* SettingsNodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNodesView.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		430D473622B1FF2A00A7FA6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				430D473722B1FF2A00A7FA6E /* SunburstDiagram */,
+				437F415822C866650092B76E /* SwiftSunburstDiagram */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
