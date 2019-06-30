@@ -47,7 +47,13 @@ struct SettingsNodesView : View {
 #if DEBUG
 struct SettingsNodesView_Previews : PreviewProvider {
     static var previews: some View {
-        SettingsNodesView(nodes: nil)
+        SettingsNodesView(nodes: [
+            Node(name: "Walking",
+                 showName: false,
+                 image: UIImage(named: "walking"),
+                 value: 10.0,
+                 backgroundColor: .systemBlue)
+        ])
     }
 }
 #endif

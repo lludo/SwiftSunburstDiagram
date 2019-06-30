@@ -47,3 +47,25 @@ public struct SunburstView: View {
         }
     }
 }
+
+#if DEBUG
+struct SunburstView_Previews : PreviewProvider {
+    static var previews: some View {
+        let configuration = SunburstConfiguration(nodes: [
+            Node(name: "Walking",
+                 showName: false,
+                 value: 10.0,
+                 backgroundColor: .systemBlue),
+            Node(name: "Restaurant",
+                 showName: false,
+                 value: 30.0,
+                 backgroundColor: .systemRed),
+            Node(name: "Home",
+                 showName: false,
+                 value: 75.0,
+                 backgroundColor: .systemTeal)
+        ])
+        return SunburstView(configuration: configuration)
+    }
+}
+#endif

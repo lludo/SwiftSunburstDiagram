@@ -41,7 +41,23 @@ struct RootView : View {
 #if DEBUG
 struct RootView_Previews : PreviewProvider {
     static var previews: some View {
-        let configuration = SunburstConfiguration(nodes: [])
+        let configuration = SunburstConfiguration(nodes: [
+            Node(name: "Walking",
+                 showName: false,
+                 image: UIImage(named: "walking"),
+                 value: 10.0,
+                 backgroundColor: .systemBlue),
+            Node(name: "Restaurant",
+                 showName: false,
+                 image: UIImage(named: "eating"),
+                 value: 30.0,
+                 backgroundColor: .systemRed),
+            Node(name: "Home",
+                 showName: false,
+                 image: UIImage(named: "house"),
+                 value: 75.0,
+                 backgroundColor: .systemTeal)
+        ])
         return RootView(configuration: configuration)
     }
 }

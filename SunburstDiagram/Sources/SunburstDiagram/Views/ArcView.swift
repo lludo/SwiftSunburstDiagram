@@ -134,3 +134,20 @@ private struct ArcGeometry {
 private func lerp<T: BinaryFloatingPoint>(_ fromValue: T, _ toValue: T, by amount: T) -> T {
     return fromValue + (toValue - fromValue) * amount
 }
+
+#if DEBUG
+struct ArcView_Previews : PreviewProvider {
+    static var previews: some View {
+        let node =  Node(name: "Walking",
+                         showName: false,
+                         value: 10.0,
+                         backgroundColor: .systemBlue)
+        let totalValue = 30.0
+        let arc = Sunburst.Arc(node: node, level: 1, totalValue: totalValue)
+        let configuration = SunburstConfiguration(nodes: [node],
+                calculationMode: .parentIndependent(totalValue: totalValue))
+
+        return ArcView(arc: arc, configuration: configuration)
+    }
+}
+#endif
