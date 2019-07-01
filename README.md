@@ -3,6 +3,7 @@
 [![Swift Version](https://img.shields.io/badge/Swift-5.1-orange.svg)](https://swift.org/blog/5-1-release-process/)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 [![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-✔-brightgreen.svg)](https://github.com/apple/swift-package-manager)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SunburstDiagram.svg)](https://img.shields.io/cocoapods/v/SunburstDiagram.svg)
 
 Sunburst diagram is a library written with SwiftUI to easily render diagrams given a tree of objects. Similar to ring chart, sunburst chart, multilevel pie chart.
 
@@ -20,6 +21,8 @@ Sunburst diagram is a library written with SwiftUI to easily render diagrams giv
 
 ## Installation
 
+### Swift Package Manager
+
 The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is now integrated in Xcode 11.
 
 Once you have your Swift package set up, adding SunburstDiagram as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
@@ -29,6 +32,18 @@ dependencies: [
     .package(url: "https://github.com/lludo/SwiftSunburstDiagram.git")
 ]
 ```
+
+
+### Cocoapods
+
+[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Alamofire into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+pod 'SunburstDiagram', '~> 1.0.0'
+```
+
+
+### Manually
 
 If you prefer not to use the Swift Package Manager, you can integrate SunburstDiagram into your project manually.
 
