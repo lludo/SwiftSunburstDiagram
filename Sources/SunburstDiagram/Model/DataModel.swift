@@ -19,31 +19,31 @@ import UIKit
 
 /// The `SunburstConfiguration` is the main configuration class used to create the `SunburstView`
 public class SunburstConfiguration: BindableObject {
-    public var nodes: [Node] = []                                   { didSet { modelDidChange() } }
-    public var calculationMode: CalculationMode = .ordinalFromRoot  { didSet { modelDidChange() } }
-    public var nodesSort: NodesSort = .none                         { didSet { modelDidChange() } }
+    public var nodes: [Node] = []                                   { willSet { modelWillChange() } }
+    public var calculationMode: CalculationMode = .ordinalFromRoot  { willSet { modelWillChange() } }
+    public var nodesSort: NodesSort = .none                         { willSet { modelWillChange() } }
     
-    public var marginBetweenArcs: CGFloat = 1.0                     { didSet { modelDidChange() } }
-    public var collapsedArcThickness: CGFloat = 8.0                 { didSet { modelDidChange() } }
-    public var expandedArcThickness: CGFloat = 60.0                 { didSet { modelDidChange() } }
-    public var innerRadius: CGFloat = 60.0                          { didSet { modelDidChange() } }
+    public var marginBetweenArcs: CGFloat = 1.0                     { willSet { modelWillChange() } }
+    public var collapsedArcThickness: CGFloat = 8.0                 { willSet { modelWillChange() } }
+    public var expandedArcThickness: CGFloat = 60.0                 { willSet { modelWillChange() } }
+    public var innerRadius: CGFloat = 60.0                          { willSet { modelWillChange() } }
 
     /// Angle in degrees, start at the top and rotate clockwise
-    public var startingAngle: Double = 0.0                          { didSet { modelDidChange() } }
-    public var minimumArcAngleShown: ArcMinimumAngle = .showAll     { didSet { modelDidChange() } }
+    public var startingAngle: Double = 0.0                          { willSet { modelWillChange() } }
+    public var minimumArcAngleShown: ArcMinimumAngle = .showAll     { willSet { modelWillChange() } }
     
-    public var maximumRingsShownCount: UInt? = nil                  { didSet { modelDidChange() } }
+    public var maximumRingsShownCount: UInt? = nil                  { willSet { modelWillChange() } }
     /// Rings passed this will be shown collapsed (to show more rings with less data)
-    public var maximumExpandedRingsShownCount: UInt? = nil          { didSet { modelDidChange() } }
+    public var maximumExpandedRingsShownCount: UInt? = nil          { willSet { modelWillChange() } }
 
     // MARK: Interactions
 
-//    public var allowsSelection: Bool = true                         { didSet { modelDidChange() } }
+//    public var allowsSelection: Bool = true                         { willSet { modelWillChange() } }
 
-    public var selectedNode: Node?                                  { didSet { modelDidChange() } }
-    public var focusedNode: Node?                                   { didSet { modelDidChange() } }
+    public var selectedNode: Node?                                  { willSet { modelWillChange() } }
+    public var focusedNode: Node?                                   { willSet { modelWillChange() } }
 
-    public let didChange = PassthroughSubject<SunburstConfiguration, Never>()
+    public let willChange = PassthroughSubject<SunburstConfiguration, Never>()
 
     lazy var sunburst: Sunburst = {
         return Sunburst(configuration: self)
@@ -67,18 +67,18 @@ public class SunburstConfiguration: BindableObject {
         defer {
             nestedUpdates -= 1
             if nestedUpdates == 0 {
-                modelDidChange()
+                modelWillChange()
             }
         }
         body()
     }
 
     // Called after each change, updates derived model values and posts the notification.
-    private func modelDidChange() {
+    private func modelWillChange() {
         guard nestedUpdates == 0 else { return }
 
         validateAndPrepare()
-        didChange.send(self)
+        willChange.send(self)
     }
 }
 

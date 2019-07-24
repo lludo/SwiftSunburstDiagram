@@ -20,10 +20,10 @@ struct SettingsView : View {
         NavigationView {
             Form {
                 Section(header:Text("Content").font(.subheadline)) {
-                    NavigationButton(destination: SettingsNodesView(nodes: configuration.nodes)) {
+                    NavigationLink(destination: SettingsNodesView(nodes: configuration.nodes)) {
                         Text("nodes")
                         Spacer()
-                        Text(configuration.nodes.count == 0 ? "[No nodes]" : "[\(configuration.nodes.count) root nodes]").color(Color.secondary)
+                        Text(configuration.nodes.count == 0 ? "[No nodes]" : "[\(configuration.nodes.count) root nodes]").foregroundColor(Color.secondary)
                     }
                     Picker(selection: $configuration.nodesSort, label: Text("nodesSort")) {
                         Text(".none").tag(NodesSort.none)
@@ -102,12 +102,12 @@ struct SettingsView : View {
                     HStack {
                         Text("selectedNode")
                         Spacer()
-                        Text(configuration.selectedNode == nil ? "none" : configuration.selectedNode!.name).color(Color.secondary)
+                        Text(configuration.selectedNode == nil ? "none" : configuration.selectedNode!.name).foregroundColor(Color.secondary)
                     }
                     HStack {
                         Text("focusedNode")
                         Spacer()
-                        Text(configuration.focusedNode == nil ? "none" : configuration.focusedNode!.name).color(Color.secondary)
+                        Text(configuration.focusedNode == nil ? "none" : configuration.focusedNode!.name).foregroundColor(Color.secondary)
                     }
                 }
             }.navigationBarTitle(Text("Configuration"))

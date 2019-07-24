@@ -16,7 +16,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
-        let configuration = SunburstConfiguration(nodes: [
+        let nodes = sampleNodes()
+        let configuration = SunburstConfiguration(nodes: nodes, calculationMode: .ordinalFromLeaves)
+
+        configuration.expandedArcThickness = 56.0
+        configuration.maximumExpandedRingsShownCount = 2
+        configuration.maximumRingsShownCount = 4
+
+        // Use a UIHostingController as window root view controller
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            window.rootViewController = UIHostingController(rootView: RootView(configuration: configuration))
+            self.window = window
+            window.makeKeyAndVisible()
+        }
+    }
+
+    func sampleNodes() -> [Node] {
+        let nodes = [
             Node(name: "Walking", showName: false, image: UIImage(named: "walking"), value: 10.0, backgroundColor: .systemBlue),
             Node(name: "Restaurant", showName: false, image: UIImage(named: "eating"), value: 30.0, backgroundColor: .systemRed, children: [
                 Node(name: "Dessert", showName: false, image: UIImage(named: "croissant"), value: 10.0, backgroundColor: .systemYellow, children: [
@@ -38,15 +55,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
                 ]),
                 Node(name: "Lyon", showName: false, image: UIImage(named: "house"), value: 6.0, backgroundColor: .systemTeal),
             ]),
-        ], calculationMode: .parentDependent(totalValue: nil))
+        ]
 
-        configuration.expandedArcThickness = 56.0
-        configuration.maximumExpandedRingsShownCount = 2
-        configuration.maximumRingsShownCount = 4
-
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = UIHostingController(rootView: RootView(configuration: configuration))
-        self.window = window
-        window.makeKeyAndVisible()
+        return nodes
     }
 }

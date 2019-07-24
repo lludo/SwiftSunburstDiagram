@@ -20,7 +20,7 @@ struct ArcView: View {
     }
     
     var body: some View {
-        let animation = Animation.basic()
+        let animation = Animation.easeInOut
         let arcShape = ArcShape(arc, configuration: configuration)
             .fill(arc.backgroundColor)
             .animation(animation)

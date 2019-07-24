@@ -23,7 +23,7 @@ struct SettingsNodesView : View {
                 }
             }
             Section {
-                NavigationButton(destination: SettingsNewNodeView()) {
+                NavigationLink(destination: SettingsNewNodeView()) {
                     Text("Add new node")
                 }
             }
@@ -31,14 +31,14 @@ struct SettingsNodesView : View {
     }
     
     fileprivate func nodeCellFor(_ node: Node) -> some View {
-        return NavigationButton(destination: SettingsNodesView(nodes: node.children)) {
+        return NavigationLink(destination: SettingsNodesView(nodes: node.children)) {
             HStack {
                 IfLet(node.image) { image in
                     Image(uiImage: image).renderingMode(.template)
                 }
                 Text(node.name)
                 Spacer()
-                Text((node.children?.count ?? 0) == 0 ? "Leaf node" : "\(node.children!.count) child nodes").color(Color.secondary)
+                Text((node.children?.count ?? 0) == 0 ? "Leaf node" : "\(node.children!.count) child nodes").foregroundColor(Color.secondary)
             }
         }
     }

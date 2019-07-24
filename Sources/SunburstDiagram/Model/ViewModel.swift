@@ -58,17 +58,17 @@ class Sunburst: BindableObject {
     private var focusedLevel: UInt = 0
 
     // Trivial publisher for our changes.
-    let didChange = PassthroughSubject<Sunburst, Never>()
+    let willChange = PassthroughSubject<Sunburst, Never>()
 
     init(configuration: SunburstConfiguration) {
         self.configuration = configuration
 
         configuration.validateAndPrepare()
-        _ = configuration.didChange.sink { [weak self] (config) in
-            self?.modelDidChange()
+        _ = configuration.willChange.sink { [weak self] (config) in
+            self?.modelWillChange()
         }
 
-        modelDidChange()
+        modelWillChange()
     }
     
     // Non-zero while a batch of updates is being processed.
@@ -81,7 +81,7 @@ class Sunburst: BindableObject {
         defer {
             nestedUpdates -= 1
             if nestedUpdates == 0 {
-                modelDidChange()
+                modelWillChange()
             }
         }
         body()
@@ -138,7 +138,7 @@ class Sunburst: BindableObject {
     }
     
     // Called after each change, updates derived model values and posts the notification.
-    private func modelDidChange() {
+    private func modelWillChange() {
         guard nestedUpdates == 0 else { return }
 
         focusedLevel = 0
@@ -152,7 +152,7 @@ class Sunburst: BindableObject {
         let startLocation = -.pi / 2.0 + (configuration.startingAngle * .pi / 180)
         recalculateLocations(arcs: &rootArcs, startLocation: startLocation)
         
-        didChange.send(self)
+        willChange.send(self)
     }
     
     private func recalculateLocations(arcs: inout [Sunburst.Arc], startLocation location: Double) {
@@ -173,8 +173,8 @@ class Sunburst: BindableObject {
             if focusedLevel < arcs[index].level {
                 let innerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(innerRadius)
                 let outerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(outerRadius)
-                arcs[index].innerMargin = min(arcs[index].width / 2.0, innerMargin)
-                arcs[index].outerMargin = min(arcs[index].width / 2.0, outerMargin)
+                arcs[index].innerMargin = min(max(0.0, arcs[index].width / 2.0 - Double.ulpOfOne), innerMargin)
+                arcs[index].outerMargin = min(max(0.0, arcs[index].width / 2.0 - Double.ulpOfOne), outerMargin)
             } else {
                 arcs[index].innerMargin = 0.0
                 arcs[index].outerMargin = 0.0
