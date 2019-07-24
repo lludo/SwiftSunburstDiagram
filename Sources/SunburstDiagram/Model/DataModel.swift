@@ -19,29 +19,29 @@ import UIKit
 
 /// The `SunburstConfiguration` is the main configuration class used to create the `SunburstView`
 public class SunburstConfiguration: BindableObject {
-    public var nodes: [Node] = []                                   { willSet { modelWillChange() } }
-    public var calculationMode: CalculationMode = .ordinalFromRoot  { willSet { modelWillChange() } }
-    public var nodesSort: NodesSort = .none                         { willSet { modelWillChange() } }
+    public var nodes: [Node] = []                                   { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
+    public var calculationMode: CalculationMode = .ordinalFromRoot  { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
+    public var nodesSort: NodesSort = .none                         { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
     
-    public var marginBetweenArcs: CGFloat = 1.0                     { willSet { modelWillChange() } }
-    public var collapsedArcThickness: CGFloat = 8.0                 { willSet { modelWillChange() } }
-    public var expandedArcThickness: CGFloat = 60.0                 { willSet { modelWillChange() } }
-    public var innerRadius: CGFloat = 60.0                          { willSet { modelWillChange() } }
+    public var marginBetweenArcs: CGFloat = 1.0                     { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
+    public var collapsedArcThickness: CGFloat = 8.0                 { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
+    public var expandedArcThickness: CGFloat = 60.0                 { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
+    public var innerRadius: CGFloat = 60.0                          { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
 
     /// Angle in degrees, start at the top and rotate clockwise
-    public var startingAngle: Double = 0.0                          { willSet { modelWillChange() } }
-    public var minimumArcAngleShown: ArcMinimumAngle = .showAll     { willSet { modelWillChange() } }
+    public var startingAngle: Double = 0.0                          { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
+    public var minimumArcAngleShown: ArcMinimumAngle = .showAll     { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
     
-    public var maximumRingsShownCount: UInt? = nil                  { willSet { modelWillChange() } }
+    public var maximumRingsShownCount: UInt? = nil                  { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
     /// Rings passed this will be shown collapsed (to show more rings with less data)
-    public var maximumExpandedRingsShownCount: UInt? = nil          { willSet { modelWillChange() } }
+    public var maximumExpandedRingsShownCount: UInt? = nil          { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
 
     // MARK: Interactions
 
-//    public var allowsSelection: Bool = true                         { willSet { modelWillChange() } }
+//    public var allowsSelection: Bool = true                         { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
 
-    public var selectedNode: Node?                                  { willSet { modelWillChange() } }
-    public var focusedNode: Node?                                   { willSet { modelWillChange() } }
+    public var selectedNode: Node?                                  { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
+    public var focusedNode: Node?                                   { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
 
     public let willChange = PassthroughSubject<SunburstConfiguration, Never>()
 
@@ -53,32 +53,6 @@ public class SunburstConfiguration: BindableObject {
         self.nodes = nodes
         self.calculationMode = calculationMode
         self.nodesSort = nodesSort
-    }
-
-    // MARK: - Private
-
-    // Non-zero while a batch of updates is being processed.
-    private var nestedUpdates = 0
-
-    // Invokes `body()` such that any changes it makes to the model
-    // will only post a single notification to observers.
-    func batch(_ body: () -> Void) {
-        nestedUpdates += 1
-        defer {
-            nestedUpdates -= 1
-            if nestedUpdates == 0 {
-                modelWillChange()
-            }
-        }
-        body()
-    }
-
-    // Called after each change, updates derived model values and posts the notification.
-    private func modelWillChange() {
-        guard nestedUpdates == 0 else { return }
-
-        validateAndPrepare()
-        willChange.send(self)
     }
 }
 

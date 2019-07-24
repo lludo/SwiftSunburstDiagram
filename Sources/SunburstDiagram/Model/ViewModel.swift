@@ -53,38 +53,21 @@ class Sunburst: BindableObject {
 
     let configuration: SunburstConfiguration
 
-    private(set) var rootArcs: [Arc] = []
-    private var arcsCache: [ObjectIdentifier : Arc] = [:]
-    private var focusedLevel: UInt = 0
+    private(set) var rootArcs: [Arc] = []                   { willSet { willChange.send(self) } }
+    private var arcsCache: [ObjectIdentifier : Arc] = [:]   { willSet { willChange.send(self) } }
+    private var focusedLevel: UInt = 0                      { willSet { willChange.send(self) } }
 
-    // Trivial publisher for our changes.
     let willChange = PassthroughSubject<Sunburst, Never>()
 
     init(configuration: SunburstConfiguration) {
         self.configuration = configuration
 
-        configuration.validateAndPrepare()
+        updateFromConfiguration()
         _ = configuration.willChange.sink { [weak self] (config) in
-            self?.modelWillChange()
-        }
-
-        modelWillChange()
-    }
-    
-    // Non-zero while a batch of updates is being processed.
-    private var nestedUpdates = 0
-    
-    // Invokes `body()` such that any changes it makes to the model
-    // will only post a single notification to observers.
-    func batch(_ body: () -> Void) {
-        nestedUpdates += 1
-        defer {
-            nestedUpdates -= 1
-            if nestedUpdates == 0 {
-                modelWillChange()
+            DispatchQueue.main.async() {
+                self?.updateFromConfiguration()
             }
         }
-        body()
     }
     
     // MARK: Private
@@ -138,9 +121,7 @@ class Sunburst: BindableObject {
     }
     
     // Called after each change, updates derived model values and posts the notification.
-    private func modelWillChange() {
-        guard nestedUpdates == 0 else { return }
-
+    private func updateFromConfiguration() {
         focusedLevel = 0
         if let focusedNode = configuration.focusedNode {
             rootArcs = configureArcs(nodes: configuration.nodes, totalValue: configuration.totalNodesValue, focusedNode: focusedNode)
@@ -151,8 +132,6 @@ class Sunburst: BindableObject {
         // Recalculate locations, to pack within circle.
         let startLocation = -.pi / 2.0 + (configuration.startingAngle * .pi / 180)
         recalculateLocations(arcs: &rootArcs, startLocation: startLocation)
-        
-        willChange.send(self)
     }
     
     private func recalculateLocations(arcs: inout [Sunburst.Arc], startLocation location: Double) {
