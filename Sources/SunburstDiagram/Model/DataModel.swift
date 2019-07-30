@@ -18,32 +18,32 @@ import UIKit
 // - Drill up / drill up to root
 
 /// The `SunburstConfiguration` is the main configuration class used to create the `SunburstView`
-public class SunburstConfiguration: BindableObject {
-    public var nodes: [Node] = []                                   { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
-    public var calculationMode: CalculationMode = .ordinalFromRoot  { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
-    public var nodesSort: NodesSort = .none                         { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
+public class SunburstConfiguration: ObservableObject {
+    public var nodes: [Node] = []                                   { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
+    public var calculationMode: CalculationMode = .ordinalFromRoot  { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
+    public var nodesSort: NodesSort = .none                         { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
     
-    public var marginBetweenArcs: CGFloat = 1.0                     { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
-    public var collapsedArcThickness: CGFloat = 8.0                 { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
-    public var expandedArcThickness: CGFloat = 60.0                 { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
-    public var innerRadius: CGFloat = 60.0                          { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
+    public var marginBetweenArcs: CGFloat = 1.0                     { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
+    public var collapsedArcThickness: CGFloat = 8.0                 { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
+    public var expandedArcThickness: CGFloat = 60.0                 { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
+    public var innerRadius: CGFloat = 60.0                          { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
 
     /// Angle in degrees, start at the top and rotate clockwise
-    public var startingAngle: Double = 0.0                          { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
-    public var minimumArcAngleShown: ArcMinimumAngle = .showAll     { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
+    public var startingAngle: Double = 0.0                          { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
+    public var minimumArcAngleShown: ArcMinimumAngle = .showAll     { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
     
-    public var maximumRingsShownCount: UInt? = nil                  { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
+    public var maximumRingsShownCount: UInt? = nil                  { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
     /// Rings passed this will be shown collapsed (to show more rings with less data)
-    public var maximumExpandedRingsShownCount: UInt? = nil          { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
+    public var maximumExpandedRingsShownCount: UInt? = nil          { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
 
     // MARK: Interactions
 
-//    public var allowsSelection: Bool = true                         { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
+//    public var allowsSelection: Bool = true                         { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
 
-    public var selectedNode: Node?                                  { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
-    public var focusedNode: Node?                                   { willSet { willChange.send(self) } didSet { validateAndPrepare() } }
+    public var selectedNode: Node?                                  { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
+    public var focusedNode: Node?                                   { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
 
-    public let willChange = PassthroughSubject<SunburstConfiguration, Never>()
+    public let objectWillChange = PassthroughSubject<SunburstConfiguration, Never>()
 
     lazy var sunburst: Sunburst = {
         return Sunburst(configuration: self)

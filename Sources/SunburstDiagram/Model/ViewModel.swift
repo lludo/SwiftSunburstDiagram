@@ -9,7 +9,7 @@
 import Combine
 import SwiftUI
 
-class Sunburst: BindableObject {
+class Sunburst: ObservableObject {
 
     struct Arc: Equatable, Identifiable {
         let id: ObjectIdentifier
@@ -24,8 +24,8 @@ class Sunburst: BindableObject {
         fileprivate(set) var start = 0.0    // The start location of the arc, as an angle in radians.
         fileprivate(set) var end = 0.0      // The end location of the arc, as an angle in radians.
 
-        fileprivate(set) var innerRadius: Length = 0.0
-        fileprivate(set) var outerRadius: Length = 0.0
+        fileprivate(set) var innerRadius: CGFloat = 0.0
+        fileprivate(set) var outerRadius: CGFloat = 0.0
 
         fileprivate(set) var innerMargin = 0.0
         fileprivate(set) var outerMargin = 0.0
@@ -53,17 +53,17 @@ class Sunburst: BindableObject {
 
     let configuration: SunburstConfiguration
 
-    private(set) var rootArcs: [Arc] = []                   { willSet { willChange.send(self) } }
-    private var arcsCache: [ObjectIdentifier : Arc] = [:]   { willSet { willChange.send(self) } }
-    private var focusedLevel: UInt = 0                      { willSet { willChange.send(self) } }
+    private(set) var rootArcs: [Arc] = []                   { willSet { objectWillChange.send(self) } }
+    private var arcsCache: [ObjectIdentifier : Arc] = [:]   { willSet { objectWillChange.send(self) } }
+    private var focusedLevel: UInt = 0                      { willSet { objectWillChange.send(self) } }
 
-    let willChange = PassthroughSubject<Sunburst, Never>()
+    let objectWillChange = PassthroughSubject<Sunburst, Never>()
 
     init(configuration: SunburstConfiguration) {
         self.configuration = configuration
 
         updateFromConfiguration()
-        _ = configuration.willChange.sink { [weak self] (config) in
+        _ = configuration.objectWillChange.sink { [weak self] (config) in
             DispatchQueue.main.async() {
                 self?.updateFromConfiguration()
             }
@@ -180,7 +180,7 @@ extension Sunburst.Arc {
         }
     }
 
-    func arcInnerRadius(configuration: SunburstConfiguration, focusedLevel: UInt) -> Length {
+    func arcInnerRadius(configuration: SunburstConfiguration, focusedLevel: UInt) -> CGFloat {
         guard focusedLevel < level else {
             return 0.0
         }
@@ -190,15 +190,15 @@ extension Sunburst.Arc {
             displayedLevel = maximumRingsShownCount
         }
         if let maximumExpandedRingsShownCount = configuration.maximumExpandedRingsShownCount, displayedLevel >= maximumExpandedRingsShownCount {
-            let expandedRingsThickness = Length(maximumExpandedRingsShownCount) * (configuration.expandedArcThickness + configuration.marginBetweenArcs)
-            let collapsedRingsThickness = Length(displayedLevel - maximumExpandedRingsShownCount) * (configuration.collapsedArcThickness + configuration.marginBetweenArcs)
+            let expandedRingsThickness = CGFloat(maximumExpandedRingsShownCount) * (configuration.expandedArcThickness + configuration.marginBetweenArcs)
+            let collapsedRingsThickness = CGFloat(displayedLevel - maximumExpandedRingsShownCount) * (configuration.collapsedArcThickness + configuration.marginBetweenArcs)
             return expandedRingsThickness + collapsedRingsThickness + configuration.innerRadius
         } else {
-            return Length(displayedLevel) * (configuration.expandedArcThickness + configuration.marginBetweenArcs) + configuration.innerRadius
+            return CGFloat(displayedLevel) * (configuration.expandedArcThickness + configuration.marginBetweenArcs) + configuration.innerRadius
         }
     }
 
-    func arcThickness(configuration: SunburstConfiguration, focusedLevel: UInt) -> Length {
+    func arcThickness(configuration: SunburstConfiguration, focusedLevel: UInt) -> CGFloat {
         guard focusedLevel < level else {
             return configuration.innerRadius - configuration.marginBetweenArcs
         }
@@ -218,7 +218,7 @@ extension Sunburst.Arc: Animatable {
     public var animatableData: AnimatablePair<
         AnimatablePair<
             AnimatablePair<Double, Double>,
-            AnimatablePair<Length, Length>
+            AnimatablePair<CGFloat, CGFloat>
         >,
         AnimatablePair<Double, Double>
     > {

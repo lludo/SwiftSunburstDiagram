@@ -12,7 +12,7 @@ import SwiftUI
 struct RootView : View {
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
-    @ObjectBinding var configuration: SunburstConfiguration
+    @ObservedObject var configuration: SunburstConfiguration
     
     var body: some View {
         if horizontalSizeClass == .compact {

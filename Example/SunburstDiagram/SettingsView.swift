@@ -11,7 +11,7 @@ import SwiftUI
 
 struct SettingsView : View {
 
-    @ObjectBinding var configuration: SunburstConfiguration
+    @ObservedObject var configuration: SunburstConfiguration
     
     @State private var parentTotalValue: Double? = nil
     @State private var arcAngleShownIfLessThan: Double = 0.0
@@ -45,25 +45,25 @@ struct SettingsView : View {
                 Section(header:Text("Dimentions").font(.subheadline)) {
                     VStack(alignment: .leading) {
                         Text("marginBetweenArcs = \(configuration.marginBetweenArcs)")
-                        Slider(value: $configuration.marginBetweenArcs, from: CGFloat(0), through: CGFloat(6), by: CGFloat(0.1))
+                        Slider(value: $configuration.marginBetweenArcs, in: CGFloat(0)...CGFloat(6), step: CGFloat(0.1))
                     }
                     VStack(alignment: .leading) {
                         Text("innerRadius = \(configuration.innerRadius)")
-                        Slider(value: $configuration.innerRadius, from: CGFloat(6), through: CGFloat(200))
+                        Slider(value: $configuration.innerRadius, in: CGFloat(6)...CGFloat(200))
                     }
                     VStack(alignment: .leading) {
                         Text("expandedArcThickness = \(configuration.expandedArcThickness)")
-                        Slider(value: $configuration.expandedArcThickness, from: CGFloat(30), through: CGFloat(120))
+                        Slider(value: $configuration.expandedArcThickness, in: CGFloat(30)...CGFloat(120))
                     }
                     VStack(alignment: .leading) {
                         Text("collapsedArcThickness = \(configuration.collapsedArcThickness)")
-                        Slider(value: $configuration.collapsedArcThickness, from: CGFloat(2), through: CGFloat(12))
+                        Slider(value: $configuration.collapsedArcThickness, in: CGFloat(2)...CGFloat(12))
                     }
                 }
                 Section(header:Text("More").font(.subheadline)) {
                     VStack(alignment: .leading) {
                         Text("startingAngle = \(configuration.startingAngle)")
-                        Slider(value: $configuration.startingAngle, from: Double(-180), through: Double(180))
+                        Slider(value: $configuration.startingAngle, in: Double(-180)...Double(180))
                     }
                     Toggle(isOn: configuration.maximumRingsShownCountToggleBinding) {
                         Text("maximumRingsShownCount")
@@ -72,7 +72,7 @@ struct SettingsView : View {
                         IfLet(configuration.maximumRingsShownCount) { maximumRingsShownCount in
                             VStack(alignment: .leading) {
                                 Text("maximumRingsShownCount = \(maximumRingsShownCount)")
-                                Slider(value: self.configuration.maximumRingsShownCountSliderBinding, from: 1, through: 10)
+                                Slider(value: self.configuration.maximumRingsShownCountSliderBinding, in: 1...10)
                             }
                         }
                     }
@@ -83,7 +83,7 @@ struct SettingsView : View {
                         IfLet(configuration.maximumExpandedRingsShownCount) { maximumExpandedRingsShownCount in
                             VStack(alignment: .leading) {
                                 Text("maximumExpandedRingsShownCount = \(maximumExpandedRingsShownCount)")
-                                Slider(value: self.configuration.maximumExpandedRingsShownCountSliderBinding, from: 0, through: 8)
+                                Slider(value: self.configuration.maximumExpandedRingsShownCountSliderBinding, in: 0...8)
                             }
                         }
                     }
@@ -123,17 +123,17 @@ extension SunburstConfiguration {
     // MARK: maximumExpandedRingsShownCount bindings
 
     var maximumExpandedRingsShownCountSliderBinding: Binding<Double> {
-        return Binding<Double>(getValue: { () -> Double in
+        return Binding(get: { () -> Double in
             return Double(self.maximumExpandedRingsShownCount ?? SunburstConfiguration.defaultMaximumExpandedRingsShownCount)
-        }, setValue: { (value) in
+        }, set: { (value) in
             self.maximumExpandedRingsShownCount = UInt(value)
         })
     }
 
     var maximumExpandedRingsShownCountToggleBinding: Binding<Bool> {
-        return Binding<Bool>(getValue: { () -> Bool in
+        return Binding(get: { () -> Bool in
             return self.maximumExpandedRingsShownCount != nil
-        }, setValue: { (value) in
+        }, set: { (value) in
             self.maximumExpandedRingsShownCount = value ? SunburstConfiguration.defaultMaximumExpandedRingsShownCount : nil
         })
     }
@@ -141,17 +141,17 @@ extension SunburstConfiguration {
     // MARK: maximumRingsShownCount bindings
 
     var maximumRingsShownCountSliderBinding: Binding<Double> {
-        return Binding<Double>(getValue: { () -> Double in
+        return Binding(get: { () -> Double in
             return Double(self.maximumRingsShownCount ?? SunburstConfiguration.defaultMaximumRingsShownCount)
-        }, setValue: { (value) in
+        }, set: { (value) in
             self.maximumRingsShownCount = UInt(value)
         })
     }
 
     var maximumRingsShownCountToggleBinding: Binding<Bool> {
-        return Binding<Bool>(getValue: { () -> Bool in
+        return Binding(get: { () -> Bool in
             return self.maximumRingsShownCount != nil
-        }, setValue: { (value) in
+        }, set: { (value) in
             self.maximumRingsShownCount = value ? SunburstConfiguration.defaultMaximumRingsShownCount : nil
         })
     }

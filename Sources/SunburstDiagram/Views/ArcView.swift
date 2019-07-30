@@ -125,8 +125,8 @@ private struct ArcGeometry {
         let radius = lerp(arc.innerRadius, arc.outerRadius, by: unitPoint.y)
         let angle = lerp(arc.start, arc.end, by: Double(unitPoint.x))
         
-        return CGPoint(x: center.x + Length(cos(angle)) * radius,
-                       y: center.y + Length(sin(angle)) * radius)
+        return CGPoint(x: center.x + CGFloat(cos(angle)) * radius,
+                       y: center.y + CGFloat(sin(angle)) * radius)
     }
 }
 
