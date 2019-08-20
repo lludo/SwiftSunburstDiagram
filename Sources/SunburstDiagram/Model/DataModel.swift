@@ -19,32 +19,34 @@ import UIKit
 
 /// The `SunburstConfiguration` is the main configuration class used to create the `SunburstView`
 public class SunburstConfiguration: ObservableObject {
-    public var nodes: [Node] = []                                   { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
-    public var calculationMode: CalculationMode = .ordinalFromRoot  { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
-    public var nodesSort: NodesSort = .none                         { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
+    public var nodes: [Node] = []                                   { willSet { objectWillChange.send(self) } }
+    public var calculationMode: CalculationMode = .ordinalFromRoot  { willSet { objectWillChange.send(self) } }
+    public var nodesSort: NodesSort = .none                         { willSet { objectWillChange.send(self) } }
     
-    public var marginBetweenArcs: CGFloat = 1.0                     { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
-    public var collapsedArcThickness: CGFloat = 8.0                 { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
-    public var expandedArcThickness: CGFloat = 60.0                 { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
-    public var innerRadius: CGFloat = 60.0                          { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
+    public var marginBetweenArcs: CGFloat = 1.0                     { willSet { objectWillChange.send(self) } }
+    public var collapsedArcThickness: CGFloat = 8.0                 { willSet { objectWillChange.send(self) } }
+    public var expandedArcThickness: CGFloat = 60.0                 { willSet { objectWillChange.send(self) } }
+    public var innerRadius: CGFloat = 60.0                          { willSet { objectWillChange.send(self) } }
 
     /// Angle in degrees, start at the top and rotate clockwise
-    public var startingAngle: Double = 0.0                          { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
-    public var minimumArcAngleShown: ArcMinimumAngle = .showAll     { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
+    public var startingAngle: Double = 0.0                          { willSet { objectWillChange.send(self) } }
+    public var minimumArcAngleShown: ArcMinimumAngle = .showAll     { willSet { objectWillChange.send(self) } }
     
-    public var maximumRingsShownCount: UInt? = nil                  { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
+    public var maximumRingsShownCount: UInt? = nil                  { willSet { objectWillChange.send(self) } }
     /// Rings passed this will be shown collapsed (to show more rings with less data)
-    public var maximumExpandedRingsShownCount: UInt? = nil          { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
+    public var maximumExpandedRingsShownCount: UInt? = nil          { willSet { objectWillChange.send(self) } }
 
     // MARK: Interactions
 
-//    public var allowsSelection: Bool = true                         { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
+//    public var allowsSelection: Bool = true                         { willSet { objectWillChange.send(self) } }
 
-    public var selectedNode: Node?                                  { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
-    public var focusedNode: Node?                                   { willSet { objectWillChange.send(self) } didSet { validateAndPrepare() } }
+    public var selectedNode: Node?                                  { willSet { objectWillChange.send(self) } }
+    public var focusedNode: Node?                                   { willSet { objectWillChange.send(self) } }
 
     public let objectWillChange = PassthroughSubject<SunburstConfiguration, Never>()
 
+    private var cancellable: AnyCancellable?
+    
     lazy var sunburst: Sunburst = {
         return Sunburst(configuration: self)
     }()
@@ -53,6 +55,17 @@ public class SunburstConfiguration: ObservableObject {
         self.nodes = nodes
         self.calculationMode = calculationMode
         self.nodesSort = nodesSort
+
+        validateAndPrepare()
+        cancellable = objectWillChange.sink { [weak self] (config) in
+            DispatchQueue.main.async() {
+                self?.validateAndPrepare()
+            }
+        }
+    }
+
+    deinit {
+        cancellable?.cancel()
     }
 }
 

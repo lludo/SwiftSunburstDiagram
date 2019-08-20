@@ -10,9 +10,10 @@ import SwiftUI
 
 // A view drawing a single colored arc with a label
 struct ArcView: View {
-    
+
+    @ObservedObject private var configuration: SunburstConfiguration
+
     private let arc: Sunburst.Arc
-    private let configuration: SunburstConfiguration
     
     init(arc: Sunburst.Arc, configuration: SunburstConfiguration) {
         self.arc = arc

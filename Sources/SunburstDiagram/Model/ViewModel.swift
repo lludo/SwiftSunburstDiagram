@@ -53,7 +53,7 @@ class Sunburst: ObservableObject {
     private var arcsCache: [ObjectIdentifier : Arc] = [:]   { willSet { objectWillChange.send(self) } }
     private var focusedLevel: UInt = 0                      { willSet { objectWillChange.send(self) } }
 
-    let objectWillChange = PassthroughSubject<Sunburst, Never>()
+    public let objectWillChange = PassthroughSubject<Sunburst, Never>()
 
     private var cancellable: AnyCancellable?
 
