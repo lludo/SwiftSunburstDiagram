@@ -9,7 +9,7 @@
 import SunburstDiagram
 import SwiftUI
 
-struct SettingsView : View {
+struct SettingsView: View {
 
     @ObservedObject var configuration: SunburstConfiguration
     
@@ -158,7 +158,7 @@ extension SunburstConfiguration {
 }
 
 #if DEBUG
-struct SettingsView_Previews : PreviewProvider {
+struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         let configuration = SunburstConfiguration(nodes: [
             Node(name: "Walking",

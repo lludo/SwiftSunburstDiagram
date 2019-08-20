@@ -34,18 +34,14 @@ class Sunburst: ObservableObject {
             self.id = node.id
             self.level = level
             self.node = node
-            
-            let ciColor = CIColor(color: node.computedBackgroundColor) // All this is far from ideal :(
-            backgroundColor = Color(red: Double(ciColor.red), green: Double(ciColor.green), blue: Double(ciColor.blue))
-            
+
+            backgroundColor = Color(node.computedBackgroundColor)
             width = totalValue > 0 ? (node.computedValue / totalValue) * 2.0 * .pi : 0
             isTextHidden = !node.showName
         }
 
         mutating func update(node: Node, totalValue: Double) {
-            let ciColor = CIColor(color: node.computedBackgroundColor) // All this is far from ideal :(
-            backgroundColor = Color(red: Double(ciColor.red), green: Double(ciColor.green), blue: Double(ciColor.blue))
-
+            backgroundColor = Color(node.computedBackgroundColor)
             width = totalValue > 0 ? (node.computedValue / totalValue) * 2.0 * .pi : 0
             isTextHidden = !node.showName
         }
@@ -59,17 +55,23 @@ class Sunburst: ObservableObject {
 
     let objectWillChange = PassthroughSubject<Sunburst, Never>()
 
+    private var cancellable: AnyCancellable?
+
     init(configuration: SunburstConfiguration) {
         self.configuration = configuration
 
         updateFromConfiguration()
-        _ = configuration.objectWillChange.sink { [weak self] (config) in
+        cancellable = configuration.objectWillChange.sink { [weak self] (config) in
             DispatchQueue.main.async() {
                 self?.updateFromConfiguration()
             }
         }
     }
-    
+
+    deinit {
+        cancellable?.cancel()
+    }
+
     // MARK: Private
     
     private func configureArcs(nodes: [Node], totalValue: Double, level: UInt = 1,

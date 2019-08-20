@@ -9,7 +9,7 @@
 import SunburstDiagram
 import SwiftUI
 
-struct SettingsNodesView : View {
+struct SettingsNodesView: View {
     
     var nodes: [Node]?
     
@@ -45,7 +45,7 @@ struct SettingsNodesView : View {
 }
 
 #if DEBUG
-struct SettingsNodesView_Previews : PreviewProvider {
+struct SettingsNodesView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsNodesView(nodes: [
             Node(name: "Walking",

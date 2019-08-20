@@ -9,7 +9,7 @@
 import SunburstDiagram
 import SwiftUI
 
-struct RootView : View {
+struct RootView: View {
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     @ObservedObject var configuration: SunburstConfiguration
@@ -39,7 +39,7 @@ struct RootView : View {
 }
 
 #if DEBUG
-struct RootView_Previews : PreviewProvider {
+struct RootView_Previews: PreviewProvider {
     static var previews: some View {
         let configuration = SunburstConfiguration(nodes: [
             Node(name: "Walking",
