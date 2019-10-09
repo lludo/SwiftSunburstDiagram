@@ -2,14 +2,10 @@ import XCTest
 @testable import SunburstDiagram
 
 final class SunburstDiagramTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case. Use XCTAssert
-        // and related functions to verify your tests produce the correct results.
-        let arc = Sunburst.Arc(text: "Label", width: .pi, backgroundColor: .systemGray)
-        XCTAssertEqual(arc.text, "Label")
+    
+    func testSunburstArcHasTextHidden() {
+        let node = Node(name: "Node", showName: true)
+        let arc = Sunburst.Arc(node: node, level: 0, totalValue: .pi)
+        XCTAssertEqual(arc.isTextHidden, !node.showName)
     }
-
-    static var allTests = [
-        ("testExample", testExample),
-    ]
 }

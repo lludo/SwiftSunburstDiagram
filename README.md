@@ -9,7 +9,7 @@ Sunburst diagram is a library written with SwiftUI to easily render diagrams giv
 
 <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/diagram-icons-only.png" alt="diagram with icons only" width="400"/> <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/diagram-with-text.png" alt="diagram with icons and text" width="400"/>
 
-**⚠️ WARNING ⚠️** This is an early version of this library that requires Swift 5.1 and Xcode 11 that are currently still in beta, some features available in the public API have not been implemented yet (see below).
+This library requires Swift 5.1 and Xcode 11, some features available in the public API have not been implemented yet (see below).
 
 
 ## Requirements
@@ -88,7 +88,9 @@ If you **found a bug** or want to discuss a new **feature** do not hesitate to m
 
 The demo app in this repo is also written with SwiftUI and allows to experience the API of this library in a grapical and reactive way.
 
-<img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/demo-app-1.png" alt="demo app first screenshot" width="260"/>  <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/demo-app-2.png" alt="demo app second screenshot" width="260"/>  <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/demo-app-3.png" alt="demo app third screenshot" width="260"/>
+<img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/demo-app-1.png" alt="iOS demo app first screenshot" width="260"/>  <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/demo-app-2.png" alt="iOS demo app second screenshot" width="260"/>  <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/demo-app-3.png" alt="iOS demo app third screenshot" width="260"/>
+
+<img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/demo-app-mac.png" alt="macOS demo app screenshot" width="788"/>
 
 ## Todo
 

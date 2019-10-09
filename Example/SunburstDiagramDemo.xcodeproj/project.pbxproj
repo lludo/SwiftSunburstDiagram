@@ -29,6 +29,7 @@
 		430D471022AF77B600A7FA6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		430D471222AF77B600A7FA6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		437F415822C866650092B76E /* SwiftSunburstDiagram */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftSunburstDiagram; path = ..; sourceTree = "<group>"; };
+		438EC2F4232DE3D00073A47C /* SunburstDiagramDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SunburstDiagramDemo.entitlements; sourceTree = "<group>"; };
 		82A57BA622B873190044FF2B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		82C7F13B22B9C5EE008B461C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		82C7F13D22B9CE95008B461C /* SettingsNodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNodesView.swift; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 				430D470A22AF77B600A7FA6E /* Assets.xcassets */,
 				430D470F22AF77B600A7FA6E /* LaunchScreen.storyboard */,
 				430D471222AF77B600A7FA6E /* Info.plist */,
+				438EC2F4232DE3D00073A47C /* SunburstDiagramDemo.entitlements */,
 				430D470C22AF77B600A7FA6E /* Preview Content */,
 			);
 			path = SunburstDiagram;
@@ -315,7 +317,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SunburstDiagram/SunburstDiagramDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "SunburstDiagram/Preview\\ Content";
 				DEVELOPMENT_TEAM = D6826XDERA;
 				ENABLE_PREVIEWS = YES;
@@ -326,6 +330,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ludo.SunburstDiagramDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -335,7 +340,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SunburstDiagram/SunburstDiagramDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "SunburstDiagram/Preview\\ Content";
 				DEVELOPMENT_TEAM = D6826XDERA;
 				ENABLE_PREVIEWS = YES;
@@ -346,6 +353,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ludo.SunburstDiagramDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
