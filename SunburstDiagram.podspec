@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.documentation_url = 'https://github.com/lludo/SwiftSunburstDiagram/wiki'
 
   s.ios.deployment_target = '13.0'
-  s.tvos.deployment_target = '13.0'
+#  s.tvos.deployment_target = '13.0'
 #  s.osx.deployment_target = '10.15'
 #  s.watchos.deployment_target = '6.0'
 
