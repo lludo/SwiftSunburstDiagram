@@ -12,9 +12,9 @@ import SwiftUI
 class Sunburst: ObservableObject {
 
     struct Arc: Equatable, Identifiable {
-        let id: ObjectIdentifier
+        let id: UUID
         let level: UInt
-        let node: Node
+        private(set) var node: Node
 
         var width: Double
         var backgroundColor: Color
@@ -41,6 +41,8 @@ class Sunburst: ObservableObject {
         }
 
         mutating func update(node: Node, totalValue: Double) {
+            self.node = node
+
             backgroundColor = Color(node.computedBackgroundColor)
             width = totalValue > 0 ? (node.computedValue / totalValue) * 2.0 * .pi : 0
             isTextHidden = !node.showName
@@ -49,11 +51,11 @@ class Sunburst: ObservableObject {
 
     let configuration: SunburstConfiguration
 
-    private(set) var rootArcs: [Arc] = []                   { willSet { objectWillChange.send(self) } }
-    private var arcsCache: [ObjectIdentifier : Arc] = [:]   { willSet { objectWillChange.send(self) } }
-    private var focusedLevel: UInt = 0                      { willSet { objectWillChange.send(self) } }
+    private(set) var rootArcs: [Arc] = []                   { willSet { objectWillChange.send() } }
+    private var arcsCache: [UUID : Arc] = [:]               { willSet { objectWillChange.send() } }
+    private var focusedLevel: UInt = 0                      { willSet { objectWillChange.send() } }
 
-    public let objectWillChange = PassthroughSubject<Sunburst, Never>()
+    public let objectWillChange = ObservableObjectPublisher()
 
     private var cancellable: AnyCancellable?
 
@@ -97,7 +99,7 @@ class Sunburst: ObservableObject {
             // Look for levels depending on focused nodes
             var foundFocusedNode = foundFocusedNode
             var totalValueForDisplay = shouldUseTotalValue ? totalValue : 0
-            if let focusedNode = focusedNode, foundFocusedNode == false, node === focusedNode {
+            if let focusedNode = focusedNode, foundFocusedNode == false, node == focusedNode {
                 foundFocusedNode = true
                 totalValueForDisplay = node.computedValue
                 focusedLevel = level
@@ -113,8 +115,8 @@ class Sunburst: ObservableObject {
                 arcsCache[node.id] = arc
             }
 
-            if let children = node.children {
-                arc.childArcs = configureArcs(nodes: children, totalValue: totalValueForDisplay, level: level + 1,
+            if node.children.count > 0 {
+                arc.childArcs = configureArcs(nodes: node.children, totalValue: totalValueForDisplay, level: level + 1,
                                               focusedNode: focusedNode, foundFocusedNode: foundFocusedNode)
             }
             arcs.append(arc)
@@ -125,7 +127,7 @@ class Sunburst: ObservableObject {
     // Called after each change, updates derived model values and posts the notification.
     private func updateFromConfiguration() {
         focusedLevel = 0
-        if let focusedNode = configuration.focusedNode {
+        if let focusedNode = configuration.focusedNode, configuration.allowsSelection {
             rootArcs = configureArcs(nodes: configuration.nodes, totalValue: configuration.totalNodesValue, focusedNode: focusedNode)
         } else {
             rootArcs = configureArcs(nodes: configuration.nodes, totalValue: configuration.totalNodesValue)

@@ -19,34 +19,33 @@ import UIKit
 
 /// The `SunburstConfiguration` is the main configuration class used to create the `SunburstView`
 public class SunburstConfiguration: ObservableObject {
-    public var nodes: [Node] = []                                   { willSet { objectWillChange.send(self) } }
-    public var calculationMode: CalculationMode = .ordinalFromRoot  { willSet { objectWillChange.send(self) } }
-    public var nodesSort: NodesSort = .none                         { willSet { objectWillChange.send(self) } }
+    @Published public var nodes: [Node] = []
+    @Published public var calculationMode: CalculationMode = .ordinalFromRoot
+    @Published public var nodesSort: NodesSort = .none
     
-    public var marginBetweenArcs: CGFloat = 1.0                     { willSet { objectWillChange.send(self) } }
-    public var collapsedArcThickness: CGFloat = 8.0                 { willSet { objectWillChange.send(self) } }
-    public var expandedArcThickness: CGFloat = 60.0                 { willSet { objectWillChange.send(self) } }
-    public var innerRadius: CGFloat = 60.0                          { willSet { objectWillChange.send(self) } }
+    @Published public var marginBetweenArcs: CGFloat = 1.0
+    @Published public var collapsedArcThickness: CGFloat = 8.0
+    @Published public var expandedArcThickness: CGFloat = 60.0
+    @Published public var innerRadius: CGFloat = 60.0
 
     /// Angle in degrees, start at the top and rotate clockwise
-    public var startingAngle: Double = 0.0                          { willSet { objectWillChange.send(self) } }
-    public var minimumArcAngleShown: ArcMinimumAngle = .showAll     { willSet { objectWillChange.send(self) } }
+    @Published public var startingAngle: Double = 0.0
+    @Published public var minimumArcAngleShown: ArcMinimumAngle = .showAll
     
-    public var maximumRingsShownCount: UInt? = nil                  { willSet { objectWillChange.send(self) } }
+    @Published public var maximumRingsShownCount: UInt? = nil
     /// Rings passed this will be shown collapsed (to show more rings with less data)
-    public var maximumExpandedRingsShownCount: UInt? = nil          { willSet { objectWillChange.send(self) } }
+    @Published public var maximumExpandedRingsShownCount: UInt? = nil
 
     // MARK: Interactions
 
-//    public var allowsSelection: Bool = true                         { willSet { objectWillChange.send(self) } }
+    @Published public var allowsSelection: Bool = true
 
-    public var selectedNode: Node?                                  { willSet { objectWillChange.send(self) } }
-    public var focusedNode: Node?                                   { willSet { objectWillChange.send(self) } }
-
-    public let objectWillChange = PassthroughSubject<SunburstConfiguration, Never>()
+    @Published public var selectedNode: Node?
+    @Published public var focusedNode: Node?
 
     private var cancellable: AnyCancellable?
-    
+    private var isValidatingAndPreparing = false
+
     lazy var sunburst: Sunburst = {
         return Sunburst(configuration: self)
     }()
@@ -58,8 +57,13 @@ public class SunburstConfiguration: ObservableObject {
 
         validateAndPrepare()
         cancellable = objectWillChange.sink { [weak self] (config) in
-            DispatchQueue.main.async() {
-                self?.validateAndPrepare()
+            guard let self = self else { return }
+            guard !self.isValidatingAndPreparing else { return }
+            self.isValidatingAndPreparing = true
+            DispatchQueue.main.async() { [weak self] in
+                guard let self = self else { return }
+                self.validateAndPrepare()
+                self.isValidatingAndPreparing = false
             }
         }
     }
@@ -70,10 +74,11 @@ public class SunburstConfiguration: ObservableObject {
 }
 
 /// The `Node` class holds the data shown in the diagram
-public class Node: Identifiable, Equatable {
+public struct Node: Identifiable, Equatable {
+    public let id = UUID()
 
     public let name: String
-    public var children: [Node]? = nil
+    public var children: [Node]
     public var value: Double? = nil
     
     public var showName: Bool = true
@@ -85,17 +90,13 @@ public class Node: Identifiable, Equatable {
     var computedBackgroundColor: UIColor = .systemGray
 
     public init(name: String, showName: Bool = true, image: UIImage? = nil,
-                value: Double? = nil, backgroundColor: UIColor? = nil, children: [Node]? = nil) {
+                value: Double? = nil, backgroundColor: UIColor? = nil, children: [Node] = []) {
         self.name = name
         self.showName = showName
         self.image = image
         self.value = value
         self.backgroundColor = backgroundColor
         self.children = children
-    }
-
-    public static func == (lhs: Node, rhs: Node) -> Bool {
-        return lhs.id == rhs.id
     }
 }
 
@@ -134,7 +135,7 @@ extension SunburstConfiguration {
     
     func validateAndPrepare() {
         validateAndPrepareValues()
-        validateAndPrepareColors(nodes: nodes)
+        validateAndPrepareColors(nodes: &nodes)
         
         // TODO: implement minimumArc size
     }
@@ -156,8 +157,8 @@ extension SunburstConfiguration {
     private func totalLeavesCount(nodes: [Node]) -> UInt {
         var nodesLeavesCount: UInt = 0
         for node in nodes {
-            if let children = node.children {
-                nodesLeavesCount += totalLeavesCount(nodes: children)
+            if node.children.count > 0 {
+                nodesLeavesCount += totalLeavesCount(nodes: node.children)
             } else {
                 nodesLeavesCount += 1
             }
@@ -169,13 +170,13 @@ extension SunburstConfiguration {
         return nodes.reduce(0.0) { $0 + $1.computedValue }
     }
     
-    private func validateAndPrepareColors(nodes: [Node]) {
-        for node in nodes {
-            if let backgroundColor = node.backgroundColor {
-                node.computedBackgroundColor = backgroundColor
+    private func validateAndPrepareColors(nodes: inout [Node]) {
+        for nodeIndex in 0..<nodes.count {
+            if let backgroundColor = nodes[nodeIndex].backgroundColor {
+                nodes[nodeIndex].computedBackgroundColor = backgroundColor
             }
-            if let children = node.children {
-                validateAndPrepareColors(nodes: children)
+            if nodes[nodeIndex].children.count > 0 {
+                validateAndPrepareColors(nodes: &nodes[nodeIndex].children)
             }
         }
         
@@ -185,15 +186,15 @@ extension SunburstConfiguration {
     private func validateAndPrepareValues() {
         switch calculationMode {
         case .ordinalFromRoot:
-            prepareNodeComputedValuesForModeOrdinalFromRoot(nodes: nodes)
+            prepareNodeComputedValuesForModeOrdinalFromRoot(nodes: &nodes)
         case .ordinalFromLeaves:
-            _ = prepareNodeComputedValuesForModeOrdinalFromLeaves(nodes: nodes)
+            _ = prepareNodeComputedValuesForModeOrdinalFromLeaves(nodes: &nodes)
         case .parentDependent(let totalValue):
             guard validateAllNodesHaveValue(nodes: nodes) else {
                 fatalError("The sunburst nodes are invalid for this configuration. With the .parentDependent CalculationMode every node require a value!")
             }
-            // TODO: Validate that the chidren nodes sum is not bigger than the parent node value
-            prepareNodeComputedValuesForModeParentDependent(nodes: nodes)
+            // TODO: Validate that the children nodes sum is not bigger than the parent node value
+            prepareNodeComputedValuesForModeParentDependent(nodes: &nodes)
             guard validateTotalValue(nodes: nodes, totalValue: totalValue) else {
                 fatalError("The sunburst nodes, or the total value provided with the .parentDependent CalculationMode is invalid. The total value cannot be less than the sum of the nodes.")
             }
@@ -201,7 +202,7 @@ extension SunburstConfiguration {
             guard validateLeafNodesHaveValue(nodes: nodes) else {
                 fatalError("The sunburst nodes are invalid for this configuration. With the .parentIndependent CalculationMode all leaves require a value!")
             }
-            _ = prepareNodeComputedValuesForModeParentIndependent(nodes: nodes)
+            _ = prepareNodeComputedValuesForModeParentIndependent(nodes: &nodes)
             guard validateTotalValue(nodes: nodes, totalValue: totalValue) else {
                 fatalError("The sunburst nodes, or the total value provided with the .parentIndependent CalculationMode is invalid. The total value cannot be less than the sum of the nodes.")
             }
@@ -215,8 +216,8 @@ extension SunburstConfiguration {
             if node.value == nil {
                 return false
             }
-            if let children = node.children {
-                let isValidChildren = validateLeafNodesHaveValue(nodes: children)
+            if node.children.count > 0 {
+                let isValidChildren = validateLeafNodesHaveValue(nodes: node.children)
                 if !isValidChildren {
                     return false
                 }
@@ -227,8 +228,8 @@ extension SunburstConfiguration {
     
     private func validateLeafNodesHaveValue(nodes: [Node]) -> Bool {
         for node in nodes {
-            if let children = node.children {
-                let isValidChildren = validateLeafNodesHaveValue(nodes: children)
+            if node.children.count > 0 {
+                let isValidChildren = validateLeafNodesHaveValue(nodes: node.children)
                 if !isValidChildren {
                     return false
                 }
@@ -251,58 +252,58 @@ extension SunburstConfiguration {
     
     // MARK: Private prepare computed value
     
-    private func prepareNodeComputedValuesForModeOrdinalFromRoot(nodes: [Node], totalValue: Double = 100.0) {
+    private func prepareNodeComputedValuesForModeOrdinalFromRoot(nodes: inout [Node], totalValue: Double = 100.0) {
         let nodeValue = totalValue / Double(nodes.count)
-        for node in nodes {
-            node.computedValue = nodeValue
-            if let children = node.children {
-                prepareNodeComputedValuesForModeOrdinalFromRoot(nodes: children, totalValue: nodeValue)
+        for nodeIndex in 0..<nodes.count {
+            nodes[nodeIndex].computedValue = nodeValue
+            if nodes[nodeIndex].children.count > 0 {
+                prepareNodeComputedValuesForModeOrdinalFromRoot(nodes: &nodes[nodeIndex].children, totalValue: nodeValue)
             }
         }
     }
     
-    private func prepareNodeComputedValuesForModeOrdinalFromLeaves(nodes: [Node], leavesValue: Double? = nil) -> Double {
+    private func prepareNodeComputedValuesForModeOrdinalFromLeaves(nodes: inout [Node], leavesValue: Double? = nil) -> Double {
         let leavesValue = leavesValue ?? (100.0 / Double(totalLeavesCount(nodes: nodes)))
         
         var nodesTotalComputedValue = 0.0
-        for node in nodes {
+        for nodeIndex in 0..<nodes.count {
             let nodeComputedValue: Double
-            if let children = node.children {
-                nodeComputedValue = prepareNodeComputedValuesForModeOrdinalFromLeaves(nodes: children, leavesValue: leavesValue)
+            if nodes[nodeIndex].children.count > 0 {
+                nodeComputedValue = prepareNodeComputedValuesForModeOrdinalFromLeaves(nodes: &nodes[nodeIndex].children, leavesValue: leavesValue)
             } else {
                 nodeComputedValue = leavesValue
             }
-            node.computedValue = nodeComputedValue
+            nodes[nodeIndex].computedValue = nodeComputedValue
             nodesTotalComputedValue += nodeComputedValue
         }
         return nodesTotalComputedValue
     }
     
-    private func prepareNodeComputedValuesForModeParentDependent(nodes: [Node]) {
-        for node in nodes {
-            guard let nodeValue = node.value  else {
-                fatalError("The sunburst node:\(node) is invalid for this configuration. With the .parentDependent CalculationMode every node require a value!")
+    private func prepareNodeComputedValuesForModeParentDependent(nodes: inout [Node]) {
+        for nodeIndex in 0..<nodes.count {
+            guard nodes[nodeIndex].value != nil else {
+                fatalError("The sunburst node:\(nodes[nodeIndex]) is invalid for this configuration. With the .parentDependent CalculationMode every node require a value!")
             }
-            node.computedValue = nodeValue
-            if let children = node.children {
-                prepareNodeComputedValuesForModeParentDependent(nodes: children)
+            nodes[nodeIndex].computedValue = nodes[nodeIndex].value!
+            if nodes[nodeIndex].children.count > 0 {
+                prepareNodeComputedValuesForModeParentDependent(nodes: &nodes[nodeIndex].children)
             }
         }
     }
     
-    private func prepareNodeComputedValuesForModeParentIndependent(nodes: [Node]) -> Double {
+    private func prepareNodeComputedValuesForModeParentIndependent(nodes: inout [Node]) -> Double {
         var nodesTotalComputedValue = 0.0
-        for node in nodes {
+        for nodeIndex in 0..<nodes.count {
             let nodeComputedValue: Double
-            if let children = node.children {
-                nodeComputedValue = prepareNodeComputedValuesForModeParentIndependent(nodes: children)
+            if nodes[nodeIndex].children.count > 0 {
+                nodeComputedValue = prepareNodeComputedValuesForModeParentIndependent(nodes: &nodes[nodeIndex].children)
             } else {
-                guard let nodeValue = node.value  else {
-                    fatalError("The sunburst node:\(node) is invalid for this configuration. With the .parentIndependent CalculationMode all leaves require a value!")
+                guard nodes[nodeIndex].value != nil else {
+                    fatalError("The sunburst node:\(nodes[nodeIndex]) is invalid for this configuration. With the .parentIndependent CalculationMode all leaves require a value!")
                 }
-                nodeComputedValue = nodeValue
+                nodeComputedValue = nodes[nodeIndex].value!
             }
-            node.computedValue = nodeComputedValue
+            nodes[nodeIndex].computedValue = nodeComputedValue
             nodesTotalComputedValue += nodeComputedValue
         }
         return nodesTotalComputedValue
@@ -316,10 +317,10 @@ extension SunburstConfiguration {
 
     private func parentNodeFor(node nodeToFind: Node, inNodes nodes: [Node], withParent parentNode: Node?) -> Node? {
         for node in nodes {
-            if nodeToFind === node {
+            if nodeToFind == node {
                 return parentNode
             }
-            if let childNodes = node.children, let foundParent = parentNodeFor(node: nodeToFind, inNodes: childNodes, withParent: node) {
+            if node.children.count > 0, let foundParent = parentNodeFor(node: nodeToFind, inNodes: node.children, withParent: node) {
                 return foundParent
             }
         }

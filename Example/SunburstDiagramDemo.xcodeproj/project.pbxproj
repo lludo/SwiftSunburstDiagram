@@ -13,9 +13,9 @@
 		430D470E22AF77B600A7FA6E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 430D470D22AF77B600A7FA6E /* Preview Assets.xcassets */; };
 		430D471122AF77B600A7FA6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 430D470F22AF77B600A7FA6E /* LaunchScreen.storyboard */; };
 		430D473922B207E900A7FA6E /* SunburstDiagram in Frameworks */ = {isa = PBXBuildFile; productRef = 430D473822B207E900A7FA6E /* SunburstDiagram */; };
-		82A57BA722B873190044FF2B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A57BA622B873190044FF2B /* SettingsView.swift */; };
+		43CDFE99235955DC0023713B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A57BA622B873190044FF2B /* SettingsView.swift */; };
+		43DB39BC2364CE9F008F53F6 /* SettingsNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F13D22B9CE95008B461C /* SettingsNodesView.swift */; };
 		82C7F13C22B9C5EE008B461C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F13B22B9C5EE008B461C /* RootView.swift */; };
-		82C7F13E22B9CE95008B461C /* SettingsNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F13D22B9CE95008B461C /* SettingsNodesView.swift */; };
 		82C7F14022B9F35C008B461C /* IfLetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F13F22B9F35B008B461C /* IfLetView.swift */; };
 		82C7F14222B9F4EE008B461C /* SettingsNewNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F14122B9F4EE008B461C /* SettingsNewNodeView.swift */; };
 /* End PBXBuildFile section */
@@ -175,13 +175,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82A57BA722B873190044FF2B /* SettingsView.swift in Sources */,
+				43CDFE99235955DC0023713B /* SettingsView.swift in Sources */,
 				82C7F14022B9F35C008B461C /* IfLetView.swift in Sources */,
 				430D470522AF77B300A7FA6E /* AppDelegate.swift in Sources */,
-				82C7F13E22B9CE95008B461C /* SettingsNodesView.swift in Sources */,
 				82C7F14222B9F4EE008B461C /* SettingsNewNodeView.swift in Sources */,
 				82C7F13C22B9C5EE008B461C /* RootView.swift in Sources */,
 				430D470722AF77B300A7FA6E /* SceneDelegate.swift in Sources */,
+				43DB39BC2364CE9F008F53F6 /* SettingsNodesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

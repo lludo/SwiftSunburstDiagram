@@ -23,20 +23,19 @@ struct ArcView: View {
     var body: some View {
         let animation = Animation.easeInOut
         let arcShape = ArcShape(arc, configuration: configuration)
-            .fill(arc.backgroundColor)
-            .animation(animation)
 
         return ZStack() {
-            arcShape
-            ArcShape(arc, configuration: configuration)
-                .stroke(Color.primary, lineWidth: arc.node == configuration.selectedNode ? 4 : 0)
-                .mask(arcShape)
-                .animation(animation)
+            arcShape.fill(arc.backgroundColor).animation(animation)
+            arcShape.stroke(Color.primary, lineWidth: isNodeSelected() ? 4 : 0).clipShape(arcShape).animation(animation)
             if arc.width > 0 && (configuration.maximumRingsShownCount == nil || arc.level <= configuration.maximumRingsShownCount!)
                 && (configuration.maximumExpandedRingsShownCount == nil || arc.level <= configuration.maximumExpandedRingsShownCount!) {
                     ArcLabel(arc, configuration: configuration).animation(animation)
             }
         }
+    }
+
+    func isNodeSelected() -> Bool {
+        return configuration.allowsSelection && arc.node == configuration.selectedNode
     }
 }
 

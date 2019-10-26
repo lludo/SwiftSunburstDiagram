@@ -12,7 +12,7 @@ import SwiftUI
 struct SettingsNodesView: View {
     
     var nodes: [Node]?
-    
+
     var body: some View {
         Form {
             IfLet(nodes) { nodes in
@@ -38,7 +38,7 @@ struct SettingsNodesView: View {
                 }
                 Text(node.name)
                 Spacer()
-                Text((node.children?.count ?? 0) == 0 ? "Leaf node" : "\(node.children!.count) child nodes").foregroundColor(Color.secondary)
+                Text(node.children.count == 0 ? "Leaf node" : "\(node.children.count) child nodes").foregroundColor(Color.secondary)
             }
         }
     }
