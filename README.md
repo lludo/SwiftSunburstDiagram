@@ -39,7 +39,7 @@ dependencies: [
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Alamofire into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'SunburstDiagram', '~> 1.0.0'
+pod 'SunburstDiagram', '~> 1.1.0'
 ```
 
 
@@ -57,8 +57,8 @@ If you prefer not to use the Swift Package Manager, you can integrate SunburstDi
 - [x] Infinite number of layers (circles) support
 - [x] Option to configure margin, size, sort and initial positions of arcs
 - [x] Option to collapse arcs beyond a certain layer (to show more layers with less data)
-- [x] Ability to select a node and focus on a node to see more details
-- [x] Option for maximum number of rings to display (window moving are you focus on nodes)
+- [x] Ability to select a node and focus on a node to see more details or disable selection
+- [x] Option for maximum number of rings to display (like a window moving as you focus on nodes)
 
 ## Usage
 
