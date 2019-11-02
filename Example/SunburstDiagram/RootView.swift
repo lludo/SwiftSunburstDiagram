@@ -10,31 +10,32 @@ import SunburstDiagram
 import SwiftUI
 
 struct RootView: View {
-    
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+
     @ObservedObject var configuration: SunburstConfiguration
     
     var body: some View {
-        if horizontalSizeClass == .compact {
-            return AnyView(
-                VStack(spacing: 0) {
-                    SunburstView(configuration: configuration)
-                    Divider()
-                        .edgesIgnoringSafeArea(.all)
-                    SettingsView(configuration: configuration)
-                }
-            )
-        } else {
-            return AnyView(
-                HStack(spacing: 0) {
-                    SunburstView(configuration: configuration)
-                        .edgesIgnoringSafeArea(.all)
-                    Divider()
-                        .edgesIgnoringSafeArea(.all)
-                    SettingsView(configuration: configuration)
-                }
-            )
-        }
+        AnyView(GeometryReader { geometry -> AnyView in
+            if geometry.size.width <= geometry.size.height {
+                return AnyView(
+                    VStack(spacing: 0) {
+                        SunburstView(configuration: self.configuration)
+                        Divider()
+                            .edgesIgnoringSafeArea(.all)
+                        SettingsView(configuration: self.configuration)
+                    }
+                )
+            } else {
+                return AnyView(
+                    HStack(spacing: 0) {
+                        SunburstView(configuration: self.configuration)
+                            .edgesIgnoringSafeArea(.all)
+                        Divider()
+                            .edgesIgnoringSafeArea(.all)
+                        SettingsView(configuration: self.configuration)
+                    }
+                )
+            }
+        })
     }
 }
 

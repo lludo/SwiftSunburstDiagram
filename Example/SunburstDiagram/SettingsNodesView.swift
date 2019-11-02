@@ -11,11 +11,11 @@ import SwiftUI
 
 struct SettingsNodesView: View {
     
-    var nodes: [Node]?
+    var nodes: [Node]
 
     var body: some View {
         Form {
-            IfLet(nodes) { nodes in
+            if nodes.count > 0 {
                 Section {
                     ForEach(nodes) { node in
                         self.nodeCellFor(node)

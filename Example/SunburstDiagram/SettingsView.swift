@@ -69,22 +69,18 @@ struct SettingsView: View {
                         Text("maximumRingsShownCount")
                     }
                     if configuration.maximumRingsShownCount != nil {
-                        IfLet(configuration.maximumRingsShownCount) { maximumRingsShownCount in
-                            VStack(alignment: .leading) {
-                                Text("maximumRingsShownCount = \(maximumRingsShownCount)")
-                                Slider(value: self.configuration.maximumRingsShownCountSliderBinding, in: 1...10)
-                            }
+                        VStack(alignment: .leading) {
+                            Text("maximumRingsShownCount = \(configuration.maximumRingsShownCount!)")
+                            Slider(value: self.configuration.maximumRingsShownCountSliderBinding, in: 1...10)
                         }
                     }
                     Toggle(isOn: configuration.maximumExpandedRingsShownCountToggleBinding) {
                         Text("maximumExpandedRingsShownCount")
                     }
                     if configuration.maximumExpandedRingsShownCount != nil {
-                        IfLet(configuration.maximumExpandedRingsShownCount) { maximumExpandedRingsShownCount in
-                            VStack(alignment: .leading) {
-                                Text("maximumExpandedRingsShownCount = \(maximumExpandedRingsShownCount)")
-                                Slider(value: self.configuration.maximumExpandedRingsShownCountSliderBinding, in: 0...8)
-                            }
+                        VStack(alignment: .leading) {
+                            Text("maximumExpandedRingsShownCount = \(configuration.maximumExpandedRingsShownCount!)")
+                            Slider(value: self.configuration.maximumExpandedRingsShownCountSliderBinding, in: 0...8)
                         }
                     }
                     Picker(selection: $configuration.minimumArcAngleShown, label: Text("minimumArcAngleShown")) {
