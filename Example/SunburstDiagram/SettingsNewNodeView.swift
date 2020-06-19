@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SettingsNewNodeView: View {
     var body: some View {
-        Text("Hello World!")
+        Text("This node is not editable.")
     }
 }
 
