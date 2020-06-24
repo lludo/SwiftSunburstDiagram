@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		430D470522AF77B300A7FA6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430D470422AF77B300A7FA6E /* AppDelegate.swift */; };
 		430D470722AF77B300A7FA6E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430D470622AF77B300A7FA6E /* SceneDelegate.swift */; };
 		430D470B22AF77B600A7FA6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 430D470A22AF77B600A7FA6E /* Assets.xcassets */; };
+		430D470E22AF77B600A7FA6E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 430D470D22AF77B600A7FA6E /* Preview Assets.xcassets */; };
 		430D471122AF77B600A7FA6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 430D470F22AF77B600A7FA6E /* LaunchScreen.storyboard */; };
 		430D473922B207E900A7FA6E /* SunburstDiagram in Frameworks */ = {isa = PBXBuildFile; productRef = 430D473822B207E900A7FA6E /* SunburstDiagram */; };
 		43CDFE99235955DC0023713B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A57BA622B873190044FF2B /* SettingsView.swift */; };
 		43DB39BC2364CE9F008F53F6 /* SettingsNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F13D22B9CE95008B461C /* SettingsNodesView.swift */; };
-		821F81F4249D73D600E57819 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821F81F3249D73D600E57819 /* CloudKit.framework */; };
-		824A7687249D7B6300EC4BB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430D470422AF77B300A7FA6E /* AppDelegate.swift */; };
+		821B055E24A3FA2F000388EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B055D24A3FA2F000388EC /* AppDelegate.swift */; };
+		821B056024A3FA2F000388EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821B055F24A3FA2F000388EC /* ContentView.swift */; };
+		821B056224A3FA30000388EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 821B056124A3FA30000388EC /* Assets.xcassets */; };
+		821B056524A3FA30000388EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 821B056424A3FA30000388EC /* Preview Assets.xcassets */; };
+		821B056824A3FA30000388EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821B056624A3FA30000388EC /* LaunchScreen.storyboard */; };
+		821B056E24A3FAA0000388EC /* SunburstDiagram in Frameworks */ = {isa = PBXBuildFile; productRef = 821B056D24A3FAA0000388EC /* SunburstDiagram */; };
+		821B056F24A3FAB0000388EC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F13B22B9C5EE008B461C /* RootView.swift */; };
+		821B057024A3FAB0000388EC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A57BA622B873190044FF2B /* SettingsView.swift */; };
+		821B057124A3FAB0000388EC /* SettingsNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F13D22B9CE95008B461C /* SettingsNodesView.swift */; };
+		821B057224A3FAB0000388EC /* SettingsNewNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F14122B9F4EE008B461C /* SettingsNewNodeView.swift */; };
+		821B057324A3FAB0000388EC /* IfLetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F13F22B9F35B008B461C /* IfLetView.swift */; };
 		82C7F13C22B9C5EE008B461C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F13B22B9C5EE008B461C /* RootView.swift */; };
 		82C7F14022B9F35C008B461C /* IfLetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F13F22B9F35B008B461C /* IfLetView.swift */; };
 		82C7F14222B9F4EE008B461C /* SettingsNewNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F14122B9F4EE008B461C /* SettingsNewNodeView.swift */; };
@@ -25,11 +36,18 @@
 		430D470422AF77B300A7FA6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		430D470622AF77B300A7FA6E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		430D470A22AF77B600A7FA6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		430D470D22AF77B600A7FA6E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		430D471022AF77B600A7FA6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		430D471222AF77B600A7FA6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		437F415822C866650092B76E /* SwiftSunburstDiagram */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftSunburstDiagram; path = ..; sourceTree = "<group>"; };
 		438EC2F4232DE3D00073A47C /* SunburstDiagramDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SunburstDiagramDemo.entitlements; sourceTree = "<group>"; };
-		821F81F3249D73D600E57819 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		821B055B24A3FA2F000388EC /* Sunburst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sunburst.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		821B055D24A3FA2F000388EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		821B055F24A3FA2F000388EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		821B056124A3FA30000388EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		821B056424A3FA30000388EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		821B056724A3FA30000388EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		821B056924A3FA30000388EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82A57BA622B873190044FF2B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		82C7F13B22B9C5EE008B461C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		82C7F13D22B9CE95008B461C /* SettingsNodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNodesView.swift; sourceTree = "<group>"; };
@@ -43,7 +61,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				430D473922B207E900A7FA6E /* SunburstDiagram in Frameworks */,
-				821F81F4249D73D600E57819 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		821B055824A3FA2F000388EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				821B056E24A3FAA0000388EC /* SunburstDiagram in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				430D470322AF77B300A7FA6E /* SunburstDiagram */,
+				821B055C24A3FA2F000388EC /* SunburstDiagramDemoTV */,
 				430D470222AF77B300A7FA6E /* Products */,
 				430D473622B1FF2A00A7FA6E /* Frameworks */,
 			);
@@ -63,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				430D470122AF77B300A7FA6E /* Sunburst.app */,
+				821B055B24A3FA2F000388EC /* Sunburst.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,17 +108,46 @@
 				430D470F22AF77B600A7FA6E /* LaunchScreen.storyboard */,
 				430D471222AF77B600A7FA6E /* Info.plist */,
 				438EC2F4232DE3D00073A47C /* SunburstDiagramDemo.entitlements */,
+				430D470C22AF77B600A7FA6E /* Preview Content */,
 			);
 			path = SunburstDiagram;
+			sourceTree = "<group>";
+		};
+		430D470C22AF77B600A7FA6E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				430D470D22AF77B600A7FA6E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		430D473622B1FF2A00A7FA6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				821F81F3249D73D600E57819 /* CloudKit.framework */,
 				437F415822C866650092B76E /* SwiftSunburstDiagram */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		821B055C24A3FA2F000388EC /* SunburstDiagramDemoTV */ = {
+			isa = PBXGroup;
+			children = (
+				821B055D24A3FA2F000388EC /* AppDelegate.swift */,
+				821B055F24A3FA2F000388EC /* ContentView.swift */,
+				821B056124A3FA30000388EC /* Assets.xcassets */,
+				821B056624A3FA30000388EC /* LaunchScreen.storyboard */,
+				821B056924A3FA30000388EC /* Info.plist */,
+				821B056324A3FA30000388EC /* Preview Content */,
+			);
+			path = SunburstDiagramDemoTV;
+			sourceTree = "<group>";
+		};
+		821B056324A3FA30000388EC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				821B056424A3FA30000388EC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,18 +173,41 @@
 			productReference = 430D470122AF77B300A7FA6E /* Sunburst.app */;
 			productType = "com.apple.product-type.application";
 		};
+		821B055A24A3FA2F000388EC /* SunburstDiagramDemoTV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 821B056C24A3FA30000388EC /* Build configuration list for PBXNativeTarget "SunburstDiagramDemoTV" */;
+			buildPhases = (
+				821B055724A3FA2F000388EC /* Sources */,
+				821B055824A3FA2F000388EC /* Frameworks */,
+				821B055924A3FA2F000388EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SunburstDiagramDemoTV;
+			packageProductDependencies = (
+				821B056D24A3FAA0000388EC /* SunburstDiagram */,
+			);
+			productName = SunburstDiagramDemoTV;
+			productReference = 821B055B24A3FA2F000388EC /* Sunburst.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		430D46F922AF77B300A7FA6E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Ludovic Landry";
 				TargetAttributes = {
 					430D470022AF77B300A7FA6E = {
 						CreatedOnToolsVersion = 11.0;
+					};
+					821B055A24A3FA2F000388EC = {
+						CreatedOnToolsVersion = 11.5;
 					};
 				};
 			};
@@ -146,6 +225,7 @@
 			projectRoot = "";
 			targets = (
 				430D470022AF77B300A7FA6E /* SunburstDiagramDemo */,
+				821B055A24A3FA2F000388EC /* SunburstDiagramDemoTV */,
 			);
 		};
 /* End PBXProject section */
@@ -156,7 +236,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				430D471122AF77B600A7FA6E /* LaunchScreen.storyboard in Resources */,
+				430D470E22AF77B600A7FA6E /* Preview Assets.xcassets in Resources */,
 				430D470B22AF77B600A7FA6E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		821B055924A3FA2F000388EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				821B056824A3FA30000388EC /* LaunchScreen.storyboard in Resources */,
+				821B056524A3FA30000388EC /* Preview Assets.xcassets in Resources */,
+				821B056224A3FA30000388EC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,11 +260,25 @@
 			files = (
 				43CDFE99235955DC0023713B /* SettingsView.swift in Sources */,
 				82C7F14022B9F35C008B461C /* IfLetView.swift in Sources */,
+				430D470522AF77B300A7FA6E /* AppDelegate.swift in Sources */,
 				82C7F14222B9F4EE008B461C /* SettingsNewNodeView.swift in Sources */,
 				82C7F13C22B9C5EE008B461C /* RootView.swift in Sources */,
-				824A7687249D7B6300EC4BB2 /* AppDelegate.swift in Sources */,
 				430D470722AF77B300A7FA6E /* SceneDelegate.swift in Sources */,
 				43DB39BC2364CE9F008F53F6 /* SettingsNodesView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		821B055724A3FA2F000388EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				821B056024A3FA2F000388EC /* ContentView.swift in Sources */,
+				821B057024A3FAB0000388EC /* SettingsView.swift in Sources */,
+				821B057124A3FAB0000388EC /* SettingsNodesView.swift in Sources */,
+				821B055E24A3FA2F000388EC /* AppDelegate.swift in Sources */,
+				821B057224A3FAB0000388EC /* SettingsNewNodeView.swift in Sources */,
+				821B057324A3FAB0000388EC /* IfLetView.swift in Sources */,
+				821B056F24A3FAB0000388EC /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +289,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				430D471022AF77B600A7FA6E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		821B056624A3FA30000388EC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				821B056724A3FA30000388EC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -310,12 +423,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SunburstDiagram/SunburstDiagramDemo.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_ASSET_PATHS = SunburstDiagram;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = NO;
+				DEVELOPMENT_ASSET_PATHS = "SunburstDiagram/Preview\\ Content";
 				DEVELOPMENT_TEAM = D6826XDERA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SunburstDiagram/Info.plist;
@@ -326,8 +438,6 @@
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mirageteam.sunburst;
 				PRODUCT_NAME = Sunburst;
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -339,12 +449,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SunburstDiagram/SunburstDiagramDemo.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_ASSET_PATHS = SunburstDiagram;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = NO;
+				DEVELOPMENT_ASSET_PATHS = "SunburstDiagram/Preview\\ Content";
 				DEVELOPMENT_TEAM = D6826XDERA;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SunburstDiagram/Info.plist;
@@ -355,11 +464,55 @@
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mirageteam.sunburst;
 				PRODUCT_NAME = Sunburst;
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		821B056A24A3FA30000388EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SunburstDiagramDemoTV/Preview Content\"";
+				DEVELOPMENT_TEAM = D6826XDERA;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SunburstDiagramDemoTV/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mirageteam.sunburst;
+				PRODUCT_NAME = Sunburst;
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 13.4;
+			};
+			name = Debug;
+		};
+		821B056B24A3FA30000388EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"SunburstDiagramDemoTV/Preview Content\"";
+				DEVELOPMENT_TEAM = D6826XDERA;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = SunburstDiagramDemoTV/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mirageteam.sunburst;
+				PRODUCT_NAME = Sunburst;
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 13.4;
 			};
 			name = Release;
 		};
@@ -384,10 +537,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		821B056C24A3FA30000388EC /* Build configuration list for PBXNativeTarget "SunburstDiagramDemoTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				821B056A24A3FA30000388EC /* Debug */,
+				821B056B24A3FA30000388EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		430D473822B207E900A7FA6E /* SunburstDiagram */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SunburstDiagram;
+		};
+		821B056D24A3FAA0000388EC /* SunburstDiagram */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SunburstDiagram;
 		};

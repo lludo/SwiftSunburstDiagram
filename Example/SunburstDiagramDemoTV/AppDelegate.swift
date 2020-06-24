@@ -1,33 +1,33 @@
 //
-//  SceneDelegate.swift
-//  SunburstDiagramDemo
+//  AppDelegate.swift
+//  SunburstDiagramDemoTV
 //
-//  Created by Ludovic Landry on 6/10/19.
-//  Copyright © 2019 Ludovic Landry. All rights reserved.
+//  Created by Ludovic Landry on 6/24/20.
+//  Copyright © 2020 Ludovic Landry. All rights reserved.
 //
 
 import UIKit
 import SunburstDiagram
 import SwiftUI
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDelegate {
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         let configuration = SunburstConfiguration(nodes: sampleNodes(), calculationMode: .ordinalFromLeaves)
         configuration.expandedArcThickness = 52.0
         configuration.maximumExpandedRingsShownCount = 2
         configuration.maximumRingsShownCount = 4
-
-        // Use a UIHostingController as window root view controller
-        if let windowScene = scene as? UIWindowScene {
-            let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: RootView(configuration: configuration))
-            self.window = window
-            window.makeKeyAndVisible()
-        }
+        
+        // Use a UIHostingController as window root view controller.
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = UIHostingController(rootView: RootView(configuration: configuration))
+        self.window = window
+        window.makeKeyAndVisible()
+        return true
     }
 
     private func sampleNodes() -> [Node] {
