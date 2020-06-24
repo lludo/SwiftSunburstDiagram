@@ -84,9 +84,9 @@ let viewController = UIHostingController(rootView: SunburstView(configuration: c
 If you **found a bug** or want to discuss a new **feature** do not hesitate to message me. If you **want to contribute**, all pull requests are always welcome. Thank you!
 
 
-## Demo App
+## Showcase App
 
-The demo app in this repo is also written with SwiftUI and allows to experience the API of this library in a grapical and reactive way.
+The showcase app in this repo is also written with SwiftUI and allows to experience the API of this library in a grapical and reactive way. It is also [available on the App Store](https://apps.apple.com/us/app/id1468995506) for free.
 
 <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/demo-app-1.png" alt="iOS demo app first screenshot" width="260"/>  <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/demo-app-2.png" alt="iOS demo app second screenshot" width="260"/>  <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/demo-app-3.png" alt="iOS demo app third screenshot" width="260"/>
 
