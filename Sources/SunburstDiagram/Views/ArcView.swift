@@ -12,6 +12,7 @@ import SwiftUI
 struct ArcView: View {
 
     @ObservedObject private var configuration: SunburstConfiguration
+    @Environment(\.colorScheme) private var colorScheme
 
     private let arc: Sunburst.Arc
     
@@ -21,46 +22,62 @@ struct ArcView: View {
     }
     
     var body: some View {
-        let animation = Animation.easeInOut
-        let arcShape = ArcShape(arc, configuration: configuration)
+        let arcShape = ArcShape(arc)
 
-        return ZStack() {
-            arcShape.fill(arc.backgroundColor).animation(animation)
-            arcShape.stroke(Color.primary, lineWidth: isNodeSelected() ? 4 : 0).clipShape(arcShape).animation(animation)
-            if arc.width > 0 && (configuration.maximumRingsShownCount == nil || arc.level <= configuration.maximumRingsShownCount!)
-                && (configuration.maximumExpandedRingsShownCount == nil || arc.level <= configuration.maximumExpandedRingsShownCount!) {
-                    ArcLabel(arc, configuration: configuration).animation(animation)
+        return ZStack {
+            arcShape.fill(arc.backgroundColor.resolve(in: colorScheme))
+            arcShape
+                .stroke(Color.primary, lineWidth: isNodeSelected() ? 3 : 0)
+                .clipShape(arcShape)
+            if shouldShowLabel {
+                ArcLabel(arc)
             }
         }
+        .animation(.easeInOut, value: arc.animatableData)
+        .contentShape(arcShape)
     }
 
     func isNodeSelected() -> Bool {
         return configuration.allowsSelection && arc.node == configuration.selectedNode
+    }
+
+    private var shouldShowLabel: Bool {
+        guard arc.width > 0 else { return false }
+        if let maxRings = configuration.maximumRingsShownCount, arc.level > maxRings {
+            return false
+        }
+        if let maxExpanded = configuration.maximumExpandedRingsShownCount, arc.level > maxExpanded {
+            return false
+        }
+        return true
     }
 }
 
 // A view for the label of the arc (text + image)
 struct ArcLabel: View {
     
-    private var arc: Sunburst.Arc
-    private var offset: CGPoint = .zero
-    private let configuration: SunburstConfiguration
-    
-    init(_ arc: Sunburst.Arc, configuration: SunburstConfiguration) {
+    private let arc: Sunburst.Arc
+    private let offset: CGPoint
+    init(_ arc: Sunburst.Arc) {
         self.arc = arc
-        self.configuration = configuration
-        
-        let points = ArcGeometry(arc, configuration: configuration)
+
+        let points = ArcGeometry(arc)
         offset = points[.center]
     }
     
     var body: some View {
         VStack() {
-            IfLet(arc.node.image) { image in
-                Image(uiImage: image)
+            if let image = arc.node.image {
+                image.resolve()
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 18, height: 18)
             }
             if !arc.isTextHidden {
                 Text(arc.node.name)
+                    .font(.caption2)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.6)
             }
         }
         .offset(x: offset.x, y: offset.y)
@@ -71,15 +88,12 @@ struct ArcLabel: View {
 struct ArcShape: Shape {
     
     private var arc: Sunburst.Arc
-    private let configuration: SunburstConfiguration
-
-    init(_ arc: Sunburst.Arc, configuration: SunburstConfiguration) {
+    init(_ arc: Sunburst.Arc) {
         self.arc = arc
-        self.configuration = configuration
     }
     
     func path(in rect: CGRect) -> Path {
-        let points = ArcGeometry(arc, in: rect, configuration: configuration)
+        let points = ArcGeometry(arc, in: rect)
         
         var path = Path()
         path.addArc(center: points.center, radius: arc.innerRadius,
@@ -108,7 +122,7 @@ private struct ArcGeometry {
     var arc: Sunburst.Arc
     var center: CGPoint
     
-    init(_ arc: Sunburst.Arc, in rect: CGRect? = nil, configuration: SunburstConfiguration) {
+    init(_ arc: Sunburst.Arc, in rect: CGRect? = nil) {
         self.arc = arc
         
         if let rect = rect {
@@ -141,7 +155,7 @@ struct ArcView_Previews : PreviewProvider {
         let node =  Node(name: "Walking",
                          showName: false,
                          value: 10.0,
-                         backgroundColor: .systemBlue)
+                         backgroundColor: .system(.blue))
         let totalValue = 30.0
         let arc = Sunburst.Arc(node: node, level: 1, totalValue: totalValue)
         let configuration = SunburstConfiguration(nodes: [node],

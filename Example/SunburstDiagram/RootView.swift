@@ -14,28 +14,24 @@ struct RootView: View {
     @ObservedObject var configuration: SunburstConfiguration
     
     var body: some View {
-        AnyView(GeometryReader { geometry -> AnyView in
+        GeometryReader { geometry in
             if geometry.size.width <= geometry.size.height {
-                return AnyView(
-                    VStack(spacing: 0) {
-                        SunburstView(configuration: self.configuration)
-                        Divider()
-                            .edgesIgnoringSafeArea(.all)
-                        SettingsView(configuration: self.configuration)
-                    }
-                )
+                VStack(spacing: 0) {
+                    SunburstView(configuration: configuration)
+                    Divider()
+                        .ignoresSafeArea()
+                    SettingsView(configuration: configuration)
+                }
             } else {
-                return AnyView(
-                    HStack(spacing: 0) {
-                        SunburstView(configuration: self.configuration)
-                            .edgesIgnoringSafeArea(.all)
-                        Divider()
-                            .edgesIgnoringSafeArea(.all)
-                        SettingsView(configuration: self.configuration)
-                    }
-                )
+                HStack(spacing: 0) {
+                    SunburstView(configuration: configuration)
+                        .ignoresSafeArea()
+                    Divider()
+                        .ignoresSafeArea()
+                    SettingsView(configuration: configuration)
+                }
             }
-        })
+        }
     }
 }
 
@@ -45,19 +41,19 @@ struct RootView_Previews: PreviewProvider {
         let configuration = SunburstConfiguration(nodes: [
             Node(name: "Walking",
                  showName: false,
-                 image: UIImage(named: "walking"),
+                 image: .asset(name: "walking"),
                  value: 10.0,
-                 backgroundColor: .systemBlue),
+                 backgroundColor: .system(.blue)),
             Node(name: "Restaurant",
                  showName: false,
-                 image: UIImage(named: "eating"),
+                 image: .asset(name: "eating"),
                  value: 30.0,
-                 backgroundColor: .systemRed),
+                 backgroundColor: .system(.red)),
             Node(name: "Home",
                  showName: false,
-                 image: UIImage(named: "house"),
+                 image: .asset(name: "house"),
                  value: 75.0,
-                 backgroundColor: .systemTeal)
+                 backgroundColor: .system(.teal))
         ])
         return RootView(configuration: configuration)
     }

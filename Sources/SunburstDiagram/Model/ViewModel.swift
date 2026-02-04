@@ -9,15 +9,16 @@
 import Combine
 import SwiftUI
 
-class Sunburst: ObservableObject {
+@MainActor
+final class Sunburst: ObservableObject {
 
-    struct Arc: Equatable, Identifiable {
+    struct Arc: Equatable, Identifiable, Sendable {
         let id: UUID
         let level: UInt
         private(set) var node: Node
 
         var width: Double
-        var backgroundColor: Color
+        var backgroundColor: ColorRef
         var isTextHidden: Bool
 
         fileprivate(set) var childArcs: [Arc]?
@@ -35,7 +36,7 @@ class Sunburst: ObservableObject {
             self.level = level
             self.node = node
 
-            backgroundColor = Color(node.computedBackgroundColor)
+            backgroundColor = node.computedBackgroundColor
             width = totalValue > 0 ? (node.computedValue / totalValue) * 2.0 * .pi : 0
             isTextHidden = !node.showName
         }
@@ -43,7 +44,7 @@ class Sunburst: ObservableObject {
         mutating func update(node: Node, totalValue: Double) {
             self.node = node
 
-            backgroundColor = Color(node.computedBackgroundColor)
+            backgroundColor = node.computedBackgroundColor
             width = totalValue > 0 ? (node.computedValue / totalValue) * 2.0 * .pi : 0
             isTextHidden = !node.showName
         }
@@ -51,11 +52,9 @@ class Sunburst: ObservableObject {
 
     let configuration: SunburstConfiguration
 
-    private(set) var rootArcs: [Arc] = []                   { willSet { objectWillChange.send() } }
-    private var arcsCache: [UUID : Arc] = [:]               { willSet { objectWillChange.send() } }
-    private var focusedLevel: UInt = 0                      { willSet { objectWillChange.send() } }
-
-    public let objectWillChange = ObservableObjectPublisher()
+    @Published private(set) var rootArcs: [Arc] = []
+    private var arcsCache: [UUID : Arc] = [:]
+    private var focusedLevel: UInt = 0
 
     private var cancellable: AnyCancellable?
 
@@ -63,15 +62,11 @@ class Sunburst: ObservableObject {
         self.configuration = configuration
 
         updateFromConfiguration()
-        cancellable = configuration.objectWillChange.sink { [weak self] (config) in
-            DispatchQueue.main.async() {
+        cancellable = configuration.objectWillChange.sink { [weak self] _ in
+            Task { @MainActor in
                 self?.updateFromConfiguration()
             }
         }
-    }
-
-    deinit {
-        cancellable?.cancel()
     }
 
     // MARK: Private
@@ -118,7 +113,10 @@ class Sunburst: ObservableObject {
             if node.children.count > 0 {
                 arc.childArcs = configureArcs(nodes: node.children, totalValue: totalValueForDisplay, level: level + 1,
                                               focusedNode: focusedNode, foundFocusedNode: foundFocusedNode)
+            } else {
+                arc.childArcs = nil
             }
+            arcsCache[node.id] = arc
             arcs.append(arc)
         }
         return arcs
@@ -136,11 +134,16 @@ class Sunburst: ObservableObject {
         // Recalculate locations, to pack within circle.
         let startLocation = -.pi / 2.0 + (configuration.startingAngle * .pi / 180)
         recalculateLocations(arcs: &rootArcs, startLocation: startLocation)
+
+        var activeIds: Set<UUID> = []
+        collectArcIds(arcs: rootArcs, into: &activeIds)
+        updateCache(arcs: rootArcs)
+        arcsCache = arcsCache.filter { activeIds.contains($0.key) }
     }
-    
+
     private func recalculateLocations(arcs: inout [Sunburst.Arc], startLocation location: Double) {
         var location = location
-        for index in 0 ..< arcs.count {
+        for index in arcs.indices {
             if arcs[index].childArcs != nil {
                 recalculateLocations(arcs: &arcs[index].childArcs!, startLocation: location)
             }
@@ -164,11 +167,30 @@ class Sunburst: ObservableObject {
             }
         }
     }
+
+    private func collectArcIds(arcs: [Sunburst.Arc], into set: inout Set<UUID>) {
+        for arc in arcs {
+            set.insert(arc.id)
+            if let childArcs = arc.childArcs {
+                collectArcIds(arcs: childArcs, into: &set)
+            }
+        }
+    }
+
+    private func updateCache(arcs: [Sunburst.Arc]) {
+        for arc in arcs {
+            arcsCache[arc.id] = arc
+            if let childArcs = arc.childArcs {
+                updateCache(arcs: childArcs)
+            }
+        }
+    }
 }
 
 // MARK: - Arc extensions
 
 // Geometry
+@MainActor
 extension Sunburst.Arc {
 
     func arcIsExpanded(configuration: SunburstConfiguration, focusedLevel: UInt) -> Bool {

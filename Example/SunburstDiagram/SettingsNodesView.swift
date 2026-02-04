@@ -14,18 +14,31 @@ struct SettingsNodesView: View {
     var nodes: [Node]
 
     var body: some View {
-        Form {
-            if nodes.count > 0 {
-                Section {
-                    ForEach(nodes) { node in
-                        self.nodeCellFor(node)
-                    }
+        container
+        .navigationTitle("Nodes")
+    }
+
+    @ViewBuilder
+    private var container: some View {
+        #if os(tvOS)
+        List { listContent }
+        #else
+        Form { listContent }
+        #endif
+    }
+
+    @ViewBuilder
+    private var listContent: some View {
+        if nodes.count > 0 {
+            Section {
+                ForEach(nodes) { node in
+                    self.nodeCellFor(node)
                 }
             }
-            Section {
-                NavigationLink(destination: SettingsNewNodeView()) {
-                    Text("Add new node")
-                }
+        }
+        Section {
+            NavigationLink(destination: SettingsNewNodeView()) {
+                Text("Add new node")
             }
         }
     }
@@ -33,12 +46,14 @@ struct SettingsNodesView: View {
     fileprivate func nodeCellFor(_ node: Node) -> some View {
         return NavigationLink(destination: SettingsNodesView(nodes: node.children)) {
             HStack {
-                IfLet(node.image) { image in
-                    Image(uiImage: image).renderingMode(.template)
+                if let image = node.image {
+                    image.resolve().renderingMode(.template)
                 }
                 Text(node.name)
                 Spacer()
-                Text(node.children.count == 0 ? "Leaf node" : "\(node.children.count) child nodes").foregroundColor(Color.secondary)
+                Text(node.children.count == 0 ? "Leaf node" : "\(node.children.count) child nodes")
+                    .foregroundColor(.secondary)
+                    .font(.subheadline)
             }
         }
     }
@@ -50,9 +65,9 @@ struct SettingsNodesView_Previews: PreviewProvider {
         SettingsNodesView(nodes: [
             Node(name: "Walking",
                  showName: false,
-                 image: UIImage(named: "walking"),
+                 image: .asset(name: "walking"),
                  value: 10.0,
-                 backgroundColor: .systemBlue)
+                 backgroundColor: .system(.blue))
         ])
     }
 }

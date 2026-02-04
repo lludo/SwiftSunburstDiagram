@@ -9,7 +9,6 @@
 import Combine
 import Foundation
 import SwiftUI
-import UIKit
 
 // TODO: Callbacks & functions:
 // - Did select node - only support single selection
@@ -17,10 +16,15 @@ import UIKit
 // - Drill down to node
 // - Drill up / drill up to root
 
-/// The `SunburstConfiguration` is the main configuration class used to create the `SunburstView`
-public class SunburstConfiguration: ObservableObject {
-    @Published public var nodes: [Node] = []
-    @Published public var calculationMode: CalculationMode = .ordinalFromRoot
+/// The `SunburstConfiguration` is the main configuration class used to create the `SunburstView`.
+@MainActor
+public final class SunburstConfiguration: ObservableObject {
+    @Published public var nodes: [Node] = [] {
+        didSet { validateAndPrepare() }
+    }
+    @Published public var calculationMode: CalculationMode = .ordinalFromRoot {
+        didSet { validateAndPrepare() }
+    }
     @Published public var nodesSort: NodesSort = .none
     
     @Published public var marginBetweenArcs: CGFloat = 1.0
@@ -38,13 +42,19 @@ public class SunburstConfiguration: ObservableObject {
 
     // MARK: Interactions
 
-    @Published public var allowsSelection: Bool = true
+    @Published public var allowsSelection: Bool = true {
+        didSet {
+            if allowsSelection == false {
+                selectedNode = nil
+                focusedNode = nil
+            }
+        }
+    }
 
     @Published public var selectedNode: Node?
     @Published public var focusedNode: Node?
 
-    private var cancellable: AnyCancellable?
-    private var isValidatingAndPreparing = false
+    private var isValidating = false
 
     lazy var sunburst: Sunburst = {
         return Sunburst(configuration: self)
@@ -56,47 +66,41 @@ public class SunburstConfiguration: ObservableObject {
         self.nodesSort = nodesSort
 
         validateAndPrepare()
-        cancellable = objectWillChange.sink { [weak self] (config) in
-            guard let self = self else { return }
-            guard !self.isValidatingAndPreparing else { return }
-            self.isValidatingAndPreparing = true
-            DispatchQueue.main.async() { [weak self] in
-                guard let self = self else { return }
-                self.validateAndPrepare()
-                self.isValidatingAndPreparing = false
-            }
-        }
-    }
-
-    deinit {
-        cancellable?.cancel()
     }
 }
 
 /// The `Node` class holds the data shown in the diagram
-public struct Node: Identifiable, Equatable {
-    public let id = UUID()
+public struct Node: Identifiable, Equatable, Sendable {
+    public let id: UUID
 
     public let name: String
     public var children: [Node]
     public var value: Double? = nil
     
     public var showName: Bool = true
-    public var image: UIImage? = nil
-    public var backgroundColor: UIColor? = nil
+    public var image: ImageRef? = nil
+    public var backgroundColor: ColorRef? = nil
 
     // Internal values
     var computedValue: Double = 0.0
-    var computedBackgroundColor: UIColor = .systemGray
+    var computedBackgroundColor: ColorRef = .defaultBackground
 
-    public init(name: String, showName: Bool = true, image: UIImage? = nil,
-                value: Double? = nil, backgroundColor: UIColor? = nil, children: [Node] = []) {
+    public init(id: UUID = UUID(),
+                name: String,
+                showName: Bool = true,
+                image: ImageRef? = nil,
+                value: Double? = nil, backgroundColor: ColorRef? = nil, children: [Node] = []) {
+        self.id = id
         self.name = name
         self.showName = showName
         self.image = image
         self.value = value
         self.backgroundColor = backgroundColor
         self.children = children
+    }
+
+    public static func == (lhs: Node, rhs: Node) -> Bool {
+        lhs.id == rhs.id
     }
 }
 
@@ -123,7 +127,7 @@ public enum NodesSort: Hashable {
 public enum ArcMinimumAngle: Hashable {
     /// Default. Will show all arcs
     case showAll
-    /// Group sibling arcs toguether if their angle is less than the desired value in degree
+    /// Group sibling arcs together if their angle is less than the desired value in degree
     case group(ifLessThan: Double)
     /// Hide arcs if their angle is less than the desired value in degree
     case hide(ifLessThan: Double)
@@ -134,10 +138,15 @@ public enum ArcMinimumAngle: Hashable {
 extension SunburstConfiguration {
     
     func validateAndPrepare() {
+        guard !isValidating else { return }
+        isValidating = true
+        defer { isValidating = false }
+
         validateAndPrepareValues()
         validateAndPrepareColors(nodes: &nodes)
+        cleanupSelections()
         
-        // TODO: implement minimumArc size
+        // TODO: implement minimum arc size
     }
     
     var totalNodesValue: Double {
@@ -217,7 +226,7 @@ extension SunburstConfiguration {
                 return false
             }
             if node.children.count > 0 {
-                let isValidChildren = validateLeafNodesHaveValue(nodes: node.children)
+                let isValidChildren = validateAllNodesHaveValue(nodes: node.children)
                 if !isValidChildren {
                     return false
                 }
@@ -253,6 +262,7 @@ extension SunburstConfiguration {
     // MARK: Private prepare computed value
     
     private func prepareNodeComputedValuesForModeOrdinalFromRoot(nodes: inout [Node], totalValue: Double = 100.0) {
+        guard !nodes.isEmpty else { return }
         let nodeValue = totalValue / Double(nodes.count)
         for nodeIndex in 0..<nodes.count {
             nodes[nodeIndex].computedValue = nodeValue
@@ -263,7 +273,10 @@ extension SunburstConfiguration {
     }
     
     private func prepareNodeComputedValuesForModeOrdinalFromLeaves(nodes: inout [Node], leavesValue: Double? = nil) -> Double {
-        let leavesValue = leavesValue ?? (100.0 / Double(totalLeavesCount(nodes: nodes)))
+        guard !nodes.isEmpty else { return 0.0 }
+        let leavesCount = totalLeavesCount(nodes: nodes)
+        guard leavesCount > 0 else { return 0.0 }
+        let leavesValue = leavesValue ?? (100.0 / Double(leavesCount))
         
         var nodesTotalComputedValue = 0.0
         for nodeIndex in 0..<nodes.count {
@@ -325,6 +338,29 @@ extension SunburstConfiguration {
             }
         }
         return nil
+    }
+
+    private func cleanupSelections() {
+        if let selectedNode, !containsNode(selectedNode) {
+            self.selectedNode = nil
+        }
+        if let focusedNode, !containsNode(focusedNode) {
+            self.focusedNode = nil
+        }
+    }
+
+    private func containsNode(_ node: Node) -> Bool {
+        containsNode(id: node.id, in: nodes)
+    }
+
+    private func containsNode(id: UUID, in nodes: [Node]) -> Bool {
+        for node in nodes {
+            if node.id == id { return true }
+            if node.children.count > 0, containsNode(id: id, in: node.children) {
+                return true
+            }
+        }
+        return false
     }
 }
 

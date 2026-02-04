@@ -8,12 +8,12 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/lludo/SwiftSunburstDiagram.git', :tag => s.version }
   s.documentation_url = 'https://github.com/lludo/SwiftSunburstDiagram/wiki'
 
-  s.ios.deployment_target = '13.0'
-#  s.tvos.deployment_target = '13.0'
-#  s.osx.deployment_target = '10.15'
-#  s.watchos.deployment_target = '6.0'
+  s.ios.deployment_target = '26.0'
+  s.tvos.deployment_target = '26.0'
+  s.osx.deployment_target = '26.0'
+  s.watchos.deployment_target = '26.0'
 
-  s.swift_version = '5.1'
+  s.swift_version = '6.2'
 
   s.source_files = 'Sources/**/*.swift'
 

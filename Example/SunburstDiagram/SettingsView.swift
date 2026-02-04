@@ -13,101 +13,153 @@ struct SettingsView: View {
 
     @ObservedObject var configuration: SunburstConfiguration
     
-    @State private var parentTotalValue: Double? = nil
-    @State private var arcAngleShownIfLessThan: Double = 0.0
-    
     var body: some View {
-        NavigationView {
-            Form {
-                Section(header:Text("Content").font(.subheadline)) {
-                    NavigationLink(destination: SettingsNodesView(nodes: configuration.nodes)) {
-                        Text("nodes")
-                        Spacer()
-                        Text(configuration.nodes.count == 0 ? "[No nodes]" : "[\(configuration.nodes.count) root nodes]").foregroundColor(Color.secondary)
-                    }
-                    Picker(selection: $configuration.nodesSort, label: Text("nodesSort")) {
-                        Text(".none").tag(NodesSort.none)
-                        Text(".asc").tag(NodesSort.asc)
-                        Text(".desc").tag(NodesSort.desc)
-                    }
-                    Picker(selection: $configuration.calculationMode, label: Text("calculationMode")) {
-                        Text(".ordinalFromLeaves").tag(CalculationMode.ordinalFromLeaves)
-                        Text(".ordinalFromRoot").tag(CalculationMode.ordinalFromRoot)
-                        Text(".parentDependent(totalValue:)").tag(CalculationMode.parentDependent(totalValue: parentTotalValue))
-                        Text(".parentIndependent(totalValue:)").tag(CalculationMode.parentIndependent(totalValue: parentTotalValue))
-                    }
-//                    if case .parentDependent(let totalValue) = configuration.calculationMode {
-//                        Stepper(value: $parentTotalValue, in: 0 ... 250) { Text(".parentDependent(totalValue:)") }
-//                    } else if case .parentInependent(let totalValue) = configuration.calculationMode {
-//                        Stepper(value: $parentTotalValue, in: 0 ... 250) { Text(".parentIndependent(totalValue:)") }
-//                    }
-                }
-                Section(header:Text("Dimentions").font(.subheadline)) {
-                    VStack(alignment: .leading) {
-                        Text("marginBetweenArcs = \(configuration.marginBetweenArcs)")
-                        Slider(value: $configuration.marginBetweenArcs, in: CGFloat(0)...CGFloat(6), step: CGFloat(0.1))
-                    }
-                    VStack(alignment: .leading) {
-                        Text("innerRadius = \(configuration.innerRadius)")
-                        Slider(value: $configuration.innerRadius, in: CGFloat(6)...CGFloat(200))
-                    }
-                    VStack(alignment: .leading) {
-                        Text("expandedArcThickness = \(configuration.expandedArcThickness)")
-                        Slider(value: $configuration.expandedArcThickness, in: CGFloat(30)...CGFloat(120))
-                    }
-                    VStack(alignment: .leading) {
-                        Text("collapsedArcThickness = \(configuration.collapsedArcThickness)")
-                        Slider(value: $configuration.collapsedArcThickness, in: CGFloat(2)...CGFloat(12))
-                    }
-                }
-                Section(header:Text("More").font(.subheadline)) {
-                    VStack(alignment: .leading) {
-                        Text("startingAngle = \(configuration.startingAngle)")
-                        Slider(value: $configuration.startingAngle, in: Double(-180)...Double(180))
-                    }
-                    Toggle(isOn: configuration.maximumRingsShownCountToggleBinding) {
-                        Text("maximumRingsShownCount")
-                    }
-                    if configuration.maximumRingsShownCount != nil {
-                        VStack(alignment: .leading) {
-                            Text("maximumRingsShownCount = \(configuration.maximumRingsShownCount!)")
-                            Slider(value: self.configuration.maximumRingsShownCountSliderBinding, in: 1...10)
-                        }
-                    }
-                    Toggle(isOn: configuration.maximumExpandedRingsShownCountToggleBinding) {
-                        Text("maximumExpandedRingsShownCount")
-                    }
-                    if configuration.maximumExpandedRingsShownCount != nil {
-                        VStack(alignment: .leading) {
-                            Text("maximumExpandedRingsShownCount = \(configuration.maximumExpandedRingsShownCount!)")
-                            Slider(value: self.configuration.maximumExpandedRingsShownCountSliderBinding, in: 0...8)
-                        }
-                    }
-                    Picker(selection: $configuration.minimumArcAngleShown, label: Text("minimumArcAngleShown")) {
-                        Text(".showAll").tag(ArcMinimumAngle.showAll)
-                        Text(".group(ifLessThan:)").tag(ArcMinimumAngle.group(ifLessThan: arcAngleShownIfLessThan))
-                        Text(".hide(ifLessThan:)").tag(ArcMinimumAngle.hide(ifLessThan: arcAngleShownIfLessThan))
-                    }.disabled(true)
-//                    if configuration.calculationMode == .group {
-//                        Stepper(value: $parentTotalValue, in: 0.0 ... .pi) { Text(".group(ifLessThan:)") }
-//                    } else if configuration.calculationMode == .hide {
-//                        Stepper(value: $parentTotalValue, in: 0.0 ... .pi) { Text(".hide(ifLessThan:)") }
-//                    }
-                }
-                Section(header:Text("Interactions").font(.subheadline)) {
-                    HStack {
-                        Text("selectedNode")
-                        Spacer()
-                        Text(configuration.selectedNode == nil ? "none" : configuration.selectedNode!.name).foregroundColor(Color.secondary)
-                    }
-                    HStack {
-                        Text("focusedNode")
-                        Spacer()
-                        Text(configuration.focusedNode == nil ? "none" : configuration.focusedNode!.name).foregroundColor(Color.secondary)
-                    }
-                }
-            }.navigationBarTitle(Text("Configuration"))
+        NavigationStack {
+            container
+            .navigationTitle("Configuration")
         }
+    }
+
+    @ViewBuilder
+    private var container: some View {
+        #if os(tvOS)
+        List { formContent }
+        #else
+        Form { formContent }
+        #endif
+    }
+
+    @ViewBuilder
+    private var formContent: some View {
+        Section("Content") {
+            NavigationLink(destination: SettingsNodesView(nodes: configuration.nodes)) {
+                Text("Nodes")
+                Spacer()
+                Text(configuration.nodes.isEmpty ? "No nodes" : "\(configuration.nodes.count) root nodes")
+                    .foregroundColor(.secondary)
+            }
+            Picker(selection: $configuration.nodesSort, label: Text("Node Sorting")) {
+                Text(".none").tag(NodesSort.none)
+                Text(".asc").tag(NodesSort.asc)
+                Text(".desc").tag(NodesSort.desc)
+            }
+            Picker(selection: $configuration.calculationMode, label: Text("Calculation Mode")) {
+                Text(".ordinalFromLeaves").tag(CalculationMode.ordinalFromLeaves)
+                Text(".ordinalFromRoot").tag(CalculationMode.ordinalFromRoot)
+                Text(".parentDependent(totalValue:)").tag(CalculationMode.parentDependent(totalValue: nil))
+                Text(".parentIndependent(totalValue:)").tag(CalculationMode.parentIndependent(totalValue: nil))
+            }
+        }
+        Section("Dimensions") {
+            sliderRow(title: "Margin Between Arcs",
+                      value: $configuration.marginBetweenArcs,
+                      range: CGFloat(0)...CGFloat(6),
+                      step: 0.1,
+                      fractionDigits: 1)
+            sliderRow(title: "Inner Radius",
+                      value: $configuration.innerRadius,
+                      range: CGFloat(6)...CGFloat(200),
+                      step: 1,
+                      fractionDigits: 0)
+            sliderRow(title: "Expanded Arc Thickness",
+                      value: $configuration.expandedArcThickness,
+                      range: CGFloat(30)...CGFloat(120),
+                      step: 1,
+                      fractionDigits: 0)
+            sliderRow(title: "Collapsed Arc Thickness",
+                      value: $configuration.collapsedArcThickness,
+                      range: CGFloat(2)...CGFloat(12),
+                      step: 1,
+                      fractionDigits: 0)
+        }
+        Section("More") {
+            sliderRow(title: "Starting Angle",
+                      value: $configuration.startingAngle,
+                      range: Double(-180)...Double(180),
+                      step: 1,
+                      fractionDigits: 0)
+            Toggle("Limit Rings", isOn: configuration.maximumRingsShownCountToggleBinding)
+            if configuration.maximumRingsShownCount != nil {
+                sliderRow(title: "Maximum Rings",
+                          value: self.configuration.maximumRingsShownCountSliderBinding,
+                          range: 1...10,
+                          step: 1,
+                          fractionDigits: 0)
+            }
+            Toggle("Limit Expanded Rings", isOn: configuration.maximumExpandedRingsShownCountToggleBinding)
+            if configuration.maximumExpandedRingsShownCount != nil {
+                sliderRow(title: "Maximum Expanded Rings",
+                          value: self.configuration.maximumExpandedRingsShownCountSliderBinding,
+                          range: 0...8,
+                          step: 1,
+                          fractionDigits: 0)
+            }
+            Picker(selection: $configuration.minimumArcAngleShown, label: Text("Minimum Arc Angle")) {
+                Text(".showAll").tag(ArcMinimumAngle.showAll)
+                Text(".group(ifLessThan:)").tag(ArcMinimumAngle.group(ifLessThan: 1.0))
+                Text(".hide(ifLessThan:)").tag(ArcMinimumAngle.hide(ifLessThan: 1.0))
+            }.disabled(true)
+        }
+        Section("Interactions") {
+            LabeledContent("Selected Node") {
+                Text(configuration.selectedNode == nil ? "none" : configuration.selectedNode!.name)
+                    .foregroundColor(Color.secondary)
+            }
+            LabeledContent("Focused Node") {
+                Text(configuration.focusedNode == nil ? "none" : configuration.focusedNode!.name)
+                    .foregroundColor(Color.secondary)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func sliderRow(title: String,
+                           value: Binding<Double>,
+                           range: ClosedRange<Double>,
+                           step: Double,
+                           fractionDigits: Int) -> some View {
+        #if os(tvOS)
+        VStack(alignment: .leading, spacing: 6) {
+            HStack {
+                Text(title)
+                Spacer()
+                Text(value.wrappedValue, format: .number.precision(.fractionLength(fractionDigits)))
+                    .foregroundColor(.secondary)
+                    .monospacedDigit()
+            }
+            Text("Adjustable on iOS/macOS")
+                .font(.caption)
+                .foregroundColor(.secondary)
+        }
+        #else
+        VStack(alignment: .leading, spacing: 6) {
+            HStack {
+                Text(title)
+                Spacer()
+                Text(value.wrappedValue, format: .number.precision(.fractionLength(fractionDigits)))
+                    .foregroundColor(.secondary)
+                    .monospacedDigit()
+            }
+            Slider(value: value, in: range, step: step)
+        }
+        #endif
+    }
+
+    @ViewBuilder
+    private func sliderRow(title: String,
+                           value: Binding<CGFloat>,
+                           range: ClosedRange<CGFloat>,
+                           step: CGFloat,
+                           fractionDigits: Int) -> some View {
+        let doubleBinding = Binding<Double>(
+            get: { Double(value.wrappedValue) },
+            set: { value.wrappedValue = CGFloat($0) }
+        )
+        sliderRow(title: title,
+                  value: doubleBinding,
+                  range: Double(range.lowerBound)...Double(range.upperBound),
+                  step: Double(step),
+                  fractionDigits: fractionDigits)
     }
 }
 
@@ -159,19 +211,19 @@ struct SettingsView_Previews: PreviewProvider {
         let configuration = SunburstConfiguration(nodes: [
             Node(name: "Walking",
                  showName: false,
-                 image: UIImage(named: "walking"),
+                 image: .asset(name: "walking"),
                  value: 10.0,
-                 backgroundColor: .systemBlue),
+                 backgroundColor: .system(.blue)),
             Node(name: "Restaurant",
                  showName: false,
-                 image: UIImage(named: "eating"),
+                 image: .asset(name: "eating"),
                  value: 30.0,
-                 backgroundColor: .systemRed),
+                 backgroundColor: .system(.red)),
             Node(name: "Home",
                  showName: false,
-                 image: UIImage(named: "house"),
+                 image: .asset(name: "house"),
                  value: 75.0,
-                 backgroundColor: .systemTeal)
+                 backgroundColor: .system(.teal))
         ])
         return SettingsView(configuration: configuration)
     }

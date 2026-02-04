@@ -10,40 +10,46 @@ import SwiftUI
 
 public struct SunburstView: View {
 
-    @ObservedObject var sunburst: Sunburst
+    @ObservedObject private var sunburst: Sunburst
     
     public init(configuration: SunburstConfiguration) {
         sunburst = configuration.sunburst
     }
     
     public var body: some View {
-        let arcs = ZStack {
-            configureViews(arcs: sunburst.rootArcs)
-            
-            // Stop the window shrinking to zero when there is no arcs.
-            Spacer()
+        ZStack {
+            SunburstArcGroup(arcs: sunburst.rootArcs, configuration: sunburst.configuration)
+            Color.clear
         }
         .flipsForRightToLeftLayoutDirection(true)
         .padding()
-
-        let drawnArcs = arcs.drawingGroup()
-        return drawnArcs
+        .drawingGroup()
     }
-    
-    private func configureViews(arcs: [Sunburst.Arc], parentArc: Sunburst.Arc? = nil) -> some View {
-        return ForEach(arcs) { arc in
-            ArcView(arc: arc, configuration: self.sunburst.configuration).onTapGesture {
-                guard self.sunburst.configuration.allowsSelection else { return }
-                if self.sunburst.configuration.selectedNode == arc.node && self.sunburst.configuration.focusedNode == arc.node {
-                    self.sunburst.configuration.focusedNode = self.sunburst.configuration.parentForNode(arc.node)
-                } else if self.sunburst.configuration.selectedNode == arc.node {
-                    self.sunburst.configuration.focusedNode = arc.node
-                } else {
-                    self.sunburst.configuration.selectedNode = arc.node
-                }
+}
+
+private struct SunburstArcGroup: View {
+    let arcs: [Sunburst.Arc]
+    @ObservedObject var configuration: SunburstConfiguration
+
+    var body: some View {
+        ForEach(arcs) { arc in
+            ArcView(arc: arc, configuration: configuration)
+                .onTapGesture { handleTap(on: arc) }
+            if let childArcs = arc.childArcs {
+                SunburstArcGroup(arcs: childArcs, configuration: configuration)
             }
-            IfLet(arc.childArcs) { childArcs in
-                AnyView(self.configureViews(arcs: childArcs, parentArc: arc))
+        }
+    }
+
+    private func handleTap(on arc: Sunburst.Arc) {
+        guard configuration.allowsSelection else { return }
+        withAnimation(.easeInOut) {
+            if configuration.selectedNode == arc.node && configuration.focusedNode == arc.node {
+                configuration.focusedNode = configuration.parentForNode(arc.node)
+            } else if configuration.selectedNode == arc.node {
+                configuration.focusedNode = arc.node
+            } else {
+                configuration.selectedNode = arc.node
             }
         }
     }
@@ -56,15 +62,15 @@ struct SunburstView_Previews : PreviewProvider {
             Node(name: "Walking",
                  showName: false,
                  value: 10.0,
-                 backgroundColor: .systemBlue),
+                 backgroundColor: .system(.blue)),
             Node(name: "Restaurant",
                  showName: false,
                  value: 30.0,
-                 backgroundColor: .systemRed),
+                 backgroundColor: .system(.red)),
             Node(name: "Home",
                  showName: false,
                  value: 75.0,
-                 backgroundColor: .systemTeal)
+                 backgroundColor: .system(.teal))
         ])
         return SunburstView(configuration: configuration)
     }

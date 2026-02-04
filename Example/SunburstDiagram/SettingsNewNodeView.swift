@@ -10,7 +10,8 @@ import SwiftUI
 
 struct SettingsNewNodeView: View {
     var body: some View {
-        Text("This node is not editable.")
+        Text("Coming soon")
+            .navigationTitle("New Node")
     }
 }
 
