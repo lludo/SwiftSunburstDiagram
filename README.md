@@ -29,17 +29,17 @@ Once you have your Swift package set up, adding SunburstDiagram as a dependency 
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/lludo/SwiftSunburstDiagram.git")
+    .package(url: "https://github.com/lludo/SwiftSunburstDiagram.git", from: "1.5.0")
 ]
 ```
 
 
 ### CocoaPods
 
-[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Alamofire into your Xcode project using CocoaPods, specify it in your `Podfile`:
+[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate SunburstDiagram into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'SunburstDiagram', '~> 1.1.0'
+pod 'SunburstDiagram', '~> 1.5'
 ```
 
 
@@ -100,7 +100,12 @@ If you **found a bug** or want to discuss a new **feature** do not hesitate to m
 
 ## Showcase App
 
-The demo app in this repo is written with SwiftUI and includes iOS, macOS, tvOS, and watchOS targets so you can explore the API on each platform. The iOS showcase app is also [available on the App Store](https://apps.apple.com/us/app/id1468995506) for free.
+The demo app in this repo is written with SwiftUI and includes:
+
+- `SunburstDiagramDemo` multi-platform target (iOS, macOS, tvOS, visionOS)
+- `SunburstDiagramDemoWatch` standalone watchOS app target (with watch extension)
+
+The iOS showcase app is also [available on the App Store](https://apps.apple.com/us/app/id1468995506) for free.
 
 <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/demo-app-1.png" alt="iOS demo app first screenshot" width="260"/>  <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/demo-app-2.png" alt="iOS demo app second screenshot" width="260"/>  <img src="https://github.com/lludo/SwiftSunburstDiagram/blob/master/Docs/demo-app-3.png" alt="iOS demo app third screenshot" width="260"/>
 
@@ -108,11 +113,20 @@ The demo app in this repo is written with SwiftUI and includes iOS, macOS, tvOS,
 
 ## Todo
 
+### Framework
+
 - [ ] Implement option for min arc percentage (if less, show data grouped in "other")
 - [ ] Compute arc colors if no color is provided by nodes
 - [ ] Add option to show unassigned if total of arcs is less than 100%
 - [ ] Add rounded corners option for arcs with margins
-- [ ] Consider richer asset naming helpers (optional; current `ImageRef`/`ColorRef` cover system and asset cases)
+- [ ] Switch `BundleRef.module` from `.main` to a real SPM resource bundle when package resources are added
+- [ ] Revisit any remaining sendability/concurrency warnings with an explicit ownership/actor isolation plan
+
+### Demo Apps
+
+- [ ] Replace placeholder app icons for demo targets (watchOS `AppIcon` still has unassigned sizes)
+- [ ] Resolve duplicate asset warnings between `Assets.xcassets` and `Assets-Shared.xcassets` (`croissant`, `eating`, `house`, `poultry`, `sailing`, `walking`)
+- [ ] Decide whether tvOS settings remain read-only or move to custom focusable editable controls
 
 
 ## Inspirations
