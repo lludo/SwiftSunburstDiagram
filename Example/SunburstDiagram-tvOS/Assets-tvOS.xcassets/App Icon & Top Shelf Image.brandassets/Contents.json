@@ -13,16 +13,16 @@
       "size" : "400x240"
     },
     {
-      "filename" : "Top Shelf Image Wide.imageset",
-      "idiom" : "tv",
-      "role" : "top-shelf-image-wide",
-      "size" : "2320x720"
-    },
-    {
       "filename" : "Top Shelf Image.imageset",
       "idiom" : "tv",
       "role" : "top-shelf-image",
       "size" : "1920x720"
+    },
+    {
+      "filename" : "Top Shelf Image Wide.imageset",
+      "idiom" : "tv",
+      "role" : "top-shelf-image-wide",
+      "size" : "2320x720"
     }
   ],
   "info" : {

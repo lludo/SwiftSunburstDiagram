@@ -1,16 +1,16 @@
 //
-//  AppDelegate.swift
-//  SunburstDiagramDemo
+//  WatchApp.swift
+//  SunburstDiagramDemoWatch Watch App
 //
-//  Created by Ludovic Landry on 6/10/19.
-//  Copyright © 2019 Ludovic Landry. All rights reserved.
+//  Created by Ludo on 2/4/26.
+//  Copyright © 2026 Ludovic Landry. All rights reserved.
 //
 
 import SunburstDiagram
 import SwiftUI
 
 @main
-struct SunburstDiagramDemoApp: App {
+struct SunburstDiagramDemoWatchApp: App {
     @StateObject private var configuration: SunburstConfiguration
 
     init() {
@@ -23,7 +23,8 @@ struct SunburstDiagramDemoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView(configuration: configuration)
+            SunburstView(configuration: configuration)
+                .padding()
         }
     }
 }
