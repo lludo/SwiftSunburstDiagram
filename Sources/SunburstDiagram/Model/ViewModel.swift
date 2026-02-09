@@ -30,6 +30,8 @@ final class Sunburst: ObservableObject {
 
         fileprivate(set) var innerMargin = 0.0
         fileprivate(set) var outerMargin = 0.0
+        fileprivate(set) var isExpanded = true
+        fileprivate(set) var showsDecorations = true
 
         init(node: Node, level: UInt, totalValue: Double) {
             self.id = node.id
@@ -47,6 +49,26 @@ final class Sunburst: ObservableObject {
             backgroundColor = node.computedBackgroundColor
             width = totalValue > 0 ? (node.computedValue / totalValue) * 2.0 * .pi : 0
             isTextHidden = !node.showName
+        }
+
+        static func == (lhs: Arc, rhs: Arc) -> Bool {
+            lhs.id == rhs.id &&
+            lhs.level == rhs.level &&
+            lhs.node.name == rhs.node.name &&
+            lhs.node.image == rhs.node.image &&
+            lhs.node.showName == rhs.node.showName &&
+            lhs.width == rhs.width &&
+            lhs.backgroundColor == rhs.backgroundColor &&
+            lhs.isTextHidden == rhs.isTextHidden &&
+            lhs.childArcs == rhs.childArcs &&
+            lhs.start == rhs.start &&
+            lhs.end == rhs.end &&
+            lhs.innerRadius == rhs.innerRadius &&
+            lhs.outerRadius == rhs.outerRadius &&
+            lhs.innerMargin == rhs.innerMargin &&
+            lhs.outerMargin == rhs.outerMargin &&
+            lhs.isExpanded == rhs.isExpanded &&
+            lhs.showsDecorations == rhs.showsDecorations
         }
     }
 
@@ -152,9 +174,13 @@ final class Sunburst: ObservableObject {
             arcs[index].end = location
 
             let innerRadius = arcs[index].arcInnerRadius(configuration: configuration, focusedLevel: focusedLevel)
-            let outerRadius = innerRadius + arcs[index].arcThickness(configuration: configuration, focusedLevel: focusedLevel)
+            let isExpanded = arcs[index].arcIsExpanded(configuration: configuration, focusedLevel: focusedLevel)
+            let arcThickness = arcs[index].arcThickness(configuration: configuration, focusedLevel: focusedLevel)
+            let outerRadius = innerRadius + arcThickness
             arcs[index].innerRadius = innerRadius
             arcs[index].outerRadius = outerRadius
+            arcs[index].isExpanded = isExpanded
+            arcs[index].showsDecorations = isExpanded && arcThickness > 0.0
 
             if focusedLevel < arcs[index].level {
                 let innerMargin = Double(configuration.marginBetweenArcs / 2.0) / Double(innerRadius)

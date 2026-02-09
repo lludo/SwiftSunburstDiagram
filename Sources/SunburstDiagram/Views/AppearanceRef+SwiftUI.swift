@@ -14,13 +14,15 @@ import UIKit
 import AppKit
 #endif
 
+private final class BundleToken {}
+
 extension BundleRef {
     public func resolve() -> Bundle {
         switch self {
         case .main:
             return .main
         case .module:
-            return .main
+            return Bundle(for: BundleToken.self)
         case .identifier(let id):
             return Bundle(identifier: id) ?? .main
         }

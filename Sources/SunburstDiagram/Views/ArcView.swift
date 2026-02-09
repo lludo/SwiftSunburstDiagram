@@ -23,12 +23,15 @@ struct ArcView: View {
     
     var body: some View {
         let arcShape = ArcShape(arc)
+        let selectionLineWidth: CGFloat = 3
 
         return ZStack {
             arcShape.fill(arc.backgroundColor.resolve(in: colorScheme))
-            arcShape
-                .stroke(Color.primary, lineWidth: isNodeSelected() ? 3 : 0)
-                .clipShape(arcShape)
+            if isNodeSelected() {
+                arcShape
+                    .stroke(Color.primary, lineWidth: selectionLineWidth)
+                    .clipShape(arcShape)
+            }
             if shouldShowLabel {
                 ArcLabel(arc)
             }
@@ -43,13 +46,8 @@ struct ArcView: View {
 
     private var shouldShowLabel: Bool {
         guard arc.width > 0 else { return false }
-        if let maxRings = configuration.maximumRingsShownCount, arc.level > maxRings {
-            return false
-        }
-        if let maxExpanded = configuration.maximumExpandedRingsShownCount, arc.level > maxExpanded {
-            return false
-        }
-        return true
+        guard arc.showsDecorations else { return false }
+        return arc.node.image != nil || !arc.isTextHidden
     }
 }
 
@@ -94,6 +92,15 @@ struct ArcShape: Shape {
     
     func path(in rect: CGRect) -> Path {
         let points = ArcGeometry(arc, in: rect)
+
+        if arc.innerRadius <= .ulpOfOne, abs((arc.end - arc.start) - (2.0 * .pi)) <= 0.0001 {
+            let diameter = max(0.0, arc.outerRadius * 2.0)
+            let circleRect = CGRect(x: points.center.x - arc.outerRadius,
+                                    y: points.center.y - arc.outerRadius,
+                                    width: diameter,
+                                    height: diameter)
+            return Path(ellipseIn: circleRect)
+        }
         
         var path = Path()
         path.addArc(center: points.center, radius: arc.innerRadius,
