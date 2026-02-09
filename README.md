@@ -29,7 +29,7 @@ Once you have your Swift package set up, adding SunburstDiagram as a dependency 
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/lludo/SwiftSunburstDiagram.git", from: "1.5.0")
+    .package(url: "https://github.com/lludo/SwiftSunburstDiagram.git", from: "1.5.1")
 ]
 ```
 
@@ -39,7 +39,7 @@ dependencies: [
 [CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate SunburstDiagram into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'SunburstDiagram', '~> 1.5'
+pod 'SunburstDiagram', '~> 1.5.1'
 ```
 
 

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'SunburstDiagram'
-  s.version = '1.5.0'
+  s.version = '1.5.1'
   s.license = 'MIT'
   s.summary = 'Easily render diagrams in SwiftUI'
   s.homepage = 'https://github.com/lludo/SwiftSunburstDiagram'
