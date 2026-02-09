@@ -1,0 +1,319 @@
+{
+  "app" : {
+    "appName" : "SunburstDiagramDemo",
+    "appVersion" : "1.0",
+    "bundleIdentifier" : "com.example.SunburstDiagramDemo"
+  },
+  "configuration" : {
+    "allowsSelection" : true,
+    "calculationMode" : {
+      "type" : "ordinalFromLeaves"
+    },
+    "collapsedArcThickness" : 8,
+    "expandedArcThickness" : 52,
+    "innerRadius" : 60,
+    "marginBetweenArcs" : 1,
+    "maximumExpandedRingsShownCount" : 2,
+    "maximumRingsShownCount" : 4,
+    "minimumArcAngleShown" : {
+      "type" : "showAll"
+    },
+    "nodesSort" : "none",
+    "startingAngle" : 0
+  },
+  "document" : {
+    "bundledSampleID" : "sample-activities",
+    "createdAt" : "2026-02-08T12:00:00Z",
+    "isBundledSample" : true,
+    "shortDescription" : "Starter activity structure demonstrating nested data.",
+    "title" : "Sample Activities",
+    "updatedAt" : "2026-02-08T12:00:00Z"
+  },
+  "nodes" : [
+    {
+      "backgroundColor" : {
+        "system" : {
+          "_0" : "blue"
+        }
+      },
+      "children" : [
+
+      ],
+      "id" : "70F6ACCE-5BD2-4CBA-B20F-3FFEA4B0909A",
+      "image" : {
+        "asset" : {
+          "bundle" : {
+            "main" : {
+
+            }
+          },
+          "name" : "walking"
+        }
+      },
+      "name" : "Walking",
+      "showName" : false,
+      "value" : 10
+    },
+    {
+      "backgroundColor" : {
+        "system" : {
+          "_0" : "red"
+        }
+      },
+      "children" : [
+        {
+          "backgroundColor" : {
+            "system" : {
+              "_0" : "yellow"
+            }
+          },
+          "children" : [
+            {
+              "backgroundColor" : {
+                "system" : {
+                  "_0" : "yellow"
+                }
+              },
+              "children" : [
+
+              ],
+              "id" : "C299BAD5-8F39-4DEA-8388-5496573A5D10",
+              "name" : "Creme Brulee",
+              "showName" : false,
+              "value" : 3
+            },
+            {
+              "backgroundColor" : {
+                "system" : {
+                  "_0" : "yellow"
+                }
+              },
+              "children" : [
+                {
+                  "backgroundColor" : {
+                    "system" : {
+                      "_0" : "yellow"
+                    }
+                  },
+                  "children" : [
+
+                  ],
+                  "id" : "DFA69F5F-F715-49CD-88B4-2D670D8C196A",
+                  "name" : "Nutella Crepe",
+                  "showName" : false,
+                  "value" : 4
+                }
+              ],
+              "id" : "8620AC13-875F-446E-8FA9-77D69E861BD9",
+              "name" : "Crepes",
+              "showName" : false,
+              "value" : 6
+            }
+          ],
+          "id" : "00FB3FC6-7FF7-4E1D-A365-BA56BB263397",
+          "image" : {
+            "asset" : {
+              "bundle" : {
+                "main" : {
+
+                }
+              },
+              "name" : "croissant"
+            }
+          },
+          "name" : "Dessert",
+          "showName" : false,
+          "value" : 10
+        },
+        {
+          "backgroundColor" : {
+            "system" : {
+              "_0" : "orange"
+            }
+          },
+          "children" : [
+            {
+              "backgroundColor" : {
+                "system" : {
+                  "_0" : "orange"
+                }
+              },
+              "children" : [
+
+              ],
+              "id" : "F6105085-DB4C-42C4-A14C-866FC82AE9A8",
+              "name" : "Pizza",
+              "showName" : false,
+              "value" : 4
+            }
+          ],
+          "id" : "26DF8A4E-AD7B-4A5C-A73F-3574F53D4FAD",
+          "image" : {
+            "asset" : {
+              "bundle" : {
+                "main" : {
+
+                }
+              },
+              "name" : "poultry"
+            }
+          },
+          "name" : "Dinner",
+          "showName" : false,
+          "value" : 5
+        }
+      ],
+      "id" : "F6C0F718-32B0-4389-B969-C15DDE9081EA",
+      "image" : {
+        "asset" : {
+          "bundle" : {
+            "main" : {
+
+            }
+          },
+          "name" : "eating"
+        }
+      },
+      "name" : "Restaurant",
+      "showName" : false,
+      "value" : 30
+    },
+    {
+      "backgroundColor" : {
+        "system" : {
+          "_0" : "purple"
+        }
+      },
+      "children" : [
+
+      ],
+      "id" : "863483CD-7E3B-4D8A-9E0E-26BF91B78B0A",
+      "image" : {
+        "asset" : {
+          "bundle" : {
+            "main" : {
+
+            }
+          },
+          "name" : "sailing"
+        }
+      },
+      "name" : "Transport",
+      "showName" : false,
+      "value" : 10
+    },
+    {
+      "backgroundColor" : {
+        "system" : {
+          "_0" : "teal"
+        }
+      },
+      "children" : [
+        {
+          "backgroundColor" : {
+            "system" : {
+              "_0" : "teal"
+            }
+          },
+          "children" : [
+            {
+              "backgroundColor" : {
+                "system" : {
+                  "_0" : "teal"
+                }
+              },
+              "children" : [
+
+              ],
+              "id" : "80BAE30F-675E-4C28-9FCE-0A8C6711A72D",
+              "name" : "Twin Peaks",
+              "showName" : false,
+              "value" : 3
+            },
+            {
+              "backgroundColor" : {
+                "system" : {
+                  "_0" : "teal"
+                }
+              },
+              "children" : [
+
+              ],
+              "id" : "483E3EB4-3C36-4824-AB00-139F88FDE51D",
+              "name" : "Hayes Valley",
+              "showName" : false,
+              "value" : 1.5
+            },
+            {
+              "backgroundColor" : {
+                "system" : {
+                  "_0" : "teal"
+                }
+              },
+              "children" : [
+
+              ],
+              "id" : "D7848596-5EF5-4207-B7BE-D8CECC5DC5D3",
+              "name" : "Nob Hill",
+              "showName" : false,
+              "value" : 8
+            }
+          ],
+          "id" : "155F7EF9-81E3-442A-9A9F-FC84395DBD58",
+          "image" : {
+            "asset" : {
+              "bundle" : {
+                "main" : {
+
+                }
+              },
+              "name" : "house"
+            }
+          },
+          "name" : "San Francisco",
+          "showName" : false,
+          "value" : 15
+        },
+        {
+          "backgroundColor" : {
+            "system" : {
+              "_0" : "teal"
+            }
+          },
+          "children" : [
+
+          ],
+          "id" : "1E20614D-FF22-48AB-AF71-92FC833C16FD",
+          "image" : {
+            "asset" : {
+              "bundle" : {
+                "main" : {
+
+                }
+              },
+              "name" : "house"
+            }
+          },
+          "name" : "Lyon",
+          "showName" : false,
+          "value" : 6
+        }
+      ],
+      "id" : "9DCCD43A-4D12-47D3-B2F0-67271043D324",
+      "image" : {
+        "asset" : {
+          "bundle" : {
+            "main" : {
+
+            }
+          },
+          "name" : "house"
+        }
+      },
+      "name" : "Home",
+      "showName" : false,
+      "value" : 45
+    }
+  ],
+  "schemaVersion" : 1
+}

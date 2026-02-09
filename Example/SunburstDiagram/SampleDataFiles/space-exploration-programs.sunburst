@@ -1,0 +1,1027 @@
+{
+  "app": {
+    "appName": "SunburstDiagramDemo",
+    "appVersion": "1.0",
+    "bundleIdentifier": "com.example.SunburstDiagramDemo"
+  },
+  "configuration": {
+    "allowsSelection": true,
+    "calculationMode": {
+      "type": "parentIndependent"
+    },
+    "collapsedArcThickness": 8,
+    "expandedArcThickness": 52,
+    "innerRadius": 60,
+    "marginBetweenArcs": 1,
+    "maximumExpandedRingsShownCount": 2,
+    "maximumRingsShownCount": 4,
+    "minimumArcAngleShown": {
+      "type": "showAll"
+    },
+    "nodesSort": "none",
+    "startingAngle": 0
+  },
+  "document": {
+    "createdAt": "2026-02-08T12:00:00Z",
+    "isBundledSample": false,
+    "shortDescription": "Agencies to programs, missions, and spacecraft.",
+    "title": "Space Exploration Programs",
+    "updatedAt": "2026-02-08T12:00:00Z"
+  },
+  "nodes": [
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "blue"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "blue"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "D4C7DF35-4C45-48E3-8C54-3172570264D7",
+                  "name": "Orion",
+                  "showName": true,
+                  "value": 9
+                }
+              ],
+              "id": "6A8AAA88-CE78-4BCB-8266-A981C49CB7AC",
+              "name": "Artemis I",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "C1CFC750-6607-4A82-B3CB-2708DB5D60E0",
+                  "name": "Orion Crew Vehicle",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "D58891F6-ADF1-438C-9CF2-3AD8C21774EA",
+              "name": "Artemis II",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "F08FB568-45C1-4344-AC4A-E70E12308F7E",
+                  "name": "Odysseus Lander",
+                  "showName": true,
+                  "value": 7
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "blue"
+                    }
+                  },
+                  "children": [],
+                  "id": "FF8AEABD-833E-45F4-99BE-C1C910EBCBCF",
+                  "name": "Peregrine Lander",
+                  "showName": true,
+                  "value": 5
+                }
+              ],
+              "id": "01CDB8C8-6EBF-4FA1-879B-A53A931D936B",
+              "name": "CLPS",
+              "showName": true
+            }
+          ],
+          "id": "BCA27D63-D7C6-491E-B18E-3D260780C635",
+          "image": {
+            "systemSymbol": {
+              "name": "moon.stars"
+            }
+          },
+          "name": "Artemis Program",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "red"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "7B61FF38-BBBD-4E5E-9065-CDE69C9E2084",
+                  "name": "Curiosity Rover",
+                  "showName": true,
+                  "value": 10
+                }
+              ],
+              "id": "CCE8C6FC-41F1-4A8A-9597-DB92FD4A293C",
+              "name": "Mars Science Laboratory",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "DD474096-ADEC-4A21-AC87-5BC7DCF5AE89",
+                  "name": "Perseverance Rover",
+                  "showName": true,
+                  "value": 10
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "blue"
+                    }
+                  },
+                  "children": [],
+                  "id": "E6BAD2D1-0A08-4D5C-AEAD-4C1A89553F90",
+                  "name": "Ingenuity Helicopter",
+                  "showName": true,
+                  "value": 9
+                }
+              ],
+              "id": "41280BBD-46DC-40AE-833B-4EDD091C51FC",
+              "name": "Mars 2020",
+              "showName": true
+            }
+          ],
+          "id": "A8C34911-EE2B-444F-9D09-966F336FF791",
+          "image": {
+            "systemSymbol": {
+              "name": "network"
+            }
+          },
+          "name": "Mars Exploration Program",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "indigo"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "98681BE2-2F39-48E3-BDBD-A91F88EF6241",
+                  "name": "Voyager 1",
+                  "showName": true,
+                  "value": 10
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "blue"
+                    }
+                  },
+                  "children": [],
+                  "id": "2D691191-68D1-4865-8CCA-C000B529D32C",
+                  "name": "Voyager 2",
+                  "showName": true,
+                  "value": 10
+                }
+              ],
+              "id": "03584E45-333B-4139-AC95-DB08DC4E5253",
+              "name": "Grand Tour Missions",
+              "showName": true
+            }
+          ],
+          "id": "611227D1-BE00-428E-B5CD-C063635332D3",
+          "image": {
+            "systemSymbol": {
+              "name": "antenna.radiowaves.left.and.right"
+            }
+          },
+          "name": "Voyager Program",
+          "showName": true
+        }
+      ],
+      "id": "7916BBC5-69DF-481B-8A3B-FFB0045AA328",
+      "image": {
+        "systemSymbol": {
+          "name": "safari.fill"
+        }
+      },
+      "name": "NASA",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "indigo"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "indigo"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "AA09A26C-437B-4388-B802-88C6AF268904",
+                  "name": "JUICE Orbiter",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "ECC439F7-8C20-48BD-8A64-3FAEB85609EB",
+              "name": "JUICE Mission",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "C35DDE9F-1CEB-4DA8-A2A5-60D230B9CF66",
+                  "name": "Euclid Space Telescope",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "72C245DB-9CD5-4B59-AFD8-25D2CE6C8B5F",
+              "name": "Euclid Mission",
+              "showName": true
+            }
+          ],
+          "id": "A341AA3F-28F2-4709-8EAB-30EFA624DD62",
+          "image": {
+            "systemSymbol": {
+              "name": "sparkles"
+            }
+          },
+          "name": "Cosmic Vision",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "red"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "86595C11-4CDD-43DF-A227-639F103AF6D5",
+                  "name": "Trace Gas Orbiter",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "8958C1ED-4CB5-4787-A951-A1A5A49606F9",
+              "name": "ExoMars 2016",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "65A9CAE1-ED32-4A14-8D3C-10ACD80956EA",
+                  "name": "ExoMars Rover",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "E96E2F7F-CFA9-477C-BBDB-84250E1F1191",
+              "name": "Rosalind Franklin",
+              "showName": true
+            }
+          ],
+          "id": "924638DB-27F6-48B7-BC3B-8767DEC6E918",
+          "image": {
+            "systemSymbol": {
+              "name": "map"
+            }
+          },
+          "name": "Mars Program",
+          "showName": true
+        }
+      ],
+      "id": "3AC5F77C-03F2-4649-81AA-1EFBDF07C4F7",
+      "image": {
+        "systemSymbol": {
+          "name": "globe.europe.africa.fill"
+        }
+      },
+      "name": "ESA",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "gray"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "gray"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "12D863EE-C611-4963-BA54-6531947A2D7E",
+                  "name": "Soyuz MS-24",
+                  "showName": true,
+                  "value": 6
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "blue"
+                    }
+                  },
+                  "children": [],
+                  "id": "0A7E3F1C-918C-4C17-B75E-9618D7BE28A6",
+                  "name": "Soyuz MS-25",
+                  "showName": true,
+                  "value": 6
+                }
+              ],
+              "id": "DA1B9B6A-98AF-4CAD-945B-DA6B241F15D0",
+              "name": "Soyuz MS Missions",
+              "showName": true
+            }
+          ],
+          "id": "3029F066-B596-45CC-9FC3-5B255E2F3A62",
+          "image": {
+            "systemSymbol": {
+              "name": "airplane"
+            }
+          },
+          "name": "Soyuz Program",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "teal"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "871FA535-335A-4C0B-B320-79A17763DC30",
+                  "name": "Luna 25 Lander",
+                  "showName": true,
+                  "value": 5
+                }
+              ],
+              "id": "BD40E315-8C68-48D4-9CB8-1DCEFDC7ADC2",
+              "name": "Luna 25",
+              "showName": true
+            }
+          ],
+          "id": "8288117E-EE3F-4EC3-872F-3357B09E3A8D",
+          "image": {
+            "systemSymbol": {
+              "name": "moon.stars"
+            }
+          },
+          "name": "Luna Program",
+          "showName": true
+        }
+      ],
+      "id": "F62A9CA5-AB08-40D8-AF81-3182C96E3C9E",
+      "image": {
+        "systemSymbol": {
+          "name": "star.fill"
+        }
+      },
+      "name": "Roscosmos",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "red"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "red"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "329AB8D9-7E77-4AEE-8D27-E10E2ED88188",
+                  "name": "Yutu-2 Rover",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "FCA81D5C-2E6E-4E8E-890E-33C24033A274",
+              "name": "Chang'e 4",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "E38C481B-9BBB-4E2F-9C62-D32F8C7788D1",
+                  "name": "Sample Return Capsule",
+                  "showName": true,
+                  "value": 9
+                }
+              ],
+              "id": "A4496E60-04E9-4559-ADED-D78E54CB470A",
+              "name": "Chang'e 5",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "992ED79F-7FF3-4356-9E30-95390E3FCED1",
+                  "name": "Far Side Sample Return",
+                  "showName": true,
+                  "value": 9
+                }
+              ],
+              "id": "78B1DD8C-1CC2-4480-996D-C6A5F0D73261",
+              "name": "Chang'e 6",
+              "showName": true
+            }
+          ],
+          "id": "EEF64A96-A0BF-4E4D-991B-C33CA945C518",
+          "image": {
+            "systemSymbol": {
+              "name": "moon.stars"
+            }
+          },
+          "name": "Chang'e Program",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "orange"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "A7ACEF1D-0C79-4ED0-B3D2-96AB98EDE749",
+                  "name": "Zhurong Rover",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "C9E80655-D359-4FB1-ABD2-3132441210EF",
+              "name": "Tianwen-1",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "C7B0FCD6-9CCF-4777-A6C5-4655E25D444C",
+                  "name": "Asteroid Sample Mission",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "BCBB8E18-67D3-4B6F-A2C3-CBD222527683",
+              "name": "Tianwen-2",
+              "showName": true
+            }
+          ],
+          "id": "7369597B-2947-4E5A-A0ED-D4CC800ECC9A",
+          "image": {
+            "systemSymbol": {
+              "name": "star"
+            }
+          },
+          "name": "Tianwen Program",
+          "showName": true
+        }
+      ],
+      "id": "A9602EC8-A360-4FD5-891F-6DD08FC59450",
+      "image": {
+        "systemSymbol": {
+          "name": "globe.asia.australia.fill"
+        }
+      },
+      "name": "CNSA",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "orange"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "orange"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "4CD39E78-8F3A-4332-9E43-66D6D20D9BA2",
+                  "name": "Vikram Lander",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "blue"
+                    }
+                  },
+                  "children": [],
+                  "id": "9F026159-5723-4614-8CB1-8D70D59B3A96",
+                  "name": "Pragyan Rover",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "08F86D5E-6E62-4011-8C21-C4BB510D0CA1",
+              "name": "Chandrayaan-3",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "B17E39E3-56AC-49FB-AE14-AAB9775E526C",
+                  "name": "Orbiter",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "92B17F5E-3EDD-426F-8399-1DFB7DA108CB",
+              "name": "Chandrayaan-2",
+              "showName": true
+            }
+          ],
+          "id": "81396035-B1E6-48EF-BCBD-5900C84FF082",
+          "image": {
+            "systemSymbol": {
+              "name": "moon.stars"
+            }
+          },
+          "name": "Chandrayaan Program",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "red"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "95E7A39B-35D9-4C35-BA11-3AACF144BCE9",
+                  "name": "Mangalyaan",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "913C9641-C06B-436C-888A-4033DF31E7A0",
+              "name": "Mars Orbiter Mission",
+              "showName": true
+            }
+          ],
+          "id": "2722ACD7-9F54-4481-8173-2E29382556F0",
+          "image": {
+            "systemSymbol": {
+              "name": "map"
+            }
+          },
+          "name": "Mars Program",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "yellow"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "E97EE8A5-0DA0-4245-B850-3D17C297597C",
+                  "name": "Aditya-L1 Observatory",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "68F979DF-763C-4703-BC60-E4FAC621E2DB",
+              "name": "Aditya-L1",
+              "showName": true
+            }
+          ],
+          "id": "93F3E74F-678A-4A0F-BDA6-2C600947F41D",
+          "image": {
+            "systemSymbol": {
+              "name": "sun.max"
+            }
+          },
+          "name": "Solar Mission",
+          "showName": true
+        }
+      ],
+      "id": "C2E0B5A8-BBD3-4FBC-A531-2357E0D02A6E",
+      "image": {
+        "systemSymbol": {
+          "name": "sun.max"
+        }
+      },
+      "name": "ISRO",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "purple"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "purple"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "25B5FA60-6C17-4291-A26D-90416673B72A",
+                  "name": "Ryugu Sample Capsule",
+                  "showName": true,
+                  "value": 9
+                }
+              ],
+              "id": "C1677246-E458-46EA-B10D-76123ADAE862",
+              "name": "Hayabusa2",
+              "showName": true
+            }
+          ],
+          "id": "BAD569D8-A7A2-4851-8E75-BA4BB2330A8A",
+          "image": {
+            "systemSymbol": {
+              "name": "hare"
+            }
+          },
+          "name": "Hayabusa Program",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "teal"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "77986562-9371-4991-AD4E-DE7B4DB55846",
+                  "name": "SLIM Lander",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "66F92170-BB9A-4DCF-ACBF-C8093C27BC19",
+              "name": "SLIM",
+              "showName": true
+            }
+          ],
+          "id": "EFE10755-71B2-4856-B4A8-775C09BE1A2B",
+          "image": {
+            "systemSymbol": {
+              "name": "moon.stars"
+            }
+          },
+          "name": "Lunar Program",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "orange"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "9AF65E39-68B5-4D56-8ED3-E692152336F2",
+                  "name": "Mio Orbiter",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "905FB6CC-0EC3-49F4-B1F1-177910951681",
+              "name": "BepiColombo",
+              "showName": true
+            }
+          ],
+          "id": "9B8C87D7-24D3-404A-A990-E23AA3EC0094",
+          "image": {
+            "systemSymbol": {
+              "name": "sun.max"
+            }
+          },
+          "name": "Mercury Program",
+          "showName": true
+        }
+      ],
+      "id": "CA85C2B9-3303-407C-8505-A84BCA92D07C",
+      "image": {
+        "systemSymbol": {
+          "name": "wave.3.right"
+        }
+      },
+      "name": "JAXA",
+      "showName": true
+    }
+  ],
+  "schemaVersion": 1
+}

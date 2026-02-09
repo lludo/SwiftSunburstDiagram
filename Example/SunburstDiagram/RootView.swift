@@ -12,6 +12,7 @@ import SwiftUI
 struct RootView: View {
 
     @ObservedObject var configuration: SunburstConfiguration
+    @ObservedObject var dataStore: DemoDataStore
     
     var body: some View {
         GeometryReader { geometry in
@@ -20,7 +21,7 @@ struct RootView: View {
                     SunburstView(configuration: configuration)
                     Divider()
                         .ignoresSafeArea()
-                    SettingsView(configuration: configuration)
+                    SettingsView(configuration: configuration, dataStore: dataStore)
                 }
             } else {
                 HStack(spacing: 0) {
@@ -28,7 +29,7 @@ struct RootView: View {
                         .ignoresSafeArea()
                     Divider()
                         .ignoresSafeArea()
-                    SettingsView(configuration: configuration)
+                    SettingsView(configuration: configuration, dataStore: dataStore)
                 }
             }
         }
@@ -55,7 +56,8 @@ struct RootView_Previews: PreviewProvider {
                  value: 75.0,
                  backgroundColor: .system(.teal))
         ])
-        return RootView(configuration: configuration)
+        let dataStore = DemoDataStore(configuration: configuration, bootstrapFromDisk: false)
+        return RootView(configuration: configuration, dataStore: dataStore)
     }
 }
 #endif

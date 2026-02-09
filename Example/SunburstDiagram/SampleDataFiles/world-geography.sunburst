@@ -1,0 +1,1735 @@
+{
+  "app": {
+    "appName": "SunburstDiagramDemo",
+    "appVersion": "1.0",
+    "bundleIdentifier": "com.example.SunburstDiagramDemo"
+  },
+  "configuration": {
+    "allowsSelection": true,
+    "calculationMode": {
+      "type": "parentIndependent"
+    },
+    "collapsedArcThickness": 8,
+    "expandedArcThickness": 52,
+    "innerRadius": 60,
+    "marginBetweenArcs": 1,
+    "maximumExpandedRingsShownCount": 2,
+    "maximumRingsShownCount": 4,
+    "minimumArcAngleShown": {
+      "type": "showAll"
+    },
+    "nodesSort": "none",
+    "startingAngle": 0
+  },
+  "document": {
+    "createdAt": "2026-02-08T12:00:00Z",
+    "isBundledSample": false,
+    "shortDescription": "Continent to country, then states/provinces and major metro areas.",
+    "title": "World Geography",
+    "updatedAt": "2026-02-08T12:00:00Z"
+  },
+  "nodes": [
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "blue"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "blue"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "blue"
+                    }
+                  },
+                  "children": [],
+                  "id": "6901719D-BCCE-4DAC-9E4C-5449E6E76006",
+                  "name": "Los Angeles Metro",
+                  "showName": true,
+                  "value": 12.8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "0257D743-5E1C-4648-B4A3-8BB8F7EA017D",
+                  "name": "San Francisco Bay Area",
+                  "showName": true,
+                  "value": 7.7
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "86CAFD4B-2127-48A6-A942-0C139AB0F1F7",
+                  "name": "San Diego",
+                  "showName": true,
+                  "value": 3.3
+                }
+              ],
+              "id": "8B553321-BD6D-4D85-A19F-8BA669932BDA",
+              "name": "California",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "blue"
+                    }
+                  },
+                  "children": [],
+                  "id": "B0E2F981-C5A1-4CE1-B0D9-8D1477005879",
+                  "name": "Dallas-Fort Worth",
+                  "showName": true,
+                  "value": 7.8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "5E096690-CB74-4C31-B1FA-80A3568BE835",
+                  "name": "Houston",
+                  "showName": true,
+                  "value": 7.1
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "C48E402C-D569-4E33-B071-32F96B84C5E0",
+                  "name": "Austin",
+                  "showName": true,
+                  "value": 2.4
+                }
+              ],
+              "id": "A1B16CD6-19A1-47DF-A229-0FAE6833404D",
+              "name": "Texas",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "blue"
+                    }
+                  },
+                  "children": [],
+                  "id": "A8A33219-979E-4F88-A422-B000CFFCC3D4",
+                  "name": "New York City",
+                  "showName": true,
+                  "value": 19.6
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "939A8713-7217-41C5-ADF2-76AED0634612",
+                  "name": "Buffalo",
+                  "showName": true,
+                  "value": 1.1
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "07A35961-4102-414D-8E9C-69ECBCDFA4B2",
+                  "name": "Albany",
+                  "showName": true,
+                  "value": 0.9
+                }
+              ],
+              "id": "7C5787B6-B990-4DE9-8A10-EF39A5EB0044",
+              "name": "New York",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "blue"
+                    }
+                  },
+                  "children": [],
+                  "id": "FDC6763A-BC85-4FBA-961B-709B69AA672E",
+                  "name": "Miami Metro",
+                  "showName": true,
+                  "value": 6.2
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "A8A2AFB1-FBE1-4A88-B6F7-FA2EA69140E2",
+                  "name": "Tampa Bay",
+                  "showName": true,
+                  "value": 3.2
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "BABCADB0-8C74-402B-B3C8-5CC544EF2591",
+                  "name": "Orlando",
+                  "showName": true,
+                  "value": 2.7
+                }
+              ],
+              "id": "9FD4498C-FC17-4F98-AE82-BCC1592E1862",
+              "name": "Florida",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [],
+              "id": "B791968C-317C-47A6-A209-01C87EF41746",
+              "name": "Other States",
+              "showName": true,
+              "value": 15
+            }
+          ],
+          "id": "593D4FB8-D767-45BA-8DBA-FE0FE0F99B8A",
+          "image": {
+            "systemSymbol": {
+              "name": "flag.fill"
+            }
+          },
+          "name": "United States",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "teal"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "blue"
+                    }
+                  },
+                  "children": [],
+                  "id": "1D361D92-1E31-4AE1-B673-92476632CC6A",
+                  "name": "Toronto",
+                  "showName": true,
+                  "value": 6.7
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "46457808-3E18-4423-9C84-F7ACFD2C14DE",
+                  "name": "Ottawa",
+                  "showName": true,
+                  "value": 1.4
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "966E525E-F33E-411C-B930-E1E136C52FA5",
+                  "name": "Hamilton",
+                  "showName": true,
+                  "value": 0.8
+                }
+              ],
+              "id": "2CC5AD81-0863-40B6-9269-1EC94A865D57",
+              "name": "Ontario",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "blue"
+                    }
+                  },
+                  "children": [],
+                  "id": "CCDA9B0C-6E63-4F53-983F-D134CCFADB26",
+                  "name": "Montreal",
+                  "showName": true,
+                  "value": 4.3
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "DB2126DF-08DA-451F-AA9F-3FC0107BC181",
+                  "name": "Quebec City",
+                  "showName": true,
+                  "value": 0.9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "37075306-001E-45B2-8D50-06AF32AF9E2D",
+                  "name": "Laval",
+                  "showName": true,
+                  "value": 0.4
+                }
+              ],
+              "id": "32809D9E-D576-4853-9A9B-D8CA3CD3F173",
+              "name": "Quebec",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "blue"
+                    }
+                  },
+                  "children": [],
+                  "id": "647D9841-CFF2-47B1-A045-0B513B06B456",
+                  "name": "Vancouver",
+                  "showName": true,
+                  "value": 2.8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "325C73FE-4F1C-4649-A3F2-BD7A56256BF4",
+                  "name": "Victoria",
+                  "showName": true,
+                  "value": 0.4
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "60E2CA50-C14F-4F2C-9348-B0C8EC025ACD",
+                  "name": "Kelowna",
+                  "showName": true,
+                  "value": 0.2
+                }
+              ],
+              "id": "6C0F86BB-4090-45D1-8A7E-09EB431BE13C",
+              "name": "British Columbia",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "92343DA9-71FF-48BF-956E-1AA17EDA2D93",
+              "name": "Other Provinces",
+              "showName": true,
+              "value": 5
+            }
+          ],
+          "id": "90450938-B524-42E7-88A5-15551C4EFE34",
+          "image": {
+            "systemSymbol": {
+              "name": "leaf"
+            }
+          },
+          "name": "Canada",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "green"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "A8D17893-CB46-4205-945A-25F811415F93",
+              "name": "Mexico City",
+              "showName": true,
+              "value": 22.5
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "71E690DB-A277-4C6B-A15D-46C1F239EDBB",
+              "name": "Guadalajara",
+              "showName": true,
+              "value": 5.3
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "E7504FB8-2ACE-4C20-BE20-92ED0956F900",
+              "name": "Monterrey",
+              "showName": true,
+              "value": 5.3
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "C3114626-632D-4C68-A12E-CC884429A3B4",
+              "name": "Other Cities",
+              "showName": true,
+              "value": 6
+            }
+          ],
+          "id": "1F2D951D-1FA1-49EF-8C07-FE8F9B6C5D88",
+          "image": {
+            "systemSymbol": {
+              "name": "sun.max"
+            }
+          },
+          "name": "Mexico",
+          "showName": true
+        }
+      ],
+      "id": "4A004660-927D-4A11-9C7D-EEFED1479DC0",
+      "image": {
+        "systemSymbol": {
+          "name": "globe.americas.fill"
+        }
+      },
+      "name": "North America",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "indigo"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "indigo"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "53F96CDD-2289-4368-8B91-556C41B642E6",
+              "name": "London",
+              "showName": true,
+              "value": 14.9
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "1C5483EE-4392-4D2F-80A0-521D05037574",
+              "name": "Manchester",
+              "showName": true,
+              "value": 2.8
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "37C2E1B5-C972-4886-BE8C-C3D5F7668EF6",
+              "name": "Birmingham",
+              "showName": true,
+              "value": 2.6
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "B21CD985-CDAD-4DD7-955F-9D6DCCB40616",
+              "name": "Other UK Cities",
+              "showName": true,
+              "value": 4
+            }
+          ],
+          "id": "DDD25AE9-90FC-4CBF-8A79-F16DD9CDC7C8",
+          "image": {
+            "systemSymbol": {
+              "name": "building.columns"
+            }
+          },
+          "name": "United Kingdom",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "blue"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "AE6FEFE5-813F-46B3-8990-6B1CAD33B63A",
+              "name": "Paris",
+              "showName": true,
+              "value": 11.2
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "78C4B927-999D-4D18-A826-F0756551018D",
+              "name": "Lyon",
+              "showName": true,
+              "value": 2.3
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "0E1FEC29-248A-4A59-84A1-08775CCB68B5",
+              "name": "Marseille",
+              "showName": true,
+              "value": 1.7
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "B8024C6F-B10F-4336-9E33-009A23A690D3",
+              "name": "Other France Cities",
+              "showName": true,
+              "value": 3
+            }
+          ],
+          "id": "DAC4AA81-23AE-41AA-A2F1-816C45BBFDEA",
+          "image": {
+            "systemSymbol": {
+              "name": "fork.knife"
+            }
+          },
+          "name": "France",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "purple"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "B88AB403-A6AB-4D89-92C9-E5C6D70683C1",
+              "name": "Rhine-Ruhr",
+              "showName": true,
+              "value": 10.1
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "7EB95C62-D5AE-4D8B-9865-4FE92EF68DD1",
+              "name": "Berlin",
+              "showName": true,
+              "value": 5.1
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "DF28F039-9DD1-4448-BC31-62A8B8A4354F",
+              "name": "Munich",
+              "showName": true,
+              "value": 3.1
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "B7B4884E-2632-4591-9047-507E985C4481",
+              "name": "Other Germany Cities",
+              "showName": true,
+              "value": 4.5
+            }
+          ],
+          "id": "A9596BFB-904A-4A18-81B8-E51CCE988DB9",
+          "image": {
+            "systemSymbol": {
+              "name": "building.2"
+            }
+          },
+          "name": "Germany",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "green"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "927FCA94-E161-4128-B2DA-A7A4652D72E7",
+              "name": "Milan",
+              "showName": true,
+              "value": 4.4
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "8168309E-85C3-4F59-99E5-B9C5D6E74903",
+              "name": "Rome",
+              "showName": true,
+              "value": 4.3
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "2ACA2946-9254-4E5E-99D8-2C1250A45097",
+              "name": "Naples",
+              "showName": true,
+              "value": 3.1
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "AAFDB90D-7417-4DD7-8F94-BFA8FD41D237",
+              "name": "Other Italy Cities",
+              "showName": true,
+              "value": 3.2
+            }
+          ],
+          "id": "D3456D8E-1379-43D0-A261-A7CE8FD0064D",
+          "image": {
+            "systemSymbol": {
+              "name": "fork.knife.circle.fill"
+            }
+          },
+          "name": "Italy",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "orange"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "BD021667-61CC-4BC3-80FD-300CDA1E5D4E",
+              "name": "Madrid",
+              "showName": true,
+              "value": 6.9
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "739EB194-BDB4-4A0C-BEA6-896D4F0E5688",
+              "name": "Barcelona",
+              "showName": true,
+              "value": 5.6
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "FB1AC87D-2F10-402A-8CAC-EB4262C86D70",
+              "name": "Valencia",
+              "showName": true,
+              "value": 1.8
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "46073C57-F427-4660-BECE-40DA8013B8E4",
+              "name": "Other Spain Cities",
+              "showName": true,
+              "value": 2.2
+            }
+          ],
+          "id": "90A203E1-541E-4956-8F8C-5E59E2B9E1FB",
+          "image": {
+            "systemSymbol": {
+              "name": "sun.max"
+            }
+          },
+          "name": "Spain",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "orange"
+            }
+          },
+          "children": [],
+          "id": "00DE080D-53E8-4ECF-8B57-D224DA1A03AC",
+          "name": "Other Europe",
+          "showName": true,
+          "value": 25
+        }
+      ],
+      "id": "3397010E-D1DE-4885-BDFB-811222E7EACC",
+      "image": {
+        "systemSymbol": {
+          "name": "globe.europe.africa.fill"
+        }
+      },
+      "name": "Europe",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "orange"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "red"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "E3C6159E-2C63-4527-9081-B03BE8313BC4",
+              "name": "Shanghai",
+              "showName": true,
+              "value": 29
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "5D76561A-62CA-4B7A-BF2E-73747CD2BAB4",
+              "name": "Beijing",
+              "showName": true,
+              "value": 22
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "229B3FEE-E039-44AC-A5B1-1186AEBC31C7",
+              "name": "Shenzhen",
+              "showName": true,
+              "value": 17
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "F887CDC8-0E85-48A7-87BA-924A396F7612",
+              "name": "Other China Cities",
+              "showName": true,
+              "value": 60
+            }
+          ],
+          "id": "C8274570-335B-448A-95C1-6B540E5E54B0",
+          "image": {
+            "systemSymbol": {
+              "name": "building.2.fill"
+            }
+          },
+          "name": "China",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "orange"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "31A55788-AB81-4106-8474-8F397099D500",
+              "name": "Delhi",
+              "showName": true,
+              "value": 33
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "38336D48-22CE-4D5F-A297-19F4AF75773D",
+              "name": "Mumbai",
+              "showName": true,
+              "value": 26
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "EE3DC15A-5C68-4219-80FC-1388AEACAB04",
+              "name": "Bengaluru",
+              "showName": true,
+              "value": 13
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "F3885CAB-096B-4DFD-8957-705F2EB3ACA7",
+              "name": "Other India Cities",
+              "showName": true,
+              "value": 55
+            }
+          ],
+          "id": "7D47B7D1-DB6D-4C34-8892-B0BA80C4CB23",
+          "image": {
+            "systemSymbol": {
+              "name": "sparkles"
+            }
+          },
+          "name": "India",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "pink"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "639C35F8-ABBA-4D87-873E-E8EBC7EA24CD",
+              "name": "Tokyo",
+              "showName": true,
+              "value": 37
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "F99CB788-B841-441B-88F5-D42B41F0C0F1",
+              "name": "Osaka",
+              "showName": true,
+              "value": 19
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "C828CFDD-1935-40FB-A4A6-A4DDDD2132A9",
+              "name": "Nagoya",
+              "showName": true,
+              "value": 10
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "21EA2EBE-6E81-4B2B-82E4-E25041D109BD",
+              "name": "Other Japan Cities",
+              "showName": true,
+              "value": 9
+            }
+          ],
+          "id": "A19318C3-E6EF-4E9C-BEEC-4E13E841FBC6",
+          "image": {
+            "systemSymbol": {
+              "name": "camera"
+            }
+          },
+          "name": "Japan",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "indigo"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "BAAE99E1-A5CE-4D70-B1B1-EE02AF471EC6",
+              "name": "Seoul",
+              "showName": true,
+              "value": 26
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "D091485F-12B8-4CA5-BBA1-4B158A148083",
+              "name": "Busan",
+              "showName": true,
+              "value": 3.4
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "0967E2A4-B5B9-4F2F-9DC5-5B6D18D893AD",
+              "name": "Incheon",
+              "showName": true,
+              "value": 3
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "97DA271D-28A0-4154-8F15-34D3BFCF1E69",
+              "name": "Other Korea Cities",
+              "showName": true,
+              "value": 4
+            }
+          ],
+          "id": "F818C50E-AFC9-472B-B2B9-9021BA012E8C",
+          "image": {
+            "systemSymbol": {
+              "name": "gamecontroller"
+            }
+          },
+          "name": "South Korea",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "purple"
+            }
+          },
+          "children": [],
+          "id": "5638C2A3-FFDE-489F-90BB-2A1B08A78877",
+          "name": "Other Asia",
+          "showName": true,
+          "value": 90
+        }
+      ],
+      "id": "A155132A-4D31-4020-8DD2-75FE588813C0",
+      "image": {
+        "systemSymbol": {
+          "name": "globe.asia.australia.fill"
+        }
+      },
+      "name": "Asia",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "green"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "green"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "A1EB0ABA-FB3D-4EA5-8348-0880FECA5F0C",
+              "name": "Sao Paulo",
+              "showName": true,
+              "value": 22
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "EE9015AB-1F1A-4D38-8D08-EB97A47091FF",
+              "name": "Rio de Janeiro",
+              "showName": true,
+              "value": 13
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "EC33D771-B308-4EBF-BA6F-FDAD238C122A",
+              "name": "Brasilia",
+              "showName": true,
+              "value": 4.8
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "5A173E15-F73D-46CF-9CC0-A290F9366CFE",
+              "name": "Other Brazil Cities",
+              "showName": true,
+              "value": 18
+            }
+          ],
+          "id": "755C9ACA-F6F6-4FBD-8822-B7E95D0735A2",
+          "image": {
+            "systemSymbol": {
+              "name": "leaf"
+            }
+          },
+          "name": "Brazil",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "blue"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "2DEAA7A1-4D48-4C21-AA4D-3E326438A49E",
+              "name": "Buenos Aires",
+              "showName": true,
+              "value": 15.6
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "3B39CD5B-1BE5-4DE4-A8CB-78BE2D739445",
+              "name": "Cordoba",
+              "showName": true,
+              "value": 1.6
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "6660128A-3669-42FD-A989-5D66224D040E",
+              "name": "Rosario",
+              "showName": true,
+              "value": 1.7
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "3561EEA4-21AD-47C3-BB8E-E124241A4485",
+              "name": "Other Argentina Cities",
+              "showName": true,
+              "value": 4
+            }
+          ],
+          "id": "E7CA4A41-B393-46C9-B3EC-EC474D4F72EE",
+          "name": "Argentina",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "yellow"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "B93A57F6-2955-4CF5-B382-7DA28A56C58F",
+              "name": "Bogota",
+              "showName": true,
+              "value": 11.5
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "1D593B31-A32C-45B0-8DA5-7C6B9D022349",
+              "name": "Medellin",
+              "showName": true,
+              "value": 4.1
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "9F41D9B1-85F0-4234-BF17-67A58643309A",
+              "name": "Cali",
+              "showName": true,
+              "value": 2.8
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "A0204D15-5BD1-4E83-A74C-A35F294ED1C2",
+              "name": "Other Colombia Cities",
+              "showName": true,
+              "value": 4
+            }
+          ],
+          "id": "E322D234-5DB4-49CD-94BE-7AAAB7E26A6F",
+          "name": "Colombia",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "indigo"
+            }
+          },
+          "children": [],
+          "id": "706612F0-898C-454F-BC14-4DD6CFD78AE7",
+          "name": "Other South America",
+          "showName": true,
+          "value": 30
+        }
+      ],
+      "id": "6806185F-4084-4682-AC5F-8BA6F717B6ED",
+      "image": {
+        "systemSymbol": {
+          "name": "leaf.fill"
+        }
+      },
+      "name": "South America",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "yellow"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "orange"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "A253369E-D813-49D3-A225-2771091ECAA2",
+              "name": "Lagos",
+              "showName": true,
+              "value": 15.9
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "BD20D7A1-CECB-46AD-861E-4EEFB693BF1D",
+              "name": "Kano",
+              "showName": true,
+              "value": 4.1
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "100F5B64-CA9E-48B5-A2D6-C533B094CAC3",
+              "name": "Abuja",
+              "showName": true,
+              "value": 3.6
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "4D883802-8C2E-47B8-9C6F-A0F48174EC15",
+              "name": "Other Nigeria Cities",
+              "showName": true,
+              "value": 12
+            }
+          ],
+          "id": "84639444-2C7C-4E82-B04A-D4A0310932FE",
+          "name": "Nigeria",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "yellow"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "A34725D7-B3D4-45F5-8B33-FC4F276A0D69",
+              "name": "Cairo",
+              "showName": true,
+              "value": 22.6
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "2AE7CFDE-B141-4E1D-A2F1-0A9A97A27442",
+              "name": "Alexandria",
+              "showName": true,
+              "value": 5.4
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "29849EC8-BC58-4D10-A006-25EC8826D534",
+              "name": "Giza",
+              "showName": true,
+              "value": 4.8
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "A94BC403-A6F1-47F7-81F0-91C5D71F2BEF",
+              "name": "Other Egypt Cities",
+              "showName": true,
+              "value": 6
+            }
+          ],
+          "id": "BE1BA2DC-A9A5-46FB-AE76-11A99BD9465E",
+          "name": "Egypt",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "indigo"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "0E89A8C1-C874-42C6-A728-A7CE0C65582E",
+              "name": "Johannesburg",
+              "showName": true,
+              "value": 6.4
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "DAF0FC05-3BBB-40CD-89D2-C285E968392D",
+              "name": "Cape Town",
+              "showName": true,
+              "value": 4.8
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "B8DB59D3-95BB-4619-AEE3-505A2738A7EE",
+              "name": "Durban",
+              "showName": true,
+              "value": 3.9
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "EA851E7D-BC12-4E29-98A8-276CDCAE2841",
+              "name": "Other South Africa Cities",
+              "showName": true,
+              "value": 5
+            }
+          ],
+          "id": "9832EFE9-1AC4-4B4B-B885-0A705F1B4539",
+          "name": "South Africa",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "indigo"
+            }
+          },
+          "children": [],
+          "id": "BC7A3737-D6CF-44A6-9DAF-B6744E2F30C0",
+          "name": "Other Africa",
+          "showName": true,
+          "value": 80
+        }
+      ],
+      "id": "EFFC8E5C-A9A6-4A75-AAE5-6C91D6594609",
+      "image": {
+        "systemSymbol": {
+          "name": "sun.max"
+        }
+      },
+      "name": "Africa",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "teal"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "teal"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "FFC77F2F-A6F6-4DF2-90B6-34EDA7D4A3C6",
+              "name": "Sydney",
+              "showName": true,
+              "value": 5.3
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "8CE9D2E8-243A-43F6-858B-9482AA2D9835",
+              "name": "Melbourne",
+              "showName": true,
+              "value": 5.2
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "F4C6F712-75D8-4EAF-A108-86D5520BB7AE",
+              "name": "Brisbane",
+              "showName": true,
+              "value": 2.7
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "8AC458D2-3445-4F00-AA07-FFEEDCFBE49C",
+              "name": "Other Australia Cities",
+              "showName": true,
+              "value": 4
+            }
+          ],
+          "id": "00255168-3794-41FA-8800-60345B6B1BBF",
+          "image": {
+            "systemSymbol": {
+              "name": "wave.3.right"
+            }
+          },
+          "name": "Australia",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "green"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "0D82F8CF-8C0B-4A72-BBD4-8DF1724BE8FF",
+              "name": "Auckland",
+              "showName": true,
+              "value": 1.7
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "76B929C5-1996-484D-AD9F-DD5A8002EDCE",
+              "name": "Wellington",
+              "showName": true,
+              "value": 0.5
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "6D7BF6F5-BD4F-4269-AF86-84D51BA4D1DD",
+              "name": "Christchurch",
+              "showName": true,
+              "value": 0.4
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [],
+              "id": "392597E5-03B7-49D7-BF9C-256F82E5D7B6",
+              "name": "Other New Zealand Cities",
+              "showName": true,
+              "value": 0.8
+            }
+          ],
+          "id": "31CD6BF0-AAEF-4CB5-91A0-C01BF31B0B36",
+          "image": {
+            "systemSymbol": {
+              "name": "mountain.2"
+            }
+          },
+          "name": "New Zealand",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "green"
+            }
+          },
+          "children": [],
+          "id": "AEEE14FA-A6E8-44AB-A3B7-662F682DF070",
+          "name": "Other Oceania",
+          "showName": true,
+          "value": 3
+        }
+      ],
+      "id": "51FD8766-AA0B-4DD3-BD75-61FB271D516E",
+      "image": {
+        "systemSymbol": {
+          "name": "wave.3.right"
+        }
+      },
+      "name": "Oceania",
+      "showName": true
+    }
+  ],
+  "schemaVersion": 1
+}

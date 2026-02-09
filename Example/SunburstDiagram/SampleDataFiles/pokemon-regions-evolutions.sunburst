@@ -1,0 +1,1991 @@
+{
+  "app": {
+    "appName": "SunburstDiagramDemo",
+    "appVersion": "1.0",
+    "bundleIdentifier": "com.example.SunburstDiagramDemo"
+  },
+  "configuration": {
+    "allowsSelection": true,
+    "calculationMode": {
+      "type": "parentIndependent"
+    },
+    "collapsedArcThickness": 8,
+    "expandedArcThickness": 52,
+    "innerRadius": 60,
+    "marginBetweenArcs": 1,
+    "maximumExpandedRingsShownCount": 2,
+    "maximumRingsShownCount": 4,
+    "minimumArcAngleShown": {
+      "type": "showAll"
+    },
+    "nodesSort": "none",
+    "startingAngle": 0
+  },
+  "document": {
+    "createdAt": "2026-02-08T12:00:00Z",
+    "isBundledSample": false,
+    "shortDescription": "Regions mapped to popular evolution lines with stage groupings.",
+    "title": "Pokemon Regions and Evolutions",
+    "updatedAt": "2026-02-08T12:00:00Z"
+  },
+  "nodes": [
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "red"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "green"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "81DBFD6E-7F1D-4C0C-806E-2B87739EE14C",
+                      "name": "Bulbasaur",
+                      "showName": true,
+                      "value": 7
+                    }
+                  ],
+                  "id": "24981B08-FB93-49BA-9E7D-7A8D738AA2B9",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "AACCAB49-6648-4295-AD98-EE6A6F193590",
+                      "name": "Ivysaur",
+                      "showName": true,
+                      "value": 6
+                    }
+                  ],
+                  "id": "D0283C9D-6F90-4AF9-BF45-242C015E6A47",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "A0A7F1F3-2857-4BC3-8C28-9D8785AD3759",
+                      "name": "Venusaur",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "722FC5C4-6C3B-4511-BA22-692C13CF8878",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "31175BB8-6430-4764-BE31-F76F434D25EC",
+              "image": {
+                "systemSymbol": {
+                  "name": "leaf"
+                }
+              },
+              "name": "Bulbasaur Line",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "434FF3F8-FA01-4A68-8306-1F282D6DDF24",
+                      "name": "Charmander",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "64567F77-AE84-40ED-A2C3-50E33EC8C95B",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "F241E692-4B7A-417A-AD13-4FA5AC9E8D93",
+                      "name": "Charmeleon",
+                      "showName": true,
+                      "value": 6
+                    }
+                  ],
+                  "id": "C65226A7-97E1-470D-A7A7-DC6475402C23",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "C8430002-481E-46A8-A456-A65BF6E7ED41",
+                      "name": "Charizard",
+                      "showName": true,
+                      "value": 10
+                    }
+                  ],
+                  "id": "B54A3456-83E7-486C-92EA-E2A1D11A1DE8",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "35F26668-C5DF-4D5A-96FB-F21F0556A374",
+              "image": {
+                "systemSymbol": {
+                  "name": "flame"
+                }
+              },
+              "name": "Charmander Line",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "3FCCC79F-6CF4-40FA-8786-C5CF4D9AA514",
+                      "name": "Squirtle",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "AE231BA1-9B9F-4496-8D4A-8EAE2CA16AA4",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "FC2F9EDA-37B3-443E-BC1C-222A26B46608",
+                      "name": "Wartortle",
+                      "showName": true,
+                      "value": 6
+                    }
+                  ],
+                  "id": "01987DDD-A152-4F30-87ED-58E9EDB435B4",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "F7CAC862-0E00-48C4-92C1-9A53F28B6D98",
+                      "name": "Blastoise",
+                      "showName": true,
+                      "value": 9
+                    }
+                  ],
+                  "id": "9B2057C7-7DCD-4647-B2EF-94FFAAFA2A16",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "94398398-1563-4FF3-BEC4-4F6C4610A71F",
+              "image": {
+                "systemSymbol": {
+                  "name": "drop"
+                }
+              },
+              "name": "Squirtle Line",
+              "showName": true
+            }
+          ],
+          "id": "CDF8656F-B47B-474D-A541-AB7A850EF487",
+          "image": {
+            "systemSymbol": {
+              "name": "rosette"
+            }
+          },
+          "name": "Starter Lines",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "purple"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "yellow"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "3F41A064-69C9-457B-9CFC-A1703D45C7AB",
+                      "name": "Eevee",
+                      "showName": true,
+                      "value": 9
+                    }
+                  ],
+                  "id": "30560D4F-AF1E-4F76-B509-9770A77DAC46",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "1CE9E6B2-0962-43CC-91E0-3DD07FE2B819",
+                      "name": "Vaporeon",
+                      "showName": true,
+                      "value": 7
+                    },
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "orange"
+                        }
+                      },
+                      "children": [],
+                      "id": "970638FF-2524-48A0-A6FA-67AD3A70BC58",
+                      "name": "Jolteon",
+                      "showName": true,
+                      "value": 7
+                    },
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "yellow"
+                        }
+                      },
+                      "children": [],
+                      "id": "441CB71A-1D0A-451D-A68C-495D226E540B",
+                      "name": "Flareon",
+                      "showName": true,
+                      "value": 7
+                    }
+                  ],
+                  "id": "7B92130A-8D69-449C-8DB5-924E8BC2B23A",
+                  "name": "Evolution",
+                  "showName": true
+                }
+              ],
+              "id": "772BB7DB-E6B6-4C23-A41D-AFCC81D8FE3E",
+              "image": {
+                "systemSymbol": {
+                  "name": "sparkles"
+                }
+              },
+              "name": "Eevee Family",
+              "showName": true
+            }
+          ],
+          "id": "DF0907E5-892F-470A-90D7-95DBBAFD9E76",
+          "image": {
+            "systemSymbol": {
+              "name": "dice.fill"
+            }
+          },
+          "name": "Split Evolution",
+          "showName": true
+        }
+      ],
+      "id": "26ABC376-7E7A-454B-8790-AE2B26E19342",
+      "image": {
+        "systemSymbol": {
+          "name": "flame.fill"
+        }
+      },
+      "name": "Kanto",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "yellow"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "green"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "9698285D-82D6-457A-BFC0-4A93312FB591",
+                      "name": "Chikorita",
+                      "showName": true,
+                      "value": 6
+                    }
+                  ],
+                  "id": "61E68714-DB2F-4781-91BB-72682337478D",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "7854E2B4-5747-4597-B446-5D3969D023D3",
+                      "name": "Bayleef",
+                      "showName": true,
+                      "value": 5
+                    }
+                  ],
+                  "id": "59687295-8485-4865-9221-B92378741C47",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "5245FF53-32BA-4FC4-BA99-2E2B970C94CC",
+                      "name": "Meganium",
+                      "showName": true,
+                      "value": 6
+                    }
+                  ],
+                  "id": "2EC06444-78B8-43A9-9880-247166524B71",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "59637824-5DFD-4F04-BBBA-8C5F3C4BA5D3",
+              "name": "Chikorita Line",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "4E95961B-A18C-4148-8E59-4591941CFD70",
+                      "name": "Cyndaquil",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "CBBA6AD7-17B3-441A-A380-79CEF11D6D66",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "F29735DE-3423-408F-906D-A722C805C417",
+                      "name": "Quilava",
+                      "showName": true,
+                      "value": 6
+                    }
+                  ],
+                  "id": "BEC93469-D14C-44D7-A722-68689B537C6C",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "F35C7EBA-F97E-4E7C-8677-C3A804D812D3",
+                      "name": "Typhlosion",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "9984B1E2-25EB-44E4-8601-3D97A93A93AD",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "1D31343A-F966-4788-B9A0-9012CD777C3F",
+              "name": "Cyndaquil Line",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "ABC5AA3F-1C99-472E-967B-2669257B01EA",
+                      "name": "Totodile",
+                      "showName": true,
+                      "value": 7
+                    }
+                  ],
+                  "id": "CB161D6C-F604-4256-AABE-925D87CBFEBD",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "CC370917-2FC4-45E7-B043-F9F2152D9BDC",
+                      "name": "Croconaw",
+                      "showName": true,
+                      "value": 5
+                    }
+                  ],
+                  "id": "3259D139-4AA4-4815-A9E6-5C2E08DA76E0",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "684DDFCF-2797-427F-89F1-ACC75696803D",
+                      "name": "Feraligatr",
+                      "showName": true,
+                      "value": 7
+                    }
+                  ],
+                  "id": "EF2315C7-13BA-4557-A1E8-F4A306CC9D12",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "D58A608E-1EB4-4663-9C2E-1E194B4F30B8",
+              "name": "Totodile Line",
+              "showName": true
+            }
+          ],
+          "id": "9830AD21-B6A9-4896-B926-9FE8874C481E",
+          "image": {
+            "systemSymbol": {
+              "name": "rosette"
+            }
+          },
+          "name": "Starter Lines",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "orange"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "89FA0640-176F-46D4-8D38-7D3E8485533A",
+                      "name": "Espeon",
+                      "showName": true,
+                      "value": 8
+                    },
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "orange"
+                        }
+                      },
+                      "children": [],
+                      "id": "0C3D7CA7-1447-4A41-A063-C74AA435FA2E",
+                      "name": "Umbreon",
+                      "showName": true,
+                      "value": 9
+                    }
+                  ],
+                  "id": "86B2E567-72D8-4E5B-BA6B-76BBE9BDB15A",
+                  "name": "Evolution",
+                  "showName": true
+                }
+              ],
+              "id": "D0A98B50-3F6A-4801-97BB-34CAC9C6DAB6",
+              "name": "Eevee Day-Night",
+              "showName": true
+            }
+          ],
+          "id": "98921340-A697-4F96-9DA9-A23FD6842A85",
+          "image": {
+            "systemSymbol": {
+              "name": "atom"
+            }
+          },
+          "name": "Evolution Additions",
+          "showName": true
+        }
+      ],
+      "id": "AC392024-4318-4B9A-85E1-2B0825A1CE9D",
+      "image": {
+        "systemSymbol": {
+          "name": "sparkles"
+        }
+      },
+      "name": "Johto",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "blue"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "green"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "F246F3AB-CE10-477A-86DD-F2731E265F10",
+                      "name": "Treecko",
+                      "showName": true,
+                      "value": 7
+                    }
+                  ],
+                  "id": "5DFADC3A-721B-4A71-88AA-5A9C260321A0",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "5D5AF17F-35D8-4052-BFDE-5C66C6438270",
+                      "name": "Grovyle",
+                      "showName": true,
+                      "value": 7
+                    }
+                  ],
+                  "id": "6EA1E5C3-EA73-475F-B243-8C2C2107C308",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "FF8870C7-C20F-42E9-A01E-8A1B426A1065",
+                      "name": "Sceptile",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "1C00C8FB-B391-4EEB-9C99-3022DE3AFBE3",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "B0635AFC-6DF7-4649-901F-030F7D7D8CBD",
+              "image": {
+                "systemSymbol": {
+                  "name": "leaf"
+                }
+              },
+              "name": "Treecko Line",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "501F14E4-5AE3-47AC-B0DB-F3B3B7094AB4",
+                      "name": "Torchic",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "C73F7D70-065B-41FF-9DC2-8C4FAB95777C",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "391C66B0-B20F-4032-BCF7-A1A15F81EC29",
+                      "name": "Combusken",
+                      "showName": true,
+                      "value": 6
+                    }
+                  ],
+                  "id": "26560D29-8D1F-4A03-80F7-6D633A3AF2D0",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "6C26E866-C603-40EC-9FE8-6017404247BB",
+                      "name": "Blaziken",
+                      "showName": true,
+                      "value": 9
+                    }
+                  ],
+                  "id": "39548D9F-572F-44DD-94BB-964B0BF2CAA4",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "08FBA73F-D86D-4C04-829E-F23587968680",
+              "image": {
+                "systemSymbol": {
+                  "name": "flame"
+                }
+              },
+              "name": "Torchic Line",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "D6B1F0F1-15F2-4C3C-B3B1-C082339F1DE1",
+                      "name": "Mudkip",
+                      "showName": true,
+                      "value": 9
+                    }
+                  ],
+                  "id": "0C2108A2-F1E7-453B-9A0E-D7BE357A0E1E",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "41B72305-ADE6-496A-9F1F-79CE7C09118F",
+                      "name": "Marshtomp",
+                      "showName": true,
+                      "value": 7
+                    }
+                  ],
+                  "id": "9DAFFC99-955B-4441-8049-3B028D1C6A96",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "10055894-B3CC-47F6-8F65-4BF06AB008A4",
+                      "name": "Swampert",
+                      "showName": true,
+                      "value": 9
+                    }
+                  ],
+                  "id": "F57134E1-DBCB-4721-AF6C-D0119DD4A9B0",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "2B089FE6-3C61-4481-A217-7149F58649C7",
+              "image": {
+                "systemSymbol": {
+                  "name": "drop"
+                }
+              },
+              "name": "Mudkip Line",
+              "showName": true
+            }
+          ],
+          "id": "5CC2867B-5D5A-41D7-B312-720E3E44F8DA",
+          "image": {
+            "systemSymbol": {
+              "name": "rosette"
+            }
+          },
+          "name": "Starter Lines",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "teal"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "2145F8E7-DD35-48FE-A978-1410AE22989D",
+                      "name": "Ralts",
+                      "showName": true,
+                      "value": 7
+                    }
+                  ],
+                  "id": "DE839CE3-297E-41D6-9902-AE080972D5E4",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "7E16C6E6-E169-4EB6-BB1A-AEB44EB772EC",
+                      "name": "Kirlia",
+                      "showName": true,
+                      "value": 6
+                    }
+                  ],
+                  "id": "7A407F2E-EF9A-4253-8588-3A349EDB57FF",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "D2E5AA70-0892-4A07-B6CF-DD05974B79CA",
+                      "name": "Gardevoir",
+                      "showName": true,
+                      "value": 9
+                    },
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "orange"
+                        }
+                      },
+                      "children": [],
+                      "id": "493DA543-55A5-4DD3-A94E-A57756E2FB5E",
+                      "name": "Gallade",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "8CC0C688-9BD5-401C-ADA3-B206EEA942C6",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "F425327D-AB2A-45EF-BEC3-B6E8D3FD2907",
+              "name": "Ralts Line",
+              "showName": true
+            }
+          ],
+          "id": "7BFD7E53-C3EA-4C50-B583-0B5A0C0FFF04",
+          "image": {
+            "systemSymbol": {
+              "name": "network"
+            }
+          },
+          "name": "Branching Lines",
+          "showName": true
+        }
+      ],
+      "id": "F15DE086-D3C5-41F4-A807-A6DC7F5997A7",
+      "image": {
+        "systemSymbol": {
+          "name": "wave.3.right"
+        }
+      },
+      "name": "Hoenn",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "indigo"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "green"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "D88F318D-476C-446D-ABCB-09B9FCCB5446",
+                      "name": "Turtwig",
+                      "showName": true,
+                      "value": 7
+                    }
+                  ],
+                  "id": "EC65D6B1-6E41-4868-9D69-ECF78CB8EDF1",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "B306EAFA-2BF9-4B78-A5AC-C1F8CBB41536",
+                      "name": "Grotle",
+                      "showName": true,
+                      "value": 6
+                    }
+                  ],
+                  "id": "F95BA3F4-69AE-4C62-A722-13C65459653F",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "93EE9B2F-E599-46D7-8022-DF275B44D9D1",
+                      "name": "Torterra",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "01A6BC0D-ADE6-47C8-9B7C-B1C45E13DFB5",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "E6BA5FC4-8E1E-469A-AA42-9DAD4A7A551A",
+              "image": {
+                "systemSymbol": {
+                  "name": "leaf"
+                }
+              },
+              "name": "Turtwig Line",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "EB0C1C97-7F85-43BC-83EB-8524356FFF58",
+                      "name": "Chimchar",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "8CA66EE4-AF7A-4E7F-BADE-DB211DD7E5E9",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "EC680DC4-910C-418E-9D30-B93597FE02F8",
+                      "name": "Monferno",
+                      "showName": true,
+                      "value": 7
+                    }
+                  ],
+                  "id": "8F9C2934-20B7-49C8-8B9A-E939DA05ADDA",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "696DC7FC-029C-4B76-AD27-7DA37FD7CC47",
+                      "name": "Infernape",
+                      "showName": true,
+                      "value": 9
+                    }
+                  ],
+                  "id": "CB914B01-9FD8-4DD7-893D-11F725B3E9EA",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "85F50F21-FD9B-4B84-8183-4F19575D5D8F",
+              "image": {
+                "systemSymbol": {
+                  "name": "flame"
+                }
+              },
+              "name": "Chimchar Line",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "EB6AD61E-6312-4CD2-BF98-4EFE910CEADB",
+                      "name": "Piplup",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "554DDB9C-8861-4A0D-BBCF-B007C658D7CB",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "6C71D2CA-007D-4647-B69C-12831C274E6A",
+                      "name": "Prinplup",
+                      "showName": true,
+                      "value": 6
+                    }
+                  ],
+                  "id": "549177BC-0CD7-49A8-B62A-94D04E63C542",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "53BFC45B-4502-487A-A845-5B121ECDAB57",
+                      "name": "Empoleon",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "FD6E71E6-B717-41A5-9FB1-82BBA65BFA9B",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "E2227307-726E-48B4-AEC7-E4A7FB73BA3F",
+              "image": {
+                "systemSymbol": {
+                  "name": "drop"
+                }
+              },
+              "name": "Piplup Line",
+              "showName": true
+            }
+          ],
+          "id": "BF76040B-CADA-4DD4-83A9-112E8C83FD8D",
+          "image": {
+            "systemSymbol": {
+              "name": "rosette"
+            }
+          },
+          "name": "Starter Lines",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "red"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "7F5AA039-C60F-4F89-A185-D6FD821FEF3E",
+                      "name": "Riolu",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "E3F4541D-5FD1-4619-8B47-76F742BA7B56",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "01856F6E-B2CA-46CF-B4CD-2263D0F0741E",
+                      "name": "Lucario",
+                      "showName": true,
+                      "value": 10
+                    }
+                  ],
+                  "id": "B0FE7ADF-F36E-435C-93FE-DC9812108E9F",
+                  "name": "Stage 1",
+                  "showName": true
+                }
+              ],
+              "id": "1FDFF1F1-14A4-42EF-9C0D-CB327E35267A",
+              "name": "Riolu Line",
+              "showName": true
+            }
+          ],
+          "id": "BC4F5C03-BD88-47B5-8B07-DBCDC9F5BE89",
+          "image": {
+            "systemSymbol": {
+              "name": "star"
+            }
+          },
+          "name": "Popular Evolutions",
+          "showName": true
+        }
+      ],
+      "id": "B0A26EB1-0497-4E42-BEFC-D82B0A82F7D8",
+      "image": {
+        "systemSymbol": {
+          "name": "mountain.2"
+        }
+      },
+      "name": "Sinnoh",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "green"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "green"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "61C53313-9C44-4873-8057-DE491DEEA786",
+                      "name": "Sprigatito",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "5DEC6EE6-006D-4773-BD86-440241F84306",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "88D372D2-5F8D-45E8-B014-F6A0B9B9D8BA",
+                      "name": "Floragato",
+                      "showName": true,
+                      "value": 7
+                    }
+                  ],
+                  "id": "08182623-2B6A-40C5-A9C6-9C4C3A2296BD",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "EE20CB07-B0E0-4909-9D2E-B9594C3138BF",
+                      "name": "Meowscarada",
+                      "showName": true,
+                      "value": 9
+                    }
+                  ],
+                  "id": "E9D22D36-B8D2-4E92-A65D-5AD0191D1112",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "42A1604F-D2BC-45B9-9C2C-ABE6C6AF9BE0",
+              "image": {
+                "systemSymbol": {
+                  "name": "leaf"
+                }
+              },
+              "name": "Sprigatito Line",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "C1C13156-AB4E-4444-A943-8A4DE7B89003",
+                      "name": "Fuecoco",
+                      "showName": true,
+                      "value": 9
+                    }
+                  ],
+                  "id": "B881BC6D-2EC2-4ACB-97B6-FF166DBA5731",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "33ACE18E-EEEB-4CF0-B804-B63B61C3D935",
+                      "name": "Crocalor",
+                      "showName": true,
+                      "value": 7
+                    }
+                  ],
+                  "id": "CC1667A1-1E75-4E5A-B162-8009238E0BFD",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "ACD87151-95C1-4C42-8780-F8FE37C03982",
+                      "name": "Skeledirge",
+                      "showName": true,
+                      "value": 9
+                    }
+                  ],
+                  "id": "58292E61-D37C-4CCA-AA6C-4C8D9605C37B",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "856FC5CE-D1D1-4C8F-8CE0-EB6013D58CEB",
+              "image": {
+                "systemSymbol": {
+                  "name": "flame"
+                }
+              },
+              "name": "Fuecoco Line",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "BB367C18-8FFF-44D8-BBA5-2B5572ABFB38",
+                      "name": "Quaxly",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "546D9B6D-64F6-46A3-9CAA-623F54E0BC29",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "55EE3A56-C0D5-4B3C-99E6-EC454E96377D",
+                      "name": "Quaxwell",
+                      "showName": true,
+                      "value": 6
+                    }
+                  ],
+                  "id": "33463218-7626-4302-8279-EB411165293A",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "3B745445-0072-453A-AE31-7350DC2DB193",
+                      "name": "Quaquaval",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "B78049F3-0188-41BF-8DE8-52137E5B622F",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "85498E7E-A877-47AE-A41F-C1461C44E004",
+              "image": {
+                "systemSymbol": {
+                  "name": "drop"
+                }
+              },
+              "name": "Quaxly Line",
+              "showName": true
+            }
+          ],
+          "id": "D69551AD-3E8F-4DF7-B2A2-A55A7DD8AA6A",
+          "image": {
+            "systemSymbol": {
+              "name": "rosette"
+            }
+          },
+          "name": "Starter Lines",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "blue"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "yellow"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "E93A65D4-013B-4FB6-AEA3-FD6EA46B7F91",
+                      "name": "Pawmi",
+                      "showName": true,
+                      "value": 7
+                    }
+                  ],
+                  "id": "A93AEFEC-18C0-4671-8301-0FE33A0C9EF9",
+                  "name": "Base",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "DCA25375-1AE8-4A61-AA75-31C1B4F4C93D",
+                      "name": "Pawmo",
+                      "showName": true,
+                      "value": 6
+                    }
+                  ],
+                  "id": "BA21C922-AFBF-427E-BCDF-E2508B41C1D3",
+                  "name": "Stage 1",
+                  "showName": true
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "yellow"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "red"
+                        }
+                      },
+                      "children": [],
+                      "id": "7CDFF8AE-A8B6-4A63-8EDE-CCB08CD204BB",
+                      "name": "Pawmot",
+                      "showName": true,
+                      "value": 8
+                    }
+                  ],
+                  "id": "D2F78BE1-6A64-4718-A9D7-FEDD6FB5616A",
+                  "name": "Stage 2",
+                  "showName": true
+                }
+              ],
+              "id": "CAF31F87-94E8-4BBF-8E3E-CEB0CAEF6757",
+              "image": {
+                "systemSymbol": {
+                  "name": "bolt"
+                }
+              },
+              "name": "Pawmi Line",
+              "showName": true
+            }
+          ],
+          "id": "FE75D8EC-BC03-4FFD-8B04-E1F7DEDACE0B",
+          "image": {
+            "systemSymbol": {
+              "name": "flag.2.crossed.fill"
+            }
+          },
+          "name": "Regional Favorites",
+          "showName": true
+        }
+      ],
+      "id": "98FB4F14-22AA-4D01-91BD-7700430720C7",
+      "image": {
+        "systemSymbol": {
+          "name": "star.fill"
+        }
+      },
+      "name": "Paldea",
+      "showName": true
+    }
+  ],
+  "schemaVersion": 1
+}

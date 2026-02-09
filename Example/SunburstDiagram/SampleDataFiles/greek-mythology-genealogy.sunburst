@@ -1,0 +1,698 @@
+{
+  "app": {
+    "appName": "SunburstDiagramDemo",
+    "appVersion": "1.0",
+    "bundleIdentifier": "com.example.SunburstDiagramDemo"
+  },
+  "configuration": {
+    "allowsSelection": true,
+    "calculationMode": {
+      "type": "parentIndependent"
+    },
+    "collapsedArcThickness": 8,
+    "expandedArcThickness": 52,
+    "innerRadius": 60,
+    "marginBetweenArcs": 1,
+    "maximumExpandedRingsShownCount": 2,
+    "maximumRingsShownCount": 4,
+    "minimumArcAngleShown": {
+      "type": "showAll"
+    },
+    "nodesSort": "none",
+    "startingAngle": 0
+  },
+  "document": {
+    "createdAt": "2026-02-08T12:00:00Z",
+    "isBundledSample": false,
+    "shortDescription": "Famous Greek god and hero lineages from primordial roots.",
+    "title": "Greek Mythology Genealogy",
+    "updatedAt": "2026-02-08T12:00:00Z"
+  },
+  "nodes": [
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "purple"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "indigo"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "purple"
+                        }
+                      },
+                      "children": [
+                        {
+                          "backgroundColor": {
+                            "system": {
+                              "_0": "blue"
+                            }
+                          },
+                          "children": [
+                            {
+                              "backgroundColor": {
+                                "system": {
+                                  "_0": "purple"
+                                }
+                              },
+                              "children": [],
+                              "id": "174480E5-5B5D-4EAD-B3D9-69E572EA7EB9",
+                              "name": "Athena",
+                              "showName": true,
+                              "value": 8
+                            },
+                            {
+                              "backgroundColor": {
+                                "system": {
+                                  "_0": "indigo"
+                                }
+                              },
+                              "children": [],
+                              "id": "259F26DA-F179-49D8-B8E4-A383FDA524FB",
+                              "name": "Apollo",
+                              "showName": true,
+                              "value": 9
+                            },
+                            {
+                              "backgroundColor": {
+                                "system": {
+                                  "_0": "orange"
+                                }
+                              },
+                              "children": [],
+                              "id": "ED44A6BD-6605-46B0-86B5-1CE6F377466B",
+                              "name": "Artemis",
+                              "showName": true,
+                              "value": 8
+                            },
+                            {
+                              "backgroundColor": {
+                                "system": {
+                                  "_0": "red"
+                                }
+                              },
+                              "children": [],
+                              "id": "99E8B27A-0BCE-4B37-AE5D-370D38AD0926",
+                              "name": "Hermes",
+                              "showName": true,
+                              "value": 7
+                            },
+                            {
+                              "backgroundColor": {
+                                "system": {
+                                  "_0": "teal"
+                                }
+                              },
+                              "children": [],
+                              "id": "4746D802-8725-45D9-97BB-598786CFB869",
+                              "name": "Dionysus",
+                              "showName": true,
+                              "value": 7
+                            }
+                          ],
+                          "id": "ED8FA468-E0F2-450E-82EC-05C9C73551BE",
+                          "image": {
+                            "systemSymbol": {
+                              "name": "bolt.fill"
+                            }
+                          },
+                          "name": "Zeus",
+                          "showName": true
+                        },
+                        {
+                          "backgroundColor": {
+                            "system": {
+                              "_0": "pink"
+                            }
+                          },
+                          "children": [
+                            {
+                              "backgroundColor": {
+                                "system": {
+                                  "_0": "purple"
+                                }
+                              },
+                              "children": [],
+                              "id": "649E3A6D-17D7-4344-84DE-589A633A16E9",
+                              "name": "Ares",
+                              "showName": true,
+                              "value": 7
+                            },
+                            {
+                              "backgroundColor": {
+                                "system": {
+                                  "_0": "indigo"
+                                }
+                              },
+                              "children": [],
+                              "id": "25EB6D14-DAA6-4E37-83F7-4005B4EBDC84",
+                              "name": "Hephaestus",
+                              "showName": true,
+                              "value": 6
+                            },
+                            {
+                              "backgroundColor": {
+                                "system": {
+                                  "_0": "orange"
+                                }
+                              },
+                              "children": [],
+                              "id": "7A3D092C-7BE4-40B2-9484-3204445478E8",
+                              "name": "Hebe",
+                              "showName": true,
+                              "value": 4
+                            }
+                          ],
+                          "id": "6145C4A6-A905-41EC-8146-2A0B7612AD93",
+                          "image": {
+                            "systemSymbol": {
+                              "name": "crown"
+                            }
+                          },
+                          "name": "Hera",
+                          "showName": true
+                        },
+                        {
+                          "backgroundColor": {
+                            "system": {
+                              "_0": "teal"
+                            }
+                          },
+                          "children": [
+                            {
+                              "backgroundColor": {
+                                "system": {
+                                  "_0": "purple"
+                                }
+                              },
+                              "children": [],
+                              "id": "98925336-CCEC-4A0B-9B72-1EE754BD5700",
+                              "name": "Triton",
+                              "showName": true,
+                              "value": 5
+                            },
+                            {
+                              "backgroundColor": {
+                                "system": {
+                                  "_0": "indigo"
+                                }
+                              },
+                              "children": [],
+                              "id": "8B50608C-8B09-4BB9-B4B5-71531F8B3E4A",
+                              "name": "Polyphemus",
+                              "showName": true,
+                              "value": 5
+                            }
+                          ],
+                          "id": "45BA69BD-2898-4AD5-8D76-21E4F2124E54",
+                          "image": {
+                            "systemSymbol": {
+                              "name": "drop"
+                            }
+                          },
+                          "name": "Poseidon",
+                          "showName": true
+                        },
+                        {
+                          "backgroundColor": {
+                            "system": {
+                              "_0": "green"
+                            }
+                          },
+                          "children": [
+                            {
+                              "backgroundColor": {
+                                "system": {
+                                  "_0": "purple"
+                                }
+                              },
+                              "children": [],
+                              "id": "EC4A324C-76FD-41BB-8EB3-2EE62B4C1A72",
+                              "name": "Persephone",
+                              "showName": true,
+                              "value": 8
+                            }
+                          ],
+                          "id": "548DC001-6A48-4F8B-BFA1-17174694129F",
+                          "image": {
+                            "systemSymbol": {
+                              "name": "leaf"
+                            }
+                          },
+                          "name": "Demeter",
+                          "showName": true
+                        },
+                        {
+                          "backgroundColor": {
+                            "system": {
+                              "_0": "gray"
+                            }
+                          },
+                          "children": [
+                            {
+                              "backgroundColor": {
+                                "system": {
+                                  "_0": "purple"
+                                }
+                              },
+                              "children": [],
+                              "id": "EF62FF48-4727-4EFD-955C-5D8870D344FF",
+                              "name": "Melinoe",
+                              "showName": true,
+                              "value": 3
+                            },
+                            {
+                              "backgroundColor": {
+                                "system": {
+                                  "_0": "indigo"
+                                }
+                              },
+                              "children": [],
+                              "id": "D198859B-AA7A-4353-BFE0-B28747CA2BBB",
+                              "name": "Macaria",
+                              "showName": true,
+                              "value": 3
+                            }
+                          ],
+                          "id": "6874BA9F-8AD1-4600-899B-5FD67E8F8ACA",
+                          "image": {
+                            "systemSymbol": {
+                              "name": "flame"
+                            }
+                          },
+                          "name": "Hades",
+                          "showName": true
+                        },
+                        {
+                          "backgroundColor": {
+                            "system": {
+                              "_0": "orange"
+                            }
+                          },
+                          "children": [],
+                          "id": "7E7B31D1-2616-4666-AEA6-68094480F832",
+                          "image": {
+                            "systemSymbol": {
+                              "name": "flame.fill"
+                            }
+                          },
+                          "name": "Hestia",
+                          "showName": true,
+                          "value": 6
+                        }
+                      ],
+                      "id": "5713D33D-84B4-440A-AD0A-25E8E4E03C1E",
+                      "name": "Cronus",
+                      "showName": true
+                    },
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "indigo"
+                        }
+                      },
+                      "children": [
+                        {
+                          "backgroundColor": {
+                            "system": {
+                              "_0": "purple"
+                            }
+                          },
+                          "children": [],
+                          "id": "119EAAFF-3864-4330-B7E1-426EF40C15BB",
+                          "name": "Atlas",
+                          "showName": true,
+                          "value": 8
+                        },
+                        {
+                          "backgroundColor": {
+                            "system": {
+                              "_0": "indigo"
+                            }
+                          },
+                          "children": [],
+                          "id": "4F4C61F8-090B-4B1B-8214-9277408C5339",
+                          "name": "Prometheus",
+                          "showName": true,
+                          "value": 9
+                        },
+                        {
+                          "backgroundColor": {
+                            "system": {
+                              "_0": "orange"
+                            }
+                          },
+                          "children": [],
+                          "id": "02830E41-8212-473D-9A16-F515078C00F9",
+                          "name": "Epimetheus",
+                          "showName": true,
+                          "value": 4
+                        }
+                      ],
+                      "id": "6F6CC9D6-C874-4B6B-A8DB-BBAB0F4CBCC9",
+                      "name": "Iapetus",
+                      "showName": true
+                    },
+                    {
+                      "backgroundColor": {
+                        "system": {
+                          "_0": "orange"
+                        }
+                      },
+                      "children": [
+                        {
+                          "backgroundColor": {
+                            "system": {
+                              "_0": "purple"
+                            }
+                          },
+                          "children": [],
+                          "id": "6B9286A8-4B5C-47A0-8C14-4FA18C2287F6",
+                          "name": "Metis",
+                          "showName": true,
+                          "value": 4
+                        },
+                        {
+                          "backgroundColor": {
+                            "system": {
+                              "_0": "indigo"
+                            }
+                          },
+                          "children": [],
+                          "id": "73BE0090-E071-49AC-94DF-2CF5197A1D73",
+                          "name": "Styx",
+                          "showName": true,
+                          "value": 5
+                        }
+                      ],
+                      "id": "7FA6C58C-16BC-4EAA-ACDE-454A6EA5A375",
+                      "name": "Oceanus",
+                      "showName": true
+                    }
+                  ],
+                  "id": "3C1EA33B-1228-449A-937D-2B3507C188F9",
+                  "name": "Uranus",
+                  "showName": true
+                }
+              ],
+              "id": "78E18914-6AD8-49FC-BCD1-E81CD197489A",
+              "image": {
+                "systemSymbol": {
+                  "name": "leaf.fill"
+                }
+              },
+              "name": "Gaia",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "purple"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "4B9096FE-8AA8-46D1-AF34-C057D86B9205",
+                  "name": "Hypnos",
+                  "showName": true,
+                  "value": 6
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "purple"
+                    }
+                  },
+                  "children": [],
+                  "id": "309CC4DD-8743-43EB-8BBD-2ADD49DAB93A",
+                  "name": "Thanatos",
+                  "showName": true,
+                  "value": 6
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "58ED07E6-B237-4764-8A11-FFFD2F9BC69B",
+                  "name": "Nemesis",
+                  "showName": true,
+                  "value": 6
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "3D5E683A-C6E8-4B52-AD42-6FCBE87E3F50",
+                  "name": "Eris",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "B232FFCB-0F33-4B1D-85A9-F821C550A56B",
+              "image": {
+                "systemSymbol": {
+                  "name": "moon.stars"
+                }
+              },
+              "name": "Nyx",
+              "showName": true
+            }
+          ],
+          "id": "BD4A0355-4839-4718-ADCF-B20F809C0F7B",
+          "image": {
+            "systemSymbol": {
+              "name": "sparkles"
+            }
+          },
+          "name": "Chaos",
+          "showName": true
+        }
+      ],
+      "id": "831100C0-0107-4B0E-A0E0-AD4EDE9BF20A",
+      "image": {
+        "systemSymbol": {
+          "name": "moon.stars"
+        }
+      },
+      "name": "Primordial Lineages",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "orange"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "blue"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [],
+              "id": "8EE92CC1-836C-4489-A2E3-5DC164C5C88C",
+              "image": {
+                "systemSymbol": {
+                  "name": "shield"
+                }
+              },
+              "name": "Perseus",
+              "showName": true,
+              "value": 9
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [],
+              "id": "F0C7D09F-A5DE-4704-9F9B-4CF0BA535285",
+              "image": {
+                "systemSymbol": {
+                  "name": "figure.walk"
+                }
+              },
+              "name": "Heracles",
+              "showName": true,
+              "value": 10
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "pink"
+                }
+              },
+              "children": [],
+              "id": "DDEB3800-AF21-4D58-82AF-6FE2D8E42585",
+              "name": "Helen of Troy",
+              "showName": true,
+              "value": 7
+            }
+          ],
+          "id": "CCFFDB4A-6D89-4DB3-9A4D-7979FAEF8623",
+          "image": {
+            "systemSymbol": {
+              "name": "bolt.fill"
+            }
+          },
+          "name": "Zeus and Mortals",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "teal"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [],
+              "id": "570941BC-C574-4416-8BB0-41D8AF013C99",
+              "image": {
+                "systemSymbol": {
+                  "name": "shield"
+                }
+              },
+              "name": "Theseus",
+              "showName": true,
+              "value": 8
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [],
+              "id": "91C5BED5-4269-4B66-8B38-EC84C285B1A8",
+              "image": {
+                "systemSymbol": {
+                  "name": "star.fill"
+                }
+              },
+              "name": "Orion",
+              "showName": true,
+              "value": 6
+            }
+          ],
+          "id": "FF5A4E07-6828-4911-B310-A6F5720BBE48",
+          "image": {
+            "systemSymbol": {
+              "name": "drop.fill"
+            }
+          },
+          "name": "Poseidon and Mortals",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "red"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [],
+              "id": "312792D1-BC34-4805-9E89-815FF13877BA",
+              "image": {
+                "systemSymbol": {
+                  "name": "crown"
+                }
+              },
+              "name": "Oedipus",
+              "showName": true,
+              "value": 7
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "purple"
+                }
+              },
+              "children": [],
+              "id": "844CA664-0FA7-4994-9A78-96A2969BC40C",
+              "image": {
+                "systemSymbol": {
+                  "name": "book.fill"
+                }
+              },
+              "name": "Antigone",
+              "showName": true,
+              "value": 6
+            }
+          ],
+          "id": "609E40A6-546D-451E-8E88-4953A9D268E8",
+          "image": {
+            "systemSymbol": {
+              "name": "building.columns"
+            }
+          },
+          "name": "Theban House",
+          "showName": true
+        }
+      ],
+      "id": "D8F51B9A-E180-40C4-96E4-1569D1B1B7DD",
+      "image": {
+        "systemSymbol": {
+          "name": "crown"
+        }
+      },
+      "name": "Heroic Lineages",
+      "showName": true
+    }
+  ],
+  "schemaVersion": 1
+}

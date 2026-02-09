@@ -1,0 +1,905 @@
+{
+  "app": {
+    "appName": "SunburstDiagramDemo",
+    "appVersion": "1.0",
+    "bundleIdentifier": "com.example.SunburstDiagramDemo"
+  },
+  "configuration": {
+    "allowsSelection": true,
+    "calculationMode": {
+      "type": "parentIndependent"
+    },
+    "collapsedArcThickness": 8,
+    "expandedArcThickness": 52,
+    "innerRadius": 60,
+    "marginBetweenArcs": 1,
+    "maximumExpandedRingsShownCount": 2,
+    "maximumRingsShownCount": 4,
+    "minimumArcAngleShown": {
+      "type": "showAll"
+    },
+    "nodesSort": "none",
+    "startingAngle": 0
+  },
+  "document": {
+    "createdAt": "2026-02-08T12:00:00Z",
+    "isBundledSample": false,
+    "shortDescription": "Studios to franchises, sagas/phases, and major films with box-office style weights.",
+    "title": "Film Franchises",
+    "updatedAt": "2026-02-08T12:00:00Z"
+  },
+  "nodes": [
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "red"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "red"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "DEFABC01-B82C-496A-A027-18AFF03096EF",
+                  "name": "Iron Man",
+                  "showName": true,
+                  "value": 0.59
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "D240D85E-7464-4761-9B41-6CE97216AFAA",
+                  "name": "The Avengers",
+                  "showName": true,
+                  "value": 1.52
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "197EA924-3A5B-40C4-ADDE-EBC90F4A66F9",
+                  "name": "Black Panther",
+                  "showName": true,
+                  "value": 1.35
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "blue"
+                    }
+                  },
+                  "children": [],
+                  "id": "DE98F89C-BFF9-4635-B2CE-541AAF5853A3",
+                  "name": "Avengers: Endgame",
+                  "showName": true,
+                  "value": 2.8
+                }
+              ],
+              "id": "CFF6A9AD-0756-4455-9FE8-251BDF9E582D",
+              "image": {
+                "systemSymbol": {
+                  "name": "star.fill"
+                }
+              },
+              "name": "Infinity Saga",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "pink"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "2D690BD7-14F1-4FBB-8D10-95E12EEFED24",
+                  "name": "Spider-Man: No Way Home",
+                  "showName": true,
+                  "value": 1.92
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "AEC005FA-9AD7-4E65-9A27-43CFD9803E1E",
+                  "name": "Doctor Strange in the Multiverse of Madness",
+                  "showName": true,
+                  "value": 0.96
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "409DFA68-CA3D-4AB6-9CA4-E42493B05510",
+                  "name": "Guardians of the Galaxy Vol. 3",
+                  "showName": true,
+                  "value": 0.85
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "blue"
+                    }
+                  },
+                  "children": [],
+                  "id": "E4EB8531-6B3D-4710-A0F5-7CB51679905D",
+                  "name": "Deadpool and Wolverine",
+                  "showName": true,
+                  "value": 1.34
+                }
+              ],
+              "id": "75AA25B0-3088-43B5-84DD-90405FF0CFA1",
+              "image": {
+                "systemSymbol": {
+                  "name": "atom"
+                }
+              },
+              "name": "Multiverse Saga",
+              "showName": true
+            }
+          ],
+          "id": "0E197D7A-B5A9-44AE-833B-A176226FF3B5",
+          "image": {
+            "systemSymbol": {
+              "name": "shield"
+            }
+          },
+          "name": "MCU",
+          "showName": true
+        }
+      ],
+      "id": "01A448A6-AE6E-4500-B293-9CA09C3B6232",
+      "image": {
+        "systemSymbol": {
+          "name": "shield.fill"
+        }
+      },
+      "name": "Marvel Studios",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "indigo"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "indigo"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "222CFD58-B60D-4FE5-97DD-5D377851D46C",
+                  "name": "A New Hope",
+                  "showName": true,
+                  "value": 0.78
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "D615DF5D-4576-4438-9B88-03A4A89C51C7",
+                  "name": "The Empire Strikes Back",
+                  "showName": true,
+                  "value": 0.55
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "9B3C3913-5A86-4716-BF00-B8A9F1C26B67",
+                  "name": "Return of the Jedi",
+                  "showName": true,
+                  "value": 0.48
+                }
+              ],
+              "id": "FC18B29E-7F52-4BA6-8CB5-456BE6CAC98D",
+              "image": {
+                "systemSymbol": {
+                  "name": "film"
+                }
+              },
+              "name": "Original Trilogy",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "91C90DD0-35C3-4CD7-BD2D-CB187BB78177",
+                  "name": "The Force Awakens",
+                  "showName": true,
+                  "value": 2.07
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "F43E7868-39C5-43BA-AC1E-CD4EB8FCD9F8",
+                  "name": "The Last Jedi",
+                  "showName": true,
+                  "value": 1.33
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "12C3597A-3CD1-4BD0-8D1F-8C2F48AA2F3C",
+                  "name": "The Rise of Skywalker",
+                  "showName": true,
+                  "value": 1.08
+                }
+              ],
+              "id": "E1E378F5-76B0-4D7B-9AA0-517B2A7E6FA4",
+              "image": {
+                "systemSymbol": {
+                  "name": "camera"
+                }
+              },
+              "name": "Sequel Trilogy",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "purple"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "986786F9-DAE9-49BB-80DF-D143A00929FA",
+                  "name": "Rogue One",
+                  "showName": true,
+                  "value": 1.06
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "F1F5FE3D-078F-4421-8494-88BD14195A4C",
+                  "name": "Solo",
+                  "showName": true,
+                  "value": 0.39
+                }
+              ],
+              "id": "4B6EFE08-7A09-4819-BB88-9E7648D566B5",
+              "image": {
+                "systemSymbol": {
+                  "name": "book.fill"
+                }
+              },
+              "name": "Anthology",
+              "showName": true
+            }
+          ],
+          "id": "85CEE0BA-A6FC-48BA-8408-A93689B3CBE1",
+          "image": {
+            "systemSymbol": {
+              "name": "sparkles"
+            }
+          },
+          "name": "Star Wars",
+          "showName": true
+        }
+      ],
+      "id": "3DF1DEC1-3255-43EE-BD1C-0A42EA52B9F1",
+      "image": {
+        "systemSymbol": {
+          "name": "sparkles"
+        }
+      },
+      "name": "Lucasfilm",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "blue"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "purple"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "purple"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "50505D80-95DF-4BA1-B1DE-9EAE2019487A",
+                  "name": "Philosopher's Stone",
+                  "showName": true,
+                  "value": 0.98
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "26FB52AE-78AB-4056-99A8-85E54750450B",
+                  "name": "Prisoner of Azkaban",
+                  "showName": true,
+                  "value": 0.8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "1A54D666-507F-47B5-83E5-4E64D78BB6FE",
+                  "name": "Deathly Hallows Part 2",
+                  "showName": true,
+                  "value": 1.34
+                }
+              ],
+              "id": "6F42D0AC-0DEF-422B-A71E-FF238A14573E",
+              "image": {
+                "systemSymbol": {
+                  "name": "wand.and.stars"
+                }
+              },
+              "name": "Harry Potter Series",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "teal"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "1CAD9256-5F23-45FC-9498-3A1AB1A17B18",
+                  "name": "Fantastic Beasts and Where to Find Them",
+                  "showName": true,
+                  "value": 0.81
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "2EB4707D-3D79-4723-88A2-5EE4AD2AE529",
+                  "name": "The Crimes of Grindelwald",
+                  "showName": true,
+                  "value": 0.65
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "853BDD0B-5AE6-4728-BE0E-F5A3B39B35F0",
+                  "name": "The Secrets of Dumbledore",
+                  "showName": true,
+                  "value": 0.41
+                }
+              ],
+              "id": "0BCF7EC4-1016-4A8C-AFA3-1053DE801B07",
+              "image": {
+                "systemSymbol": {
+                  "name": "bird"
+                }
+              },
+              "name": "Fantastic Beasts Series",
+              "showName": true
+            }
+          ],
+          "id": "D9D1495E-4DBA-49CD-8AC5-864F66E9B4C1",
+          "image": {
+            "systemSymbol": {
+              "name": "wand.and.stars"
+            }
+          },
+          "name": "Wizarding World",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "blue"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "gray"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "EE0D39AF-79F0-4091-9DC0-8AEFA51C5594",
+                  "name": "Batman Begins",
+                  "showName": true,
+                  "value": 0.37
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "948B8EFB-D517-474A-BAB8-6382FC9F9884",
+                  "name": "The Dark Knight",
+                  "showName": true,
+                  "value": 1.01
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "9DA52743-4140-45CE-AD67-DD6C2335A6B0",
+                  "name": "The Dark Knight Rises",
+                  "showName": true,
+                  "value": 1.08
+                }
+              ],
+              "id": "3516F043-B9E6-445F-985A-043A044A39EF",
+              "image": {
+                "systemSymbol": {
+                  "name": "moon.stars"
+                }
+              },
+              "name": "Dark Knight Trilogy",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "blue"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "7FFC0F50-C329-48FA-84EC-224595960F85",
+                  "name": "Wonder Woman",
+                  "showName": true,
+                  "value": 0.82
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "B2DF6D44-4004-48C0-B40F-922A7594B726",
+                  "name": "Aquaman",
+                  "showName": true,
+                  "value": 1.15
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "3A9D7794-71DF-4005-B7EC-AF940089497B",
+                  "name": "The Suicide Squad",
+                  "showName": true,
+                  "value": 0.17
+                }
+              ],
+              "id": "EE295E05-7F8A-48C0-A0E4-F3D0C7A6F183",
+              "image": {
+                "systemSymbol": {
+                  "name": "bolt.fill"
+                }
+              },
+              "name": "DCEU",
+              "showName": true
+            }
+          ],
+          "id": "33A3A0B7-719A-42BF-BD8D-706B4067768E",
+          "image": {
+            "systemSymbol": {
+              "name": "bolt.fill"
+            }
+          },
+          "name": "DC",
+          "showName": true
+        }
+      ],
+      "id": "6347810B-C959-40AE-8A1F-A5A8436B4A83",
+      "image": {
+        "systemSymbol": {
+          "name": "tv"
+        }
+      },
+      "name": "Warner Bros.",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "orange"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "green"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "D0413D52-650F-4894-8C59-EE115B2AEE7D",
+                  "name": "Jurassic Park",
+                  "showName": true,
+                  "value": 1.1
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "D6A5C856-F174-499D-9D34-3B4C7D18524F",
+                  "name": "The Lost World",
+                  "showName": true,
+                  "value": 0.62
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "D108CA42-403E-4A91-9ADD-FEED43C7739E",
+                  "name": "Jurassic Park III",
+                  "showName": true,
+                  "value": 0.37
+                }
+              ],
+              "id": "A59CDA9B-D1C2-47E5-9A76-003ADA2AB911",
+              "image": {
+                "systemSymbol": {
+                  "name": "film"
+                }
+              },
+              "name": "Original Trilogy",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "8B29E054-F7D8-400B-B192-8758D8E5107A",
+                  "name": "Jurassic World",
+                  "showName": true,
+                  "value": 1.67
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "52462078-B56F-4828-9450-9C2B065E3E02",
+                  "name": "Fallen Kingdom",
+                  "showName": true,
+                  "value": 1.31
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "2FFB0CF6-47BE-4F05-8E8A-BC65F7F6B317",
+                  "name": "Dominion",
+                  "showName": true,
+                  "value": 1
+                }
+              ],
+              "id": "D38E7705-46F5-420B-8680-767F9CCE7ED9",
+              "image": {
+                "systemSymbol": {
+                  "name": "lizard"
+                }
+              },
+              "name": "World Trilogy",
+              "showName": true
+            }
+          ],
+          "id": "0AE0F48F-8487-49A3-9C00-1E57BDEA0C53",
+          "image": {
+            "systemSymbol": {
+              "name": "lizard"
+            }
+          },
+          "name": "Jurassic Franchise",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "orange"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "E251BBA4-4920-4A1D-854F-377E63E8437C",
+                  "name": "The Fast and the Furious",
+                  "showName": true,
+                  "value": 0.21
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "63CA80FE-9051-4C4A-82DF-81F11F01ABDA",
+                  "name": "Fast Five",
+                  "showName": true,
+                  "value": 0.63
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "EE4A51F3-36E5-4E0C-917C-6A384041AD3E",
+                  "name": "Furious 7",
+                  "showName": true,
+                  "value": 1.52
+                }
+              ],
+              "id": "E656A608-F9A3-49C6-BCA9-76C0B27F52F1",
+              "image": {
+                "systemSymbol": {
+                  "name": "car.fill"
+                }
+              },
+              "name": "Early Era",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "3337BBB9-FB28-4153-B79B-05B480517C72",
+                  "name": "The Fate of the Furious",
+                  "showName": true,
+                  "value": 1.24
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "DA30DBAC-85B0-45F3-BF2D-134EEE04C36E",
+                  "name": "F9",
+                  "showName": true,
+                  "value": 0.73
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "indigo"
+                    }
+                  },
+                  "children": [],
+                  "id": "5AE07D82-43F2-4E35-A69A-589B6DC40058",
+                  "name": "Fast X",
+                  "showName": true,
+                  "value": 0.7
+                }
+              ],
+              "id": "636C186D-3D85-400B-8DCF-D811BC3169AA",
+              "image": {
+                "systemSymbol": {
+                  "name": "car.fill"
+                }
+              },
+              "name": "Global Era",
+              "showName": true
+            }
+          ],
+          "id": "FE46E73A-D8AD-4356-A313-205BCCD0B060",
+          "image": {
+            "systemSymbol": {
+              "name": "car.fill"
+            }
+          },
+          "name": "Fast Saga",
+          "showName": true
+        }
+      ],
+      "id": "96B4A292-168A-4CFE-9A77-A8ECF7D6B088",
+      "image": {
+        "systemSymbol": {
+          "name": "film"
+        }
+      },
+      "name": "Universal Pictures",
+      "showName": true
+    }
+  ],
+  "schemaVersion": 1
+}

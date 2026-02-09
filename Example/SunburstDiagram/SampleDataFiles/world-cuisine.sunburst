@@ -1,0 +1,1540 @@
+{
+  "app": {
+    "appName": "SunburstDiagramDemo",
+    "appVersion": "1.0",
+    "bundleIdentifier": "com.example.SunburstDiagramDemo"
+  },
+  "configuration": {
+    "allowsSelection": true,
+    "calculationMode": {
+      "type": "parentIndependent"
+    },
+    "collapsedArcThickness": 8,
+    "expandedArcThickness": 52,
+    "innerRadius": 60,
+    "marginBetweenArcs": 1,
+    "maximumExpandedRingsShownCount": 2,
+    "maximumRingsShownCount": 4,
+    "minimumArcAngleShown": {
+      "type": "showAll"
+    },
+    "nodesSort": "none",
+    "startingAngle": 0
+  },
+  "document": {
+    "createdAt": "2026-02-08T12:00:00Z",
+    "isBundledSample": false,
+    "shortDescription": "Region to country, cuisine style, and signature dishes.",
+    "title": "World Cuisine",
+    "updatedAt": "2026-02-08T12:00:00Z"
+  },
+  "nodes": [
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "red"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "red"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "48CDCFD7-219A-451D-86FC-574C1411193B",
+                  "name": "Nigiri",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "5E45BF61-D070-4E14-84AC-677AA794531B",
+                  "name": "Maki",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "3AEA8753-6F29-49A5-86BC-2120DC31CCDB",
+              "name": "Sushi",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "AA4C4D11-8D75-4FFD-B514-5D8C9ECA498C",
+                  "name": "Shoyu Ramen",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "72AA106F-3FDC-49D2-B154-A4F567AAB3F7",
+                  "name": "Tonkotsu Ramen",
+                  "showName": true,
+                  "value": 9
+                }
+              ],
+              "id": "69EA176A-2B09-4B7A-89F3-3C49A5A3F414",
+              "name": "Ramen",
+              "showName": true
+            }
+          ],
+          "id": "3824AF1E-3D34-4530-A426-A479C4CAF934",
+          "image": {
+            "systemSymbol": {
+              "name": "cup.and.saucer.fill"
+            }
+          },
+          "name": "Japan",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "orange"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "F81973E5-8D2D-4853-B4F3-FDE903AEED45",
+                  "name": "Mapo Tofu",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "BCC0B39C-40B8-4BE1-BDD4-750D6F7D8ED9",
+                  "name": "Kung Pao Chicken",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "31BFD34A-128A-4A37-A039-55F6DF39CC23",
+              "name": "Sichuan",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "45BB436A-597B-4E1E-A8C4-96934A2D3F7E",
+                  "name": "Dim Sum",
+                  "showName": true,
+                  "value": 9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "5EA1A2A8-1455-44B4-B998-4772E444B288",
+                  "name": "Char Siu",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "29AC675D-9CB4-426D-A143-6503B55D9B48",
+              "name": "Cantonese",
+              "showName": true
+            }
+          ],
+          "id": "617ECCF5-E3DB-40E2-A32D-F3948C63C3BA",
+          "image": {
+            "systemSymbol": {
+              "name": "takeoutbag.and.cup.and.straw.fill"
+            }
+          },
+          "name": "China",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "pink"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "D1D510A4-851A-40BC-9BA9-A9045871B98C",
+                  "name": "Kimchi",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "6D09F020-74F1-4E25-8A00-EE786906262B",
+                  "name": "Bulgogi",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "30D9B835-B1EB-4217-9B89-340BCCB1C52E",
+              "name": "Fermented and Grilled",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "5D45C923-0391-4C44-BE7C-628BDFCCF8FE",
+                  "name": "Tteokbokki",
+                  "showName": true,
+                  "value": 7
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "94E93B08-FFB6-4375-8A87-DFF7B763C584",
+                  "name": "Hotteok",
+                  "showName": true,
+                  "value": 6
+                }
+              ],
+              "id": "AB70A4FE-7F60-4F94-BDC6-522C73AC7258",
+              "name": "Street Food",
+              "showName": true
+            }
+          ],
+          "id": "CD87D756-7E80-4301-8819-BCB36D2FC1E4",
+          "image": {
+            "systemSymbol": {
+              "name": "flame"
+            }
+          },
+          "name": "Korea",
+          "showName": true
+        }
+      ],
+      "id": "3ED207D3-0ADF-4B02-BD11-FE8ECCF92091",
+      "image": {
+        "systemSymbol": {
+          "name": "takeoutbag.and.cup.and.straw.fill"
+        }
+      },
+      "name": "East Asia",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "orange"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "orange"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "03742975-06BF-41AC-9BAF-C5580ABAF933",
+                  "name": "Butter Chicken",
+                  "showName": true,
+                  "value": 9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "679C884A-093D-4950-A0D0-B895B049276D",
+                  "name": "Chole Bhature",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "3A83CF6D-FC7B-40B6-A644-8F32FD93E996",
+              "name": "North Indian",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "9F22E00E-4244-4C6E-AC1D-34C0E7796430",
+                  "name": "Dosa",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "2FC3C238-DA5F-4B53-9624-10FCE60D7500",
+                  "name": "Sambar",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "E3B2CEB0-742E-4B3B-A40A-1FE731E21F76",
+              "name": "South Indian",
+              "showName": true
+            }
+          ],
+          "id": "7D4781E6-DE76-4CC6-A72F-7D8BC266135F",
+          "image": {
+            "systemSymbol": {
+              "name": "flame.fill"
+            }
+          },
+          "name": "India",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "yellow"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "024AF97F-4D9E-48CE-B803-CD0D0BCEAE4B",
+                  "name": "Biryani",
+                  "showName": true,
+                  "value": 9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "B0BF8011-4E81-415A-9E9D-8002FDBB273D",
+                  "name": "Seekh Kebab",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "B404C8C6-45F9-4FA3-953F-13520D9AF801",
+              "name": "BBQ and Rice",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "15041191-84F5-4BEB-A235-8D3E04CB2807",
+                  "name": "Nihari",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "0371F0E2-1C36-4768-8DA7-E719402696AB",
+                  "name": "Haleem",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "BFAA76CC-33FA-46FE-8734-DCFB29458FCE",
+              "name": "Street Classics",
+              "showName": true
+            }
+          ],
+          "id": "8A36D67D-B244-41D4-8ADE-7826EC520E71",
+          "name": "Pakistan",
+          "showName": true
+        }
+      ],
+      "id": "281AAA99-AE11-4424-A27B-872A81D49644",
+      "image": {
+        "systemSymbol": {
+          "name": "flame.fill"
+        }
+      },
+      "name": "South Asia",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "indigo"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "indigo"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "CE79F72D-C0AB-4CF0-9E3D-745C987379A8",
+                  "name": "Carbonara",
+                  "showName": true,
+                  "value": 9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "3E2781DA-8114-4D3F-8486-EE371F2CDBD0",
+                  "name": "Lasagna",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "4BD63A6D-C67C-401A-8675-76AB88D95C29",
+              "name": "Pasta",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "4689E18D-4041-455D-8FD8-3B7E57A2642F",
+                  "name": "Neapolitan Pizza",
+                  "showName": true,
+                  "value": 10
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "259D6873-82EE-4021-93F6-373FCD138564",
+                  "name": "Margherita",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "555A925B-37FD-479D-B403-F0C125CA0108",
+              "name": "Pizza",
+              "showName": true
+            }
+          ],
+          "id": "87FFC77D-32CD-4929-B127-B207629A50C4",
+          "image": {
+            "systemSymbol": {
+              "name": "fork.knife"
+            }
+          },
+          "name": "Italy",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "blue"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "8FB7A03C-33F9-4DF9-9454-B18435C00AE3",
+                  "name": "Coq au Vin",
+                  "showName": true,
+                  "value": 7
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "8D89AB8F-E9C1-419E-A3B7-9064FA41B023",
+                  "name": "Steak Frites",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "BD500E9D-8D19-4A05-84F5-D18DDC9183BE",
+              "name": "Bistro",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "05D958E4-9683-407D-A774-1DF2BB6576B1",
+                  "name": "Croissant",
+                  "showName": true,
+                  "value": 9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "4B7CB637-E95D-47AA-A600-2A4FC652221B",
+                  "name": "Creme Brulee",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "09443CE2-92F0-4159-A238-76109FFCCCF2",
+              "name": "Pastry",
+              "showName": true
+            }
+          ],
+          "id": "7FDEC933-47D4-44ED-B216-5CC587CF8014",
+          "image": {
+            "systemSymbol": {
+              "name": "cup.and.saucer.fill"
+            }
+          },
+          "name": "France",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "purple"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "6F9676B2-39D8-4E74-9D6E-38660D51E25F",
+                  "name": "Patatas Bravas",
+                  "showName": true,
+                  "value": 7
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "23510BF0-45BB-47FE-858B-FAC0022487AF",
+                  "name": "Gambas al Ajillo",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "7E89D9F2-CEEA-4870-8DF2-6AC30CB25BB1",
+              "name": "Tapas",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "E6613D23-61B6-4E74-AD70-A19000D739AC",
+                  "name": "Paella",
+                  "showName": true,
+                  "value": 9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "1334DB09-F2A1-47A2-8806-28A67A0DF05F",
+                  "name": "Arroz Negro",
+                  "showName": true,
+                  "value": 6
+                }
+              ],
+              "id": "72A588BC-48EF-42EE-8D45-EF3321975399",
+              "name": "Rice Dishes",
+              "showName": true
+            }
+          ],
+          "id": "EB978E1F-A126-4A97-8F41-7864FF826CCB",
+          "image": {
+            "systemSymbol": {
+              "name": "fork.knife.circle.fill"
+            }
+          },
+          "name": "Spain",
+          "showName": true
+        }
+      ],
+      "id": "4D1B2DF5-A306-4E41-B3D8-0070DBF51DEC",
+      "image": {
+        "systemSymbol": {
+          "name": "fork.knife"
+        }
+      },
+      "name": "Europe",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "yellow"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "yellow"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "6DFF23AD-00B2-4DE2-9958-AC189B018C8A",
+                  "name": "Adana Kebab",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "42325E3E-BFF2-4E5E-B95A-530A01D1147D",
+                  "name": "Doner",
+                  "showName": true,
+                  "value": 9
+                }
+              ],
+              "id": "D85288BF-D104-4BAC-957C-65ED45DEEB50",
+              "name": "Grill",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "3613F719-44D4-40B7-A781-CFB23E609861",
+                  "name": "Simit",
+                  "showName": true,
+                  "value": 6
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "604FAB06-105D-4C68-8401-C8D2DB774452",
+                  "name": "Lahmacun",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "7A042F24-E800-4C9A-93D4-60DD4083BD7A",
+              "name": "Bakery",
+              "showName": true
+            }
+          ],
+          "id": "E8C34926-E7EE-4C19-8917-934A137488DA",
+          "name": "Turkey",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "teal"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "1D43F5C6-4A47-4DAD-87D8-F317366D231A",
+                  "name": "Hummus",
+                  "showName": true,
+                  "value": 9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "D9DD3BAC-F6A3-4D53-A40D-D5C17E25BEDE",
+                  "name": "Tabbouleh",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "C0045EDD-A556-4DCF-B2B4-F7CB35039CC7",
+              "name": "Mezze",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "56035818-B52A-4B88-B066-95399507CC7A",
+                  "name": "Shawarma",
+                  "showName": true,
+                  "value": 9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "9582ADBC-FE23-4AAC-812E-F429A7B049F9",
+                  "name": "Kafta",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "7D4BE964-C7AF-4E85-8D30-71E766D385B6",
+              "name": "Grill",
+              "showName": true
+            }
+          ],
+          "id": "6A6945D0-5EED-4699-B018-A97032BAC1CA",
+          "name": "Lebanon",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "orange"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "865A9D0A-D349-4279-B723-4D0F81D940A6",
+                  "name": "Chicken Tagine",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "E13F7479-C61E-4739-93FE-AC98D170EC15",
+                  "name": "Lamb Tagine",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "6BF1AFA7-3226-463E-8158-D67D89AB7B4A",
+              "name": "Tagine",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "4DA1A28A-66E2-4B4D-B651-FA310F30A6C5",
+                  "name": "Harira",
+                  "showName": true,
+                  "value": 6
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "6F87D87B-1737-41FB-900D-34C7F103F6D6",
+                  "name": "Pastilla",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "042042B6-CAB6-4D7E-8645-E72FC2492E91",
+              "name": "Street Favorites",
+              "showName": true
+            }
+          ],
+          "id": "F87CE055-DEBC-4CD2-8EE4-46D14FE8FB92",
+          "name": "Morocco",
+          "showName": true
+        }
+      ],
+      "id": "E1DE9B1F-D0D6-4A7B-9044-08D3CB142CD0",
+      "image": {
+        "systemSymbol": {
+          "name": "leaf.fill"
+        }
+      },
+      "name": "Middle East and North Africa",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "green"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "green"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "837D73BD-026F-4C07-A6AE-BDE3BA354E30",
+                  "name": "Tacos al Pastor",
+                  "showName": true,
+                  "value": 10
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "E903D7C7-79FC-4183-A85B-635CFAFC54B5",
+                  "name": "Elote",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "DCA04A36-2DEA-4AE5-9880-684A5130B8B3",
+              "name": "Street Food",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "79A5CDBD-5926-46DD-9D12-C9BB9CC886E7",
+                  "name": "Mole Poblano",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "CD1CA2A5-268F-4A0C-90C2-34D3BE2382D0",
+                  "name": "Pozole",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "CE146320-773A-4F9C-B3B8-4F7AEA9A69C3",
+              "name": "Regional Classics",
+              "showName": true
+            }
+          ],
+          "id": "2D770B5B-CA87-46F7-AC78-F34EC41CDF07",
+          "image": {
+            "systemSymbol": {
+              "name": "flame.fill"
+            }
+          },
+          "name": "Mexico",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "teal"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "C9F6BCB3-AB78-41A3-82DD-AB784ECEAD8E",
+                  "name": "Ceviche",
+                  "showName": true,
+                  "value": 9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "C217AD08-757A-4063-8D95-D7E3C01A989F",
+                  "name": "Tiradito",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "5344430E-B4DB-440C-B39A-59C40CE4C4B1",
+              "name": "Coastal",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "EAC9BDF0-FA14-45F4-8131-41A5CD75C10E",
+                  "name": "Lomo Saltado",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "7EBA51D6-5517-4090-96F7-7D5E597FFE7C",
+                  "name": "Aji de Gallina",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "92160D7F-E02F-4A34-903E-C52318F447B3",
+              "name": "Andean",
+              "showName": true
+            }
+          ],
+          "id": "EF9793E1-7802-4676-BCAF-35EDC1448CCE",
+          "image": {
+            "systemSymbol": {
+              "name": "leaf"
+            }
+          },
+          "name": "Peru",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "green"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "C037976F-8ADE-4EB1-A334-712C31EC60CF",
+                  "name": "Picanha",
+                  "showName": true,
+                  "value": 9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "C3C6303A-6BB0-45C5-84D4-77CEF361ED00",
+                  "name": "Feijoada",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "7EAFD648-1DA2-47E2-8182-D7533EEA3F66",
+              "name": "Rodizio and BBQ",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "9D99ED78-517D-401A-9BE4-F71EBA39FA63",
+                  "name": "Pao de Queijo",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "757B8B8F-1B22-4E80-A3AB-39C536C4096A",
+                  "name": "Coxinha",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "874AFD65-52FC-4F80-B665-69A50D66F9E5",
+              "name": "Snacks",
+              "showName": true
+            }
+          ],
+          "id": "BFF53D41-C679-4EDF-A956-E47AF6D65B8D",
+          "image": {
+            "systemSymbol": {
+              "name": "leaf"
+            }
+          },
+          "name": "Brazil",
+          "showName": true
+        }
+      ],
+      "id": "B16D0F67-F026-463B-8BE5-E883EB24B405",
+      "image": {
+        "systemSymbol": {
+          "name": "sun.max"
+        }
+      },
+      "name": "Latin America",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "teal"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "blue"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "3ECF094E-73A1-416F-A513-CA819EF15CF8",
+                  "name": "Texas Brisket",
+                  "showName": true,
+                  "value": 9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "D3CE3E97-E851-4F91-8768-4B982C0A08C5",
+                  "name": "Carolina Pulled Pork",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "EAC61675-68AD-4558-A38B-032F186FAB6F",
+              "name": "Regional BBQ",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "49CFDDDE-BB77-4567-9197-92A6BD7951F5",
+                  "name": "Mac and Cheese",
+                  "showName": true,
+                  "value": 7
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "7038D077-0E56-4EA8-9579-06BB268B4D63",
+                  "name": "Fried Chicken",
+                  "showName": true,
+                  "value": 8
+                }
+              ],
+              "id": "936D19F3-B5FF-4596-93DB-E86E7131D1F6",
+              "name": "Comfort Food",
+              "showName": true
+            }
+          ],
+          "id": "52CD73AE-05E1-45EC-ABCE-46458C2AB2EA",
+          "image": {
+            "systemSymbol": {
+              "name": "fork.knife.circle.fill"
+            }
+          },
+          "name": "United States",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "teal"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "E75841A8-2C13-4CB7-A9D0-C56D0486D04A",
+                  "name": "Poutine",
+                  "showName": true,
+                  "value": 9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "1F58CF92-0242-4A6D-8358-80F2782974B5",
+                  "name": "Tourtiere",
+                  "showName": true,
+                  "value": 6
+                }
+              ],
+              "id": "B3ABCDCE-3BBB-4D9B-94D7-20D3E5942A25",
+              "name": "Quebec Classics",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "red"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "red"
+                    }
+                  },
+                  "children": [],
+                  "id": "59CAB114-6F81-4F58-9021-065D599B014F",
+                  "name": "Salmon Candy",
+                  "showName": true,
+                  "value": 6
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "8DFD28BE-5A7A-4B2E-BF72-6C28E634A895",
+                  "name": "Nanaimo Bars",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "0B7533A7-7022-4112-8630-B025C18A1678",
+              "name": "West Coast",
+              "showName": true
+            }
+          ],
+          "id": "6903C5D4-7C48-4DE0-894C-E642C09E4977",
+          "image": {
+            "systemSymbol": {
+              "name": "cup.and.saucer.fill"
+            }
+          },
+          "name": "Canada",
+          "showName": true
+        }
+      ],
+      "id": "EC7B5038-C58C-4FCE-BF53-B7351B5333D5",
+      "image": {
+        "systemSymbol": {
+          "name": "cup.and.saucer.fill"
+        }
+      },
+      "name": "North America",
+      "showName": true
+    }
+  ],
+  "schemaVersion": 1
+}

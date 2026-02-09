@@ -12,18 +12,18 @@ import SwiftUI
 @main
 struct SunburstDiagramDemoApp: App {
     @StateObject private var configuration: SunburstConfiguration
+    @StateObject private var dataStore: DemoDataStore
 
     init() {
         let configuration = SunburstConfiguration(nodes: SampleData.nodes(), calculationMode: .ordinalFromLeaves)
-        configuration.expandedArcThickness = 52.0
-        configuration.maximumExpandedRingsShownCount = 2
-        configuration.maximumRingsShownCount = 4
+        let dataStore = DemoDataStore(configuration: configuration)
         _configuration = StateObject(wrappedValue: configuration)
+        _dataStore = StateObject(wrappedValue: dataStore)
     }
 
     var body: some Scene {
         WindowGroup {
-            RootView(configuration: configuration)
+            RootView(configuration: configuration, dataStore: dataStore)
         }
     }
 }

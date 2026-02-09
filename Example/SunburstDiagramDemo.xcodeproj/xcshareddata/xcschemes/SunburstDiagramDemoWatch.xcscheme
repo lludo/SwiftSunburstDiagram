@@ -66,6 +66,17 @@
                ReferencedContainer = "container:SunburstDiagramDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "829A47292F38189B00007379"
+               BuildableName = "SunburstDiagramDemoTests.xctest"
+               BlueprintName = "SunburstDiagramDemoTests"
+               ReferencedContainer = "container:SunburstDiagramDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

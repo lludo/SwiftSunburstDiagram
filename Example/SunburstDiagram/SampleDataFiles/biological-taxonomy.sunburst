@@ -1,0 +1,729 @@
+{
+  "app": {
+    "appName": "SunburstDiagramDemo",
+    "appVersion": "1.0",
+    "bundleIdentifier": "com.example.SunburstDiagramDemo"
+  },
+  "configuration": {
+    "allowsSelection": true,
+    "calculationMode": {
+      "type": "parentIndependent"
+    },
+    "collapsedArcThickness": 8,
+    "expandedArcThickness": 52,
+    "innerRadius": 60,
+    "marginBetweenArcs": 1,
+    "maximumExpandedRingsShownCount": 2,
+    "maximumRingsShownCount": 4,
+    "minimumArcAngleShown": {
+      "type": "showAll"
+    },
+    "nodesSort": "none",
+    "startingAngle": 0
+  },
+  "document": {
+    "createdAt": "2026-02-08T12:00:00Z",
+    "isBundledSample": false,
+    "shortDescription": "Kingdom to phylum, class, and representative species.",
+    "title": "Biological Taxonomy",
+    "updatedAt": "2026-02-08T12:00:00Z"
+  },
+  "nodes": [
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "orange"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "orange"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "orange"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "98F0F320-686A-48A4-BF7D-F931594ACF47",
+                  "image": {
+                    "systemSymbol": {
+                      "name": "person.3.fill"
+                    }
+                  },
+                  "name": "Homo sapiens",
+                  "showName": true,
+                  "value": 10
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "green"
+                    }
+                  },
+                  "children": [],
+                  "id": "32A2B2E7-2A40-4462-B04A-6FE11EC1F656",
+                  "name": "Panthera leo",
+                  "showName": true,
+                  "value": 6
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "teal"
+                    }
+                  },
+                  "children": [],
+                  "id": "2A15BAA7-215B-4A04-8E3D-115FB78CC16C",
+                  "name": "Balaenoptera musculus",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "A6A58FFA-D99C-4522-8144-7D2D0C156FF5",
+              "image": {
+                "systemSymbol": {
+                  "name": "hare"
+                }
+              },
+              "name": "Mammalia",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "yellow"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "F04EBB3D-30D6-4CB0-884B-DD2E61AE6D7C",
+                  "name": "Corvus corax",
+                  "showName": true,
+                  "value": 4
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "green"
+                    }
+                  },
+                  "children": [],
+                  "id": "2BDA2D83-BE29-42BC-8681-495EEAC0E3DA",
+                  "name": "Aptenodytes forsteri",
+                  "showName": true,
+                  "value": 5
+                }
+              ],
+              "id": "11CF1B99-1199-4874-A25C-BB8D2668ADF9",
+              "image": {
+                "systemSymbol": {
+                  "name": "bird"
+                }
+              },
+              "name": "Aves",
+              "showName": true
+            }
+          ],
+          "id": "4321A536-E57A-4EE0-96D3-4504ACB7BADF",
+          "image": {
+            "systemSymbol": {
+              "name": "tortoise"
+            }
+          },
+          "name": "Chordata",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "yellow"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "05421949-7681-4901-A572-F468F8D2C366",
+                  "image": {
+                    "systemSymbol": {
+                      "name": "ant"
+                    }
+                  },
+                  "name": "Apis mellifera",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "green"
+                    }
+                  },
+                  "children": [],
+                  "id": "67AAC818-5638-4A44-A01E-2BA6212B89A2",
+                  "name": "Danaus plexippus",
+                  "showName": true,
+                  "value": 5
+                }
+              ],
+              "id": "5442EEBD-A250-444B-94E7-57765C170CAF",
+              "image": {
+                "systemSymbol": {
+                  "name": "ant"
+                }
+              },
+              "name": "Insecta",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "indigo"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "EC52E9F6-7A11-45A7-A2A6-1014EED31E10",
+                  "name": "Latrodectus hesperus",
+                  "showName": true,
+                  "value": 4
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "green"
+                    }
+                  },
+                  "children": [],
+                  "id": "5232ECA0-CC62-4581-BEFA-A1083A19855D",
+                  "name": "Aphonopelma chalcodes",
+                  "showName": true,
+                  "value": 3
+                }
+              ],
+              "id": "8E004161-41A7-4CF0-A418-D356F02A8D11",
+              "image": {
+                "systemSymbol": {
+                  "name": "ladybug"
+                }
+              },
+              "name": "Arachnida",
+              "showName": true
+            }
+          ],
+          "id": "F7CDC3CB-8230-41DF-BAD1-0EFB88F4831B",
+          "image": {
+            "systemSymbol": {
+              "name": "ant"
+            }
+          },
+          "name": "Arthropoda",
+          "showName": true
+        }
+      ],
+      "id": "703CA5BB-6838-4475-9A4E-796CB289CA87",
+      "image": {
+        "systemSymbol": {
+          "name": "hare"
+        }
+      },
+      "name": "Animalia",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "green"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "green"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "yellow"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "DE150502-C80A-447C-AA33-94C3529798C5",
+                  "name": "Oryza sativa",
+                  "showName": true,
+                  "value": 9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "green"
+                    }
+                  },
+                  "children": [],
+                  "id": "5578407E-F960-42D7-BC93-984DB4F1CEDF",
+                  "name": "Zea mays",
+                  "showName": true,
+                  "value": 9
+                }
+              ],
+              "id": "6FB3F51A-776D-4155-BB9F-59BD111E6B27",
+              "name": "Monocots",
+              "showName": true
+            },
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "green"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "2D16AEF4-B3BB-4DAC-BD5B-9F76787B00FA",
+                  "name": "Solanum lycopersicum",
+                  "showName": true,
+                  "value": 7
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "green"
+                    }
+                  },
+                  "children": [],
+                  "id": "A9130206-DD2C-4082-9410-F70F18EC0557",
+                  "name": "Quercus robur",
+                  "showName": true,
+                  "value": 6
+                }
+              ],
+              "id": "62F93006-F411-4998-B83F-B904FB14C15C",
+              "name": "Eudicots",
+              "showName": true
+            }
+          ],
+          "id": "BDECE254-1972-4204-B3E9-93F05D83C960",
+          "image": {
+            "systemSymbol": {
+              "name": "leaf.fill"
+            }
+          },
+          "name": "Angiosperms",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "teal"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "yellow"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "9608149E-B36B-482F-80F8-67E019C89969",
+                  "name": "Pinus ponderosa",
+                  "showName": true,
+                  "value": 5
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "green"
+                    }
+                  },
+                  "children": [],
+                  "id": "BE8D65D9-EA89-472E-95A1-05B39932B823",
+                  "name": "Sequoia sempervirens",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "AD4110E2-F5C3-448C-910F-9E99E008E3B5",
+              "name": "Conifers",
+              "showName": true
+            }
+          ],
+          "id": "4C5C37A1-8564-4689-A4C5-28B2C0E61A3D",
+          "image": {
+            "systemSymbol": {
+              "name": "tree"
+            }
+          },
+          "name": "Gymnosperms",
+          "showName": true
+        }
+      ],
+      "id": "8BDB71C3-BCA9-433E-80E1-15977D5840BA",
+      "image": {
+        "systemSymbol": {
+          "name": "leaf"
+        }
+      },
+      "name": "Plantae",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "purple"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "purple"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "yellow"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "5787369E-FC0F-474B-98FF-6FBBD9AD1D5B",
+                  "name": "Agaricus bisporus",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "green"
+                    }
+                  },
+                  "children": [],
+                  "id": "7DF462BB-3C20-46C7-8550-335721BF19F7",
+                  "name": "Amanita muscaria",
+                  "showName": true,
+                  "value": 5
+                }
+              ],
+              "id": "566ABAF1-9F98-4740-96A3-CFC5DED07204",
+              "name": "Agaricomycetes",
+              "showName": true
+            }
+          ],
+          "id": "5EE41024-043A-4746-8213-79E8272ACAEF",
+          "image": {
+            "systemSymbol": {
+              "name": "sparkles"
+            }
+          },
+          "name": "Basidiomycota",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "indigo"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "yellow"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "AE0745D9-AA53-4465-BDFE-42E3C53C459D",
+                  "name": "Saccharomyces cerevisiae",
+                  "showName": true,
+                  "value": 9
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "green"
+                    }
+                  },
+                  "children": [],
+                  "id": "127173FF-0BF3-4C6E-9994-D6E340C9E89A",
+                  "name": "Candida albicans",
+                  "showName": true,
+                  "value": 6
+                }
+              ],
+              "id": "8085D3FC-71B9-4E33-8C36-5A1CB93638BF",
+              "name": "Saccharomycetes",
+              "showName": true
+            }
+          ],
+          "id": "4E2CD993-CA9E-4F46-AD7B-2AD841F95589",
+          "image": {
+            "systemSymbol": {
+              "name": "drop"
+            }
+          },
+          "name": "Ascomycota",
+          "showName": true
+        }
+      ],
+      "id": "6ACFBA0C-A25F-46C9-93D5-01E40A6A29E6",
+      "image": {
+        "systemSymbol": {
+          "name": "tree"
+        }
+      },
+      "name": "Fungi",
+      "showName": true
+    },
+    {
+      "backgroundColor": {
+        "system": {
+          "_0": "teal"
+        }
+      },
+      "children": [
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "teal"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "yellow"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "19BA8CA9-B26B-4ED4-A5F2-C8338B3F0F84",
+                  "name": "Escherichia coli",
+                  "showName": true,
+                  "value": 10
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "green"
+                    }
+                  },
+                  "children": [],
+                  "id": "0D4CC918-8F15-4B38-9C73-20C367350AF2",
+                  "name": "Pseudomonas aeruginosa",
+                  "showName": true,
+                  "value": 6
+                }
+              ],
+              "id": "F725687C-CA92-4196-8668-4E36293D7DEC",
+              "name": "Gammaproteobacteria",
+              "showName": true
+            }
+          ],
+          "id": "29AC467D-37C4-4E00-B1F9-EA87E05BC2CE",
+          "image": {
+            "systemSymbol": {
+              "name": "capsule"
+            }
+          },
+          "name": "Proteobacteria",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "blue"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "yellow"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "93A563D1-89BC-444D-BA5F-1140DBA7D9D6",
+                  "name": "Bacillus subtilis",
+                  "showName": true,
+                  "value": 7
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "green"
+                    }
+                  },
+                  "children": [],
+                  "id": "43ACDC19-2C58-4AD3-80FC-139C88C1E11C",
+                  "name": "Staphylococcus aureus",
+                  "showName": true,
+                  "value": 7
+                }
+              ],
+              "id": "5CB266B7-97DA-4091-96EA-B4B94CC4D029",
+              "name": "Bacilli",
+              "showName": true
+            }
+          ],
+          "id": "3C05E17E-A06F-48DD-BA2D-F2A7C9980F81",
+          "image": {
+            "systemSymbol": {
+              "name": "capsule"
+            }
+          },
+          "name": "Firmicutes",
+          "showName": true
+        },
+        {
+          "backgroundColor": {
+            "system": {
+              "_0": "orange"
+            }
+          },
+          "children": [
+            {
+              "backgroundColor": {
+                "system": {
+                  "_0": "yellow"
+                }
+              },
+              "children": [
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "orange"
+                    }
+                  },
+                  "children": [],
+                  "id": "EA15CEBB-8607-4C25-9E11-59AB408553E5",
+                  "name": "Mycobacterium tuberculosis",
+                  "showName": true,
+                  "value": 8
+                },
+                {
+                  "backgroundColor": {
+                    "system": {
+                      "_0": "green"
+                    }
+                  },
+                  "children": [],
+                  "id": "BB392B5F-460E-49DF-99DD-61B7151DF8C9",
+                  "name": "Streptomyces coelicolor",
+                  "showName": true,
+                  "value": 6
+                }
+              ],
+              "id": "939734A8-D5DB-4865-8EBA-65D1948ECA15",
+              "name": "Actinomycetia",
+              "showName": true
+            }
+          ],
+          "id": "62F2B32F-7B7B-4B41-81C0-DD13051A5F1B",
+          "image": {
+            "systemSymbol": {
+              "name": "capsule"
+            }
+          },
+          "name": "Actinobacteria",
+          "showName": true
+        }
+      ],
+      "id": "1EC7A426-C5B0-4306-8AFE-806F4AE4B9F4",
+      "image": {
+        "systemSymbol": {
+          "name": "capsule"
+        }
+      },
+      "name": "Bacteria",
+      "showName": true
+    }
+  ],
+  "schemaVersion": 1
+}
