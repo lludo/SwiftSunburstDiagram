@@ -43,14 +43,14 @@ struct SettingsView: View {
                 Form { selectedTabContent }
             }
         }
-        .onChange(of: selectedTab) { newTab in
+        .onChange(of: selectedTab) { _, newTab in
             guard newTab == .data else { return }
             syncNavigationToSelectedNode(configuration.selectedNode?.id)
         }
-        .onChange(of: configuration.selectedNode?.id) { _ in
+        .onChange(of: configuration.selectedNode?.id) { _, _ in
             syncNavigationToSelectedNode(configuration.selectedNode?.id)
         }
-        .onChange(of: navigationPath) { newPath in
+        .onChange(of: navigationPath) { _, newPath in
             syncSelectionToNavigationPath(newPath)
         }
         #endif
@@ -117,7 +117,7 @@ struct SettingsView: View {
             .onAppear {
                 centerTab(selectedTab, with: proxy, animated: false)
             }
-            .onChange(of: selectedTab) { newTab in
+            .onChange(of: selectedTab) { _, newTab in
                 centerTab(newTab, with: proxy, animated: true)
             }
         }
@@ -238,10 +238,12 @@ struct SettingsView: View {
             return
         }
 
+        guard path.isEmpty else { return }
+
         if configuration.selectedNode != nil {
             configuration.selectedNode = nil
         }
-        if path.isEmpty, configuration.focusedNode != nil {
+        if configuration.focusedNode != nil {
             configuration.focusedNode = nil
         }
     }

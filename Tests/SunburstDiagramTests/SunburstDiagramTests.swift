@@ -439,10 +439,7 @@ final class SunburstDiagramTests: XCTestCase {
     }
 
     @MainActor
-    func testMissingBackgroundColorsUsePaletteBySiblingIndex() {
-        let palette = ColorRef.nodePalette
-        XCTAssertGreaterThanOrEqual(palette.count, 2)
-
+    func testMissingBackgroundColorsUseDefaultBackground() {
         let nodes = [
             Node(name: "A"),
             Node(name: "B"),
@@ -450,16 +447,13 @@ final class SunburstDiagramTests: XCTestCase {
         ]
         let configuration = SunburstConfiguration(nodes: nodes, calculationMode: .ordinalFromRoot)
 
-        XCTAssertEqual(configuration.nodes[0].computedBackgroundColor, palette[0])
-        XCTAssertEqual(configuration.nodes[1].computedBackgroundColor, palette[1])
+        XCTAssertEqual(configuration.nodes[0].computedBackgroundColor, .defaultBackground)
+        XCTAssertEqual(configuration.nodes[1].computedBackgroundColor, .defaultBackground)
         XCTAssertEqual(configuration.nodes[2].computedBackgroundColor, .system(.pink))
     }
 
     @MainActor
-    func testMissingChildBackgroundColorsRestartPaletteForEachSiblingGroup() {
-        let palette = ColorRef.nodePalette
-        XCTAssertGreaterThanOrEqual(palette.count, 2)
-
+    func testMissingChildBackgroundColorsUseDefaultBackground() {
         let nodes = [
             Node(name: "Root", children: [
                 Node(name: "A"),
@@ -468,9 +462,9 @@ final class SunburstDiagramTests: XCTestCase {
         ]
         let configuration = SunburstConfiguration(nodes: nodes, calculationMode: .ordinalFromRoot)
 
-        XCTAssertEqual(configuration.nodes[0].computedBackgroundColor, palette[0])
-        XCTAssertEqual(configuration.nodes[0].children[0].computedBackgroundColor, palette[0])
-        XCTAssertEqual(configuration.nodes[0].children[1].computedBackgroundColor, palette[1])
+        XCTAssertEqual(configuration.nodes[0].computedBackgroundColor, .defaultBackground)
+        XCTAssertEqual(configuration.nodes[0].children[0].computedBackgroundColor, .defaultBackground)
+        XCTAssertEqual(configuration.nodes[0].children[1].computedBackgroundColor, .defaultBackground)
     }
 
     @MainActor

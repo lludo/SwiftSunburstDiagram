@@ -247,7 +247,7 @@ struct NodeEditorView: View {
         .onAppear {
             syncNodeValueTextFromModel()
         }
-        .onChange(of: node.value) { _ in
+        .onChange(of: node.value) { _, _ in
             syncNodeValueTextFromModel()
         }
     }
@@ -816,6 +816,35 @@ private extension Node {
             children: children
         )
     }
+}
+
+extension SystemColor {
+    static let nodePalette: [SystemColor] = [
+        .blue,
+        .red,
+        .green,
+        .orange,
+        .yellow,
+        .teal,
+        .purple,
+        .pink,
+        .indigo,
+    ]
+}
+
+extension ColorRef {
+    static let nodePalette: [ColorRef] = [
+        .dynamic(light: .rgba(red: 0.9647, green: 0.7569, blue: 0.8000), dark: .rgba(red: 0.7137, green: 0.4471, blue: 0.5137)),
+        .dynamic(light: .rgba(red: 0.9725, green: 0.8157, blue: 0.7020), dark: .rgba(red: 0.7255, green: 0.5176, blue: 0.4039)),
+        .dynamic(light: .rgba(red: 0.9686, green: 0.8706, blue: 0.6392), dark: .rgba(red: 0.7216, green: 0.6078, blue: 0.3686)),
+        .dynamic(light: .rgba(red: 0.7490, green: 0.9059, blue: 0.8118), dark: .rgba(red: 0.4353, green: 0.6078, blue: 0.5137)),
+        .dynamic(light: .rgba(red: 0.7216, green: 0.8902, blue: 0.8667), dark: .rgba(red: 0.4157, green: 0.6196, blue: 0.5922)),
+        .dynamic(light: .rgba(red: 0.7686, green: 0.8627, blue: 0.9686), dark: .rgba(red: 0.4275, green: 0.5333, blue: 0.6863)),
+        .dynamic(light: .rgba(red: 0.8118, green: 0.8235, blue: 0.9725), dark: .rgba(red: 0.4588, green: 0.4784, blue: 0.6980)),
+        .dynamic(light: .rgba(red: 0.8706, green: 0.8039, blue: 0.9608), dark: .rgba(red: 0.5176, green: 0.4353, blue: 0.6588)),
+        .dynamic(light: .rgba(red: 0.9216, green: 0.7882, blue: 0.9137), dark: .rgba(red: 0.5804, green: 0.4275, blue: 0.5843)),
+        .dynamic(light: .rgba(red: 0.8235, green: 0.8902, blue: 0.7765), dark: .rgba(red: 0.4784, green: 0.5804, blue: 0.4392)),
+    ]
 }
 
 private enum NodeColorPalette {
