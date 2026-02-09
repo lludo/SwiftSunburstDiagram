@@ -18,9 +18,9 @@ struct SunburstDiagramDemoTests {
         let fixture = try Self.makeFixture()
         defer { Self.cleanupFixture(fixture) }
 
-        #expect(fixture.store.files.count == 1)
+        #expect(!fixture.store.files.isEmpty)
         let selected = try #require(fixture.store.selectedFileDescriptor)
-        #expect(selected.title == "Sample Activities")
+        #expect(selected.document.bundledSampleID == SampleActivitiesTemplate.bundledSampleID)
         #expect(selected.isBundledSample)
         #expect(!fixture.configuration.nodes.isEmpty)
         #expect(FileManager.default.fileExists(atPath: selected.fileURL.path))
@@ -32,8 +32,11 @@ struct SunburstDiagramDemoTests {
         let fixture = try Self.makeFixture()
         defer { Self.cleanupFixture(fixture) }
 
+        let initialFileCount = fixture.store.files.count
+        #expect(initialFileCount >= 1)
+
         fixture.store.createNewFile(named: "Trips")
-        #expect(fixture.store.files.count == 2)
+        #expect(fixture.store.files.count == initialFileCount + 1)
         #expect(fixture.store.selectedFileDescriptor?.title == "Trips")
         #expect(fixture.store.selectedFileDescriptor?.canDelete == true)
 
@@ -43,8 +46,8 @@ struct SunburstDiagramDemoTests {
 
         let renamedID = try #require(fixture.store.selectedFileID)
         fixture.store.deleteFile(id: renamedID)
-        #expect(fixture.store.files.count == 1)
-        #expect(fixture.store.selectedFileDescriptor?.title == "Sample Activities")
+        #expect(fixture.store.files.count == initialFileCount)
+        #expect(fixture.store.selectedFileDescriptor?.document.bundledSampleID == SampleActivitiesTemplate.bundledSampleID)
     }
 
     @MainActor
@@ -139,6 +142,51 @@ struct SunburstDiagramDemoTests {
             return
         }
         #expect(symbolName == "figure.walk")
+    }
+
+    @MainActor
+    @Test
+    func bootstrapPrefersSampleActivitiesOverStoredSelection() throws {
+        let fixture = try Self.makeFixture()
+        defer { Self.cleanupFixture(fixture) }
+
+        fixture.store.createNewFile(named: "Trips")
+        let persistedCustomID = try #require(fixture.store.selectedFileID)
+
+        let defaults = try #require(UserDefaults(suiteName: fixture.suiteName))
+        let reloadedConfiguration = SunburstConfiguration(nodes: [])
+        let reloadedStore = DemoDataStore(configuration: reloadedConfiguration,
+                                          fileManager: .default,
+                                          userDefaults: defaults,
+                                          bootstrapFromDisk: true,
+                                          dataDirectoryURL: fixture.rootURL.appendingPathComponent("DataFiles", isDirectory: true))
+
+        #expect(reloadedStore.selectedFileID != persistedCustomID)
+        #expect(reloadedStore.selectedFileDescriptor?.document.bundledSampleID == SampleActivitiesTemplate.bundledSampleID)
+    }
+
+    @MainActor
+    @Test
+    func reloadFilesKeepsSampleActivitiesFirstAmongBundledSamples() throws {
+        let fixture = try Self.makeFixture()
+        defer { Self.cleanupFixture(fixture) }
+
+        var alternateBundled = SampleActivitiesTemplate.defaultDocument(nodesOverride: [
+            NodeFilePayload(name: "Alternate Root", value: 1.0),
+        ])
+        alternateBundled.document.title = "AAA Alternate Bundled"
+        alternateBundled.document.shortDescription = "Synthetic bundled file used in tests."
+        alternateBundled.document.isBundledSample = true
+        alternateBundled.document.bundledSampleID = "alternate-bundled-sample"
+
+        let alternateURL = fixture.rootURL
+            .appendingPathComponent("DataFiles", isDirectory: true)
+            .appendingPathComponent("alternate-bundled-sample.sunburst")
+        try Self.writeDataFile(alternateBundled, to: alternateURL)
+
+        fixture.store.bootstrapAndLoad()
+        let first = try #require(fixture.store.files.first)
+        #expect(first.document.bundledSampleID == SampleActivitiesTemplate.bundledSampleID)
     }
 
     // MARK: - Helpers

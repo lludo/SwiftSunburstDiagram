@@ -670,6 +670,11 @@ final class DemoDataStore: ObservableObject {
             )
         }
         .sorted { lhs, rhs in
+            let lhsIsDefaultSample = lhs.document.bundledSampleID == SampleActivitiesTemplate.bundledSampleID
+            let rhsIsDefaultSample = rhs.document.bundledSampleID == SampleActivitiesTemplate.bundledSampleID
+            if lhsIsDefaultSample != rhsIsDefaultSample {
+                return lhsIsDefaultSample && !rhsIsDefaultSample
+            }
             if lhs.isBundledSample != rhs.isBundledSample {
                 return lhs.isBundledSample && !rhs.isBundledSample
             }
@@ -680,11 +685,11 @@ final class DemoDataStore: ObservableObject {
     }
 
     private func selectInitialFile() {
-        if let storedID = userDefaults.string(forKey: Self.selectedFileDefaultsKey),
+        if let bundled = files.first(where: { $0.document.bundledSampleID == SampleActivitiesTemplate.bundledSampleID }) {
+            selectedFileID = bundled.id
+        } else if let storedID = userDefaults.string(forKey: Self.selectedFileDefaultsKey),
            files.contains(where: { $0.id == storedID }) {
             selectedFileID = storedID
-        } else if let bundled = files.first(where: { $0.document.bundledSampleID == SampleActivitiesTemplate.bundledSampleID }) {
-            selectedFileID = bundled.id
         } else if let bundled = files.first(where: { $0.isBundledSample }) {
             selectedFileID = bundled.id
         } else {

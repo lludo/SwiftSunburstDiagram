@@ -11,6 +11,8 @@
 		430D470B22AF77B600A7FA6E /* SunburstDiagram/Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 430D470A22AF77B600A7FA6E /* SunburstDiagram/Assets.xcassets */; platformFilters = (ios, xros, ); };
 		430D470E22AF77B600A7FA6E /* SunburstDiagram/Preview Content/Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 430D470D22AF77B600A7FA6E /* SunburstDiagram/Preview Content/Preview Assets.xcassets */; };
 		430D471122AF77B600A7FA6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 430D470F22AF77B600A7FA6E /* LaunchScreen.storyboard */; platformFilters = (ios, xros, ); };
+		F1A2B3C43A17000100A1B2C3 /* SunburstDiagram/AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 430D471222AF77B600A7FA6E /* SunburstDiagram/AppIcon.icon */; };
+		F1A2B3C53A17000100A1B2C3 /* SunburstDiagram/AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 430D471222AF77B600A7FA6E /* SunburstDiagram/AppIcon.icon */; };
 		430D473922B207E900A7FA6E /* SunburstDiagram in Frameworks */ = {isa = PBXBuildFile; productRef = 430D473822B207E900A7FA6E /* SunburstDiagram */; };
 		43CDFE99235955DC0023713B /* SunburstDiagram/SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A57BA622B873190044FF2B /* SunburstDiagram/SettingsView.swift */; };
 		43DB39BC2364CE9F008F53F6 /* SunburstDiagram/SettingsNodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C7F13D22B9CE95008B461C /* SunburstDiagram/SettingsNodesView.swift */; };
@@ -72,6 +74,7 @@
 		430D470A22AF77B600A7FA6E /* SunburstDiagram/Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SunburstDiagram/Assets.xcassets; sourceTree = "<group>"; };
 		430D470D22AF77B600A7FA6E /* SunburstDiagram/Preview Content/Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "SunburstDiagram/Preview Content/Preview Assets.xcassets"; sourceTree = "<group>"; };
 		430D471022AF77B600A7FA6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SunburstDiagram/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		430D471222AF77B600A7FA6E /* SunburstDiagram/AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer; path = SunburstDiagram/AppIcon.icon; sourceTree = "<group>"; };
 		437F415822C866650092B76E /* SwiftSunburstDiagram */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftSunburstDiagram; path = ..; sourceTree = "<group>"; };
 		4EEB3CD2B1274CDC83400CED /* SunburstDiagram-watchOS-Extension/WatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SunburstDiagram-watchOS-Extension/WatchApp.swift"; sourceTree = "<group>"; };
 		585BC62F5B16493FB7F46595 /* SunburstDiagram/SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunburstDiagram/SampleData.swift; sourceTree = "<group>"; };
@@ -83,8 +86,8 @@
 		82C7F13D22B9CE95008B461C /* SunburstDiagram/SettingsNodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunburstDiagram/SettingsNodesView.swift; sourceTree = "<group>"; };
 		82C7F14122B9F4EE008B461C /* SunburstDiagram/SettingsNewNodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunburstDiagram/SettingsNewNodeView.swift; sourceTree = "<group>"; };
 		ADDE2C37339B4D6FA09C72E9 /* SunburstDiagram-macOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "SunburstDiagram-macOS"; sourceTree = "<group>"; };
-		BEED09A3D58141318D045F6F /* SunburstDiagram-watchOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "SunburstDiagram-watchOS"; sourceTree = "<group>"; };
 		B7C0F1A12F40000100A1B2C3 /* SunburstDiagram/SampleDataFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SunburstDiagram/SampleDataFiles; sourceTree = "<group>"; };
+		BEED09A3D58141318D045F6F /* SunburstDiagram-watchOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "SunburstDiagram-watchOS"; sourceTree = "<group>"; };
 		CFE318D4FDFC40ABBDD825B9 /* SunburstDiagram-watchOS/Assets-watchOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "SunburstDiagram-watchOS/Assets-watchOS.xcassets"; sourceTree = "<group>"; };
 		D36829287D774B0D8B03C3E1 /* SunburstDiagramDemoWatchExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SunburstDiagramDemoWatchExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E915804651C8474DA23CD7E2 /* SunburstDiagram-tvOS/Assets-tvOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "SunburstDiagram-tvOS/Assets-tvOS.xcassets"; sourceTree = "<group>"; };
@@ -173,16 +176,17 @@
 				585BC62F5B16493FB7F46595 /* SunburstDiagram/SampleData.swift */,
 				82C7F14122B9F4EE008B461C /* SunburstDiagram/SettingsNewNodeView.swift */,
 				82C7F13B22B9C5EE008B461C /* SunburstDiagram/RootView.swift */,
-					82C7F13D22B9CE95008B461C /* SunburstDiagram/SettingsNodesView.swift */,
-					430D470F22AF77B600A7FA6E /* LaunchScreen.storyboard */,
-					ED8F2F3BFE474CB890006F1F /* SunburstDiagram-tvOS/Base.lproj/LaunchScreen.storyboard */,
+				82C7F13D22B9CE95008B461C /* SunburstDiagram/SettingsNodesView.swift */,
+				430D470F22AF77B600A7FA6E /* LaunchScreen.storyboard */,
+				ED8F2F3BFE474CB890006F1F /* SunburstDiagram-tvOS/Base.lproj/LaunchScreen.storyboard */,
 					430D470D22AF77B600A7FA6E /* SunburstDiagram/Preview Content/Preview Assets.xcassets */,
 					430D470A22AF77B600A7FA6E /* SunburstDiagram/Assets.xcassets */,
 					137130D7A6DC44868A87841D /* SunburstDiagram/Assets-Shared.xcassets */,
+					430D471222AF77B600A7FA6E /* SunburstDiagram/AppIcon.icon */,
 					B7C0F1A12F40000100A1B2C3 /* SunburstDiagram/SampleDataFiles */,
 					80F813C79AED499E91B13DF6 /* SunburstDiagram-macOS/Assets-macOS.xcassets */,
-					E915804651C8474DA23CD7E2 /* SunburstDiagram-tvOS/Assets-tvOS.xcassets */,
-				);
+				E915804651C8474DA23CD7E2 /* SunburstDiagram-tvOS/Assets-tvOS.xcassets */,
+			);
 			name = "Build Sources";
 			sourceTree = "<group>";
 		};
@@ -337,16 +341,17 @@
 		430D46FF22AF77B300A7FA6E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
-				files = (
-					430D471122AF77B600A7FA6E /* LaunchScreen.storyboard in Resources */,
-					98A1365E1B004012AA92C219 /* SunburstDiagram-tvOS/Base.lproj/LaunchScreen.storyboard in Resources */,
+			files = (
+				430D471122AF77B600A7FA6E /* LaunchScreen.storyboard in Resources */,
+				98A1365E1B004012AA92C219 /* SunburstDiagram-tvOS/Base.lproj/LaunchScreen.storyboard in Resources */,
 					430D470E22AF77B600A7FA6E /* SunburstDiagram/Preview Content/Preview Assets.xcassets in Resources */,
 					430D470B22AF77B600A7FA6E /* SunburstDiagram/Assets.xcassets in Resources */,
 					6AF4AA413A13444AAA5842FA /* SunburstDiagram/Assets-Shared.xcassets in Resources */,
+					F1A2B3C43A17000100A1B2C3 /* SunburstDiagram/AppIcon.icon in Resources */,
 					B7C0F1A22F40000100A1B2C3 /* SunburstDiagram/SampleDataFiles in Resources */,
 					5EA76AA420C54CDDBB0E8832 /* SunburstDiagram-macOS/Assets-macOS.xcassets in Resources */,
 					FD5504612FF744679A8252F0 /* SunburstDiagram-tvOS/Assets-tvOS.xcassets in Resources */,
-				);
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5460DA9DED7543079ABF8D01 /* Resources */ = {
@@ -361,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1A2B3C53A17000100A1B2C3 /* SunburstDiagram/AppIcon.icon in Resources */,
 				9C812129C2F04AD586ABBCAE /* SunburstDiagram-watchOS/Assets-watchOS.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,6 +573,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=appletvos*]" = "App Icon & Top Shelf Image";
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=appletvsimulator*]" = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = SunburstDiagram/SunburstDiagramDemo.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -640,6 +647,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=appletvos*]" = "App Icon & Top Shelf Image";
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=appletvsimulator*]" = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = SunburstDiagram/SunburstDiagramDemo.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -747,6 +755,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
@@ -785,6 +794,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
