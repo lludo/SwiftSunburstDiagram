@@ -63,21 +63,22 @@ If you prefer not to use the Swift Package Manager, you can integrate SunburstDi
 ## Usage
 
 ```swift
-// Create your configuration model
-let configuration = SunburstConfiguration(nodes: [
-    Node(name: "Walking", value: 10.0, backgroundColor: .system(.blue)),
-    Node(name: "Restaurant", value: 30.0, backgroundColor: .system(.red), children: [
-        Node(name: "Dessert", image: .asset(name: "croissant"), value: 6.0),
-        Node(name: "Dinner", image: .asset(name: "poultry"), value: 10.0),
-    ]),
-    Node(name: "Transport", value: 10.0, backgroundColor: .system(.purple)),
-    Node(name: "Home", value: 50.0, backgroundColor: .system(.teal)),
-])
+import SwiftUI
+import SunburstDiagram
 
-// Use directly in SwiftUI
 struct ContentView: View {
-    @StateObject private var configuration = SunburstConfiguration(nodes: sampleNodes())
+    // Create your configuration model
+    @StateObject private var configuration = SunburstConfiguration(nodes: [
+        Node(name: "Walking", value: 10.0, backgroundColor: .system(.blue)),
+        Node(name: "Restaurant", value: 30.0, backgroundColor: .system(.red), children: [
+            Node(name: "Dessert", image: .asset(name: "croissant"), value: 6.0),
+            Node(name: "Dinner", image: .asset(name: "poultry"), value: 10.0),
+        ]),
+        Node(name: "Transport", value: 10.0, backgroundColor: .system(.purple)),
+        Node(name: "Home", value: 50.0, backgroundColor: .system(.teal)),
+    ])
 
+    // Use directly in SwiftUI
     var body: some View {
         SunburstView(configuration: configuration)
     }
